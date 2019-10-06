@@ -3,7 +3,9 @@
 Group Members
 
 Efe Eroğlu
-
+Ataberk Gözkaya
+Rabia Önal
+Utku Kalkanlı
 Description of the Project
 
 In the project we are going to implement classic atari game "7 Wonders".
