@@ -10,6 +10,8 @@ Rabia Önal
 
 Utku Kalkanlı
 
+Gonya Yılmaz
+
 Description of the Project
 
 In the project we are going to implement classic atari game "7 Wonders".
