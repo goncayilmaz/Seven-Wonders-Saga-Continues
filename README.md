@@ -12,6 +12,8 @@ Utku Kalkanlı
 
 Gonya Yılmaz
 
+Iteration 1 - Project Analysis Report Link: https://docs.google.com/document/d/1QU9xrJe-3dknoR5aeiYRPwwPDII9nlBbiRjOJYLBLnk/edit?usp=sharing
+
 # Description of the Project
 
 In the project we are going to implement classic boardgame "7 Wonders".
