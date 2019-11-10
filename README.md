@@ -10,9 +10,11 @@ Rabia Nur Önal
 
 Utku Kalkanlı
 
-Gonya Yılmaz
+Gonca Yılmaz
 
 Iteration 1 - Project Analysis Report Link: https://docs.google.com/document/d/1QU9xrJe-3dknoR5aeiYRPwwPDII9nlBbiRjOJYLBLnk/edit?usp=sharing
+
+Iteration 1 - Project Design Report Link: https://docs.google.com/document/d/18Tm5VMalEyyX3qTsQw8rw1JT4EocOmQI6NZhfdziAaY/edit?usp=sharing
 
 # Description of the Project
 
