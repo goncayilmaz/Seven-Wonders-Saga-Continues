@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Player {
 
-    private int coin;
-    private int warPoint;
-    private ArrayList<Card> cards;
-    private int boardNum;
-    private int score;
-    private boolean isWinner;
+    private int coin; // players coin
+    private int warPoint; // war points
+    private ArrayList<Card> cards; // cards in hand
+    private int boardNum; // for connecting with board city
+    private int score; // score of player
+    private boolean isWinner; // check is winner or not.
 
     public Player(int coin, int warPoint, ArrayList<Card> cards, int boardNum, int score, boolean isWinner) {
         coin=0;

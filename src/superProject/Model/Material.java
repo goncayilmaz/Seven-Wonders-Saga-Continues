@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Material {
 
-    private String name;
-    private String specs;
-    private int number;
-    private String photoName;
+    private String name; // name of it
+    private String specs; // what it brings
+    private int number; // how much brings
+    private String photoName;// photo name for directory.
 
 
     public Material(String name, String specs, int number, String photoName) {

@@ -10,7 +10,7 @@ public class City {
     private ArrayList<Material> cardReqs1; // levele geçmek için verilmesi gerekenler
     private ArrayList<Material> cardReqs2;// levele geçmek için verilmesi gerekenler
     private ArrayList<Material> cardReqs3;// levele geçmek için verilmesi gerekenler
-    private ArrayList<Material> cardSpecsForLevel1;
+    private ArrayList<Material> cardSpecsForLevel1; // bu değişmiyor galiba tekrar bakayım
     private ArrayList<Material> cardSpecsForLevel2;
     private ArrayList<Material> cardSpecsForLevel3;
     private String photoName;

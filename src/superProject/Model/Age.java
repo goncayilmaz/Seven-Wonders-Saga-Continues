@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class Age {
 
-    private ArrayList<Card> cards;
-    private int ageNumber;
+    private ArrayList<Card> cards; // age cards
+    private int ageNumber; // there are 3 ages on game
 
 
     public Age(ArrayList<Card> cards, int ageNumber) {
@@ -30,7 +30,7 @@ public class Age {
         this.ageNumber = ageNumber;
     }
 
-    public boolean isCardListEmpty(){
+    public boolean isCardListEmpty(){ // to check age is finish or not
         if (cards.isEmpty()){
             return true;
         }

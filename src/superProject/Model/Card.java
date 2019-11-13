@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Card {
 
-    private String name;
-    private ArrayList<Material> requirements;
-    private int specs;
-    private ArrayList<Card> nextBuilds;
-    private String type;
-    private String photoName;
-    private int ageNumber;
+    private String name; // name
+    private ArrayList<Material> requirements; // materials for playing this card.
+    private int specs; // come from card materials
+    private ArrayList<Card> nextBuilds; // next build mechanishm
+    private String type; // card color
+    private String photoName; // for photo directory
+    private int ageNumber; // age number of card.
 
 
     public Card(String name, ArrayList<Material> requirements, int specs, ArrayList<Card> nextBuilds, String type, String photoName, int ageNumber) {

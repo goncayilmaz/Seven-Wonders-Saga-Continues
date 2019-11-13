@@ -3,6 +3,7 @@ package superProject.Model;
 public class Bot {
 
     // bu class gözden geçecek
+    // bunu yazdım ama tekrardan bakmamız lazım
 
 
     private  Player player;
