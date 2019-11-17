@@ -10,6 +10,9 @@ public class Player {
     private int boardNum; // for connecting with board city
     private int score; // score of player
     private boolean isWinner; // check is winner or not.
+    private ArrayList<Card> cardsOnTable;
+
+
 
     public Player(int coin, int warPoint, ArrayList<Card> cards, int boardNum, int score, boolean isWinner) {
         coin=0;
@@ -66,5 +69,17 @@ public class Player {
 
     public void setWinner(boolean winner) {
         isWinner = winner;
+    }
+
+    public ArrayList<Card> getCardsOnTable() {
+        return cardsOnTable;
+    }
+
+    public void setCardsOnTable(ArrayList<Card> cardsOnTable) {
+        this.cardsOnTable = cardsOnTable;
+    }
+
+    public void addCardsToTable(Card c) {
+        cardsOnTable.add(c);
     }
 }
