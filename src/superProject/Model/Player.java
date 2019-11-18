@@ -12,6 +12,8 @@ public class Player {
     private boolean isWinner; // check is winner or not.
     private ArrayList<Card> cardsOnTable;
 
+    //rabia commit
+
 
 
     public Player(int coin, int warPoint, ArrayList<Card> cards, int boardNum, int score, boolean isWinner) {
