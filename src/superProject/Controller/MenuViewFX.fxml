@@ -8,7 +8,8 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane prefHeight="461.0" prefWidth="718.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.View.MenuViewFX">
+<AnchorPane prefHeight="461.0" prefWidth="718.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml" fx:controller="superProject.Controller.Menu">
+
    <children>
       <Label id="nameLabelText" layoutX="228.0" layoutY="46.0" prefHeight="29.0" prefWidth="279.0" text="****Seven Wonder**** " textFill="#fffefe">
          <font>
