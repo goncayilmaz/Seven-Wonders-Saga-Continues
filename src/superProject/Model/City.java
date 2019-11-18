@@ -59,4 +59,92 @@ public class City {
         }
 
     }
+
+    public String getBoardName() {
+        return boardName;
+    }
+
+    public void setBoardName(String boardName) {
+        this.boardName = boardName;
+    }
+
+    public ArrayList<Material> getCardSpecs() {
+        return cardSpecs;
+    }
+
+    public void setCardSpecs(ArrayList<Material> cardSpecs) {
+        this.cardSpecs = cardSpecs;
+    }
+
+    public int getBoardLevel() {
+        return boardLevel;
+    }
+
+    public void setBoardLevel(int boardLevel) {
+        this.boardLevel = boardLevel;
+    }
+
+    public ArrayList<Material> getCardReqs1() {
+        return cardReqs1;
+    }
+
+    public void setCardReqs1(ArrayList<Material> cardReqs1) {
+        this.cardReqs1 = cardReqs1;
+    }
+
+    public ArrayList<Material> getCardReqs2() {
+        return cardReqs2;
+    }
+
+    public void setCardReqs2(ArrayList<Material> cardReqs2) {
+        this.cardReqs2 = cardReqs2;
+    }
+
+    public ArrayList<Material> getCardReqs3() {
+        return cardReqs3;
+    }
+
+    public void setCardReqs3(ArrayList<Material> cardReqs3) {
+        this.cardReqs3 = cardReqs3;
+    }
+
+    public ArrayList<Material> getCardSpecsForLevel1() {
+        return cardSpecsForLevel1;
+    }
+
+    public void setCardSpecsForLevel1(ArrayList<Material> cardSpecsForLevel1) {
+        this.cardSpecsForLevel1 = cardSpecsForLevel1;
+    }
+
+    public ArrayList<Material> getCardSpecsForLevel2() {
+        return cardSpecsForLevel2;
+    }
+
+    public void setCardSpecsForLevel2(ArrayList<Material> cardSpecsForLevel2) {
+        this.cardSpecsForLevel2 = cardSpecsForLevel2;
+    }
+
+    public ArrayList<Material> getCardSpecsForLevel3() {
+        return cardSpecsForLevel3;
+    }
+
+    public void setCardSpecsForLevel3(ArrayList<Material> cardSpecsForLevel3) {
+        this.cardSpecsForLevel3 = cardSpecsForLevel3;
+    }
+
+    public String getPhotoName() {
+        return photoName;
+    }
+
+    public void setPhotoName(String photoName) {
+        this.photoName = photoName;
+    }
+
+    public int getBoardNumber() {
+        return boardNumber;
+    }
+
+    public void setBoardNumber(int boardNumber) {
+        this.boardNumber = boardNumber;
+    }
 }
