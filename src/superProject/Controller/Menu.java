@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 public class Menu extends Application {
 
+    private int playerNum;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -26,6 +28,25 @@ public class Menu extends Application {
         }
 
 
+
+    }
+
+    private void startGame(){
+
+    }
+    private void goOptions(){
+
+    }
+    private void goCredits(){
+
+    }
+    private void goTutorial(){
+
+    }
+    private void quitGame(){
+
+    }
+    private void setNumberOfPlayers(int number){
 
     }
 
