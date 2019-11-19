@@ -1,13 +1,15 @@
 package superProject.Controller;
 
+import javafx.fxml.Initializable;
 import superProject.Model.Bot;
 import superProject.Model.Card;
 import superProject.Model.City;
 import superProject.Model.Player;
-
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class GameEngine {
+public class GameEngine implements Initializable {
 
 
 
@@ -54,14 +56,9 @@ public class GameEngine {
         this.fileEngine = fileEngine;
     }
 
-    public GameEngine() {
 
-        showMenu();
-        System.out.println("oldu");
-    }
-
-    public void showMenu(){
-
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 

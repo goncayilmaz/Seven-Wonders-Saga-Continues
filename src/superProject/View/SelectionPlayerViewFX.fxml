@@ -7,16 +7,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Controller.SelectionPlayerManage">
    <children>
-      <Button layoutX="174.0" layoutY="203.0" mnemonicParsing="false" text="NEXT" />
-      <Button layoutX="269.0" layoutY="115.0" mnemonicParsing="false" text="&gt;">
+      <Button layoutX="174.0" layoutY="206.0" mnemonicParsing="false" onAction="#selectCity" text="NEXT" />
+      <Button layoutX="269.0" layoutY="115.0" mnemonicParsing="false" onAction="#increasePlayer" text="&gt;">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="72.0" layoutY="115.0" mnemonicParsing="false" text="&lt;">
+      <Button layoutX="72.0" layoutY="115.0" mnemonicParsing="false" onAction="#decreasePlayer" text="&lt;">
          <font>
             <Font size="24.0" />
          </font>
