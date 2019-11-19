@@ -3,13 +3,17 @@ package superProject.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class PopUpManager extends Application {
+public class PopUpManager implements Initializable {
 
 
 
@@ -18,40 +22,14 @@ public class PopUpManager extends Application {
     private String popUpButtonName;
 
 
-
-    @FXML
-    private Label textLabel;
-
-    @FXML
-    private Label titleLabel;
-
-    @FXML
-    private Button buttonOk;
+    @FXML private javafx.scene.control.Button closeButton;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-
-        try {
-
-            Parent root = FXMLLoader.load(getClass().getResource("../View/PopUpViewFX.fxml"));
-            primaryStage.setTitle("PopUp");
-
-            primaryStage.setScene(new Scene(root, 300, 160));
-            primaryStage.setResizable(false);
-            primaryStage.show();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
-
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 
     public String getPopUpTitle() {
         return popUpTitle;
