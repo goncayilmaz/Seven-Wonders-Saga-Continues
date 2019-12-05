@@ -10,6 +10,11 @@ public class CardEngine extends Application {
 
 
 
+    // card engine ile olaylar
+
+
+
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
