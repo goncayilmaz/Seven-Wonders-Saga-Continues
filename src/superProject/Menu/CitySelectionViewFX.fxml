@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane prefHeight="292.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Controller.CityManager">
+<AnchorPane prefHeight="292.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.City.CityManager">
    <children>
       <RadioButton layoutX="54.0" layoutY="62.0" mnemonicParsing="false" text="A" />
       <RadioButton layoutX="54.0" layoutY="89.0" mnemonicParsing="false" text="B" />

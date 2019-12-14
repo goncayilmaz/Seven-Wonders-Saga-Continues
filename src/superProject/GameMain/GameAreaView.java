@@ -1,4 +1,4 @@
-package superProject.View;
+package superProject.GameMain;
 
 public class GameAreaView {
 }

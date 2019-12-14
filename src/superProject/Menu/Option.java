@@ -1,11 +1,9 @@
-package superProject.Controller;
+package superProject.Menu;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -35,7 +33,7 @@ public class Option  implements Initializable {
     public void optionAc(ActionEvent event){
         try {
             Stage stage = new Stage();
-            AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("../View/OptionViewFX.fxml"));
+            AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("../Menu/OptionViewFX.fxml"));
             stage.setScene(new Scene(root));
             stage.setTitle("Options");
             stage.initModality(Modality.WINDOW_MODAL);
@@ -51,7 +49,7 @@ public class Option  implements Initializable {
     public void tutorialAc(ActionEvent event){
         try {
             Stage stage = new Stage();
-            AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("../View/PopUpViewFX.fxml"));
+            AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("../Menu/PopUpViewFX.fxml"));
             stage.setScene(new Scene(root));
             stage.setTitle("Tutorial");
             stage.initModality(Modality.WINDOW_MODAL);
@@ -67,7 +65,7 @@ public class Option  implements Initializable {
     public void creditsAc(ActionEvent event){
         try {
             Stage stage = new Stage();
-            AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("../View/PopUpViewFX.fxml"));
+            AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("../Menu/PopUpViewFX.fxml"));
             stage.setScene(new Scene(root));
             stage.setTitle("Credits");
             stage.initModality(Modality.WINDOW_MODAL);
@@ -84,7 +82,7 @@ public class Option  implements Initializable {
     public void startGame(ActionEvent event){
         try {
             Stage stage = new Stage();
-            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("../View/SelectionPlayerViewFX.fxml"));
+            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("../Menu/SelectionPlayerViewFX.fxml"));
             stage.setScene(new Scene(root));
             stage.setTitle("Player Selection");
             stage.initModality(Modality.WINDOW_MODAL);

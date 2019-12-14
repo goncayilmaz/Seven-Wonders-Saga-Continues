@@ -1,4 +1,4 @@
-package superProject.Controller;
+package superProject.GameProperties;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +20,7 @@ public class CardEngine extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/CardViewFX.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../GameProperties/CardViewFX.fxml"));
             primaryStage.setTitle("Card View");
 
             primaryStage.setScene(new Scene(root, 200, 300));

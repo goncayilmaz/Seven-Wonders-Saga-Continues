@@ -1,4 +1,4 @@
-package superProject.Controller;
+package superProject.Menu;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;

@@ -1,11 +1,10 @@
-package superProject.Controller;
+package superProject.City;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import superProject.Model.City;
 
 import java.util.ArrayList;
 
@@ -22,7 +21,7 @@ public class CityManager extends Application {
 
         try {
 
-            Parent root = FXMLLoader.load(getClass().getResource("../View/CitySelectionViewFX.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../Menu/CitySelectionViewFX.fxml"));
             primaryStage.setTitle("City Selection");
 
             primaryStage.setScene(new Scene(root, 500, 350));

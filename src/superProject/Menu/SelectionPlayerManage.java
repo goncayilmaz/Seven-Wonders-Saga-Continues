@@ -1,12 +1,9 @@
-package superProject.Controller;
+package superProject.Menu;
 
-import com.sun.org.apache.xml.internal.security.Init;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -29,7 +26,7 @@ public class SelectionPlayerManage implements Initializable {
     public void selectCity(ActionEvent event){
         try {
             Stage stage = new Stage();
-            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("../View/CitySelectionViewFX.fxml"));
+            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("../Menu/CitySelectionViewFX.fxml"));
             stage.setScene(new Scene(root));
             stage.setTitle("City Selection");
             stage.initModality(Modality.WINDOW_MODAL);

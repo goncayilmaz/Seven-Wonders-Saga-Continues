@@ -1,4 +1,4 @@
-package superProject.Model;
+package superProject.GameProperties;
 
 import java.util.ArrayList;
 

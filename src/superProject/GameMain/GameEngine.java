@@ -1,10 +1,14 @@
-package superProject.Controller;
+package superProject.GameMain;
 
 import javafx.fxml.Initializable;
-import superProject.Model.Bot;
-import superProject.Model.Card;
-import superProject.Model.City;
-import superProject.Model.Player;
+import superProject.City.CityManager;
+import superProject.Controller.FileEngine;
+import superProject.Menu.Option;
+import superProject.Player.PlayerEngine;
+import superProject.Player.Bot;
+import superProject.GameProperties.Card;
+import superProject.City.City;
+import superProject.Player.Player;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;

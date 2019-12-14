@@ -1,10 +1,7 @@
-package superProject.Controller;
+package superProject.GameProperties;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import superProject.Model.Age;
-
-import java.util.ArrayList;
 
 public class AgeManager extends Application {
 

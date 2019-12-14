@@ -1,8 +1,8 @@
-package superProject.Controller;
+package superProject.Player;
 
 
-import superProject.Model.Card;
-import superProject.Model.Player;
+import superProject.GameProperties.Card;
+import superProject.Player.Player;
 import java.util.ArrayList;
 
 public class PlayerEngine {
@@ -20,23 +20,21 @@ public class PlayerEngine {
         return max;
     }
     public int getPlayerPoint(Player player) {
-
-    return  player.getScore();
+        return  player.getScore();
     }
     public void updatePlayerPoint(Player player,int point){
 
         player.setScore(player.getScore()+point);
 
     }
-    public void increaseCoin(Player player,int cointNumber){
+    public void increaseCoin(Player player,int coinNumber){
 
-        player.setCoin(player.getCoin()+cointNumber);
-
+        player.setCoin(player.getCoin()+ coinNumber);
 
     }
-    public void increaseWarPoint(Player player,int warPoint){
+    public void increaseWarPoints(Player player, int warPoints){
 
-        player.setWarPoint(player.getWarPoint()+warPoint);
+        player.setWarPoints(player.getWarPoints() + warPoints);
 
     }
     public void processResults(Player player){

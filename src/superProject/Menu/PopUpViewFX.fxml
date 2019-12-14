@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="160.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Controller.PopUpManager">
+<AnchorPane prefHeight="160.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.PopUpManager">
    <children>
 
       <Label fx:id="titleLabell" layoutX="133.0" layoutY="14.0" text="Label" />

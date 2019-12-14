@@ -1,4 +1,4 @@
-package superProject.Model;
+package superProject.Player;
 
 public class Bot {
 
@@ -6,7 +6,7 @@ public class Bot {
     // bunu yazdım ama tekrardan bakmamız lazım
 
 
-    private  Player player;
+    private Player player;
 
     public Player getPlayer() {
         return player;

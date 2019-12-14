@@ -1,4 +1,4 @@
-package superProject.View;
+package superProject.Player;
 
 public class PlayerBoardView {
 }
