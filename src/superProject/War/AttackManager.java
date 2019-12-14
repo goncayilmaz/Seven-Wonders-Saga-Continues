@@ -50,6 +50,9 @@ public class AttackManager {
     }
 
     public void setResults(int playerId, int compareResult){
+        //these are done by PlayerEngine(???????)
+        //TODO
+        /*
         int victoryPoints;
         int defeatPoints = 1;
         if(curAgeNo == 1){
@@ -58,16 +61,17 @@ public class AttackManager {
             victoryPoints = 3;
         } else{
             victoryPoints = 5;
-        }
+        } */
         winners = new ArrayList<Player>();
         losers = new ArrayList<Player>();
         if (compareResult == 0 ) {
+            //TODO
             //xox
         } else if( compareResult > 0) {
-            players[playerId].setCoin(players[playerId].getCoin() + victoryPoints);
+            //players[playerId].setCoin(players[playerId].getCoin() + victoryPoints);
             losers.add(players[playerId]);
         } else {
-            players[playerId].setCoin(players[playerId].getCoin() - defeatPoints);
+            //players[playerId].setCoin(players[playerId].getCoin() - defeatPoints);
             winners.add(players[playerId]);
         }
     }

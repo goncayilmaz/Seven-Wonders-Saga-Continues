@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Player {
 
     private int id;
+    private String name; //added to print player at the end of war (I didn't know what to right) -Gonca
     private int coin; // players coin
     private int warPoints; // war points
     private ArrayList<Card> cards; // cards in hand
@@ -19,7 +20,7 @@ public class Player {
 
 
 
-    public Player(int coin, int warPoint, ArrayList<Card> cards, int boardNum, int score, boolean isWinner) {
+    public Player() {
         coin=0;
         warPoints=0;
         cards=null;
@@ -27,6 +28,11 @@ public class Player {
         score=0;
         isWinner=false;
         id = 0;
+        name = "Player " + (id + 1); //if not set, then it is a Bot and it has only number
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getCoin() {
@@ -97,5 +103,8 @@ public class Player {
         cardsOnTable.add(c);
     }
 
-
+    @Override
+    public String toString() {
+        return name;
+    }
 }
