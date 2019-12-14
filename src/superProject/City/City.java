@@ -1,4 +1,6 @@
-package superProject.Model;
+package superProject.City;
+
+import superProject.GameProperties.Material;
 
 import java.util.ArrayList;
 
