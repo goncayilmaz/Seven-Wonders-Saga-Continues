@@ -244,7 +244,7 @@ public class GameEngine implements Initializable {
 
     }
     public int getOptionCard(int i){
-        return cards.get(i).getSpecs();
+        return -1;
 
     }
 
