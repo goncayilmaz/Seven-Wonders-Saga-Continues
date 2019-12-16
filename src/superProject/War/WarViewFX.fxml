@@ -14,15 +14,15 @@
                   <Font name="Avenir Next Condensed Regular" size="30.0" />
                </font>
             </Label>
-            <SplitPane dividerPositions="0.5008347245409015" layoutY="98.0" opacity="0.52" prefHeight="332.0" prefWidth="601.0">
+            <SplitPane dividerPositions="0.5" layoutY="98.0" opacity="0.52" prefHeight="332.0" prefWidth="601.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="297.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="TOP" layoutX="86.0" layoutY="141.0" prefHeight="62.0" prefWidth="126.0" text="YOU vs. #getPlayerLeft">
+                        <Label fx:id = "leftPlayerLabel" alignment="CENTER" contentDisplay="TOP" layoutX="86.0" layoutY="141.0" prefHeight="62.0" prefWidth="126.0" text="YOU vs. #getPlayerLeft">
                            <font>
                               <Font name="Avenir Next Condensed Regular" size="13.0" />
                            </font></Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="57.0" prefHeight="62.0" prefWidth="119.0" text="#setLeftWarWinner">
+                        <Label fx:id="leftWarResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="57.0" prefHeight="62.0" prefWidth="119.0" text="#setLeftWarWinner">
                            <font>
                               <Font name="Avenir Next Condensed Demi Bold" size="13.0" />
                            </font>
@@ -30,12 +30,12 @@
                      </children></AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="143.0" prefHeight="44.0" prefWidth="119.0" text="YOU vs.#getPlayerRight">
+                        <Label fx:id = "leftWarResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="143.0" prefHeight="44.0" prefWidth="119.0" text="YOU vs.#getPlayerRight">
                            <font>
                               <Font name="Avenir Next Condensed Regular" size="13.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="55.0" prefHeight="62.0" prefWidth="119.0" text="#setRightWarWinner">
+                        <Label fx:id = "" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="55.0" prefHeight="62.0" prefWidth="119.0" text="#setRightWarWinner">
                            <font>
                               <Font name="Avenir Next Condensed Demi Bold" size="13.0" />
                            </font>

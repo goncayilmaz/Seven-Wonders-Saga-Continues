@@ -15,12 +15,18 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class WarWiew extends Application {
+    //public Label leftWinnerLabel;
+    public Label leftWarResLabel;
     private boolean leftWarWinner; //winner of the left side war
-    private boolean rightWarWinner; //winner of the right side wara
-    private Player left;
-    private Player right;
-    //private Label labelLeft;
-    //private Label labelRight;
+    private boolean rightWarWinner; //winner of the right side war (true means this current player is winner)
+    //private Player left;
+   // private Player right;
+
+    public WarWiew(){
+        leftWarWinner = true;
+        rightWarWinner = true;
+
+    }
 
     public WarWiew(boolean leftWarWinner, boolean rightWarWinner){
         setLeftWarWinner(leftWarWinner);
@@ -64,6 +70,7 @@ public class WarWiew extends Application {
     @FXML
     public void setLeftWarLabel(){
         if( leftWarWinner )
+
             System.out.print("VICTORY");
         else
             System.out.print("DEFEAT");
@@ -78,10 +85,16 @@ public class WarWiew extends Application {
     }
 
     public void getPlayerLeft() {
-        System.out.print(left); //prints left player
+        System.out.print("hey"); //prints left player
     }
 
     public void getPlayerRight(){
-        System.out.print(right); //prints right player
+        System.out.print("hey2"); //prints right player
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
+
+//public class LabelController
