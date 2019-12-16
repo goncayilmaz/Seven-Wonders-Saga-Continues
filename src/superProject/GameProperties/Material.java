@@ -5,16 +5,12 @@ import java.util.ArrayList;
 public class Material {
 
     private String name; // name of it
-    private String specs; // what it brings
-    private int number; // how much brings
-    private String photoName;// photo name for directory.
+    private int count; // how much brings
 
 
-    public Material(String name, String specs, int number, String photoName) {
+    public Material(String name, int count) {
         this.name = name;
-        this.specs = specs;
-        this.number = number;
-        this.photoName = photoName;
+        this.count = count;
     }
 
     public String getName() {
@@ -25,27 +21,12 @@ public class Material {
         this.name = name;
     }
 
-    public String getSpecs() {
-        return specs;
+    public int getCount() {
+        return count;
     }
 
-    public void setSpecs(String specs) {
-        this.specs = specs;
+    public void setCount(int count) {
+        this.count = count;
     }
 
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public String getPhotoName() {
-        return photoName;
-    }
-
-    public void setPhotoName(String photoName) {
-        this.photoName = photoName;
-    }
 }

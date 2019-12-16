@@ -6,19 +6,21 @@ public class Card {
 
     private String name; // name
     private ArrayList<Material> requirements; // materials for playing this card.
-    private int specs; // come from card materials
-    private ArrayList<Card> nextBuilds; // next build mechanishm
-    private String type; // card color
+    private ArrayList<Material> earnings; // come from card materials
+    private int Id; // special card id for implementing card chain
+    private int nextCardId; // id of the free card from card chain.
+    private String color; // card color
     private String photoName; // for photo directory
     private int ageNumber; // age number of card.
 
 
-    public Card(String name, ArrayList<Material> requirements, int specs, ArrayList<Card> nextBuilds, String type, String photoName, int ageNumber) {
+    public Card(String name, ArrayList<Material> requirements, ArrayList<Material> earnings, int Id, int nextCardId, String color, String photoName, int ageNumber) {
         this.name = name;
         this.requirements = requirements;
-        this.specs = specs;
-        this.nextBuilds = nextBuilds;
-        this.type = type;
+        this.earnings = earnings;
+        this.Id = Id;
+        this.nextCardId = nextCardId;
+        this.color = color;
         this.photoName = photoName;
         this.ageNumber = ageNumber;
     }
@@ -34,33 +36,40 @@ public class Card {
     public ArrayList<Material> getRequirements() {
         return requirements;
     }
-
-    public void setRequirements(ArrayList<Material> requirements) {
+    public void setRequirements(ArrayList<Material> requirements){
         this.requirements = requirements;
     }
 
-    public int getSpecs() {
-        return specs;
+    public ArrayList<Material> getEarnings() {
+        return earnings;
     }
 
-    public void setSpecs(int specs) {
-        this.specs = specs;
+    public void setEarnings(ArrayList<Material> earnings) {
+        this.earnings = earnings;
     }
 
-    public ArrayList<Card> getNextBuilds() {
-        return nextBuilds;
+    public int getId(){
+        return Id;
     }
 
-    public void setNextBuilds(ArrayList<Card> nextBuilds) {
-        this.nextBuilds = nextBuilds;
+    public void setId(int Id){
+        this.Id = Id;
     }
 
-    public String getType() {
-        return type;
+    public int getNextCardId(){
+        return nextCardId;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setNextCardId(int nextCardId){
+        this.nextCardId = nextCardId;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getPhotoName() {
