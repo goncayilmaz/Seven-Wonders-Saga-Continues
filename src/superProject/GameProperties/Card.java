@@ -52,6 +52,18 @@ public class Card {
         this.orSituation = false;
         this.specialFunctionName = specialFunctionName;
     }
+    public Card(String name, ArrayList<Material> requirements, ArrayList<Material> earnings, int Id, int nextCardId, String color, String photoName, int ageNumber, boolean orSituation, String specialFunctionName) {
+        this.name = name;
+        this.requirements = requirements;
+        this.earnings = earnings;
+        this.Id = Id;
+        this.nextCardId = nextCardId;
+        this.color = color;
+        this.photoName = photoName;
+        this.ageNumber = ageNumber;
+        this.orSituation = orSituation;
+        this.specialFunctionName = specialFunctionName;
+    }
 
 
     public String getName() {
