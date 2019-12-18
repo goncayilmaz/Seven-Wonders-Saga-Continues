@@ -20,6 +20,7 @@ public class PlayerEngine {
         return max;
     }
     public int getPlayerPoint(Player player) {
+
         return  player.getScore();
     }
     public void updatePlayerPoint(Player player,int point){
@@ -37,9 +38,7 @@ public class PlayerEngine {
         player.setWarPoints(player.getWarPoints() + warPoints);
 
     }
-    public void processResults(Player player){
 
-    }
     public Player getPlayer(int player){
         return players.get(player);
 
@@ -48,33 +47,61 @@ public class PlayerEngine {
         return player.getCards();
 
     }
-    public void addToCardList(Player player,Card card){
+    public void addToCardList(Player player,Card card)
+    {
         player.addCardsToTable(card);
     }
+
+
+    public void disjointCard(Player player,int cardNum){
+
+        player.getCards().remove(player.getCards().get(cardNum));
+
+
+    }
+    public ArrayList<Player> getWinners(int playerNumber){
+
+        return winners;
+    }
+
+
+    public void startAttack(){
+        // attack manager ile bağlanacak.
+
+    }
+    public void finishAttack(){
+        // attack manager ile bağlanacak.
+
+    }
+    public void startXOX(Boolean bool){
+        //xox game ile bağlanacak.
+
+    }
+
+}
+
+    /*
     public void addToBoard(Player player,Card card){
         //disjoint le aynı mantık
 
     }
-    public void disjointCard(){
-
-
-    }
-    public void setAttributes(Player player){
-
-    }
-    public void compareNeighbours(Player[] players){
+    */
+        /*
+    public void compareNeighbours(Player player){
+        // war bunu yapıyor fight ile
 
     }
-    public void startAttack(){
+
+     */
+
+            /*
+    public void processResults(Player player){
+// gereksiz.
+    }
+
+        public void setAttributes(Player player){
 
     }
-    public void finishAttack(){
 
-    }
-    public void startXOX(Boolean bool){
+     */
 
-    }
-    public ArrayList<Player> getWinners(int playerNumber){
-        return winners;
-    }
-}

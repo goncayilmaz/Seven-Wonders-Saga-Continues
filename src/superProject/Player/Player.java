@@ -15,8 +15,7 @@ public class Player {
     private int score; // score of player
     private boolean isWinner; // check is winner or not.
     private ArrayList<Card> cardsOnTable;
-
-    //rabia commit
+    private int[] attributeList ;
 
 
 
@@ -29,6 +28,7 @@ public class Player {
         isWinner=false;
         id = 0;
         name = "Player " + (id + 1); //if not set, then it is a Bot and it has only number
+        attributeList = new int[9];
     }
 
     public void setName(String name) {
