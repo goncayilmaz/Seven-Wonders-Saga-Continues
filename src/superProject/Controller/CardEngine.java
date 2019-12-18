@@ -5,12 +5,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import superProject.Model.Card;
+
+import java.util.ArrayList;
 
 public class CardEngine extends Application {
 
 
 
-    // card engine ile olaylar
+        private ArrayList<Card> cards;
+
+        public CardEngine(){
+
+        }
+
+
+        public void disjointCard(Card card){ }
+        public void addCard(Card card){}
+        public Card getCardInformation(Card card){return null;}
+
+
 
 
 
