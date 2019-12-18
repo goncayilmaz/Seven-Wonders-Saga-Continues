@@ -35,12 +35,19 @@ public class CardEngine extends Application {
         createFirstAgeCards(7);
         System.out.println("SECOND AGE CARDS");
         createSecondAgeCards(3);
-
-
+        System.out.println("THIRD AGE CARDS");
+        createThirdAgeCards(5);
 
 
 
     }
+
+    public void createGameCards(int numberOfPlayers){
+        createFirstAgeCards(numberOfPlayers);
+        createSecondAgeCards(numberOfPlayers);
+        createThirdAgeCards(numberOfPlayers);
+    }
+
 
     public void createFirstAgeCards(int numberOfPlayers){
         numberOfCards = numberOfPlayers * 7;
@@ -536,12 +543,317 @@ public class CardEngine extends Application {
         printCards(cards2);
 
     }
+    public void createThirdAgeCards(int numberOfPlayers){
+        numberOfCards = numberOfPlayers * 7;
 
-    public void createThirdAgeCards(int ageNum){
-        if(ageNum != 3){
-            return;
-        }
         cards3 = new ArrayList<Card>();
+
+        ArrayList<Material> card51reqs = new ArrayList<Material>();
+        card51reqs.add(new Material("Ore",2));
+        card51reqs.add(new Material("Clay",1));
+        card51reqs.add(new Material("Stone",1));
+        card51reqs.add(new Material("Wood",1));
+        ArrayList<Material> card51earnings = new ArrayList<Material>();
+        card51earnings.add(new Material("none",0));
+        Card fiftyone = new Card("workersguild", card51reqs, card51earnings,51,-1,"Purple","workersguild.png",3,"WORKERSGUILD");
+        cards3.add(fiftyone);
+
+
+        ArrayList<Material> card52reqs = new ArrayList<Material>();
+        card52reqs.add(new Material("Ore",2));
+        card52reqs.add(new Material("Stone",2));
+        ArrayList<Material> card52earnings = new ArrayList<Material>();
+        card52earnings.add(new Material("none",0));
+        Card fiftytwo = new Card("craftsmenguild", card52reqs, card52earnings,52,-1,"Purple","craftsmenguild.png",3,"CRAFTSMENSGUILD");
+        cards3.add(fiftytwo);
+
+        ArrayList<Material> card53reqs = new ArrayList<Material>();
+        card53reqs.add(new Material("Loom",1));
+        card53reqs.add(new Material("Paper",1));
+        card53reqs.add(new Material("Glass",1));
+        ArrayList<Material> card53earnings = new ArrayList<Material>();
+        card53earnings.add(new Material("none",0));
+        Card fiftythree = new Card("tradersguild", card53reqs, card53earnings,53,-1,"Purple","tradersguild.png",3,"TRADERSSGUILD");
+        cards3.add(fiftythree);
+
+        ArrayList<Material> card54reqs = new ArrayList<Material>();
+        card54reqs.add(new Material("Clay",3));
+        card54reqs.add(new Material("Loom",1));
+        card54reqs.add(new Material("Paper",1));
+        ArrayList<Material> card54earnings = new ArrayList<Material>();
+        card54earnings.add(new Material("none",0));
+        Card fiftyfour = new Card("philosophersguild", card54reqs, card54earnings,54,-1,"Purple","philosophersguild.png",3,"PHILOSOPHERSGUILD");
+        cards3.add(fiftyfour);
+
+        ArrayList<Material> card55reqs = new ArrayList<Material>();
+        card55reqs.add(new Material("Clay",3));
+        card55reqs.add(new Material("Glass",1));
+        ArrayList<Material> card55earnings = new ArrayList<Material>();
+        card55earnings.add(new Material("none",0));
+        Card fiftyfive = new Card("spiesguild", card55reqs, card55earnings,55,-1,"Purple","spiesguild.png",3,"SPIESGUILD");
+        cards3.add(fiftyfive);
+
+        ArrayList<Material> card56reqs = new ArrayList<Material>();
+        card56reqs.add(new Material("Ore",2));
+        card56reqs.add(new Material("Stone",1));
+        card56reqs.add(new Material("Loom",1));
+        ArrayList<Material> card56earnings = new ArrayList<Material>();
+        card56earnings.add(new Material("none",0));
+        Card fiftysix = new Card("strategistsguild", card56reqs, card56earnings,56,-1,"Purple","strategistsguild.png",3,"STRATEGISTSGUILD");
+        cards3.add(fiftysix);
+
+        ArrayList<Material> card57reqs = new ArrayList<Material>();
+        card57reqs.add(new Material("Wood",3));
+        card57reqs.add(new Material("Paper",1));
+        card57reqs.add(new Material("Glass",1));
+        ArrayList<Material> card57earnings = new ArrayList<Material>();
+        card57earnings.add(new Material("none",0));
+        Card fiftyseven = new Card("shipownersguild", card57reqs, card57earnings,57,-1,"Purple","shipownersguild.png",3,"SHIPOWNERSGUILD");
+        cards3.add(fiftyseven);
+
+        ArrayList<Material> card58reqs = new ArrayList<Material>();
+        card58reqs.add(new Material("Wood",2));
+        card58reqs.add(new Material("Clay",2));
+        card58reqs.add(new Material("Paper",1));
+        ArrayList<Material> card58earnings = new ArrayList<Material>();
+        card58earnings.add(new Material("ScienceRuler",1));
+        card58earnings.add(new Material("ScienceStone",1));
+        card58earnings.add(new Material("ScienceWheel",1));
+        Card fiftyeight = new Card("scientistsguild", card58reqs, card58earnings,58,-1,"Purple","scientistsguild.png",3,true,"SCIENTISTSGUILD");
+        cards3.add(fiftyeight);
+
+        ArrayList<Material> card59reqs = new ArrayList<Material>();
+        card59reqs.add(new Material("Wood",3));
+        card59reqs.add(new Material("Stone",1));
+        card59reqs.add(new Material("Loom",1));
+        ArrayList<Material> card59earnings = new ArrayList<Material>();
+        card59earnings.add(new Material("none",0));
+        Card fiftynine = new Card("magistratesguild", card59reqs, card59earnings,59,-1,"Purple","magistratesguild.png",3,"MAGISTRATESGUILD");
+        cards3.add(fiftynine);
+
+        ArrayList<Material> card60reqs = new ArrayList<Material>();
+        card60reqs.add(new Material("Stone",2));
+        card60reqs.add(new Material("Clay",2));
+        card60reqs.add(new Material("Glass",1));
+        ArrayList<Material> card60earnings = new ArrayList<Material>();
+        card60earnings.add(new Material("none",0));
+        Card sixty = new Card("buildersguild", card60reqs, card60earnings,60,-1,"Purple","buildersguild.png",3,"BUILDERSGUILD");
+        cards3.add(sixty);
+
+        ArrayList<Material> card61reqs = new ArrayList<Material>();
+        card61reqs.add(new Material("Clay",2));
+        card61reqs.add(new Material("Ore",1));
+        card61reqs.add(new Material("Paper",1));
+        card61reqs.add(new Material("Loom",2));
+        card61reqs.add(new Material("Glass",2));
+        ArrayList<Material> card61earnings = new ArrayList<Material>();
+        card61earnings.add(new Material("Civilian",7));
+        Card sixtyone = new Card("pantheon", card61reqs, card61earnings,61,-1,"Blue","pantheon.png",3);
+        cards3.add(sixtyone);
+        cards3.add(sixtyone);
+
+        ArrayList<Material> card62reqs = new ArrayList<Material>();
+        card62reqs.add(new Material("Wood",1));
+        card62reqs.add(new Material("Clay",2));
+        ArrayList<Material> card62earnings = new ArrayList<Material>();
+        card62earnings.add(new Material("Civilian",5));
+        Card sixtytwo = new Card("gardens", card62reqs, card62earnings,62,-1,"Blue","gardens.png",3);
+        cards3.add(sixtytwo);
+        cards3.add(sixtytwo);
+
+        ArrayList<Material> card63reqs = new ArrayList<Material>();
+        card63reqs.add(new Material("Glass",1));
+        card63reqs.add(new Material("Ore",1));
+        card63reqs.add(new Material("Stone",2));
+        ArrayList<Material> card63earnings = new ArrayList<Material>();
+        card63earnings.add(new Material("Civilian",6));
+        Card sixtythree = new Card("townhall", card63reqs, card63earnings,63,-1,"Blue","townhall.png",3);
+        cards3.add(sixtythree);
+        cards3.add(sixtythree);
+        cards3.add(sixtythree);
+
+        ArrayList<Material> card64reqs = new ArrayList<Material>();
+        card64reqs.add(new Material("Glass",1));
+        card64reqs.add(new Material("Paper",1));
+        card64reqs.add(new Material("Loom",1));
+        card64reqs.add(new Material("Clay",1));
+        card64reqs.add(new Material("Wood",1));
+        card64reqs.add(new Material("Ore",1));
+        card64reqs.add(new Material("Stone",1));
+        ArrayList<Material> card64earnings = new ArrayList<Material>();
+        card64earnings.add(new Material("Civilian",8));
+        Card sixtyfour = new Card("palace", card64reqs, card64earnings,64,-1,"Blue","palace.png",3);
+        cards3.add(sixtyfour);
+        cards3.add(sixtyfour);
+
+        ArrayList<Material> card65reqs = new ArrayList<Material>();
+        card65reqs.add(new Material("Loom",1));
+        card65reqs.add(new Material("Ore",1));
+        card65reqs.add(new Material("Wood",1));
+        ArrayList<Material> card65earnings = new ArrayList<Material>();
+        card65earnings.add(new Material("none",0));
+        Card sixtyfive = new Card("haven", card65reqs, card65earnings,65,-1,"Yellow","haven.png",3,"HAVEN");
+        cards3.add(sixtyfive);
+        cards3.add(sixtyfive);
+
+        ArrayList<Material> card66reqs = new ArrayList<Material>();
+        card66reqs.add(new Material("Glass",1));
+        card66reqs.add(new Material("Stone",1));
+        ArrayList<Material> card66earnings = new ArrayList<Material>();
+        card66earnings.add(new Material("none",0));
+        Card sixtysix = new Card("lighthouse", card66reqs, card66earnings,66,-1,"Yellow","lighthouse.png",3,"LIGHTHOUSE");
+        cards3.add(sixtysix);
+        cards3.add(sixtysix);
+
+        ArrayList<Material> card67reqs = new ArrayList<Material>();
+        card67reqs.add(new Material("Clay",2));
+        card67reqs.add(new Material("Paper",1));
+        ArrayList<Material> card67earnings = new ArrayList<Material>();
+        card67earnings.add(new Material("none",0));
+        Card sixtyseven = new Card("chamberofcommerce", card67reqs, card67earnings,67,-1,"Yellow","chamberofcommerce.png",3,"CHAMBEROFCOMMERCE");
+        cards3.add(sixtyseven);
+        cards3.add(sixtyseven);
+
+        ArrayList<Material> card68reqs = new ArrayList<Material>();
+        card68reqs.add(new Material("Stone",1));
+        card68reqs.add(new Material("Ore",3));
+        ArrayList<Material> card68earnings = new ArrayList<Material>();
+        card68earnings.add(new Material("Military",3));
+        Card sixtyeight = new Card("fortifications", card68reqs, card68earnings,68,-1,"Red","fortifications.png",3);
+        cards3.add(sixtyeight);
+        cards3.add(sixtyeight);
+
+        ArrayList<Material> card69reqs = new ArrayList<Material>();
+        card69reqs.add(new Material("Stone",3));
+        card69reqs.add(new Material("Ore",1));
+        ArrayList<Material> card69earnings = new ArrayList<Material>();
+        card69earnings.add(new Material("Military",3));
+        Card sixtynine = new Card("circus", card69reqs, card69earnings,69,-1,"Red","circus.png",3);
+        cards3.add(sixtynine);
+        cards3.add(sixtynine);
+        cards3.add(sixtynine);
+
+        ArrayList<Material> card70reqs = new ArrayList<Material>();
+        card70reqs.add(new Material("Ore",1));
+        card70reqs.add(new Material("Wood",2));
+        card70reqs.add(new Material("Loom",1));
+        ArrayList<Material> card70earnings = new ArrayList<Material>();
+        card70earnings.add(new Material("Military",3));
+        Card seventy = new Card("arsenal", card70reqs, card70earnings,70,-1,"Red","arsenal.png",3);
+        cards3.add(seventy);
+        cards3.add(seventy);
+        cards3.add(seventy);
+
+        ArrayList<Material> card71reqs = new ArrayList<Material>();
+        card71reqs.add(new Material("Ore",1));
+        card71reqs.add(new Material("Stone",2));
+        ArrayList<Material> card71earnings = new ArrayList<Material>();
+        card71earnings.add(new Material("none",0));
+        Card seventyone = new Card("arena", card71reqs, card71earnings,71,-1,"Yellow","arena.png",3,"ARENA");
+        cards3.add(seventyone);
+        cards3.add(seventyone);
+        cards3.add(seventyone);
+
+        ArrayList<Material> card72reqs = new ArrayList<Material>();
+        card72reqs.add(new Material("Clay",2));
+        card72reqs.add(new Material("Loom",1));
+        card72reqs.add(new Material("Paper",1));
+        ArrayList<Material> card72earnings = new ArrayList<Material>();
+        card72earnings.add(new Material("ScienceRuler",1));
+        Card seventytwo = new Card("lodge", card72reqs, card72earnings,72,-1,"Green","lodge.png",3);
+        cards3.add(seventytwo);
+        cards3.add(seventytwo);
+
+        ArrayList<Material> card73reqs = new ArrayList<Material>();
+        card73reqs.add(new Material("Wood",1));
+        card73reqs.add(new Material("Clay",3));
+        ArrayList<Material> card73earnings = new ArrayList<Material>();
+        card73earnings.add(new Material("Military",3));
+        Card seventythree = new Card("siegeworkshop", card73reqs, card73earnings,73,-1,"Red","siegeworkshop.png",3);
+        cards3.add(seventythree);
+        cards3.add(seventythree);
+
+        ArrayList<Material> card74reqs = new ArrayList<Material>();
+        card74reqs.add(new Material("Ore",2));
+        card74reqs.add(new Material("Glass",1));
+        card74reqs.add(new Material("Loom",1));
+        ArrayList<Material> card74earnings = new ArrayList<Material>();
+        card74earnings.add(new Material("ScienceWheel",1));
+        Card seventyfour = new Card("observatory", card74reqs, card74earnings,74,-1,"Green","observatory.png",3);
+        cards3.add(seventyfour);
+        cards3.add(seventyfour);
+
+        ArrayList<Material> card75reqs = new ArrayList<Material>();
+        card75reqs.add(new Material("Ore",1));
+        card75reqs.add(new Material("Stone",1));
+        card75reqs.add(new Material("Wood",2));
+        ArrayList<Material> card75earnings = new ArrayList<Material>();
+        card75earnings.add(new Material("Civilian",6));
+        Card seventyfive = new Card("senate", card75reqs, card75earnings,75,-1,"Blue","senate.png",3);
+        cards3.add(seventyfive);
+        cards3.add(seventyfive);
+
+        ArrayList<Material> card76reqs = new ArrayList<Material>();
+        card76reqs.add(new Material("Wood",2));
+        card76reqs.add(new Material("Paper",1));
+        card76reqs.add(new Material("Glass",1));
+        ArrayList<Material> card76earnings = new ArrayList<Material>();
+        card76earnings.add(new Material("ScienceStone",1));
+        Card seventysix = new Card("university", card76reqs, card76earnings,76,-1,"Green","university.png",3);
+        cards3.add(seventysix);
+        cards3.add(seventysix);
+
+        ArrayList<Material> card77reqs = new ArrayList<Material>();
+        card77reqs.add(new Material("Stone",3));
+        card77reqs.add(new Material("Glass",1));
+        ArrayList<Material> card77earnings = new ArrayList<Material>();
+        card77earnings.add(new Material("ScienceRuler",1));
+        Card seventyseven = new Card("academy", card77reqs, card77earnings,77,-1,"Green","academy.png",3);
+        cards3.add(seventyseven);
+        cards3.add(seventyseven);
+
+        ArrayList<Material> card78reqs = new ArrayList<Material>();
+        card78reqs.add(new Material("Wood",1));
+        card78reqs.add(new Material("Paper",1));
+        card78reqs.add(new Material("Loom",1));
+        ArrayList<Material> card78earnings = new ArrayList<Material>();
+        card78earnings.add(new Material("ScienceWheel",1));
+        Card seventyeight = new Card("study", card78reqs, card78earnings,78,-1,"Green","study.png",3);
+        cards3.add(seventyeight);
+        cards3.add(seventyeight);
+
+
+        if(numberOfPlayers == 7){
+            // do nothing
+        }
+        else if(numberOfPlayers == 6){
+            int[] cardIdOfCardsToBeDeleted = {64,68,70,71,74,77};
+            for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
+                cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
+            }
+        }
+        else if(numberOfPlayers == 5){
+            int[] cardIdOfCardsToBeDeleted = {61,63,64,66,67,68,69,70,71,72,74,77};
+            for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
+                cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
+            }
+        }
+        else if(numberOfPlayers == 4){
+            int[] cardIdOfCardsToBeDeleted = {61,63,63,64,66,67,68,69,69,70,71,71,72,73,74,75,77,78};
+            for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
+                cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
+            }
+        }
+        // number of players is 3
+        else{
+            int[] cardIdOfCardsToBeDeleted = {61,62,63,63,64,65,66,67,67,68,69,69,69,70,70,71,71,72,73,74,75,76,77,78};
+            for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
+                cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
+            }
+
+        }
+        Collections.shuffle(cards3);
+        printCards(cards3);
 
 
     }
@@ -555,6 +867,72 @@ public class CardEngine extends Application {
         }
         return null;
     }
+
+    public int getNumberOfGreenCards(ArrayList<Card> green) {
+        int count = 0;
+        for(int i = 0; i < green.size(); i++) {
+            if(green.get(i).getColor().equals("Green")){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int getNumberOfRedCards(ArrayList<Card> red) {
+        int count = 0;
+        for(int i = 0; i < red.size(); i++) {
+            if(red.get(i).getColor().equals("Red")){
+                count++;
+            }
+        }
+        return count;
+    }
+    public int getNumberOfBlueCards(ArrayList<Card> blue) {
+        int count = 0;
+        for(int i = 0; i < blue.size(); i++) {
+            if(blue.get(i).getColor().equals("Blue")){
+                count++;
+            }
+        }
+        return count;
+    }
+    public int getNumberOfBrownCards(ArrayList<Card> brown) {
+        int count = 0;
+        for(int i = 0; i < brown.size(); i++) {
+            if(brown.get(i).getColor().equals("Brown")){
+                count++;
+            }
+        }
+        return count;
+    }
+    public int getNumberOfPurpleCards(ArrayList<Card> purple) {
+        int count = 0;
+        for(int i = 0; i < purple.size(); i++) {
+            if(purple.get(i).getColor().equals("Purple")){
+                count++;
+            }
+        }
+        return count;
+    }
+    public int getNumberOfYellowCards(ArrayList<Card> yellow) {
+        int count = 0;
+        for(int i = 0; i < yellow.size(); i++) {
+            if(yellow.get(i).getColor().equals("Yellow")){
+                count++;
+            }
+        }
+        return count;
+    }
+    public int getNumberOfGreyCards(ArrayList<Card> grey) {
+        int count = 0;
+        for(int i = 0; i < grey.size(); i++) {
+            if(grey.get(i).getColor().equals("Grey")){
+                count++;
+            }
+        }
+        return count;
+    }
+
 
     public void shuffleCards(ArrayList<Card> cardsToShuffle){
         Collections.shuffle(cardsToShuffle);
