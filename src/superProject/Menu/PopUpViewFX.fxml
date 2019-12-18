@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="160.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.PopUpManager">
+   <children>
+
+      <Label fx:id="titleLabell" layoutX="133.0" layoutY="14.0" text="Label" />
+      <Button fx:id="buttonOkk" layoutX="132.0" layoutY="119.0" mnemonicParsing="false" text="OK" />
+      <Label fx:id="textLabell" layoutX="69.0" layoutY="38.0" prefHeight="69.0" prefWidth="164.0" text="popUp text part there are some text in there" textOverrun="CLIP" />
+   </children>
+</AnchorPane>

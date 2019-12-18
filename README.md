@@ -23,6 +23,9 @@ https://docs.google.com/document/d/1zSbMGmqFD0rHam86RKAKIfQR0BZPGTVw6iGh55BpLnE/
 Iteration 2 - Project Analysis Report link: 
 https://docs.google.com/document/d/1N49mtSP3pXZwmdfT1KqZvBNnGiwbLaqAALi3wFptQ1E/edit?usp=sharing
 
+Iteration 2 - Project Design Report link: 
+https://docs.google.com/document/d/1DaKmmLQc0Z0lSYHgYde9jHC9Q61C3qWpNPdtH_L1Wk0/edit?usp=sharing
+
 # Description of the Project
 
 In the project we are going to implement classic boardgame "7 Wonders".
