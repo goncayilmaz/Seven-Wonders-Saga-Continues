@@ -14,6 +14,7 @@ public class Card {
     private int ageNumber; // age number of card.
     private boolean orSituation;
     private String specialFunctionName;
+    private int cardWarPoint; // bunu sonradan ekledim aşağıdakilere göre eklemek lazım- efe
 
     public Card(String name, ArrayList<Material> requirements, ArrayList<Material> earnings, int Id, int nextCardId, String color, String photoName, int ageNumber) {
         this.name = name;
@@ -140,6 +141,14 @@ public class Card {
     }
     public void setOrSituation(boolean orSituation){
         this.orSituation = orSituation;
+    }
+
+    public int getCardWarPoint() {
+        return cardWarPoint;
+    }
+
+    public void setCardWarPoint(int cardWarPoint) {
+        this.cardWarPoint = cardWarPoint;
     }
 
     public void print(){
