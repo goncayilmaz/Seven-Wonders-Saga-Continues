@@ -17,6 +17,7 @@ public class CardEngine extends Application {
     private ArrayList<Card> cards3;
     private int numberOfCards;
 
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -47,6 +48,17 @@ public class CardEngine extends Application {
         createSecondAgeCards(numberOfPlayers);
         createThirdAgeCards(numberOfPlayers);
     }
+
+    public ArrayList<Card> getFirstAgeCards(){
+        return cards;
+    }
+    public ArrayList<Card> getSecondAgeCards(){
+        return cards2;
+    }
+    public ArrayList<Card> getThirdAgeCards(){
+        return cards3;
+    }
+
 
 
     public void createFirstAgeCards(int numberOfPlayers){
@@ -943,11 +955,7 @@ public class CardEngine extends Application {
 
     }
 
-    public void traverseHands(ArrayList<Player> players, int numberOfPlayers){
-        for(int i = 0; i < numberOfPlayers; i++){
-            // give the hand to i + 1 index player
-        }
-    }
+
 
     public boolean verifySufficientResources(Player player, Card card){
         return false;
