@@ -12,7 +12,9 @@ public class Card {
     private String color; // card color
     private String photoName; // for photo directory
     private int ageNumber; // age number of card.
-
+    private boolean orSituation;
+    private String specialFunctionName;
+    private int cardWarPoint; // bunu sonradan ekledim aşağıdakilere göre eklemek lazım- efe
 
     public Card(String name, ArrayList<Material> requirements, ArrayList<Material> earnings, int Id, int nextCardId, String color, String photoName, int ageNumber) {
         this.name = name;
@@ -23,7 +25,47 @@ public class Card {
         this.color = color;
         this.photoName = photoName;
         this.ageNumber = ageNumber;
+        this.orSituation = false;
+        this.specialFunctionName = "none";
     }
+
+    public Card(String name, ArrayList<Material> requirements, ArrayList<Material> earnings, int Id, int nextCardId, String color, String photoName, int ageNumber, boolean orSituation) {
+        this.name = name;
+        this.requirements = requirements;
+        this.earnings = earnings;
+        this.Id = Id;
+        this.nextCardId = nextCardId;
+        this.color = color;
+        this.photoName = photoName;
+        this.ageNumber = ageNumber;
+        this.orSituation = orSituation;
+        this.specialFunctionName = "none";
+    }
+    public Card(String name, ArrayList<Material> requirements, ArrayList<Material> earnings, int Id, int nextCardId, String color, String photoName, int ageNumber, String specialFunctionName) {
+        this.name = name;
+        this.requirements = requirements;
+        this.earnings = earnings;
+        this.Id = Id;
+        this.nextCardId = nextCardId;
+        this.color = color;
+        this.photoName = photoName;
+        this.ageNumber = ageNumber;
+        this.orSituation = false;
+        this.specialFunctionName = specialFunctionName;
+    }
+    public Card(String name, ArrayList<Material> requirements, ArrayList<Material> earnings, int Id, int nextCardId, String color, String photoName, int ageNumber, boolean orSituation, String specialFunctionName) {
+        this.name = name;
+        this.requirements = requirements;
+        this.earnings = earnings;
+        this.Id = Id;
+        this.nextCardId = nextCardId;
+        this.color = color;
+        this.photoName = photoName;
+        this.ageNumber = ageNumber;
+        this.orSituation = orSituation;
+        this.specialFunctionName = specialFunctionName;
+    }
+
 
     public String getName() {
         return name;
@@ -86,5 +128,40 @@ public class Card {
 
     public void setAgeNumber(int ageNumber) {
         this.ageNumber = ageNumber;
+    }
+
+    public void setSpecialFunctionName(String specialFunctionName){
+        this.specialFunctionName = specialFunctionName;
+    }
+    public String getSpecialFunctionName(){
+        return this.specialFunctionName;
+    }
+    public boolean getOrSituation(){
+        return this.orSituation;
+    }
+    public void setOrSituation(boolean orSituation){
+        this.orSituation = orSituation;
+    }
+
+    public int getCardWarPoint() {
+        return cardWarPoint;
+    }
+
+    public void setCardWarPoint(int cardWarPoint) {
+        this.cardWarPoint = cardWarPoint;
+    }
+
+    public void print(){
+        System.out.println("NAME: " + name + " ID:" + Id + " nextCardId: " + nextCardId + " color:" + color + " photoName: " + photoName + " ageNumber: "+ ageNumber + " orSituation: " + orSituation + " specialFunctionName: " + specialFunctionName);
+        System.out.print("Requirements: ");
+        for(int i = 0; i < requirements.size(); i++){
+            requirements.get(i).print();
+        }
+        System.out.println();
+        System.out.print("Earnings: ");
+        for(int i = 0; i < earnings.size(); i++){
+            earnings.get(i).print();
+        }
+        System.out.println();
     }
 }

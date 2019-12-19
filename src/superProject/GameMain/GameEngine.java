@@ -11,6 +11,7 @@ import superProject.City.City;
 import superProject.Player.Player;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class GameEngine implements Initializable {
@@ -214,8 +215,20 @@ public class GameEngine implements Initializable {
     }
 
     public void rotateCards(){
-
+            ArrayList<ArrayList<Card>> hands = new ArrayList<>();
+            // Collect the hands from players
+            for(int i = 0; i < players.size(); i++){
+                ArrayList<Card> hand = players.get(i).getCards();
+                hands.add(hand);
+            }
+            // Rotate
+            Collections.rotate(hands,1);
+            // Distribute the hands to players
+            for(int i = 0; i < players.size(); i++){
+                players.get(i).setCards(hands.get(i));
+            }
     }
+
     public void quitGame(){
 
     }
@@ -244,7 +257,7 @@ public class GameEngine implements Initializable {
 
     }
     public int getOptionCard(int i){
-        return cards.get(i).getSpecs();
+        return -1;
 
     }
 

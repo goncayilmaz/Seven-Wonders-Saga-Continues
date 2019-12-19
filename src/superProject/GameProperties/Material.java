@@ -7,7 +7,6 @@ public class Material {
     private String name; // name of it
     private int count; // how much brings
 
-
     public Material(String name, int count) {
         this.name = name;
         this.count = count;
@@ -27,6 +26,10 @@ public class Material {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public void print(){
+        System.out.print(name + " " + count + " ");
     }
 
 }

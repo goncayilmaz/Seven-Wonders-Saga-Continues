@@ -1,11 +1,13 @@
 package superProject.Player;
 
+import java.util.ArrayList;
+
 public class Bot {
 
     // bu class gözden geçecek
     // bunu yazdım ama tekrardan bakmamız lazım
 
-
+    private ArrayList<Player> players;
     private Player player;
 
     public Player getPlayer() {
@@ -15,4 +17,79 @@ public class Bot {
     public void setPlayer(Player player) {
         this.player = player;
     }
+
+    public void imaginate(){
+
+        int playerNumber =players.size();
+
+        int playerWarPoint=0;
+        int nearPlayer=0;
+        int awayPlayer=0;
+
+        for(int i=0;i<player.getCardsOnTable().size();i++) {
+            if (player.getCardsOnTable().get(i).getColor() == "Red") {
+                playerWarPoint = playerWarPoint + player.getCardsOnTable().get(i).getCardWarPoint();
+            }
+        }
+
+
+        if(player.getId()==0) {
+            Player pLast = players.get(playerNumber-1);
+            for (int j = 0; j < pLast.getCardsOnTable().size(); j++) {
+                if (pLast.getCardsOnTable().get(j).getColor() == "Red") {
+                    awayPlayer = awayPlayer + pLast.getCardsOnTable().get(j).getCardWarPoint();
+                }
+
+            }
+            for (int j = 0; j < players.get(1).getCardsOnTable().size(); j++) {
+                if (players.get(1).getCardsOnTable().get(j).getColor() == "Red") {
+                    nearPlayer = nearPlayer + players.get(1).getCardsOnTable().get(j).getCardWarPoint();
+                }
+
+
+            }
+        }
+        else if(player.getId()==playerNumber){
+            Player pFirst= players.get(0);
+            for (int j = 0; j < pFirst.getCards().size(); j++) {
+                if (pFirst.getCardsOnTable().get(j).getColor() == "Red") {
+                    awayPlayer = awayPlayer + pFirst.getCardsOnTable().get(j).getCardWarPoint();
+                }
+            }
+            for (int j = 0; j < players.get(playerNumber-1).getCardsOnTable().size(); j++) {
+                if (players.get(playerNumber-1).getCardsOnTable().get(j).getColor() == "Red") {
+                    nearPlayer = nearPlayer + players.get(playerNumber-1).getCardsOnTable().get(j).getCardWarPoint();
+                }
+
+
+            }
+
+        }
+        else{
+            for (int j = 0; j < players.get(player.getId()-1).getCardsOnTable().size(); j++) {
+                if (players.get(player.getId()-1).getCardsOnTable().get(j).getColor() == "Red") {
+                    awayPlayer = awayPlayer + players.get(player.getId()-1).getCardsOnTable().get(j).getCardWarPoint();
+                }
+            }
+            for (int j = 0; j < players.get(player.getId()+1).getCardsOnTable().size(); j++) {
+                if (players.get(player.getId()+1).getCardsOnTable().get(j).getColor() == "Red") {
+                    nearPlayer = nearPlayer + players.get(player.getId()+1).getCardsOnTable().get(j).getCardWarPoint();
+                }
+            }
+
+
+
+        }
+
+        // war point icin imaginate
+        if(playerWarPoint>nearPlayer&&playerWarPoint>awayPlayer){
+            // savaş kartı oynama
+        }
+
+
+
+
+        }
+
+
 }
