@@ -9,6 +9,12 @@ import javafx.stage.Stage;
 public class Menu extends Application {
 
     private int playerNum;
+    private static Stage primaryStage;
+
+
+    public Stage getPrimaryStage() {
+        return this.primaryStage;
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
