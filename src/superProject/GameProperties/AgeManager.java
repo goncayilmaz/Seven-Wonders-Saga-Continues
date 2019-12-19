@@ -2,6 +2,9 @@ package superProject.GameProperties;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import superProject.City.City;
+import superProject.City.CityManager;
+import superProject.Player.PlayerEngine;
 
 public class AgeManager extends Application {
 
@@ -31,15 +34,25 @@ public class AgeManager extends Application {
     catch(Exception e){}
     }
 
-    private void startAge(){
+    private void startAge(boolean citySide, CityManager cityM, CardEngine cardE, int noOfPlayers, PlayerEngine playerE){
         currentGameAge = 1;
-        gameAge = new Age(/*age1 card listesi array list*/, currentGameAge);
+        cityM.createCities(citySide);
+        cardE.createGameCards(noOfPlayers);
+
+        gameAge = new Age( cardE.getFirstAgeCards(), currentGameAge);
     }
     private void finishAge(){
 
     }
-    private void goNextAge(){
-
+    private void goNextAge(CardEngine cardE){
+        if(currentGameAge == 1){
+            currentGameAge = 2;
+            gameAge = new Age(cardE.getSecondAgeCards(), currentGameAge);
+        }
+        else if(currentGameAge == 2){
+            currentGameAge = 3;
+            gameAge = new Age(cardE.getThirdAgeCards(), currentGameAge);
+        }
     }
     private int getCurrentAge(){
         return currentGameAge;
@@ -49,3 +62,5 @@ public class AgeManager extends Application {
 
     }
 }
+
+//city yarat player yarat playerlara array list of cards dağıt
