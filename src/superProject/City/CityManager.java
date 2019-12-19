@@ -40,19 +40,21 @@ public class CityManager extends Application {
         }
     }
 
-    public void createACities(int numberOfPlayers)
+    public void createACities()
     {
-        numberOfCities = numberOfPlayers;
+
         citiesA = new ArrayList<City>();
 
         ArrayList<Material> earningsOfAlexandria  = new ArrayList<Material>();
         earningsOfAlexandria.add(new Material("Glass",1));
+
         ArrayList<Material> firstLevelReq = new ArrayList<Material>();
         firstLevelReq.add(new Material("Stone", 2));
         ArrayList<Material> secondLevelReq = new ArrayList<Material>();
         secondLevelReq.add(new Material("Ore", 2));
         ArrayList<Material> thirdLevelReq = new ArrayList<Material>();
         thirdLevelReq.add(new Material("Glass", 2));
+
         ArrayList<Material> earningOfAlexandriaLev1 = new ArrayList<Material>();
         earningOfAlexandriaLev1.add(new Material("Civilian", 3));
         ArrayList<Material> earningOfAlexandriaLev2 = new ArrayList<Material>();
@@ -68,14 +70,18 @@ public class CityManager extends Application {
 
         citiesA.add(alexandria);
 
+
+
         ArrayList<Material> earningsOfRhodes  = new ArrayList<Material>();
         earningsOfRhodes.add(new Material("Ore",1));
+
         ArrayList<Material> firstLevelReqRhodes = new ArrayList<Material>();
         firstLevelReqRhodes.add(new Material("Wood", 2));
         ArrayList<Material> secondLevelReqRhodes = new ArrayList<Material>();
         secondLevelReqRhodes.add(new Material("Clay", 3));
         ArrayList<Material> thirdLevelReqRhodes = new ArrayList<Material>();
         thirdLevelReqRhodes.add(new Material("Ore", 4));
+
         ArrayList<Material> earningOfRhodesLev1 = new ArrayList<Material>();
         earningOfRhodesLev1.add(new Material("Civilian", 3));
         ArrayList<Material> earningOfRhodesLev2 = new ArrayList<Material>();
@@ -88,14 +94,18 @@ public class CityManager extends Application {
                 null,".png", 0);
         citiesA.add(rhodes);
 
+
+
         ArrayList<Material> earningsOfEphesus  = new ArrayList<Material>();
         earningsOfEphesus.add(new Material("Papyrus",1));
+
         ArrayList<Material> firstLevelReqEphesus = new ArrayList<Material>();
         firstLevelReqEphesus.add(new Material("Stone", 2));
         ArrayList<Material> secondLevelReqEphesus = new ArrayList<Material>();
         secondLevelReqEphesus.add(new Material("Ore", 2));
         ArrayList<Material> thirdLevelReqEphesus = new ArrayList<Material>();
         thirdLevelReqEphesus.add(new Material("Papyrus", 2));
+
         ArrayList<Material> earningOfEphesusLev1 = new ArrayList<Material>();
         earningOfEphesusLev1.add(new Material("Civilian", 3));
         ArrayList<Material> earningOfEphesusLev2 = new ArrayList<Material>();
@@ -109,14 +119,18 @@ public class CityManager extends Application {
         citiesA.add(ephesus);
 
 
+
+
         ArrayList<Material> earningsOfBabylon  = new ArrayList<Material>();
         earningsOfBabylon.add(new Material("Clay",1));
+
         ArrayList<Material> firstLevelBabylonReq = new ArrayList<Material>();
         firstLevelBabylonReq.add(new Material("Clay", 2));
         ArrayList<Material> secondLevelBabylonReq = new ArrayList<Material>();
         secondLevelBabylonReq.add(new Material("Wood", 3));
         ArrayList<Material> thirdLevelBabylonReq = new ArrayList<Material>();
         thirdLevelBabylonReq.add(new Material("Clay", 4));
+
         ArrayList<Material> earningOfBabylonLev1 = new ArrayList<Material>();
         earningOfBabylonLev1.add(new Material("Civilian", 3));
         ArrayList<Material> earningOfBabylonLev2 = new ArrayList<Material>();
@@ -132,14 +146,18 @@ public class CityManager extends Application {
         citiesA.add(babylon);
 
 
+
+
         ArrayList<Material> earningsOfOlympia  = new ArrayList<Material>();
         earningsOfOlympia.add(new Material("Wood",1));
+
         ArrayList<Material> firstLevelOlympiaReq = new ArrayList<Material>();
         firstLevelOlympiaReq.add(new Material("Wood", 2));
         ArrayList<Material> secondLevelOlympiaReq = new ArrayList<Material>();
         secondLevelOlympiaReq.add(new Material("Stone", 2));
         ArrayList<Material> thirdLevelOlympiaReq = new ArrayList<Material>();
         thirdLevelOlympiaReq.add(new Material("Ore", 2));
+
         ArrayList<Material> earningOfOlympiaLev1 = new ArrayList<Material>();
         earningOfOlympiaLev1.add(new Material("Civilian", 3));
         ArrayList<Material> earningOfOlympiaLev2 = new ArrayList<Material>();//buraya özel fonksiyon gerekecek özel durum var
@@ -155,12 +173,14 @@ public class CityManager extends Application {
 
         ArrayList<Material> earningsOfHalicarnassus  = new ArrayList<Material>();
         earningsOfHalicarnassus.add(new Material("Loom",1));
+
         ArrayList<Material> firstLevelHalicarnassusReq = new ArrayList<Material>();
         firstLevelHalicarnassusReq.add(new Material("Clay", 2));
         ArrayList<Material> secondLevelHalicarnassusReq = new ArrayList<Material>();
         secondLevelHalicarnassusReq.add(new Material("Ore", 3));
         ArrayList<Material> thirdLevelHalicarnassusReq = new ArrayList<Material>();
         thirdLevelHalicarnassusReq.add(new Material("Loom", 2));
+
         ArrayList<Material> earningOfHalicarnassusLev1 = new ArrayList<Material>();
         earningOfHalicarnassusLev1.add(new Material("Civilian", 3));
         ArrayList<Material> earningOfHalicarnassusLev2 = new ArrayList<Material>();//buraya özel fonksiyon gerekecek özel durum var
@@ -174,8 +194,11 @@ public class CityManager extends Application {
         citiesA.add(halicarnassus);
 
 
+
+
         ArrayList<Material> earningsOfGiza  = new ArrayList<Material>();
         earningsOfGiza.add(new Material("Stone",1));
+
         ArrayList<Material> firstLevelGizaReq = new ArrayList<Material>();
         firstLevelGizaReq.add(new Material("Stone", 2));
         ArrayList<Material> secondLevelGizaReq = new ArrayList<Material>();
@@ -183,6 +206,7 @@ public class CityManager extends Application {
         ArrayList<Material> thirdLevelGizaReq = new ArrayList<Material>();
         thirdLevelGizaReq.add(new Material("Stone", 4));
         ArrayList<Material> earningOfGizaLev1 = new ArrayList<Material>();
+
         earningOfGizaLev1.add(new Material("Civilian", 3));
         ArrayList<Material> earningOfGizaLev2 = new ArrayList<Material>();
         earningOfGizaLev2.add(new Material("Civilian", 5));
@@ -196,11 +220,10 @@ public class CityManager extends Application {
         citiesA.add(giza);
 
 
-        //Collections.shuffle(cities);
+        Collections.shuffle(citiesA);
     }
-    public void createBCities(int numberOfPlayers)
+    public void createBCities()
     {
-        numberOfCities = numberOfPlayers;
         citiesB = new ArrayList<City>();
 
         ArrayList<Material> earningsOfAlexandria  = new ArrayList<Material>();
@@ -232,6 +255,8 @@ public class CityManager extends Application {
 
         citiesB.add(alexandria);
 
+
+
         ArrayList<Material> earningsOfRhodes  = new ArrayList<Material>();
         earningsOfRhodes.add(new Material("Ore",1));
 
@@ -258,6 +283,10 @@ public class CityManager extends Application {
                 thirdLevelReqRhodes, null, earningOfRhodesLev1, earningOfRhodesLev2, earningOfRhodesLev3,
                 null,".png", 1);
         citiesB.add(rhodes);
+
+
+
+
 
         ArrayList<Material> earningsOfEphesus  = new ArrayList<Material>();
         earningsOfEphesus.add(new Material("Papyrus",1));
@@ -293,6 +322,8 @@ public class CityManager extends Application {
         citiesB.add(ephesus);
 
 
+
+
         ArrayList<Material> earningsOfBabylon  = new ArrayList<Material>();
         earningsOfBabylon.add(new Material("Clay",1));
 
@@ -326,6 +357,10 @@ public class CityManager extends Application {
         citiesB.add(babylon);
 
 
+
+
+
+
         ArrayList<Material> earningsOfOlympia  = new ArrayList<Material>();
         earningsOfOlympia.add(new Material("Wood",1));
 
@@ -352,6 +387,9 @@ public class CityManager extends Application {
         citiesB.add(olympia);
 
 
+
+
+
         ArrayList<Material> earningsOfHalicarnassus  = new ArrayList<Material>();
         earningsOfHalicarnassus.add(new Material("Loom",1));
 
@@ -376,6 +414,9 @@ public class CityManager extends Application {
                 null,".png", 1);
 
         citiesB.add(halicarnassus);
+
+
+
 
 
         ArrayList<Material> earningsOfGiza  = new ArrayList<Material>();
