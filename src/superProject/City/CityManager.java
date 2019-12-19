@@ -558,7 +558,7 @@ public class CityManager extends Application {
     public void printCities(ArrayList<City> cardPrint)
     {
         for(int i = 0; i < cardPrint.size(); i++){
-            cardPrint.get(i).print();
+        //    cardPrint.get(i).prit();
         }
     }
 }
