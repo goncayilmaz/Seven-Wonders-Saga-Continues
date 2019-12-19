@@ -12,6 +12,7 @@ public class AttackManager {
     private int curAgeNo;
     private ArrayList<Player> winners;
     private ArrayList<Player> losers;
+    private WarWiew view;
 
     public AttackManager(int numberOfPlayers, int curAgeNo, Player[] players) {
         this.numberOfPlayers = numberOfPlayers;
@@ -34,6 +35,7 @@ public class AttackManager {
                 int compareRight  = Integer.compare( players[i].getWarPoints(), players[i + 1].getWarPoints());
                 setResults(i, compareLeft);
                 setResults(i, compareRight);
+                view = new WarWiew(players[i], players[players.length-1], false,  players[1], true);
             } else if( i == numberOfPlayers - 1) {
                 int compareLeft = Integer.compare( players[i].getWarPoints(), players[i - 1].getWarPoints());
                 int compareRight  = Integer.compare( players[i].getWarPoints(), players[0].getWarPoints());
@@ -52,7 +54,6 @@ public class AttackManager {
     public void setResults(int playerId, int compareResult){
         //these are done by PlayerEngine(???????)
         //TODO
-        /*
         int victoryPoints;
         int defeatPoints = 1;
         if(curAgeNo == 1){
@@ -61,17 +62,18 @@ public class AttackManager {
             victoryPoints = 3;
         } else{
             victoryPoints = 5;
-        } */
+        }
         winners = new ArrayList<Player>();
         losers = new ArrayList<Player>();
         if (compareResult == 0 ) {
             //TODO
             //xox
+
         } else if( compareResult > 0) {
-            //players[playerId].setCoin(players[playerId].getCoin() + victoryPoints);
+            players[playerId].setScore(players[playerId].getScore() + victoryPoints);
             losers.add(players[playerId]);
         } else {
-            //players[playerId].setCoin(players[playerId].getCoin() - defeatPoints);
+            players[playerId].setScore(players[playerId].getScore() - defeatPoints);
             winners.add(players[playerId]);
         }
     }
