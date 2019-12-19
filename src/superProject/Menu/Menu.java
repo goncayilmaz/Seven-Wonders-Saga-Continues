@@ -9,9 +9,22 @@ import javafx.stage.Stage;
 public class Menu extends Application {
 
     private int playerNum;
+    private static Stage primaryStage;
+
+
+    public Stage getPrimaryStage() {
+        return this.primaryStage;
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        Parent root = FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+        /*
 
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
@@ -27,6 +40,7 @@ public class Menu extends Application {
             e.printStackTrace();
         }
 
+         */
 
 
     }

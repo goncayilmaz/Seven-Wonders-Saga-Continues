@@ -1,11 +1,17 @@
 package superProject.Menu;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -13,6 +19,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class Option  implements Initializable {
 
@@ -23,77 +39,124 @@ public class Option  implements Initializable {
     private ArrayList<String> languages;
 
 
+    @FXML
+    private Button creditsButton;
+
+    @FXML
+    private Button startButton;
+
+    @FXML
+    private Button quitButton;
+
+    @FXML
+    private Button optionsButton;
+
+    @FXML
+    private Button tutorialButton;
+
+    @FXML
+    private CheckBox soundBox;
+
+    @FXML
+    private CheckBox musicBox;
+
+    @FXML
+    private ComboBox<String> languageBox;
+
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
     }
 
-    public void optionAc(ActionEvent event){
-        try {
-            Stage stage = new Stage();
-            AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("../Menu/OptionViewFX.fxml"));
-            stage.setScene(new Scene(root));
-            stage.setTitle("Options");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(((Node)event.getSource()).getScene().getWindow() );
+    @FXML
+    public void musicCheck(MouseEvent event) throws  Exception {
 
+        try {
+            if (musicBox.isSelected() == true) {
+                System.out.println("efe");
+
+            }
+        }
+        catch (Exception e){
+
+        }
+    }
+
+    public void optionAc(ActionEvent event) throws Exception{
+
+        Stage stage;
+        Parent root;
+
+        try {
+            stage = (Stage) optionsButton.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../Menu/OptionViewFX.fxml"));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.show();
 
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
+        catch (Exception e){
+
+        }
+
+
     }
     public void tutorialAc(ActionEvent event){
+        Stage stage;
+        Parent root;
+
         try {
-            Stage stage = new Stage();
-            AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("../Menu/PopUpViewFX.fxml"));
-            stage.setScene(new Scene(root));
-            stage.setTitle("Tutorial");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(((Node)event.getSource()).getScene().getWindow() );
+            stage = (Stage) tutorialButton.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../Menu/PopUpViewFX.fxml"));
 
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.show();
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
+        catch (Exception e){
+
+        }
+
     }
     public void creditsAc(ActionEvent event){
+        Stage stage;
+        Parent root;
+
         try {
-            Stage stage = new Stage();
-            AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("../Menu/PopUpViewFX.fxml"));
-            stage.setScene(new Scene(root));
-            stage.setTitle("Credits");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(((Node)event.getSource()).getScene().getWindow() );
+            stage = (Stage) creditsButton.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../Menu/PopUpViewFX.fxml"));
 
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.show();
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
+        catch (Exception e){
+
+        }
+
     }
 
     public void startGame(ActionEvent event){
+        Stage stage;
+        Parent root;
+
         try {
-            Stage stage = new Stage();
-            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("../Menu/SelectionPlayerViewFX.fxml"));
-            stage.setScene(new Scene(root));
-            stage.setTitle("Player Selection");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(((Node)event.getSource()).getScene().getWindow() );
+            stage = (Stage) startButton.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../Menu/SelectionPlayerViewFX.fxml"));
 
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.show();
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
+        catch (Exception e){
+
+        }
+
     }
     public void quitGame(ActionEvent event){
         System.exit(1);

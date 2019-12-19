@@ -18,10 +18,10 @@
             <Image url="@../../Images/7wonders.jpg" />
          </image>
       </ImageView>
-      <Button id="startGameButton" layoutX="321.0" layoutY="206.0" mnemonicParsing="false" onAction="#startGame" text="Start Game" />
-      <Button id="optionsButton" layoutX="330.0" layoutY="259.0" mnemonicParsing="false" onAction="#optionAc" text="Options" />
-      <Button id="tutorialButton" layoutX="331.0" layoutY="310.0" mnemonicParsing="false" onAction="#tutorialAc" text="Tutorial" />
-      <Button id="creditsButton" layoutX="33.0" layoutY="406.0" mnemonicParsing="false" onAction="#creditsAc" text="Credits" />
-      <Button id="quitButton" layoutX="629.0" layoutY="407.0" mnemonicParsing="false" onAction="#quitGame" text="Quit" />
+      <Button id="startGameButton" fx:id="startButton" layoutX="321.0" layoutY="206.0" mnemonicParsing="false" onAction="#startGame" text="Start Game" />
+      <Button id="optionsButton" fx:id="optionsButton" layoutX="330.0" layoutY="259.0" mnemonicParsing="false" onAction="#optionAc" text="Options" />
+      <Button id="tutorialButton" fx:id="tutorialButton" layoutX="331.0" layoutY="310.0" mnemonicParsing="false" onAction="#tutorialAc" text="Tutorial" />
+      <Button id="creditsButton" fx:id="creditsButton" layoutX="33.0" layoutY="406.0" mnemonicParsing="false" onAction="#creditsAc" text="Credits" />
+      <Button id="quitButton" fx:id="quitButton" layoutX="629.0" layoutY="407.0" mnemonicParsing="false" onAction="#quitGame" text="Quit" />
    </children>
 </AnchorPane>

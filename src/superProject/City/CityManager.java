@@ -38,8 +38,23 @@ public class CityManager extends Application {
         {
             e.printStackTrace();
         }
+
+        createCity(false);
+        arrangeCities(2, "The Hanging Gardens of Babylon", false);
+        printCities(citiesB);
+
+    }
+    public void createCity(boolean boardType)
+    {
+        if(boardType == true)
+            createACities();
+        else
+            createBCities();
     }
 
+    /**
+     * This method creates wonders with respect to A side
+     */
     public void createACities()
     {
 
@@ -90,8 +105,8 @@ public class CityManager extends Application {
         earningOfRhodesLev3.add(new Material("Civilian", 7));
 
         City rhodes = new City("The Colossus of Rhodes", earningsOfRhodes, 0, firstLevelReqRhodes, secondLevelReqRhodes,
-                thirdLevelReqRhodes, null, earningOfRhodesLev1, earningOfRhodesLev2, earningOfRhodesLev3,
-                null,"rhodosA.png", 0);
+                thirdLevelReqRhodes, new ArrayList<Material>(), earningOfRhodesLev1, earningOfRhodesLev2, earningOfRhodesLev3,
+                new ArrayList<Material>(),"rhodosA.png", 0);
         citiesA.add(rhodes);
 
 
@@ -114,8 +129,8 @@ public class CityManager extends Application {
         earningOfEphesusLev3.add(new Material("Civilian", 7));
 
         City ephesus = new City("The Temple of Artemis in Ephesus", earningsOfEphesus, 0, firstLevelReqEphesus, secondLevelReqEphesus,
-                thirdLevelReqEphesus, null, earningOfEphesusLev1, earningOfEphesusLev2, earningOfEphesusLev3,
-                null,"ephesosA.png", 0);
+                thirdLevelReqEphesus, new ArrayList<Material>(), earningOfEphesusLev1, earningOfEphesusLev2, earningOfEphesusLev3,
+                new ArrayList<Material>(),"ephesosA.png", 0);
         citiesA.add(ephesus);
 
 
@@ -165,8 +180,8 @@ public class CityManager extends Application {
         earningOfOlympiaLev3.add(new Material("Civilian", 7));
 
         City olympia = new City("The Statue of Zeus in Olympia", earningsOfOlympia, 0, firstLevelOlympiaReq, secondLevelOlympiaReq,
-                thirdLevelOlympiaReq, null, earningOfOlympiaLev1, earningOfOlympiaLev2, earningOfOlympiaLev3,
-                null,"olympiaA.png", 0);
+                thirdLevelOlympiaReq, new ArrayList<Material>(), earningOfOlympiaLev1, earningOfOlympiaLev2, earningOfOlympiaLev3,
+                new ArrayList<Material>(),"olympiaA.png", 0);
 
         citiesA.add(olympia);
 
@@ -188,8 +203,8 @@ public class CityManager extends Application {
         earningOfHalicarnassusLev3.add(new Material("Civilian", 7));
 
         City halicarnassus = new City("The Mausoleum of Halicarnassus", earningsOfHalicarnassus, 0, firstLevelHalicarnassusReq, secondLevelHalicarnassusReq,
-                thirdLevelHalicarnassusReq, null, earningOfHalicarnassusLev1, earningOfHalicarnassusLev2, earningOfHalicarnassusLev3,
-                null,"halikarnassusA.png", 0);
+                thirdLevelHalicarnassusReq, new ArrayList<Material>(), earningOfHalicarnassusLev1, earningOfHalicarnassusLev2, earningOfHalicarnassusLev3,
+                new ArrayList<Material>(),"halikarnassusA.png", 0);
 
         citiesA.add(halicarnassus);
 
@@ -214,14 +229,18 @@ public class CityManager extends Application {
         earningOfGizaLev3.add(new Material("Civilian", 7));
 
         City giza = new City("The Pyramids of Giza", earningsOfGiza, 0, firstLevelGizaReq, secondLevelGizaReq,
-                thirdLevelGizaReq, null, earningOfGizaLev1, earningOfGizaLev2, earningOfGizaLev3,
-                null,"gizahA.png", 0);
+                thirdLevelGizaReq, new ArrayList<Material>(), earningOfGizaLev1, earningOfGizaLev2, earningOfGizaLev3,
+                new ArrayList<Material>(),"gizahA.png", 0);
 
         citiesA.add(giza);
 
 
         Collections.shuffle(citiesA);
     }
+
+    /**
+     * This method creates wonders with respect to B side
+     */
     public void createBCities()
     {
         citiesB = new ArrayList<City>();
@@ -264,7 +283,7 @@ public class CityManager extends Application {
         firstLevelReqRhodes.add(new Material("Stone", 3));
         ArrayList<Material> secondLevelReqRhodes = new ArrayList<Material>();
         secondLevelReqRhodes.add(new Material("Ore", 4));
-        ArrayList<Material> thirdLevelReqRhodes = null;
+        ArrayList<Material> thirdLevelReqRhodes = new ArrayList<Material>();
 
 
         ArrayList<Material> earningOfRhodesLev1 = new ArrayList<Material>();
@@ -277,11 +296,11 @@ public class CityManager extends Application {
         earningOfRhodesLev2.add(new Material("Coin", 4));
         earningOfRhodesLev2.add(new Material("Civilian", 4));
 
-        ArrayList<Material> earningOfRhodesLev3 = null;
+        ArrayList<Material> earningOfRhodesLev3 = new ArrayList<Material>();
 
         City rhodes = new City("The Colossus of Rhodes", earningsOfRhodes, 0, firstLevelReqRhodes, secondLevelReqRhodes,
-                thirdLevelReqRhodes, null, earningOfRhodesLev1, earningOfRhodesLev2, earningOfRhodesLev3,
-                null,"rhodosB.png", 1);
+                thirdLevelReqRhodes, new ArrayList<Material>(), earningOfRhodesLev1, earningOfRhodesLev2, earningOfRhodesLev3,
+                new ArrayList<Material>(),"rhodosB.png", 1);
         citiesB.add(rhodes);
 
 
@@ -317,8 +336,8 @@ public class CityManager extends Application {
 
 
         City ephesus = new City("The Temple of Artemis in Ephesus", earningsOfEphesus, 0, firstLevelReqEphesus, secondLevelReqEphesus,
-                thirdLevelReqEphesus, null, earningOfEphesusLev1, earningOfEphesusLev2, earningOfEphesusLev3,
-                null,"ephesosB.png", 1);
+                thirdLevelReqEphesus, new ArrayList<Material>(), earningOfEphesusLev1, earningOfEphesusLev2, earningOfEphesusLev3,
+                new ArrayList<Material>(),"ephesosB.png", 1);
         citiesB.add(ephesus);
 
 
@@ -381,8 +400,8 @@ public class CityManager extends Application {
 
 
         City olympia = new City("The Statue of Zeus in Olympia", earningsOfOlympia, 0, firstLevelOlympiaReq, secondLevelOlympiaReq,
-                thirdLevelOlympiaReq, null, earningOfOlympiaLev1, earningOfOlympiaLev2, earningOfOlympiaLev3,
-                null,"olympiaB.png", 1);
+                thirdLevelOlympiaReq, new ArrayList<Material>(), earningOfOlympiaLev1, earningOfOlympiaLev2, earningOfOlympiaLev3,
+                new ArrayList<Material>(),"olympiaB.png", 1);
 
         citiesB.add(olympia);
 
@@ -410,8 +429,8 @@ public class CityManager extends Application {
         ArrayList<Material> earningOfHalicarnassusLev3 = new ArrayList<Material>();//özel durum
 
         City halicarnassus = new City("The Mausoleum of Halicarnassus", earningsOfHalicarnassus, 0, firstLevelHalicarnassusReq, secondLevelHalicarnassusReq,
-                thirdLevelHalicarnassusReq, null, earningOfHalicarnassusLev1, earningOfHalicarnassusLev2, earningOfHalicarnassusLev3,
-                null,"halikarnassusB.png", 1);
+                thirdLevelHalicarnassusReq, new ArrayList<Material>(), earningOfHalicarnassusLev1, earningOfHalicarnassusLev2, earningOfHalicarnassusLev3,
+                new ArrayList<Material>(),"halikarnassusB.png", 1);
 
         citiesB.add(halicarnassus);
 
@@ -452,11 +471,19 @@ public class CityManager extends Application {
 
     }
 
-    public void arrangeCities(int numberOfPlayers, String chosenCity, int boardType)
+    /**
+     * This method forms the last state of cities. For instance, createACities and createBCities creates
+     * all 7 cities without knowing how many cities were chosen by player. After invoking createACities or createBCities,
+     * this method should be called, it will removed cities which will not be used in the current game.
+     * @param numberOfPlayers
+     * @param chosenCity
+     * @param boardType
+     */
+    public void arrangeCities(int numberOfPlayers, String chosenCity, boolean boardType)
     {
-        for(int i = 0; i < 7; i++)
+        for(int i = 6; 0 <= i; i--)
         {
-            if(boardType == 0)//A side
+            if(boardType == true)//A side
             {
                 if(citiesA.size() != numberOfPlayers && citiesA.get(i).getBoardName() != chosenCity)
                 {
@@ -472,11 +499,18 @@ public class CityManager extends Application {
             }
         }
     }
-    public City getPlayerCity(int boardType, String cityName)
+
+    /**
+     * This method returns the city object which is played by Player
+     * @param boardType
+     * @param cityName
+     * @return chosenCity
+     */
+    public City getPlayerCity(boolean boardType, String cityName)
     {
         City chosenCity = null;
 
-        if(boardType == 0)
+        if(boardType == true)
         {
             for(int i = 0; i < citiesA.size(); i++)
             {
@@ -499,9 +533,9 @@ public class CityManager extends Application {
         return chosenCity;
     }
 
-    public int getNumberOfCities(int boardType)
+    public int getNumberOfCities(boolean boardType)
     {
-        if(boardType == 0)
+        if(boardType == true)
             return citiesA.size();
         else
             return citiesB.size();
@@ -520,9 +554,11 @@ public class CityManager extends Application {
     {
 
         city.setBoardLevel(city.getBoardLevel()+1);
-
-
-
-
+    }
+    public void printCities(ArrayList<City> cardPrint)
+    {
+        for(int i = 0; i < cardPrint.size(); i++){
+        //    cardPrint.get(i).prit();
+        }
     }
 }
