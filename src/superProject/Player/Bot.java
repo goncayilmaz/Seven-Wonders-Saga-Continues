@@ -1,5 +1,7 @@
 package superProject.Player;
 
+import superProject.GameProperties.Card;
+
 import java.util.ArrayList;
 
 public class Bot {
@@ -7,18 +9,16 @@ public class Bot {
     // bu class gözden geçecek
     // bunu yazdım ama tekrardan bakmamız lazım
 
-    private ArrayList<Player> players;
-    private Player player;
+  //  private ArrayList<Player> players;
+  //  private Player player;
 
-    public Player getPlayer() {
-        return player;
-    }
+  //  public Player getPlayer() {return player;}
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
+   // public void setPlayer(Player player) {this.player = player;}
 
-    public void imaginate(){
+    public Card imaginate(Player player, ArrayList<Player> players){
+
+        Card card = player.getCards().get(0);
 
         int playerNumber =players.size();
 
@@ -85,11 +85,21 @@ public class Bot {
         if(playerWarPoint>nearPlayer&&playerWarPoint>awayPlayer){
             // savaş kartı oynama
         }
-
-
-
-
+        else if(playerWarPoint>nearPlayer&&playerWarPoint<awayPlayer){
+            // savaş kartı oynamak için booolean random at
         }
+        else if(playerWarPoint<nearPlayer&&playerWarPoint>awayPlayer){
+            // savaş kartı oynamak için booolean random at
+        }
+        else{
+            //kesin savaş kartı at.
+        }
+
+
+
+
+        return card;
+    }
 
 
 }
