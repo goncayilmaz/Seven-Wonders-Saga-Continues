@@ -39,9 +39,9 @@ public class CityManager extends Application {
             e.printStackTrace();
         }
 
-        createCity(true);
-        arrangeCities(2, "The Hanging Gardens of Babylon", true);
-        printCities(citiesA);
+        createCity(false);
+        arrangeCities(2, "The Hanging Gardens of Babylon", false);
+        printCities(citiesB);
 
     }
     public void createCity(boolean boardType)
