@@ -39,6 +39,13 @@ public class CityManager extends Application {
             e.printStackTrace();
         }
     }
+    public void createCity(boolean boardType)
+    {
+        if(boardType == true)
+            createACities();
+        else
+            createBCities();
+    }
 
     public void createACities()
     {
