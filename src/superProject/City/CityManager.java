@@ -39,7 +39,17 @@ public class CityManager extends Application {
             e.printStackTrace();
         }
     }
+    public void createCity(boolean boardType)
+    {
+        if(boardType == true)
+            createACities();
+        else
+            createBCities();
+    }
 
+    /**
+     * This method creates wonders with respect to A side
+     */
     public void createACities()
     {
 
@@ -225,6 +235,10 @@ public class CityManager extends Application {
 
         Collections.shuffle(citiesA);
     }
+
+    /**
+     * This method creates wonders with respect to B side
+     */
     public void createBCities()
     {
         citiesB = new ArrayList<City>();
@@ -455,6 +469,14 @@ public class CityManager extends Application {
 
     }
 
+    /**
+     * This method forms the last state of cities. For instance, createACities and createBCities creates
+     * all 7 cities without knowing how many cities were chosen by player. After invoking createACities or createBCities,
+     * this method should be called, it will removed cities which will not be used in the current game.
+     * @param numberOfPlayers
+     * @param chosenCity
+     * @param boardType
+     */
     public void arrangeCities(int numberOfPlayers, String chosenCity, int boardType)
     {
         for(int i = 0; i < 7; i++)
@@ -475,6 +497,13 @@ public class CityManager extends Application {
             }
         }
     }
+
+    /**
+     * This method returns the city object which is played by Player
+     * @param boardType
+     * @param cityName
+     * @return chosenCity
+     */
     public City getPlayerCity(int boardType, String cityName)
     {
         City chosenCity = null;
