@@ -499,6 +499,14 @@ public class CityManager extends Application {
         return chosenCity;
     }
 
+    public int getNumberOfCities(int boardType)
+    {
+        if(boardType == 0)
+            return citiesA.size();
+        else
+            return citiesB.size();
+    }
+
     public ArrayList<City> getCitiesA()
     {
         return citiesA;
