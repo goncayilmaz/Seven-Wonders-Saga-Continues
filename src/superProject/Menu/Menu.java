@@ -30,10 +30,10 @@ public class Menu extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
             primaryStage.setTitle("Menu");
 
-            primaryStage.setScene(new Scene(root, 720, 460));
-
-            primaryStage.setResizable(false);
-            primaryStage.centerOnScreen();
+            primaryStage.setScene(new Scene(root));
+            primaryStage.setFullScreen(true);
+            //primaryStage.setResizable(false);
+            //primaryStage.centerOnScreen();
             primaryStage.show();
         }
         catch (Exception e){

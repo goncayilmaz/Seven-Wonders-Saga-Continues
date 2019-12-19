@@ -215,18 +215,18 @@ public class GameEngine implements Initializable {
     }
 
     public void rotateCards(){
-            ArrayList<ArrayList<Card>> hands = new ArrayList<>();
-            // Collect the hands from players
-            for(int i = 0; i < players.size(); i++){
-                ArrayList<Card> hand = players.get(i).getCards();
-                hands.add(hand);
-            }
-            // Rotate
-            Collections.rotate(hands,1);
-            // Distribute the hands to players
-            for(int i = 0; i < players.size(); i++){
-                players.get(i).setCards(hands.get(i));
-            }
+        ArrayList<ArrayList<Card>> hands = new ArrayList<>();
+        // Collect the hands from players
+        for(int i = 0; i < players.size(); i++){
+            ArrayList<Card> hand = players.get(i).getCards();
+            hands.add(hand);
+        }
+        // Rotate
+        Collections.rotate(hands,1);
+        // Distribute the hands to players
+        for(int i = 0; i < players.size(); i++){
+            players.get(i).setCards(hands.get(i));
+        }
     }
 
     public void quitGame(){
