@@ -19,6 +19,13 @@ public class Menu extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        Parent root = FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+        /*
+
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
             primaryStage.setTitle("Menu");
@@ -33,6 +40,7 @@ public class Menu extends Application {
             e.printStackTrace();
         }
 
+         */
 
 
     }

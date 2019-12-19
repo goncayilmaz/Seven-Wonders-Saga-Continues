@@ -1,11 +1,15 @@
 package superProject.Menu;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -13,6 +17,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class Option  implements Initializable {
 
@@ -21,6 +36,25 @@ public class Option  implements Initializable {
     private boolean sound;
     private String languageText;
     private ArrayList<String> languages;
+    Stage stage  = new Stage();
+    AnchorPane root;
+    Scene scene1,scene2;
+
+
+    @FXML
+    private Button creditsButton;
+
+    @FXML
+    private Button startButton;
+
+    @FXML
+    private Button quitButton;
+
+    @FXML
+    private Button optionsButton;
+
+    @FXML
+    private Button tutorialButton;
 
 
 
@@ -30,11 +64,34 @@ public class Option  implements Initializable {
 
     }
 
-    public void optionAc(ActionEvent event){
+    public void optionAc(ActionEvent event) throws Exception{
+
+        Stage stage;
+        Parent root;
+
+try {
+
+
+            stage = (Stage) optionsButton.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../Menu/OptionViewFX.fxml"));
+           // root = FXMLLoader.load(getClass().getResource("FXML2.fxml"));
+
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+}
+catch (Exception e){
+
+}
+
+        /*
         try {
+
             Stage stage = new Stage();
-            AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("../Menu/OptionViewFX.fxml"));
+            root = (AnchorPane)FXMLLoader.load(getClass().getResource("../Menu/OptionViewFX.fxml"));
             stage.setScene(new Scene(root));
+
             stage.setTitle("Options");
             stage.initModality(Modality.WINDOW_MODAL);
             stage.initOwner(((Node)event.getSource()).getScene().getWindow() );
@@ -45,6 +102,8 @@ public class Option  implements Initializable {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
+         */
     }
     public void tutorialAc(ActionEvent event){
         try {

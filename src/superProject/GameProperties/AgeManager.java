@@ -36,7 +36,7 @@ public class AgeManager extends Application {
 
     private void startAge(boolean citySide, CityManager cityM, CardEngine cardE, int noOfPlayers, PlayerEngine playerE){
         currentGameAge = 1;
-        cityM.createCities(citySide);
+        cityM.createCity(citySide);
         cardE.createGameCards(noOfPlayers);
 
         gameAge = new Age( cardE.getFirstAgeCards(), currentGameAge);
