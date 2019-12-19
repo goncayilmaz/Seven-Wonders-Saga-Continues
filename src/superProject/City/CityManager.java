@@ -39,9 +39,9 @@ public class CityManager extends Application {
             e.printStackTrace();
         }
 
-        createCity(true);
-        arrangeCities(2, "The Hanging Gardens of Babylon", true);
-        printCities(citiesA);
+        createCity(false);
+        arrangeCities(2, "The Hanging Gardens of Babylon", false);
+        printCities(citiesB);
 
     }
     public void createCity(boolean boardType)
@@ -506,11 +506,11 @@ public class CityManager extends Application {
      * @param cityName
      * @return chosenCity
      */
-    public City getPlayerCity(int boardType, String cityName)
+    public City getPlayerCity(boolean boardType, String cityName)
     {
         City chosenCity = null;
 
-        if(boardType == 0)
+        if(boardType == true)
         {
             for(int i = 0; i < citiesA.size(); i++)
             {
@@ -533,9 +533,9 @@ public class CityManager extends Application {
         return chosenCity;
     }
 
-    public int getNumberOfCities(int boardType)
+    public int getNumberOfCities(boolean boardType)
     {
-        if(boardType == 0)
+        if(boardType == true)
             return citiesA.size();
         else
             return citiesB.size();
