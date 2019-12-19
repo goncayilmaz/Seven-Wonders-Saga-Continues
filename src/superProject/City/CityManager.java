@@ -66,7 +66,7 @@ public class CityManager extends Application {
         earningOfAlexandriaLev3.add(new Material("Civilian", 7));
 
         City alexandria = new City("The Lighthouse of Alexandria", earningsOfAlexandria, 0, firstLevelReq, secondLevelReq,
-                thirdLevelReq, earningOfAlexandriaLev1, earningOfAlexandriaLev2, earningOfAlexandriaLev3, ".png", 0, true);
+                thirdLevelReq, earningOfAlexandriaLev1, earningOfAlexandriaLev2, earningOfAlexandriaLev3, "alexandriaA.png", 0, true);
 
         citiesA.add(alexandria);
 
@@ -91,7 +91,7 @@ public class CityManager extends Application {
 
         City rhodes = new City("The Colossus of Rhodes", earningsOfRhodes, 0, firstLevelReqRhodes, secondLevelReqRhodes,
                 thirdLevelReqRhodes, null, earningOfRhodesLev1, earningOfRhodesLev2, earningOfRhodesLev3,
-                null,".png", 0);
+                null,"rhodosA.png", 0);
         citiesA.add(rhodes);
 
 
@@ -115,7 +115,7 @@ public class CityManager extends Application {
 
         City ephesus = new City("The Temple of Artemis in Ephesus", earningsOfEphesus, 0, firstLevelReqEphesus, secondLevelReqEphesus,
                 thirdLevelReqEphesus, null, earningOfEphesusLev1, earningOfEphesusLev2, earningOfEphesusLev3,
-                null,".png", 0);
+                null,"ephesosA.png", 0);
         citiesA.add(ephesus);
 
 
@@ -141,7 +141,7 @@ public class CityManager extends Application {
         earningOfBabylonLev3.add(new Material("Civilian", 7));
 
         City babylon = new City("The Hanging Gardens of Babylon", earningsOfBabylon, 0, firstLevelBabylonReq, secondLevelBabylonReq,
-                thirdLevelBabylonReq, earningOfBabylonLev1, earningOfBabylonLev2, earningOfBabylonLev3, ".png", 0, true);
+                thirdLevelBabylonReq, earningOfBabylonLev1, earningOfBabylonLev2, earningOfBabylonLev3, "babylonA.png", 0, true);
 
         citiesA.add(babylon);
 
@@ -166,7 +166,7 @@ public class CityManager extends Application {
 
         City olympia = new City("The Statue of Zeus in Olympia", earningsOfOlympia, 0, firstLevelOlympiaReq, secondLevelOlympiaReq,
                 thirdLevelOlympiaReq, null, earningOfOlympiaLev1, earningOfOlympiaLev2, earningOfOlympiaLev3,
-                null,".png", 0);
+                null,"olympiaA.png", 0);
 
         citiesA.add(olympia);
 
@@ -189,7 +189,7 @@ public class CityManager extends Application {
 
         City halicarnassus = new City("The Mausoleum of Halicarnassus", earningsOfHalicarnassus, 0, firstLevelHalicarnassusReq, secondLevelHalicarnassusReq,
                 thirdLevelHalicarnassusReq, null, earningOfHalicarnassusLev1, earningOfHalicarnassusLev2, earningOfHalicarnassusLev3,
-                null,".png", 0);
+                null,"halikarnassusA.png", 0);
 
         citiesA.add(halicarnassus);
 
@@ -215,7 +215,7 @@ public class CityManager extends Application {
 
         City giza = new City("The Pyramids of Giza", earningsOfGiza, 0, firstLevelGizaReq, secondLevelGizaReq,
                 thirdLevelGizaReq, null, earningOfGizaLev1, earningOfGizaLev2, earningOfGizaLev3,
-                null,".png", 0);
+                null,"gizahA.png", 0);
 
         citiesA.add(giza);
 
@@ -251,7 +251,7 @@ public class CityManager extends Application {
         earningOfAlexandriaLev3.add(new Material("Civilian", 7));
 
         City alexandria = new City("The Lighthouse of Alexandria", earningsOfAlexandria, 0, firstLevelReq, secondLevelReq,
-                thirdLevelReq, earningOfAlexandriaLev1, earningOfAlexandriaLev2, earningOfAlexandriaLev3, ".png", 1, true);
+                thirdLevelReq, earningOfAlexandriaLev1, earningOfAlexandriaLev2, earningOfAlexandriaLev3, "alexandriaB.png", 1, true);
 
         citiesB.add(alexandria);
 
@@ -281,7 +281,7 @@ public class CityManager extends Application {
 
         City rhodes = new City("The Colossus of Rhodes", earningsOfRhodes, 0, firstLevelReqRhodes, secondLevelReqRhodes,
                 thirdLevelReqRhodes, null, earningOfRhodesLev1, earningOfRhodesLev2, earningOfRhodesLev3,
-                null,".png", 1);
+                null,"rhodosB.png", 1);
         citiesB.add(rhodes);
 
 
@@ -318,7 +318,7 @@ public class CityManager extends Application {
 
         City ephesus = new City("The Temple of Artemis in Ephesus", earningsOfEphesus, 0, firstLevelReqEphesus, secondLevelReqEphesus,
                 thirdLevelReqEphesus, null, earningOfEphesusLev1, earningOfEphesusLev2, earningOfEphesusLev3,
-                null,".png", 1);
+                null,"ephesosB.png", 1);
         citiesB.add(ephesus);
 
 
@@ -352,7 +352,7 @@ public class CityManager extends Application {
         earningOfBabylonLev3.add(new Material("ScienceWheel", 1));
 
         City babylon = new City("The Hanging Gardens of Babylon", earningsOfBabylon, 0, firstLevelBabylonReq, secondLevelBabylonReq,
-                thirdLevelBabylonReq, earningOfBabylonLev1, earningOfBabylonLev2, earningOfBabylonLev3, ".png", 1, true);
+                thirdLevelBabylonReq, earningOfBabylonLev1, earningOfBabylonLev2, earningOfBabylonLev3, "babylonB.png", 1, true);
 
         citiesB.add(babylon);
 
@@ -382,7 +382,7 @@ public class CityManager extends Application {
 
         City olympia = new City("The Statue of Zeus in Olympia", earningsOfOlympia, 0, firstLevelOlympiaReq, secondLevelOlympiaReq,
                 thirdLevelOlympiaReq, null, earningOfOlympiaLev1, earningOfOlympiaLev2, earningOfOlympiaLev3,
-                null,".png", 1);
+                null,"olympiaB.png", 1);
 
         citiesB.add(olympia);
 
@@ -411,7 +411,7 @@ public class CityManager extends Application {
 
         City halicarnassus = new City("The Mausoleum of Halicarnassus", earningsOfHalicarnassus, 0, firstLevelHalicarnassusReq, secondLevelHalicarnassusReq,
                 thirdLevelHalicarnassusReq, null, earningOfHalicarnassusLev1, earningOfHalicarnassusLev2, earningOfHalicarnassusLev3,
-                null,".png", 1);
+                null,"halikarnassusB.png", 1);
 
         citiesB.add(halicarnassus);
 
@@ -443,7 +443,7 @@ public class CityManager extends Application {
 
         City giza = new City("The Pyramids of Giza", earningsOfGiza, 0, firstLevelGizaReq, secondLevelGizaReq,
                 thirdLevelGizaReq, fourthLevelGizaReq, earningOfGizaLev1, earningOfGizaLev2, earningOfGizaLev3,
-                earningOfGizaLev4,".png", 1);
+                earningOfGizaLev4,"gizahB.png", 1);
 
         citiesB.add(giza);
 
