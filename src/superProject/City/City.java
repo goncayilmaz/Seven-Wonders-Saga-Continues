@@ -55,11 +55,13 @@ public class City {
         this.cardReqs1 = cardReqs1;
         this.cardReqs2 = cardReqs2;
         this.cardReqs3 = cardReqs3;
-        cardReqs4 = null;
+        cardReqs4 = new ArrayList<Material>();
+        cardReqs4.add(new Material("none",0));
         this.cardSpecsForLevel1 = cardSpecsForLevel1;
         this.cardSpecsForLevel2 = cardSpecsForLevel2;
         this.cardSpecsForLevel3 = cardSpecsForLevel3;
-        cardSpecsForLevel4 = null;
+        cardSpecsForLevel4 = new ArrayList<Material>();
+        cardSpecsForLevel4.add(new Material("none",0));
         this.photoName = photoName;
         this.boardNumber = boardNumber;
         this.orSituation = orSituation;
@@ -201,7 +203,40 @@ public class City {
     {
         this.boardNumber = boardNumber;
     }
-
+    public void print() {
+        System.out.println("boardName: " + boardName  + " boardLevel: " + boardLevel);
+        System.out.print("Requirements: ");
+        for (int i = 0; i < cardSpecs.size(); i++) {
+            cardSpecs.get(i).print();
+        }
+        for (int i = 0; i < cardReqs1.size(); i++) {
+            cardReqs1.get(i).print();
+        }
+        for (int i = 0; i < cardReqs2.size(); i++) {
+            cardReqs2.get(i).print();
+        }
+        for (int i = 0; i < cardReqs3.size(); i++) {
+            cardReqs3.get(i).print();
+        }
+        for (int i = 0; i < cardReqs4.size(); i++) {
+            cardReqs4.get(i).print();
+        }
+        System.out.println();
+        System.out.print("Earnings: ");
+        for (int i = 0; i < cardSpecsForLevel1.size(); i++) {
+            cardSpecsForLevel1.get(i).print();
+        }
+        for (int i = 0; i < cardSpecsForLevel2.size(); i++) {
+            cardSpecsForLevel2.get(i).print();
+        }
+        for (int i = 0; i < cardSpecsForLevel3.size(); i++) {
+            cardSpecsForLevel3.get(i).print();
+        }
+        for (int i = 0; i < cardSpecsForLevel4.size(); i++) {
+            cardSpecsForLevel4.get(i).print();
+        }
+        System.out.println();
+    }
 
     public ArrayList<Material> getLevelItems(City city){
         if(city.getBoardLevel()==1){
@@ -232,7 +267,4 @@ public class City {
 
         }
     }
-
-
-
 }
