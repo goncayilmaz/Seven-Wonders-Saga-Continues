@@ -34,11 +34,12 @@ public class AgeManager extends Application {
     catch(Exception e){}
     }
 
-    private void startAge(boolean citySide, CityManager cityM, CardEngine cardE, int noOfPlayers, PlayerEngine playerE){
+    private void startAge(boolean citySide, CityManager cityM, CardEngine cardE,
+                          int noOfPlayers, PlayerEngine playerE, string chosenCity){
         currentGameAge = 1;
         cityM.createCity(citySide);
         cardE.createGameCards(noOfPlayers);
-
+        cityM.arrangeCities(noOfPlayers, chosenCity, citySide);
         gameAge = new Age( cardE.getFirstAgeCards(), currentGameAge);
     }
     private void finishAge(){
