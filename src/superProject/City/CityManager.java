@@ -472,6 +472,32 @@ public class CityManager extends Application {
             }
         }
     }
+    public City getPlayerCity(int boardType, String cityName)
+    {
+        City chosenCity = null;
+
+        if(boardType == 0)
+        {
+            for(int i = 0; i < citiesA.size(); i++)
+            {
+                if(cityName == citiesA.get(i).getBoardName())
+                {
+                    chosenCity = citiesA.get(i);
+                }
+            }
+        }
+        else
+        {
+            for(int i = 0; i < citiesB.size(); i++)
+            {
+                if(cityName == citiesB.get(i).getBoardName())
+                {
+                    chosenCity = citiesB.get(i);
+                }
+            }
+        }
+        return chosenCity;
+    }
 
     public ArrayList<City> getCitiesA()
     {
