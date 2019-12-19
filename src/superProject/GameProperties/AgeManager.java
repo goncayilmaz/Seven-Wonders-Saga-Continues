@@ -27,11 +27,13 @@ public class AgeManager extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+    try{}
+    catch(Exception e){}
     }
 
     private void startAge(){
-
+        currentGameAge = 1;
+        gameAge = new Age(null/*age1 card listesi array list*/, currentGameAge);
     }
     private void finishAge(){
 

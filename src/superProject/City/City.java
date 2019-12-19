@@ -12,36 +12,65 @@ public class City {
     private ArrayList<Material> cardReqs1; // levele geçmek için verilmesi gerekenler
     private ArrayList<Material> cardReqs2;// levele geçmek için verilmesi gerekenler
     private ArrayList<Material> cardReqs3;// levele geçmek için verilmesi gerekenler
+    private ArrayList<Material> cardReqs4;// B'deki Giza piramidi için
     private ArrayList<Material> cardSpecsForLevel1; // bu değişmiyor galiba tekrar bakayım
     private ArrayList<Material> cardSpecsForLevel2;
     private ArrayList<Material> cardSpecsForLevel3;
+    private ArrayList<Material> cardSpecsForLevel4;
     private String photoName;
     private int boardNumber;
+    private boolean orSituation;
 
     public City(String boardName, ArrayList<Material> cardSpecs,
-               int boardLevel, ArrayList<Material> cardReqs1, ArrayList<Material> cardReqs2,
-               ArrayList<Material> cardReqs3, ArrayList<Material> cardSpecsForLevel1,
-               ArrayList<Material> cardSpecsForLevel2, ArrayList<Material> cardSpecsForLevel3,
-               String photoName, int boardNumber) {
+                int boardLevel, ArrayList<Material> cardReqs1, ArrayList<Material> cardReqs2,
+                ArrayList<Material> cardReqs3, ArrayList<Material> cardReqs4, ArrayList<Material> cardSpecsForLevel1,
+                ArrayList<Material> cardSpecsForLevel2, ArrayList<Material> cardSpecsForLevel3,
+                ArrayList<Material> cardSpecsForLevel4, String photoName, int boardNumber)
+    {
         this.boardName = boardName;
         this.cardSpecs = cardSpecs;
         this.boardLevel = boardLevel;
         this.cardReqs1 = cardReqs1;
         this.cardReqs2 = cardReqs2;
         this.cardReqs3 = cardReqs3;
+        this.cardReqs4 = cardReqs4;
         this.cardSpecsForLevel1 = cardSpecsForLevel1;
         this.cardSpecsForLevel2 = cardSpecsForLevel2;
         this.cardSpecsForLevel3 = cardSpecsForLevel3;
+        this.cardSpecsForLevel4 = cardSpecsForLevel4;
         this.photoName = photoName;
         this.boardNumber = boardNumber;
+        orSituation = false;
     }
-
-    public void increaseLevel(){
+    public City(String boardName, ArrayList<Material> cardSpecs,
+                int boardLevel, ArrayList<Material> cardReqs1, ArrayList<Material> cardReqs2,
+                ArrayList<Material> cardReqs3, ArrayList<Material> cardSpecsForLevel1,
+                ArrayList<Material> cardSpecsForLevel2, ArrayList<Material> cardSpecsForLevel3,
+                String photoName, int boardNumber, boolean orSituation)
+    {
+        this.boardName = boardName;
+        this.cardSpecs = cardSpecs;
+        this.boardLevel = boardLevel;
+        this.cardReqs1 = cardReqs1;
+        this.cardReqs2 = cardReqs2;
+        this.cardReqs3 = cardReqs3;
+        cardReqs4 = null;
+        this.cardSpecsForLevel1 = cardSpecsForLevel1;
+        this.cardSpecsForLevel2 = cardSpecsForLevel2;
+        this.cardSpecsForLevel3 = cardSpecsForLevel3;
+        cardSpecsForLevel4 = null;
+        this.photoName = photoName;
+        this.boardNumber = boardNumber;
+        this.orSituation = orSituation;
+    }
+    public void increaseLevel()
+    {
         boardLevel++;
     }
 
 
-    public ArrayList<Material> getInitialItem(){
+    public ArrayList<Material> getInitialItem()
+    {
         if (boardLevel==0) {
             return cardSpecs;
         }
@@ -62,91 +91,113 @@ public class City {
 
     }
 
-    public String getBoardName() {
+    public String getBoardName()
+    {
         return boardName;
     }
 
-    public void setBoardName(String boardName) {
+    public void setBoardName(String boardName)
+    {
         this.boardName = boardName;
     }
 
-    public ArrayList<Material> getCardSpecs() {
+    public ArrayList<Material> getCardSpecs()
+    {
         return cardSpecs;
     }
 
-    public void setCardSpecs(ArrayList<Material> cardSpecs) {
+    public void setCardSpecs(ArrayList<Material> cardSpecs)
+    {
         this.cardSpecs = cardSpecs;
     }
 
-    public int getBoardLevel() {
+    public int getBoardLevel()
+    {
         return boardLevel;
     }
 
-    public void setBoardLevel(int boardLevel) {
+    public void setBoardLevel(int boardLevel)
+    {
         this.boardLevel = boardLevel;
     }
 
-    public ArrayList<Material> getCardReqs1() {
+    public ArrayList<Material> getCardReqs1()
+    {
         return cardReqs1;
     }
 
-    public void setCardReqs1(ArrayList<Material> cardReqs1) {
+    public void setCardReqs1(ArrayList<Material> cardReqs1)
+    {
         this.cardReqs1 = cardReqs1;
     }
 
-    public ArrayList<Material> getCardReqs2() {
+    public ArrayList<Material> getCardReqs2()
+    {
         return cardReqs2;
     }
 
-    public void setCardReqs2(ArrayList<Material> cardReqs2) {
+    public void setCardReqs2(ArrayList<Material> cardReqs2)
+    {
         this.cardReqs2 = cardReqs2;
     }
 
-    public ArrayList<Material> getCardReqs3() {
+    public ArrayList<Material> getCardReqs3()
+    {
         return cardReqs3;
     }
 
-    public void setCardReqs3(ArrayList<Material> cardReqs3) {
+    public void setCardReqs3(ArrayList<Material> cardReqs3)
+    {
         this.cardReqs3 = cardReqs3;
     }
 
-    public ArrayList<Material> getCardSpecsForLevel1() {
+    public ArrayList<Material> getCardSpecsForLevel1()
+    {
         return cardSpecsForLevel1;
     }
 
-    public void setCardSpecsForLevel1(ArrayList<Material> cardSpecsForLevel1) {
+    public void setCardSpecsForLevel1(ArrayList<Material> cardSpecsForLevel1)
+    {
         this.cardSpecsForLevel1 = cardSpecsForLevel1;
     }
 
-    public ArrayList<Material> getCardSpecsForLevel2() {
+    public ArrayList<Material> getCardSpecsForLevel2()
+    {
         return cardSpecsForLevel2;
     }
 
-    public void setCardSpecsForLevel2(ArrayList<Material> cardSpecsForLevel2) {
+    public void setCardSpecsForLevel2(ArrayList<Material> cardSpecsForLevel2)
+    {
         this.cardSpecsForLevel2 = cardSpecsForLevel2;
     }
 
-    public ArrayList<Material> getCardSpecsForLevel3() {
+    public ArrayList<Material> getCardSpecsForLevel3()
+    {
         return cardSpecsForLevel3;
     }
 
-    public void setCardSpecsForLevel3(ArrayList<Material> cardSpecsForLevel3) {
+    public void setCardSpecsForLevel3(ArrayList<Material> cardSpecsForLevel3)
+    {
         this.cardSpecsForLevel3 = cardSpecsForLevel3;
     }
 
-    public String getPhotoName() {
+    public String getPhotoName()
+    {
         return photoName;
     }
 
-    public void setPhotoName(String photoName) {
+    public void setPhotoName(String photoName)
+    {
         this.photoName = photoName;
     }
 
-    public int getBoardNumber() {
+    public int getBoardNumber()
+    {
         return boardNumber;
     }
 
-    public void setBoardNumber(int boardNumber) {
+    public void setBoardNumber(int boardNumber)
+    {
         this.boardNumber = boardNumber;
     }
 }
