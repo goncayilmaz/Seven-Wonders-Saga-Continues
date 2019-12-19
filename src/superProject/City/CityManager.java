@@ -50,13 +50,16 @@ public class CityManager extends Application {
 
         ArrayList<Material> firstLevelReq = new ArrayList<Material>();
         firstLevelReq.add(new Material("Stone", 2));
+
         ArrayList<Material> secondLevelReq = new ArrayList<Material>();
         secondLevelReq.add(new Material("Ore", 2));
+
         ArrayList<Material> thirdLevelReq = new ArrayList<Material>();
         thirdLevelReq.add(new Material("Glass", 2));
 
         ArrayList<Material> earningOfAlexandriaLev1 = new ArrayList<Material>();
         earningOfAlexandriaLev1.add(new Material("Civilian", 3));
+
         ArrayList<Material> earningOfAlexandriaLev2 = new ArrayList<Material>();
         earningOfAlexandriaLev2.add(new Material("Clay", 1));
         earningOfAlexandriaLev2.add(new Material("Ore", 1));

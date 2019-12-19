@@ -1,6 +1,7 @@
 package superProject.City;
 
 import superProject.GameProperties.Material;
+import superProject.Player.Player;
 
 import java.util.ArrayList;
 
@@ -200,4 +201,38 @@ public class City {
     {
         this.boardNumber = boardNumber;
     }
+
+
+    public ArrayList<Material> getLevelItems(City city){
+        if(city.getBoardLevel()==1){
+            return city.getCardSpecsForLevel1();
+        }
+        if(city.getBoardLevel()==2){
+            return city.getCardSpecsForLevel2();
+        }
+        if(city.getBoardLevel()==3){
+            return city.getCardSpecsForLevel3();
+        }
+        else{
+            return null;
+        }
+    }
+
+    public void construct(City city, Player player){
+        int level = city.getBoardLevel();
+        ArrayList<Material> materialss= new ArrayList<>();
+
+        for(int i=0;i<city.getCardSpecsForLevel1().size();i++){
+            materialss.add(city.getCardSpecsForLevel1().get(i));
+
+        }
+
+        for(int j=0;j<player.getCardsOnTable().size();j++) {
+            materialss.add(player.getCardsOnTable().get(j).getEarnings().get(j));
+
+        }
+    }
+
+
+
 }
