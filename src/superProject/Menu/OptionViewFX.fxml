@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
+<AnchorPane prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
    <children>
       <Label layoutX="199.0" layoutY="30.0" text="Options">
          <font>
@@ -17,5 +15,7 @@
       <CheckBox fx:id="musicBox" layoutX="160.0" layoutY="112.0" mnemonicParsing="false" onMousePressed="#musicCheck" prefHeight="23.0" prefWidth="133.0" text="Music" />
       <CheckBox fx:id="soundBox" layoutX="160.0" layoutY="156.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="133.0" text="Sound" />
       <ComboBox fx:id="languageBox" layoutX="157.0" layoutY="198.0" prefWidth="150.0" promptText="Language" />
+      <Button layoutX="370.0" layoutY="246.0" mnemonicParsing="false" text="Return" />
+      <ImageView fitHeight="300.0" fitWidth="450.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
