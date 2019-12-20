@@ -3,6 +3,7 @@ package superProject.GameProperties;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import superProject.City.City;
+import superProject.Controller.CardEngine;
 import superProject.City.CityManager;
 import superProject.Player.PlayerEngine;
 
@@ -33,6 +34,8 @@ public class AgeManager extends Application {
     try{}
     catch(Exception e){}
     }
+
+
 
     private void startAge(boolean citySide, CityManager cityM, CardEngine cardE,
                           int noOfPlayers, PlayerEngine playerE, String chosenCity){
