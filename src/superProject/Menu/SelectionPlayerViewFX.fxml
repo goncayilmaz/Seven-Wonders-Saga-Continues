@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.SelectionPlayerManage">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.SelectionPlayerManager">
    <children>
-      <Button layoutX="174.0" layoutY="206.0" mnemonicParsing="false" onAction="#selectCity" text="NEXT" />
-      <Button fx:id="incresePlayerButton" layoutX="269.0" layoutY="115.0" mnemonicParsing="false" onAction="#increasePlayer" text="&gt;">
+      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="-5.0" layoutY="10.0" opacity="0.49" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/7wonders.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="nextToSelection" layoutX="497.0" layoutY="558.0" mnemonicParsing="false" onAction="#selectCity" prefHeight="0.0" prefWidth="53.0" text="NEXT" />
+      <Button fx:id="incresePlayerButton" layoutX="738.0" layoutY="274.0" mnemonicParsing="false" onAction="#increasePlayer" prefHeight="175.0" prefWidth="120.0" text="&gt;">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="decreasePlayerButton" layoutX="72.0" layoutY="115.0" mnemonicParsing="false" onAction="#decreasePlayer" text="&lt;">
+      <Button fx:id="decreasePlayerButton" layoutX="171.0" layoutY="274.0" mnemonicParsing="false" onAction="#decreasePlayer" prefHeight="175.0" prefWidth="120.0" text="&lt;">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Label fx:id="playerNumberLabel" layoutX="154.0" layoutY="108.0" prefHeight="58.0" prefWidth="93.0" text="Player Number" />
+      <Label fx:id="playerNumberLabel" layoutX="365.0" layoutY="256.0" prefHeight="202.0" prefWidth="278.0" text="Player Number" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font></Label>
+      <Button fx:id="buttonBack" layoutX="897.0" layoutY="589.0" mnemonicParsing="false" onAction="#backToMainMenu" text="Back" />
    </children>
 </AnchorPane>

@@ -3,7 +3,8 @@ package superProject.GameProperties;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import superProject.City.City;
-import superProject.Controller.CardEngine;
+import superProject.GameProperties.CardEngine;
+
 import superProject.City.CityManager;
 import superProject.Player.PlayerEngine;
 

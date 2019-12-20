@@ -9,19 +9,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="461.0" prefWidth="718.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
 
    <children>
       <Canvas height="200.0" width="200.0" />
-      <ImageView fitHeight="490.0" fitWidth="718.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="720.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../../Images/7wonders.jpg" />
          </image>
       </ImageView>
-      <Button id="startGameButton" fx:id="startButton" layoutX="321.0" layoutY="206.0" mnemonicParsing="false" onAction="#startGame" text="Start Game" />
-      <Button id="optionsButton" fx:id="optionsButton" layoutX="330.0" layoutY="259.0" mnemonicParsing="false" onAction="#optionAc" text="Options" />
-      <Button id="tutorialButton" fx:id="tutorialButton" layoutX="331.0" layoutY="310.0" mnemonicParsing="false" onAction="#tutorialAc" text="Tutorial" />
-      <Button id="creditsButton" fx:id="creditsButton" layoutX="33.0" layoutY="406.0" mnemonicParsing="false" onAction="#creditsAc" text="Credits" />
-      <Button id="quitButton" fx:id="quitButton" layoutX="629.0" layoutY="407.0" mnemonicParsing="false" onAction="#quitGame" text="Quit" />
+      <Button id="startGameButton" fx:id="startButton" layoutX="494.0" layoutY="294.0" mnemonicParsing="false" onAction="#startGame" text="Start Game" />
+      <Button id="optionsButton" fx:id="optionsButton" layoutX="509.0" layoutY="349.0" mnemonicParsing="false" onAction="#optionAc" text="Options" />
+      <Button id="tutorialButton" fx:id="tutorialButton" layoutX="510.0" layoutY="411.0" mnemonicParsing="false" onAction="#tutorialAc" text="Tutorial" />
+      <Button id="creditsButton" fx:id="creditsButton" layoutX="67.0" layoutY="579.0" mnemonicParsing="false" onAction="#creditsAc" text="Credits" />
+      <Button id="quitButton" fx:id="quitButton" layoutX="937.0" layoutY="560.0" mnemonicParsing="false" onAction="#quitGame" text="Quit" />
    </children>
 </AnchorPane>

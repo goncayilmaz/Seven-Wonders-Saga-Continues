@@ -40,6 +40,10 @@ public class Option  implements Initializable {
 
 
     @FXML
+    private Button tutorialButton;
+
+
+    @FXML
     private Button creditsButton;
 
     @FXML
@@ -52,9 +56,6 @@ public class Option  implements Initializable {
     private Button optionsButton;
 
     @FXML
-    private Button tutorialButton;
-
-    @FXML
     private CheckBox soundBox;
 
     @FXML
@@ -62,6 +63,13 @@ public class Option  implements Initializable {
 
     @FXML
     private ComboBox<String> languageBox;
+
+    @FXML
+    private Button returnButton;
+
+    @FXML
+    private Button buttonOkk;
+
 
 
 
@@ -86,6 +94,48 @@ public class Option  implements Initializable {
         }
     }
 
+    public void returnToMenu(ActionEvent event) throws Exception{
+
+        Stage stage;
+        Parent root;
+
+        try {
+            stage = (Stage) returnButton.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        }
+        catch (Exception e){
+
+        }
+
+
+    }
+    public void returnToMenuFromPopUp(ActionEvent event) throws Exception{
+
+        Stage stage;
+        Parent root;
+
+        try {
+            stage = (Stage) buttonOkk.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        }
+        catch (Exception e){
+
+        }
+
+
+    }
+
+
     public void optionAc(ActionEvent event) throws Exception{
 
         Stage stage;
@@ -103,9 +153,30 @@ public class Option  implements Initializable {
         catch (Exception e){
 
         }
+    }
 
+    public void startGame(ActionEvent event){
+        Stage stage;
+        Parent root;
+
+        try {
+            stage = (Stage) startButton.getScene().getWindow();
+            System.out.println("efe");
+
+            root=FXMLLoader.load(getClass().getResource("../Menu/SelectionPlayerViewFX.fxml"));
+
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (Exception e){
+
+
+        }
 
     }
+
     public void tutorialAc(ActionEvent event){
         Stage stage;
         Parent root;
@@ -123,6 +194,7 @@ public class Option  implements Initializable {
         }
 
     }
+
     public void creditsAc(ActionEvent event){
         Stage stage;
         Parent root;
@@ -141,23 +213,6 @@ public class Option  implements Initializable {
 
     }
 
-    public void startGame(ActionEvent event){
-        Stage stage;
-        Parent root;
-
-        try {
-            stage = (Stage) startButton.getScene().getWindow();
-            root=FXMLLoader.load(getClass().getResource("../Menu/SelectionPlayerViewFX.fxml"));
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }
-        catch (Exception e){
-
-        }
-
-    }
     public void quitGame(ActionEvent event){
         System.exit(1);
 

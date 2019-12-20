@@ -3,7 +3,8 @@ package superProject.GameMain;
 import javafx.fxml.Initializable;
 import superProject.City.CityManager;
 import superProject.Controller.FileEngine;
-import superProject.GameProperties.*;
+import superProject.GameProperties.AgeManager;
+import superProject.GameProperties.CardEngine;
 import superProject.Menu.Option;
 import superProject.Player.PlayerEngine;
 import superProject.Player.Bot;
@@ -203,17 +204,17 @@ public class GameEngine implements Initializable {
 
     public void startGame(){
 
-/*
+
         AgeManager ageManager = new AgeManager();
         CityManager cityManager = new CityManager();
         PlayerEngine playerEngine = new PlayerEngine();
         CardEngine cardEngine = new CardEngine();
 
-       // cityManager.createCity(boardSide);
+       cityManager.createCity(boardSide);
         //cityManager.arrangeCities(numberOfPlayers, ,boardSide);
 
 
- */
+
     }
     public void finishGame(){
 
