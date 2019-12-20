@@ -1,17 +1,20 @@
 package superProject.City;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import superProject.GameProperties.Material;
 
-import java.awt.event.ActionEvent;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,10 +25,28 @@ public class CityManager implements Initializable {
     private ArrayList<City> citiesA;
     private ArrayList<City> citiesB;
 
+
+    @FXML
+    private Button startButton;
+
+    @FXML
+    private RadioButton radioA;
+
+    @FXML
+    private RadioButton radioB;
+
+    @FXML
+    private ImageView firstImage;
+
+    @FXML
+    private Button prevButton;
+
     @FXML
     private ImageView firstSelected;
 
     private int numberOfCities;
+
+
 
 
     @Override
@@ -34,7 +55,33 @@ public class CityManager implements Initializable {
         arrangeCities(2, "The Hanging Gardens of Babylon", false);
         printCities(citiesB);
 
+
+
+
     }
+     @FXML
+     void prevv(ActionEvent event)throws Exception{
+
+        Stage stage;
+        Parent root;
+
+        try {
+            stage = (Stage) prevButton.getScene().getWindow();
+            System.out.println("sorun1");
+           root=FXMLLoader.load(getClass().getResource("../Menu/SelectionPlayerViewFX.fxml"));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (Exception e){
+            System.out.println("sorun2");
+
+        }
+    }
+
+
+
 
     public void firstSelected(MouseEvent event)throws Exception{
 

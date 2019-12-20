@@ -13,11 +13,11 @@
             <Image url="@../../Images/7wonders.jpg" />
          </image>
       </ImageView>
-      <RadioButton layoutX="101.0" layoutY="581.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="66.0" text="A">
+      <RadioButton fx:id="radioA" layoutX="101.0" layoutY="581.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="66.0" text="A">
          <font>
             <Font size="27.0" />
          </font></RadioButton>
-      <RadioButton layoutX="185.0" layoutY="584.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="86.0" text="B">
+      <RadioButton fx:id="radioB" layoutX="185.0" layoutY="584.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="86.0" text="B">
          <font>
             <Font size="27.0" />
          </font></RadioButton>
@@ -72,11 +72,11 @@
             </ImageView>
          </children>
       </GridPane>
-      <Button layoutX="65.0" layoutY="58.0" mnemonicParsing="false" text="Prev" />
-      <Button layoutX="572.0" layoutY="592.0" mnemonicParsing="false" text="Start" />
+      <Button fx:id="startButton" layoutX="572.0" layoutY="592.0" mnemonicParsing="false" text="Start" />
       <ImageView fitHeight="166.0" fitWidth="290.0" layoutX="459.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/tokens/coin.png" />
          </image></ImageView>
+      <Button fx:id="prevButton" layoutX="65.0" layoutY="58.0" mnemonicParsing="false" onAction="#prevv" text="Prev" />
    </children>
 </AnchorPane>
