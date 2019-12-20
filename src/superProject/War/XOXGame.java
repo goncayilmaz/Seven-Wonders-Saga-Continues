@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -185,6 +186,10 @@ public class XOXGame extends Application {
     }
     public Tile getTile(int tileNo){
         return board[(tileNo/3)][(tileNo % 3)];
+    }
+
+    public boolean playXOX(){
+        return true;
     }
 
     public static void main(String[] args) {
