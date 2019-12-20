@@ -3,6 +3,8 @@ package superProject.GameMain;
 import javafx.fxml.Initializable;
 import superProject.City.CityManager;
 import superProject.Controller.FileEngine;
+import superProject.GameProperties.AgeManager;
+import superProject.GameProperties.CardEngine;
 import superProject.Menu.Option;
 import superProject.Player.PlayerEngine;
 import superProject.Player.Bot;
@@ -36,13 +38,15 @@ public class GameEngine implements Initializable {
     private ArrayList<Bot> bots;
     private FileEngine fileEngine;
     private boolean warState;
+    private boolean boardSide;
 
 
     public GameEngine(boolean gameLevel, Option controllerListener, ArrayList<Integer> scores,
                       ArrayList<Integer> currentScores, boolean isRun, boolean isFinish,
                       int currentTurn, GameEngine gameEngine, ArrayList<Player> players,
                       int numberOfPlayers, PlayerEngine playerEngine, ArrayList<Card> cards,
-                      ArrayList<City> cities, CityManager cityManager, ArrayList<Bot> bots, FileEngine fileEngine) {
+                      ArrayList<City> cities, CityManager cityManager, ArrayList<Bot> bots,
+                      FileEngine fileEngine, boolean boardSide) {
         this.gameLevel = gameLevel;
         this.controllerListener = controllerListener;
         this.scores = scores;
@@ -59,6 +63,7 @@ public class GameEngine implements Initializable {
         this.cityManager = cityManager;
         this.bots = bots;
         this.fileEngine = fileEngine;
+        this.boardSide = boardSide;
     }
 
 
@@ -193,7 +198,18 @@ public class GameEngine implements Initializable {
         this.fileEngine = fileEngine;
     }
 
+    public boolean getBoardSide() { return boardSide; }
+
+    public void setBoardSide(boolean boardSide) { this.boardSide = boardSide; }
+
     public void startGame(){
+        AgeManager ageManager = new AgeManager();
+        CityManager cityManager = new CityManager();
+        PlayerEngine playerEngine = new PlayerEngine();
+        CardEngine cardEngine = new CardEngine();
+
+        cityManager.createCity(boardSide);
+        //cityManager.arrangeCities(numberOfPlayers, ,boardSide);
 
     }
     public void finishGame(){
