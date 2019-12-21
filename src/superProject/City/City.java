@@ -62,7 +62,6 @@ public class City {
         maxCityLevel = 0;
         orSituation = false;
     }
-
     public City(String boardName, ArrayList<Material> cardSpecs,
                 int boardLevel, ArrayList<Material> cardReqs1, ArrayList<Material> cardReqs2,
                 ArrayList<Material> cardReqs3, ArrayList<Material> cardSpecsForLevel1,
@@ -117,7 +116,6 @@ public class City {
 
         }
     }
-
 
     public String getBoardName()
     {
@@ -238,7 +236,6 @@ public class City {
     {
         this.boardNumber = boardNumber;
     }
-
     public void print() {
         System.out.println("boardName: " + boardName  + " boardLevel: " + boardLevel);
         System.out.print("Requirements: ");
@@ -298,7 +295,7 @@ public class City {
         if(level < city.getMaxCityLevel())
         {
             ArrayList<Material> materialss= new ArrayList<>();
-            materialss.add(city.getCardSpecs().get(0));
+            materialss.add(city.getCardSpecs());
             if(level > 0)
             {
                 for(int i=0;i<city.getCardSpecsForLevel1().size();i++)
@@ -340,7 +337,10 @@ public class City {
                     }
                 }
             }
-
+            for(int i = 0; i < materialss.size(); i++)
+            {
+                materialss.get(i).print();
+            }
             for(int j=0;j<player.getCardsOnTable().size();j++)
             {
                 if(player.getCardsOnTable().get(j).getEarnings().get(j).isWonderConstructorMaterial())
@@ -357,16 +357,24 @@ public class City {
                     counter = 0;
                     for(int j = 0; j < materialss.size(); j++)
                     {
+                        if(!contains(materialss, reqMaterial.get(i).getName()))
+                            return false;
                         if(reqMaterial.get(i).getName() == materialss.get(j).getName())
                         {
+
                             counter = counter + materialss.get(j).getCount();
-                            if(reqMaterial.get(i).getCount() == counter)
+                            System.out.println("counter:" + counter);
+                            if(j == materialss.size()-2)
                             {
-                                flag = true;
-                            }
-                            else
-                            {
-                                flag = false;
+                                if(reqMaterial.get(i).getCount() <= counter)
+                                {
+                                    System.out.println("name:  " + reqMaterial.get(i).getName() + "count:  " + reqMaterial.get(i).getCount());
+                                    flag = true;
+                                }
+                                else
+                                {
+                                    flag = false;
+                                }
                             }
                         }
                     }
@@ -382,16 +390,24 @@ public class City {
                     counter = 0;
                     for(int j = 0; j < materialss.size(); j++)
                     {
+                        if(!contains(materialss, reqMaterial.get(i).getName()))
+                            return false;
                         if(reqMaterial.get(i).getName() == materialss.get(j).getName())
                         {
+
                             counter = counter + materialss.get(j).getCount();
-                            if(reqMaterial.get(i).getCount() == counter)
+                            System.out.println("counter:" + counter);
+                            if(j == materialss.size()-2)
                             {
-                                flag = true;
-                            }
-                            else
-                            {
-                                flag = false;
+                                if(reqMaterial.get(i).getCount() <= counter)
+                                {
+                                    System.out.println("name:  " + reqMaterial.get(i).getName() + "count:  " + reqMaterial.get(i).getCount());
+                                    flag = true;
+                                }
+                                else
+                                {
+                                    flag = false;
+                                }
                             }
                         }
                     }
@@ -407,18 +423,27 @@ public class City {
                     counter = 0;
                     for(int j = 0; j < materialss.size(); j++)
                     {
+                        if(!contains(materialss, reqMaterial.get(i).getName()))
+                            return false;
                         if(reqMaterial.get(i).getName() == materialss.get(j).getName())
                         {
+
                             counter = counter + materialss.get(j).getCount();
-                            if(reqMaterial.get(i).getCount() == counter)
+                            System.out.println("counter:" + counter);
+                            if(j == materialss.size()-2)
                             {
-                                flag = true;
-                            }
-                            else
-                            {
-                                flag = false;
+                                if(reqMaterial.get(i).getCount() <= counter)
+                                {
+                                    System.out.println("name:  " + reqMaterial.get(i).getName() + "count:  " + reqMaterial.get(i).getCount());
+                                    flag = true;
+                                }
+                                else
+                                {
+                                    flag = false;
+                                }
                             }
                         }
+
                     }
                 }
                 return flag;
@@ -432,16 +457,24 @@ public class City {
                     counter = 0;
                     for(int j = 0; j < materialss.size(); j++)
                     {
+                        if(!contains(materialss, reqMaterial.get(i).getName()))
+                            return false;
                         if(reqMaterial.get(i).getName() == materialss.get(j).getName())
                         {
+
                             counter = counter + materialss.get(j).getCount();
-                            if(reqMaterial.get(i).getCount() == counter)
+                            System.out.println("counter:" + counter);
+                            if(j == materialss.size()-2)
                             {
-                                flag = true;
-                            }
-                            else
-                            {
-                                flag = false;
+                                if(reqMaterial.get(i).getCount() <= counter)
+                                {
+                                    System.out.println("name:  " + reqMaterial.get(i).getName() + "count:  " + reqMaterial.get(i).getCount());
+                                    flag = true;
+                                }
+                                else
+                                {
+                                    flag = false;
+                                }
                             }
                         }
                     }
@@ -451,5 +484,15 @@ public class City {
         }
         return false;
 
+    }
+    public static boolean contains(ArrayList<Material> arr, String matName)
+    {
+        for(int i = 0; i < arr.size(); i++)
+        {
+            if(matName == arr.get(i).getName())
+                return true;
+            return false;
+        }
+        return false;
     }
 }

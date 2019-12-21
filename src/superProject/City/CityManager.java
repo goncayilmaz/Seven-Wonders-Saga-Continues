@@ -54,14 +54,14 @@ public class CityManager implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         createCity(false);
         arrangeCities(2, "The Hanging Gardens of Babylon", false);
-        printBCities();
+        //printCities(citiesB);
 
 
 
 
     }
-     @FXML
-     void prevv(ActionEvent event)throws Exception{
+    @FXML
+    void prevv(ActionEvent event)throws Exception{
 
         Stage stage;
         Parent root;
@@ -69,7 +69,7 @@ public class CityManager implements Initializable {
         try {
             stage = (Stage) prevButton.getScene().getWindow();
             System.out.println("sorun1");
-           root=FXMLLoader.load(getClass().getResource("../Menu/SelectionPlayerViewFX.fxml"));
+            root=FXMLLoader.load(getClass().getResource("../Menu/SelectionPlayerViewFX.fxml"));
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -95,7 +95,7 @@ public class CityManager implements Initializable {
             stage.show();
         }
         catch (Exception e){
-           e.printStackTrace();
+            e.printStackTrace();
 
 
         }
@@ -108,13 +108,64 @@ public class CityManager implements Initializable {
     public void firstSelected(MouseEvent event)throws Exception{
 
         try{
-        System.out.println("efeasd");
-        firstSelected.setRotate(12);
-    }catch (Exception e) {
+            System.out.println("efeasd");
+            firstSelected.setRotate(12);
+        }catch (Exception e) {
         }
     }
 
+/*
 
+    @Override
+    public void start(Stage primaryStage) throws Exception
+    {
+
+
+        try
+        {
+
+            Parent root = FXMLLoader.load(getClass().getResource("../Menu/CitySelectionViewFX.fxml"));
+            primaryStage.setTitle("City Selection");
+
+            primaryStage.setScene(new Scene(root, 500, 350));
+            primaryStage.setResizable(false);
+            primaryStage.show();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+
+
+    }
+    */
+
+    /**
+     * bu şehri sonraki levela geçirme fonksyionunu denemek için
+     * @param args
+     */
+    public static void main(String [] args)
+    {
+        CityManager c = new CityManager();
+        c.createCity(true);
+        c.arrangeCities(4, "The Colossus of Rhodes", true);
+        Player p = new Player();
+        City a = c.getPlayerCity(true, "The Colossus of Rhodes");
+        a.setBoardLevel(2);
+        ArrayList<Material> n = new ArrayList<Material>();
+        //n.add(new Material("Stone", 1));
+        n.add(new Material("Ore", 5));
+        //n.add(new Material("Stone", 4));
+        //n.add(new Material("Stone", 2));
+        a.setCardReqs3(n);
+        ArrayList<Material> m = new ArrayList<Material>();
+        m.add(new Material("Ore" , 3));
+        a.setCardSpecsForLevel1(m);
+        System.out.println(a.getBoardLevel());
+        c.changeCityStage(a, p);
+        System.out.println(a.getBoardLevel());
+    }
     public void createCity(boolean boardType) {
         if (boardType == true)
             createACities();
@@ -585,9 +636,10 @@ public class CityManager implements Initializable {
         city.increaseLevel(player);
     }
 
+
     public void printACities() {
         for (int i = 0; i < citiesA.size(); i++) {
-             citiesA.get(i).print();
+            citiesA.get(i).print();
         }
     }
     public void printBCities() {
