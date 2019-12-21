@@ -7,15 +7,12 @@ import java.util.ArrayList;
 
 public class PlayerEngine {
 
-    private ArrayList<Player> players;
-    private ArrayList<Player> winners;
-
-
-
-
+    private Player player;
+    private ArrayList<Bot> bots;
+    //private ArrayList<Player> winners;
 
     public int getHighScore(){
-        int max=0;
+        int max=player.getScore();
         for(int i=0;i<players.size();i++){
             if(players.get(i).getScore()>max){
                 max=players.get(i).getScore();
@@ -43,9 +40,11 @@ public class PlayerEngine {
 
     }
 
-    public Player getPlayer(int player){
-        return players.get(player);
-
+    public Player getPlayer(){
+        return player;
+    }
+    public Bot getBot(int bot){
+        return bots.get(bot);
     }
     public ArrayList<Card> getCardsEntity(Player player){
         return player.getCards();
@@ -63,10 +62,10 @@ public class PlayerEngine {
 
 
     }
-    public ArrayList<Player> getWinners(int playerNumber){
+    /*public ArrayList<Player> getWinners(int playerNumber){
 
         return winners;
-    }
+    }*/
 
 
     public void startAttack(){
