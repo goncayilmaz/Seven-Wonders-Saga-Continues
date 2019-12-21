@@ -270,16 +270,65 @@ public class City {
 
     public void construct(City city, Player player){
         int level = city.getBoardLevel();
-        ArrayList<Material> materialss= new ArrayList<>();
+        if(level < city.getMaxCityLevel())
+        {
+            ArrayList<Material> materialss= new ArrayList<>();
+            materialss.add(city.getCardSpecs().get(0));
+            if(level > 0)
+            {
+                for(int i=0;i<city.getCardSpecsForLevel1().size();i++)
+                {
+                    if(city.getCardSpecsForLevel1().get(i).isWonderConstructorMaterial())
+                    {
+                        materialss.add(city.getCardSpecsForLevel1().get(i));
+                    }
 
-        for(int i=0;i<city.getCardSpecsForLevel1().size();i++){
-            materialss.add(city.getCardSpecsForLevel1().get(i));
+                }
+            }
+            if(level > 1)
+            {
+                for(int i = 0; i < city.getCardSpecsForLevel2().size(); i++)
+                {
+                    if(city.getCardSpecsForLevel2().get(i).isWonderConstructorMaterial())
+                    {
+                        materialss.add(city.getCardSpecsForLevel2().get(i));
+                    }
+                }
+            }
+            if(level > 2)
+            {
+                for(int i = 0; i < city.getCardSpecsForLevel3().size(); i++)
+                {
+                    if(city.getCardSpecsForLevel3().get(i).isWonderConstructorMaterial())
+                    {
+                        materialss.add(city.getCardSpecsForLevel3().get(i));
+                    }
+                }
+            }
+            if(level > 3)
+            {
+                for(int i = 0; i < city.getCardSpecsForLevel4().size(); i++)
+                {
+                    if(city.getCardSpecsForLevel4().get(i).isWonderConstructorMaterial())
+                    {
+                        materialss.add(city.getCardSpecsForLevel4().get(i));
+                    }
+                }
+            }
 
+            for(int j=0;j<player.getCardsOnTable().size();j++)
+            {
+                if(player.getCardsOnTable().get(j).getEarnings().get(j).isWonderConstructorMaterial())
+                {
+                    materialss.add(player.getCardsOnTable().get(j).getEarnings().get(j));
+                }
+            }
+            if(level == 0)
+            {
+                ArrayList<Material> reqMaterial = city.getCardReqs1();
+
+            }
         }
 
-        for(int j=0;j<player.getCardsOnTable().size();j++) {
-            materialss.add(player.getCardsOnTable().get(j).getEarnings().get(j));
-
-        }
     }
 }
