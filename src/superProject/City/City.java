@@ -48,7 +48,7 @@ public class City {
 
     public City(){
         boardLevel = 0;
-        boardName = "";
+        boardName = "nocity";
         boardNumber = 0;
         cardReqs1 = new ArrayList<Material>();
         cardReqs2 = new ArrayList<Material>();
@@ -298,7 +298,7 @@ public class City {
         if(level < city.getMaxCityLevel())
         {
             ArrayList<Material> materialss= new ArrayList<>();
-            materialss.add(city.getCardSpecs().get(0));
+            // materialss.add(city.getCardSpecs());
             if(level > 0)
             {
                 for(int i=0;i<city.getCardSpecsForLevel1().size();i++)
