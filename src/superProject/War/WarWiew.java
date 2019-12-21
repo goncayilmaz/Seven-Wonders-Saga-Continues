@@ -58,7 +58,6 @@ public class WarWiew implements Initializable {
         setLeftNeighbour(leftNeighbour);
         setRightNeighbour(rightNeighbour);
         setMainPlayer(mainPlayer);
-
     }
 
     public double getPrefHeightSmall(){

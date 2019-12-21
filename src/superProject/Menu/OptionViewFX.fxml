@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
+<AnchorPane prefHeight="842.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
    <children>
-      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="22.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="720.0" fitWidth="1440.0" layoutX="22.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="61.0">
          <image>
             <Image url="@../../Images/7wonders.jpg" />
          </image></ImageView>
-      <Label layoutX="505.0" layoutY="17.0" text="Options" textFill="#fffafa">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="505.0" layoutY="297.0" text="Options" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="690.0" AnchorPane.topAnchor="360.0">
          <font>
-            <Font name="System Bold" size="28.0" />
+            <Font name="Avenir Next Condensed Demi Bold" size="28.0" />
          </font>
       </Label>
-      <CheckBox fx:id="musicBox" layoutX="501.0" layoutY="287.0" mnemonicParsing="false" onMousePressed="#musicCheck" prefHeight="23.0" prefWidth="133.0" text="Music" />
-      <CheckBox fx:id="soundBox" layoutX="505.0" layoutY="335.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="133.0" text="Sound" />
-      <ComboBox fx:id="languageBox" layoutX="474.0" layoutY="382.0" prefWidth="150.0" promptText="Language" />
-      <Button fx:id="returnButton" layoutX="925.0" layoutY="350.0" mnemonicParsing="false" onAction="#returnToMenu" text="Return" />
+      <CheckBox fx:id="musicBox" alignment="CENTER" layoutX="469.0" layoutY="357.0" mnemonicParsing="false" onMousePressed="#musicCheck" prefHeight="23.0" prefWidth="133.0" text="Music" textFill="WHITE" AnchorPane.leftAnchor="469.0" AnchorPane.rightAnchor="471.0" AnchorPane.topAnchor="410.0">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="15.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="soundBox" alignment="CENTER" layoutX="469.0" layoutY="395.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="133.0" text="Sound" textFill="WHITE" AnchorPane.leftAnchor="469.0" AnchorPane.rightAnchor="471.0" AnchorPane.topAnchor="450.0">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="15.0" />
+         </font></CheckBox>
+      <ComboBox fx:id="languageBox" layoutX="680.0" layoutY="438.0" prefWidth="150.0" promptText="Language" AnchorPane.leftAnchor="680.0" AnchorPane.topAnchor="490.0" />
+      <Button fx:id="returnButton" layoutX="925.0" layoutY="350.0" mnemonicParsing="false" onAction="#returnToMenu" text="Return" AnchorPane.topAnchor="550.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.canvas.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
+<AnchorPane prefHeight="842.0" prefWidth="1440.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
 
    <children>
-      <Canvas height="200.0" width="200.0" />
-      <ImageView fitHeight="720.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Canvas height="200.0" nodeOrientation="INHERIT" width="200.0" />
+      <ImageView fitHeight="720.0" fitWidth="1080.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="61.0">
          <image>
             <Image url="@../../Images/7wonders.jpg" />
          </image>
       </ImageView>
-      <Button id="startGameButton" fx:id="startButton" layoutX="494.0" layoutY="294.0" mnemonicParsing="false" onAction="#startGame" text="Start Game" />
-      <Button id="optionsButton" fx:id="optionsButton" layoutX="509.0" layoutY="349.0" mnemonicParsing="false" onAction="#optionAc" text="Options" />
-      <Button id="tutorialButton" fx:id="tutorialButton" layoutX="510.0" layoutY="411.0" mnemonicParsing="false" onAction="#tutorialAc" text="Tutorial" />
-      <Button id="creditsButton" fx:id="creditsButton" layoutX="67.0" layoutY="579.0" mnemonicParsing="false" onAction="#creditsAc" text="Credits" />
-      <Button id="quitButton" fx:id="quitButton" layoutX="937.0" layoutY="560.0" mnemonicParsing="false" onAction="#quitGame" text="Quit" />
+      <Button id="startGameButton" fx:id="startButton" alignment="CENTER" layoutX="494.0" layoutY="294.0" mnemonicParsing="false" onAction="#startGame" text="Start Game" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="340.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="24.0" />
+         </font></Button>
+      <Button id="optionsButton" fx:id="optionsButton" layoutX="509.0" layoutY="349.0" mnemonicParsing="false" onAction="#optionAc" text="Options" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="410.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="24.0" />
+         </font></Button>
+      <Button id="tutorialButton" fx:id="tutorialButton" alignment="CENTER" cache="true" contentDisplay="CENTER" defaultButton="true" layoutX="510.0" layoutY="411.0" mnemonicParsing="false" onAction="#tutorialAc" text="Tutorial" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="480.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="24.0" />
+         </font></Button>
+      <Button id="creditsButton" fx:id="creditsButton" layoutX="67.0" layoutY="579.0" mnemonicParsing="false" onAction="#creditsAc" text="Credits" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="940.0" AnchorPane.topAnchor="560.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Button>
+      <Button id="quitButton" fx:id="quitButton" layoutX="937.0" layoutY="560.0" mnemonicParsing="false" onAction="#quitGame" text="Quit" AnchorPane.leftAnchor="940.0" AnchorPane.rightAnchor="400.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Button>
    </children>
 </AnchorPane>
