@@ -38,6 +38,10 @@ public class PlayerEngine extends Application {
         }
     }
 
+    public Player getHumanPlayer(){
+        return player;
+    }
+
 
 
 

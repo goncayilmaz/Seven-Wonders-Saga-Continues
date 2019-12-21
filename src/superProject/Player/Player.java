@@ -104,7 +104,8 @@ public class Player {
                 resources.add(nextCard.getEarnings().get(j));
             }
         }
-
+        //System.out.println("inside calculate");
+        //city.print();
         resources.add(city.getCardSpecs());
         ArrayList<Material> cityMaterials = city.getLevelItems();
         for(int i = 0; i < cityMaterials.size(); i++){
@@ -207,6 +208,11 @@ public class Player {
             }
             else if(requirements.get(i).getName().equals("Civilian")){
                 if(numberOfMilitary < requirements.get(i).getCount()){
+                    enough = false;
+                }
+            }
+            else if(requirements.get(i).getName().equals("Coin")){
+                if(numberOfCoin < requirements.get(i).getCount()){
                     enough = false;
                 }
             }
@@ -315,9 +321,20 @@ public class Player {
     public void addCardsToTable(Card c) {
         if(verifySufficientResources(c)){
             cardsOnTable.add(c);
+        }else{
+            System.out.println("Resources not enough");
         }
-        System.out.println("Resources not enough");
 
+
+    }
+
+    public void print(){
+        System.out.println("Id: " + id + "name :" + name);
+        city.print();
+        System.out.println("CARDS");
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            cardsOnTable.get(i).print();
+        }
     }
 
     @Override
