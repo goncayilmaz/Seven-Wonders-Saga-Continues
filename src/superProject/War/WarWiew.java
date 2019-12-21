@@ -20,10 +20,13 @@ import javafx.scene.layout.*;
 //import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class WarWiew implements Initializable {
+import static javafx.stage.Screen.getPrimary;
+
+public class WarWiew  /*implements Initializable */ extends Application {
 
     @FXML
     private Label leftResLabel;
@@ -32,6 +35,10 @@ public class WarWiew implements Initializable {
     @FXML
     private Button resultsButton;
     @FXML
+    private Button xoxButton1;
+    @FXML
+    private Button xoxButton2;
+    @FXML
     private Rectangle2D primaryScreenBounds;
     @FXML
     private  AnchorPane smallPane1;
@@ -39,9 +46,13 @@ public class WarWiew implements Initializable {
     private  AnchorPane smallPane2;
 
 
+    @FXML
     private double prefHeightSmall;
-    private boolean leftWarWinner; //winner of the left side war
-    private boolean rightWarWinner; //winner of the right side war (true means this current player is winner)
+    @FXML
+    private double prefWidthSmall;
+
+    private int leftWarWinner; //winner of the left side war
+    private int rightWarWinner; //winner of the right side war (true means this current player is winner)
 
     private Player leftNeighbour;
     private Player rightNeighbour;
@@ -50,9 +61,35 @@ public class WarWiew implements Initializable {
     public WarWiew(){
         //leftWarWinner = true;
         //rightWarWinner = true;
+        leftWarWinner = 1;
+        rightWarWinner = 0;
     }
 
-    public WarWiew(Player mainPlayer, Player leftNeighbour, boolean leftWarWinner, Player rightNeighbour, boolean rightWarWinner){
+
+    @Override
+    public void start( Stage primaryStage) throws Exception{
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../War/WarViewFX.fxml"));
+            primaryStage.setTitle("War");
+
+            primaryStage.setScene(new Scene(root));
+            primaryStage.setFullScreen(true);
+
+        //
+        //
+        primaryStage.setResizable(true);
+        primaryStage.centerOnScreen();
+        //
+        primaryStage.show();
+        //
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public WarWiew(Player mainPlayer, Player leftNeighbour, int leftWarWinner, Player rightNeighbour, int rightWarWinner){
         setLeftWarWinner(leftWarWinner);
         setRightWarWinner(rightWarWinner);
         setLeftNeighbour(leftNeighbour);
@@ -60,29 +97,34 @@ public class WarWiew implements Initializable {
         setMainPlayer(mainPlayer);
     }
 
+    /*
     public double getPrefHeightSmall(){
         System.out.println("hey " + this.prefHeightSmall);
         return this.prefHeightSmall;
-    }
+    } */
 
     public void setPrefHeightSmall(int prefHeightSmall) {
         this.prefHeightSmall = prefHeightSmall;
     }
 
-    public void setLeftWarWinner(boolean leftWarWinner) {
+    public void setLeftWarWinner(int leftWarWinner) {
         this.leftWarWinner = leftWarWinner;
     }
 
-    public void setRightWarWinner(boolean rightWarWinner) {
+    public void setRightWarWinner(int rightWarWinner) {
         this.rightWarWinner = rightWarWinner;
     }
 
     public boolean isLeftWarWinner() {
-        return leftWarWinner;
+        if( leftWarWinner > 0)
+            return true;
+        return false;
     }
 
     public boolean isRightWarWinner() {
-        return rightWarWinner;
+        if(rightWarWinner > 0)
+            return true;
+        return false;
     }
 
     @FXML
@@ -94,18 +136,26 @@ public class WarWiew implements Initializable {
 
     @FXML
     public void setLeftWarLabel(){
-        if( leftWarWinner )
+        if( leftWarWinner > 0 )
             leftResLabel.setText("VICTORY");
-        else
+        else if (leftWarWinner < 0)
             leftResLabel.setText("DEFEAT");
+        else {
+            xoxButton1.setVisible(true);
+            leftResLabel.setText("EQUALITY");
+        }
     }
 
     @FXML
     public void setRightWarLabel(){
-        if( rightWarWinner )
+        if( rightWarWinner > 0 )
             rightResLabel.setText("VICTORY");
-        else
+        else if (rightWarWinner < 0)
             rightResLabel.setText("DEFEAT");
+        else{
+            xoxButton2.setVisible(true);
+            rightResLabel.setText("EQUALITY");
+        }
     }
 
     public void getPlayerLeft() {
@@ -140,40 +190,70 @@ public class WarWiew implements Initializable {
         this.mainPlayer = mainPlayer;
     }
 
+    /*
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //
-        //try {
-        //Parent root = FXMLLoader.load(getClass().getResource("../War/WarViewFX.fxml"));
-        //primaryStage.setTitle("War");
-        //
-        //primaryStage.setScene(new Scene(root));
-        //primaryStage.setFullScreen(true);
-        //
-        //primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        //leftNeighbour.
+        primaryScreenBounds = getPrimary().getVisualBounds();
         //System.out.println(primaryScreenBounds);
-        //
-        //prefHeightSmall = (int) primaryScreenBounds.getHeight() * 9 / 10;
-        //int prefWidthSmall = (int) primaryScreenBounds.getWidth() / 2;
-        //
-        //
-        //smallPane1.setMaxWidth(prefWidthSmall);
-        //smallPane1.setMaxHeight(prefHeightSmall);
-        //smallPane1.setPrefSize(prefWidthSmall, prefHeightSmall);
-        //smallPane2.setMaxWidth(prefWidthSmall);
-        //smallPane2.setMaxHeight(prefHeightSmall);
-        //smallPane2.setPrefSize(prefWidthSmall, prefHeightSmall);
-        //
-        //
-        //primaryStage.setResizable(true);
-        //primaryStage.centerOnScreen();
-        //
-        //primaryStage.show();
-        //
-        //}
-        //catch (Exception e){
-        //e.printStackTrace();
-        //}
+
+        prefHeightSmall = primaryScreenBounds.getHeight() * 9 / 10;
+        prefWidthSmall  = primaryScreenBounds.getWidth() / 2;
+
+        smallPane1.setMaxWidth(prefWidthSmall);
+        smallPane1.setMaxHeight(prefHeightSmall);
+        smallPane1.setPrefSize(prefWidthSmall, prefHeightSmall);
+        smallPane2.setMaxWidth(prefWidthSmall);
+        smallPane2.setMaxHeight(prefHeightSmall);
+        smallPane2.setPrefSize(prefWidthSmall, prefHeightSmall);
+
+    } */
+
+    @FXML
+    public void goToXOX_1(){
+        Stage stage;
+        Parent root;
+
+        //System.out.println("xox button is clicked");
+
+        try {
+            stage = (Stage) xoxButton1.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../War/XOXViewFX.fxml"));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (Exception e){
+
+        }
+    }
+
+    @FXML
+    public void goToXOX_2(){
+        Stage stage;
+        Parent root;
+        XOXGame xox;
+        //new XOXGame();
+
+        //System.out.println("xox button is clicked");
+
+        try {
+            stage = (Stage) xoxButton2.getScene().getWindow();
+            root= FXMLLoader.load(getClass().getResource("../War/XOXViewFX.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setFullScreen(true);
+            stage.show();
+        }
+        catch (Exception e){
+
+        }
+    }
+
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
 
