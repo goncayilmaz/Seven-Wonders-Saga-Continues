@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
    <children>
-      <Label layoutX="199.0" layoutY="30.0" text="Options">
+      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/7wonders.jpg" />
+         </image></ImageView>
+      <Label layoutX="505.0" layoutY="17.0" text="Options" textFill="#fffafa">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <CheckBox fx:id="musicBox" layoutX="160.0" layoutY="112.0" mnemonicParsing="false" onMousePressed="#musicCheck" prefHeight="23.0" prefWidth="133.0" text="Music" />
-      <CheckBox fx:id="soundBox" layoutX="160.0" layoutY="156.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="133.0" text="Sound" />
-      <ComboBox fx:id="languageBox" layoutX="157.0" layoutY="198.0" prefWidth="150.0" promptText="Language" />
+      <CheckBox fx:id="musicBox" layoutX="501.0" layoutY="287.0" mnemonicParsing="false" onMousePressed="#musicCheck" prefHeight="23.0" prefWidth="133.0" text="Music" />
+      <CheckBox fx:id="soundBox" layoutX="505.0" layoutY="335.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="133.0" text="Sound" />
+      <ComboBox fx:id="languageBox" layoutX="474.0" layoutY="382.0" prefWidth="150.0" promptText="Language" />
+      <Button fx:id="returnButton" layoutX="925.0" layoutY="350.0" mnemonicParsing="false" onAction="#returnToMenu" text="Return" />
    </children>
 </AnchorPane>

@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -25,6 +26,7 @@ import java.util.List;
 
 public class XOXGame extends Application {
     // Player player1, Player Player2;
+    int [] tiles = {0,0,0,0,0,0,0,0,0};
     private boolean isRun;
     private boolean isFinish;
     private int count;
@@ -115,9 +117,14 @@ public class XOXGame extends Application {
         }
     }
 
+
+
     private class Tile extends StackPane{
         private Text text = new Text();
+        int tileNo;
+
         public Tile(){
+            //this.tileNo = tileNo;
             Rectangle border = new Rectangle(200,200);
             border.setFill(null);
             border.setStroke(Color.BLACK);
@@ -125,26 +132,30 @@ public class XOXGame extends Application {
             setAlignment(Pos.CENTER);
             getChildren().addAll(border, text);
 
-            setOnMouseClicked(event -> {
-                if(!playable)
-                    return;
-                if(event.getButton() == MouseButton.PRIMARY){
-                   if(!turnX)
-                       return;
 
-                   drawX();
-                   turnX = false;
-                   checkState();
-                }
-                else if(event.getButton() == MouseButton.SECONDARY){
-                   if(turnX)
+            setOnMouseClicked(event -> {
+                //if(!playable){
+                    //return;
+                //}
+                if(event.getButton() == MouseButton.PRIMARY){
+                    int clickX = (int)(event.getX()) / 200;
+                    int clickY = (int)(event.getY()) / 200;
+                    tileNo = clickY * 3 + clickX;
+
+                    if(!turnX || tiles[tileNo] == 1)
                         return;
-                   drawY();
-                   turnX = true;
-                   checkState();
+                    else {
+                        drawX();
+                        tiles[tileNo] = 1;
+                        turnX = false;
+                        checkState();
+                        randomTile();
+                    }
                 }
             });
         }
+
+
         public String getValue(){
             return text.getText();
         }
@@ -160,10 +171,28 @@ public class XOXGame extends Application {
         public double getCenterY() {
             return getTranslateY() + 100;
         }
+
+        public void randomTile(){
+            int nextTile = (int)(Math.random() * 10);
+            while(tiles[nextTile] == 1){
+                nextTile = (nextTile + 1) % 10;
+            }
+            getTile(nextTile).drawY();
+            tiles[nextTile] = 1;
+            turnX = true;
+            checkState();
+        }
+
+    }
+    public Tile getTile(int tileNo){
+        return board[(tileNo/3)][(tileNo % 3)];
     }
 
+    public boolean playXOX(){
+        return true;
+    }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         launch(args);
     }
 }
