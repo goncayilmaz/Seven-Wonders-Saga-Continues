@@ -20,7 +20,7 @@ public class CardEngine extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+/**
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../GameProperties/CardViewFX.fxml"));
             primaryStage.setTitle("Card View");
@@ -32,6 +32,7 @@ public class CardEngine extends Application {
         catch (Exception e){
             e.printStackTrace();
         }
+ */
         System.out.println("FIRST AGE CARDS");
         createFirstAgeCards(7);
         System.out.println("SECOND AGE CARDS");
@@ -839,26 +840,26 @@ public class CardEngine extends Application {
             // do nothing
         }
         else if(numberOfPlayers == 6){
-            int[] cardIdOfCardsToBeDeleted = {64,68,70,71,74,77};
+            int[] cardIdOfCardsToBeDeleted = {51,64,68,70,71,74,77};
             for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
                 cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
             }
         }
         else if(numberOfPlayers == 5){
-            int[] cardIdOfCardsToBeDeleted = {61,63,64,66,67,68,69,70,71,72,74,77};
+            int[] cardIdOfCardsToBeDeleted = {51,56,61,63,64,66,67,68,69,70,71,72,74,77};
             for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
                 cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
             }
         }
         else if(numberOfPlayers == 4){
-            int[] cardIdOfCardsToBeDeleted = {61,63,63,64,66,67,68,69,69,70,71,71,72,73,74,75,77,78};
+            int[] cardIdOfCardsToBeDeleted = {54,52,57,61,63,63,64,66,67,68,69,69,70,71,71,72,73,74,75,77,78};
             for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
                 cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
             }
         }
         // number of players is 3
         else{
-            int[] cardIdOfCardsToBeDeleted = {61,62,63,63,64,65,66,67,67,68,69,69,69,70,70,71,71,72,73,74,75,76,77,78};
+            int[] cardIdOfCardsToBeDeleted = {57,51,54,53,61,62,63,63,64,65,66,67,67,68,69,69,69,70,70,71,71,72,73,74,75,76,77,78};
             for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
                 cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
             }
