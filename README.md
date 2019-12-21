@@ -33,7 +33,7 @@ Our aim is to create this game using the principles of object oriented programmi
 The game is implemented in Java by using JavaFX library.
 
 # Brief Summary of the Game
-The game is played with 2-7 players. Each player is the head of a great ancient city. The aim is to gather resources, build social areas, improve the military power and do scientific studies. 
+The game is played with 3-7 players. Each player is the head of a great ancient city. The aim is to gather resources, build social areas, improve the military power and do scientific studies. 
 Before getting started, players choose the city they want to build, by choosing the related board. Boards are double sided, each side contains stages that need to be built. 
 The game is played in three ages, in each age players are randomly dealt seven cards that have different features belonging to the current age. They get one card to themselves  and pass the rest to the adjacent player simultaneously. Getting a card (playing) means building the structure, to do so player must pay the cost in coins or in resources. If the player is in need of resource, he can get from the adjacent neighbor by paying in coins. 
 Instead of playing a card, player may decide to sell his card to bank or use it to build one of the city stages by paying the cost for that stage. Players pass the cards untill there is two of them left, at this point the player plays one card and discards the other. At the end of each age, players compare their military power with their neighbors and get + or -1 point for each comparison. At the end of the third age, the scores of all areas are compared and the player with the most victory points wins.
