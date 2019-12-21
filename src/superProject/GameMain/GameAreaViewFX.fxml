@@ -98,7 +98,7 @@
             <Image url="@../../Images/images/cards/theater.png" />
          </image>
       </ImageView>
-      <GridPane layoutX="230.0" layoutY="681.0">
+      <GridPane fx:id="firstGridPane" layoutX="230.0" layoutY="681.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
             <ColumnConstraints minWidth="10.0" />
@@ -108,9 +108,9 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
-            <Button cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
-            <Button ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+            <Button fx:id="aw1" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder1" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
+            <Button fx:id="dc1" cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" onAction="#discardCard1" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
+            <Button fx:id="pt1" ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" onAction="#putOnTable1" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <Label layoutX="54.0" layoutY="216.0" text="AD = Add WOnder" />
