@@ -20,13 +20,14 @@ public class City {
     private ArrayList<Material> cardSpecsForLevel4;
     private String photoName;
     private int boardNumber;
+    private int maxCityLevel;
     private boolean orSituation;
 
     public City(String boardName, ArrayList<Material> cardSpecs,
                 int boardLevel, ArrayList<Material> cardReqs1, ArrayList<Material> cardReqs2,
                 ArrayList<Material> cardReqs3, ArrayList<Material> cardReqs4, ArrayList<Material> cardSpecsForLevel1,
                 ArrayList<Material> cardSpecsForLevel2, ArrayList<Material> cardSpecsForLevel3,
-                ArrayList<Material> cardSpecsForLevel4, String photoName, int boardNumber)
+                ArrayList<Material> cardSpecsForLevel4, String photoName, int boardNumber, int maxCityLevel)
     {
         this.boardName = boardName;
         this.cardSpecs = cardSpecs;
@@ -42,12 +43,13 @@ public class City {
         this.photoName = photoName;
         this.boardNumber = boardNumber;
         orSituation = false;
+        this.maxCityLevel = maxCityLevel;
     }
     public City(String boardName, ArrayList<Material> cardSpecs,
                 int boardLevel, ArrayList<Material> cardReqs1, ArrayList<Material> cardReqs2,
                 ArrayList<Material> cardReqs3, ArrayList<Material> cardSpecsForLevel1,
                 ArrayList<Material> cardSpecsForLevel2, ArrayList<Material> cardSpecsForLevel3,
-                String photoName, int boardNumber, boolean orSituation)
+                String photoName, int boardNumber, boolean orSituation, int maxCityLevel)
     {
         this.boardName = boardName;
         this.cardSpecs = cardSpecs;
@@ -65,12 +67,16 @@ public class City {
         this.photoName = photoName;
         this.boardNumber = boardNumber;
         this.orSituation = orSituation;
+        this.maxCityLevel = maxCityLevel;
     }
     public void increaseLevel()
     {
         boardLevel++;
     }
-
+    public int getMaxCityLevel()
+    {
+        return maxCityLevel;
+    }
 
     public ArrayList<Material> getInitialItem()
     {
@@ -148,6 +154,11 @@ public class City {
         return cardReqs3;
     }
 
+    public ArrayList<Material> getCardReqs4()
+    {
+        return cardReqs4;
+    }
+
     public void setCardReqs3(ArrayList<Material> cardReqs3)
     {
         this.cardReqs3 = cardReqs3;
@@ -181,6 +192,11 @@ public class City {
     public void setCardSpecsForLevel3(ArrayList<Material> cardSpecsForLevel3)
     {
         this.cardSpecsForLevel3 = cardSpecsForLevel3;
+    }
+
+    public ArrayList<Material> getCardSpecsForLevel4()
+    {
+        return cardSpecsForLevel4;
     }
 
     public String getPhotoName()

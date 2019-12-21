@@ -175,7 +175,7 @@ public class CityManager implements Initializable {
         earningOfAlexandriaLev3.add(new Material("Civilian", 7));
 
         City alexandria = new City("The Lighthouse of Alexandria", earningsOfAlexandria, 0, firstLevelReq, secondLevelReq,
-                thirdLevelReq, earningOfAlexandriaLev1, earningOfAlexandriaLev2, earningOfAlexandriaLev3, "alexandriaA.png", 0, true);
+                thirdLevelReq, earningOfAlexandriaLev1, earningOfAlexandriaLev2, earningOfAlexandriaLev3, "alexandriaA.png", 0, true, 3);
 
         citiesA.add(alexandria);
 
@@ -199,7 +199,7 @@ public class CityManager implements Initializable {
 
         City rhodes = new City("The Colossus of Rhodes", earningsOfRhodes, 0, firstLevelReqRhodes, secondLevelReqRhodes,
                 thirdLevelReqRhodes, new ArrayList<Material>(), earningOfRhodesLev1, earningOfRhodesLev2, earningOfRhodesLev3,
-                new ArrayList<Material>(), "rhodosA.png", 0);
+                new ArrayList<Material>(), "rhodosA.png", 0, 3);
         citiesA.add(rhodes);
 
 
@@ -222,7 +222,7 @@ public class CityManager implements Initializable {
 
         City ephesus = new City("The Temple of Artemis in Ephesus", earningsOfEphesus, 0, firstLevelReqEphesus, secondLevelReqEphesus,
                 thirdLevelReqEphesus, new ArrayList<Material>(), earningOfEphesusLev1, earningOfEphesusLev2, earningOfEphesusLev3,
-                new ArrayList<Material>(), "ephesosA.png", 0);
+                new ArrayList<Material>(), "ephesosA.png", 0, 3);
         citiesA.add(ephesus);
 
 
@@ -246,7 +246,7 @@ public class CityManager implements Initializable {
         earningOfBabylonLev3.add(new Material("Civilian", 7));
 
         City babylon = new City("The Hanging Gardens of Babylon", earningsOfBabylon, 0, firstLevelBabylonReq, secondLevelBabylonReq,
-                thirdLevelBabylonReq, earningOfBabylonLev1, earningOfBabylonLev2, earningOfBabylonLev3, "babylonA.png", 0, true);
+                thirdLevelBabylonReq, earningOfBabylonLev1, earningOfBabylonLev2, earningOfBabylonLev3, "babylonA.png", 0, true,3);
 
         citiesA.add(babylon);
 
@@ -269,7 +269,7 @@ public class CityManager implements Initializable {
 
         City olympia = new City("The Statue of Zeus in Olympia", earningsOfOlympia, 0, firstLevelOlympiaReq, secondLevelOlympiaReq,
                 thirdLevelOlympiaReq, new ArrayList<Material>(), earningOfOlympiaLev1, earningOfOlympiaLev2, earningOfOlympiaLev3,
-                new ArrayList<Material>(), "olympiaA.png", 0);
+                new ArrayList<Material>(), "olympiaA.png", 0, 3);
 
         citiesA.add(olympia);
 
@@ -292,7 +292,7 @@ public class CityManager implements Initializable {
 
         City halicarnassus = new City("The Mausoleum of Halicarnassus", earningsOfHalicarnassus, 0, firstLevelHalicarnassusReq, secondLevelHalicarnassusReq,
                 thirdLevelHalicarnassusReq, new ArrayList<Material>(), earningOfHalicarnassusLev1, earningOfHalicarnassusLev2, earningOfHalicarnassusLev3,
-                new ArrayList<Material>(), "halikarnassusA.png", 0);
+                new ArrayList<Material>(), "halikarnassusA.png", 0, 3);
 
         citiesA.add(halicarnassus);
 
@@ -316,7 +316,7 @@ public class CityManager implements Initializable {
 
         City giza = new City("The Pyramids of Giza", earningsOfGiza, 0, firstLevelGizaReq, secondLevelGizaReq,
                 thirdLevelGizaReq, new ArrayList<Material>(), earningOfGizaLev1, earningOfGizaLev2, earningOfGizaLev3,
-                new ArrayList<Material>(), "gizahA.png", 0);
+                new ArrayList<Material>(), "gizahA.png", 0, 3);
 
         citiesA.add(giza);
 
@@ -355,7 +355,7 @@ public class CityManager implements Initializable {
         earningOfAlexandriaLev3.add(new Material("Civilian", 7));
 
         City alexandria = new City("The Lighthouse of Alexandria", earningsOfAlexandria, 0, firstLevelReq, secondLevelReq,
-                thirdLevelReq, earningOfAlexandriaLev1, earningOfAlexandriaLev2, earningOfAlexandriaLev3, "alexandriaB.png", 1, true);
+                thirdLevelReq, earningOfAlexandriaLev1, earningOfAlexandriaLev2, earningOfAlexandriaLev3, "alexandriaB.png", 1, true, 3);
 
         citiesB.add(alexandria);
 
@@ -384,7 +384,7 @@ public class CityManager implements Initializable {
 
         City rhodes = new City("The Colossus of Rhodes", earningsOfRhodes, 0, firstLevelReqRhodes, secondLevelReqRhodes,
                 thirdLevelReqRhodes, new ArrayList<Material>(), earningOfRhodesLev1, earningOfRhodesLev2, earningOfRhodesLev3,
-                new ArrayList<Material>(), "rhodosB.png", 1);
+                new ArrayList<Material>(), "rhodosB.png", 1, 2);
         citiesB.add(rhodes);
 
 
@@ -418,7 +418,7 @@ public class CityManager implements Initializable {
 
         City ephesus = new City("The Temple of Artemis in Ephesus", earningsOfEphesus, 0, firstLevelReqEphesus, secondLevelReqEphesus,
                 thirdLevelReqEphesus, new ArrayList<Material>(), earningOfEphesusLev1, earningOfEphesusLev2, earningOfEphesusLev3,
-                new ArrayList<Material>(), "ephesosB.png", 1);
+                new ArrayList<Material>(), "ephesosB.png", 1, 3);
         citiesB.add(ephesus);
 
 
@@ -450,7 +450,7 @@ public class CityManager implements Initializable {
         earningOfBabylonLev3.add(new Material("ScienceWheel", 1));
 
         City babylon = new City("The Hanging Gardens of Babylon", earningsOfBabylon, 0, firstLevelBabylonReq, secondLevelBabylonReq,
-                thirdLevelBabylonReq, earningOfBabylonLev1, earningOfBabylonLev2, earningOfBabylonLev3, "babylonB.png", 1, true);
+                thirdLevelBabylonReq, earningOfBabylonLev1, earningOfBabylonLev2, earningOfBabylonLev3, "babylonB.png", 1, true, 3);
 
         citiesB.add(babylon);
 
@@ -476,7 +476,7 @@ public class CityManager implements Initializable {
 
         City olympia = new City("The Statue of Zeus in Olympia", earningsOfOlympia, 0, firstLevelOlympiaReq, secondLevelOlympiaReq,
                 thirdLevelOlympiaReq, new ArrayList<Material>(), earningOfOlympiaLev1, earningOfOlympiaLev2, earningOfOlympiaLev3,
-                new ArrayList<Material>(), "olympiaB.png", 1);
+                new ArrayList<Material>(), "olympiaB.png", 1, 3);
 
         citiesB.add(olympia);
 
@@ -502,7 +502,7 @@ public class CityManager implements Initializable {
 
         City halicarnassus = new City("The Mausoleum of Halicarnassus", earningsOfHalicarnassus, 0, firstLevelHalicarnassusReq, secondLevelHalicarnassusReq,
                 thirdLevelHalicarnassusReq, new ArrayList<Material>(), earningOfHalicarnassusLev1, earningOfHalicarnassusLev2, earningOfHalicarnassusLev3,
-                new ArrayList<Material>(), "halikarnassusB.png", 1);
+                new ArrayList<Material>(), "halikarnassusB.png", 1, 3);
 
         citiesB.add(halicarnassus);
 
@@ -531,7 +531,7 @@ public class CityManager implements Initializable {
 
         City giza = new City("The Pyramids of Giza", earningsOfGiza, 0, firstLevelGizaReq, secondLevelGizaReq,
                 thirdLevelGizaReq, fourthLevelGizaReq, earningOfGizaLev1, earningOfGizaLev2, earningOfGizaLev3,
-                earningOfGizaLev4, "gizahB.png", 1);
+                earningOfGizaLev4, "gizahB.png", 1, 4);
 
         citiesB.add(giza);
 
