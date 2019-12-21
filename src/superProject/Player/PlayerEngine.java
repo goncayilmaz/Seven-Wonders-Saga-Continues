@@ -10,7 +10,7 @@ public class PlayerEngine {
     private Player player;
     private ArrayList<Bot> bots;
     //private ArrayList<Player> winners;
-
+/*
     public int getHighScore(){
         int max=player.getScore();
         for(int i=0;i<players.size();i++){
@@ -19,7 +19,7 @@ public class PlayerEngine {
             }
         }
         return max;
-    }
+    }*/
     public int getPlayerPoint(Player player) {
 
         return  player.getScore();
