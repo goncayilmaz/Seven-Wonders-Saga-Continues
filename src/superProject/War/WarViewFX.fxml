@@ -10,37 +10,47 @@
    <children>
       <AnchorPane layoutX="-6.0" layoutY="-10.0" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <SplitPane depthTest="DISABLE" dividerPositions="0.5" layoutY="98.0" opacity="0.52" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="300.0">
+            <SplitPane depthTest="DISABLE" dividerPositions="0.5" layoutY="98.0" opacity="0.52" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="700.0">
               <items>
-                <AnchorPane fx:id="smallPane1" minHeight="300.0" minWidth="300.0" prefHeight="700.0" prefWidth="720.0">
+                <AnchorPane fx:id="smallPane1" minHeight="300.0" minWidth="300.0" prefHeight="580.0" prefWidth="600.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="TOP" layoutX="86.0" layoutY="141.0" prefHeight="62.0" prefWidth="126.0" text="YOU vs. LEFT NEIGHBOUR" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#goToXOX_1" text="Go to XOX" visible="false" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="400.0" fx:id="xoxButton1">
                            <font>
-                              <Font name="Avenir Next Condensed Regular" size="18.0" />
+                              <Font name="Avenir Next Condensed Regular" size="24.0" />
+                           </font>
+                        </Button>
+                        <Label alignment="CENTER" contentDisplay="TOP" layoutX="86.0" layoutY="141.0" prefHeight="62.0" prefWidth="126.0" text="YOU vs. LEFT NEIGHBOUR" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="300.0">
+                           <font>
+                              <Font name="Avenir Next Condensed Regular" size="24.0" />
                            </font></Label>
-                        <Label fx:id="leftResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="57.0" prefHeight="62.0" prefWidth="119.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0">
+                        <Label fx:id="leftResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="57.0" prefHeight="62.0" prefWidth="119.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="100.0">
                            <font>
-                              <Font name="Avenir Next Condensed Demi Bold" size="28.0" />
+                              <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
                            </font>
                         </Label>
                      </children></AnchorPane>
                 <AnchorPane fx:id="smallPane2" minHeight="300.0" minWidth="300" prefHeight="742.0" prefWidth="720.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="143.0" prefHeight="43.0" prefWidth="160.0" text="YOU vs. RIGHT NEIGHBOUR" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0">
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="143.0" prefHeight="43.0" prefWidth="160.0" text="YOU vs. RIGHT NEIGHBOUR" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="300.0">
                            <font>
-                              <Font name="Avenir Next Condensed Regular" size="18.0" />
+                              <Font name="Avenir Next Condensed Regular" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="rightResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="55.0" prefHeight="62.0" prefWidth="119.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0">
+                        <Label fx:id="rightResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="55.0" prefHeight="62.0" prefWidth="119.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="100.0">
                            <font>
-                              <Font name="Avenir Next Condensed Demi Bold" size="28.0" />
+                              <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
                            </font>
                         </Label>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#goToXOX_2" text="Go to XOX" visible="false" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="400.0" fx:id="xoxButton2">
+                           <font>
+                              <Font name="Avenir Next Condensed Regular" size="24.0" />
+                           </font>
+                        </Button>
                      </children></AnchorPane>
               </items>
             </SplitPane>
          </children></AnchorPane>
-      <Button fx:id="resultsButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#setLabels" text="SEE RESULTS" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="20.0">
+      <Button fx:id="resultsButton" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#setLabels" text="SEE RESULTS" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="80.0">
          <font>
             <Font name="Avenir Next Condensed Regular" size="24.0" />
          </font></Button>

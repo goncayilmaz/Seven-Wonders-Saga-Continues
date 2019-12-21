@@ -4,7 +4,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,12 +23,16 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class XOXGame extends Application {
+public class XOXGame implements Initializable {
     // Player player1, Player Player2;
-    int [] tiles = {0,0,0,0,0,0,0,0,0};
+    int[] tiles = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     private boolean isRun;
     private boolean isFinish;
     private int count;
@@ -34,22 +40,77 @@ public class XOXGame extends Application {
     private boolean playable = true;
     private Tile[][] board = new Tile[3][3];
     private List<Combo> combos = new ArrayList<>();
-    Pane root = new Pane();
+    Parent root;
+
+    {
+        try {
+            root = FXMLLoader.load(getClass().getResource("../War/XOXViewFX.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private boolean isWinner;
+    @FXML
+    private Label resultLabel;
+    @FXML
+    private Button returnButton;
+    @FXML
+    private Button button00;
+    @FXML
+    private Button button01;
+    @FXML
+    private Button button02;
+    @FXML
+    private Button button10;
+    @FXML
+    private Button button11;
+    @FXML
+    private Button button12;
+    @FXML
+    private Button button20;
+    @FXML
+    private Button button21;
+    @FXML
+    private Button button22;
+
+    /*
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.show();
+    } */
+
+    public XOXGame(){
     }
 
-    private Parent createContent(){
+    @Override
+    public void initialize(URL location, ResourceBundle resources){
 
-        root.setPrefSize(600,600);
+    }
+
+    public void createContent(){
+
+        Button[][] buttons;
+        buttons = new Button[3][3];
+        buttons[0][0] = button00;
+        buttons[0][1] = button01;
+        buttons[0][2] = button02;
+        buttons[1][0] = button10;
+        buttons[1][1] = button11;
+        buttons[1][2] = button12;
+        buttons[2][0] = button20;
+        buttons[2][1] = button21;
+        buttons[2][2] = button22;
+
+
+        //root.setPrefSize(600,600);
         for(int i = 0; i < 3; i++){
             for(int j = 0; j < 3; j++){
                 Tile tile = new Tile();
-                tile.setTranslateX(j*200);
-                tile.setTranslateY(i*200);
-                root.getChildren().add(tile);
+                tile.setTranslateX(buttons[i][j].getX());
+                tile.setTranslateY(buttons[i][j].getY());
+                //root.getChildren().add(tile);
                 board[j][i] = tile;
             }
         }
@@ -65,7 +126,7 @@ public class XOXGame extends Application {
         combos.add(new Combo(board[0][0], board[1][1], board[2][2]));
         combos.add(new Combo(board[2][0], board[1][1], board[0][2]));
 
-        return root;
+        //return root;
     }
     private void checkState(){
             for(Combo combo : combos){
@@ -83,12 +144,23 @@ public class XOXGame extends Application {
         line.setEndX(combo.tiles[0].getCenterX());
         line.setEndY(combo.tiles[0].getCenterY());
 
-        root.getChildren().add(line);
+        //root.getChildren().add(line);
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(0.5),
                 new KeyValue(line.endXProperty(), combo.tiles[2].getCenterX()),
                 new KeyValue(line.endYProperty(), combo.tiles[2].getCenterY())));
         timeline.play();
+
+        if(combo.tiles[0].equals("X"))
+            isWinner = true;
+
+        if( isWinner )
+        {
+            resultLabel.setText("YOU WON");
+        } else
+            resultLabel.setText("YOU LOST");
+        resultLabel.setVisible(true);
+        returnButton.setEnabled(true);
     }
 
     private class Combo{
@@ -100,6 +172,8 @@ public class XOXGame extends Application {
             if(tiles[0].getValue().isEmpty())
                 return false;
 
+            if(tiles[0].getValue().equals("X"))
+                isWinner = true;
             return tiles[0].getValue().equals(tiles[1].getValue()) && tiles[0].getValue().equals(tiles[2].getValue());
         }
     }
@@ -149,7 +223,7 @@ public class XOXGame extends Application {
             text.setText("X");
         }
         private void drawY(){
-            text.setText("0");
+            text.setText("O");
         }
         public double getCenterX(){
             return getTranslateX() + 100;
@@ -161,7 +235,7 @@ public class XOXGame extends Application {
         public void randomTile(){
             int x = (int)(Math.random() * 3);
             int y = (int)(Math.random() * 3);
-            while(board[x][y].getValue().equals("X") || board[x][y].getValue().equals("0")){
+            while(board[x][y].getValue().equals("X") || board[x][y].getValue().equals("O")){
                 x = (int)(Math.random() * 3);
                 y = (int)(Math.random() * 3);
             }
@@ -178,7 +252,33 @@ public class XOXGame extends Application {
         return true;
     }
 
+
+    public void returnWarView (ActionEvent event){
+        Stage stage;
+        Parent root;
+
+
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../War/WarViewFX.fxml"));
+            root = loader.load();
+            stage = new Stage();
+            stage.setScene(new Scene(root));
+            //stage.show();
+            //stage = (Stage) returnButton.getScene().getWindow();
+            //root=FXMLLoader.load(getClass().getResource("../War/WarViewFX.fxml"));
+
+            //Scene scene = new Scene(root);
+            //stage.setScene(scene);
+            stage.show();
+
+        } catch (Exception e){
+
+        }
+    }
+
+    /*
     public static void main(String[] args) {
         launch(args);
-    }
+    } */
 }

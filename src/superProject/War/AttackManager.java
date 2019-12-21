@@ -1,5 +1,9 @@
 package superProject.War;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import superProject.Player.Player;
 
 import java.lang.reflect.Array;
@@ -35,8 +39,7 @@ public class AttackManager {
                 int compareRight  = Integer.compare( players[i].getWarPoints(), players[i + 1].getWarPoints());
                 if(compareLeft == 0){
                     //TODO
-                    //xox
-                    //change compareLeft value
+                    view = new WarWiew(players[i], players[players.length-1], compareLeft,  players[1], compareRight);
                 }
                 if(compareRight == 0){
                     //TODO
@@ -57,7 +60,6 @@ public class AttackManager {
                 } else{
                     isRightWinner = false;
                 }
-                view = new WarWiew(players[i], players[players.length-1], isLeftWinner,  players[1], isRightWinner);
             } else if( i == numberOfPlayers - 1) {
                 int compareLeft = Integer.compare( players[i].getWarPoints(), players[i - 1].getWarPoints());
                 int compareRight  = Integer.compare( players[i].getWarPoints(), players[0].getWarPoints());
