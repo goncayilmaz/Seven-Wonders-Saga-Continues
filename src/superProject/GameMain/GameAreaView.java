@@ -72,10 +72,6 @@ public class GameAreaView implements Initializable {
         fifthCard.setImage(image4);
 
 
-        FadeTransition fadeInTransition = new FadeTransition(Duration.millis(1500), fifthCard);
-        fadeInTransition.setFromValue(1.0);
-        fadeInTransition.setToValue(0.0);
-
         //fifthCard.setTranslateX(250);
         //fifthCard.setTranslateY(123);
 
