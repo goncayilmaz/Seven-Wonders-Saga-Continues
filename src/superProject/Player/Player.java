@@ -236,6 +236,11 @@ public class Player {
             }
 
         }
+        // implementing card chain 
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            if(cardsOnTable.get(i).getNextCardId() == card.getId())
+                enough = true;
+        }
         System.out.println("Can take card" + enough);
         return enough;
     }
@@ -324,8 +329,15 @@ public class Player {
         }else{
             System.out.println("Resources not enough");
         }
+    }
 
-
+    public void disjointCard(Card c){
+        for(int i = 0; i < cards.size(); i++){
+            if(cards.get(i).getName().equals(c)){
+                cards.remove(i);
+                numberOfCoin = numberOfCoin + 3;
+            }
+        }
     }
 
     public void print(){
