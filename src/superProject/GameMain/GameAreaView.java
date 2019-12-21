@@ -33,35 +33,693 @@ public class GameAreaView implements Initializable {
     private GridPane firstGridPane;
 
     @FXML
-    private Button pt1;
+    private GridPane secondGridPane;
 
     @FXML
-    private Button aw1;
-
-    @FXML
-    private Button dc1;
+    private Button pt1,aw1,dc1,pt2,aw2,dc2,pt3,aw3,dc3,pt4,aw4,dc4,pt5,aw5,dc5,pt6,aw6,dc6,pt7,aw7,dc7;
 
 
     @FXML
-    private ImageView fifthCard;
+    private ImageView firstCard,secondCard,thirdCard,forthCard,fifthCard,sixthCard,seventhCard;
 
     @FXML
-    private ImageView seventhCard;
+    void discardCard7(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) dc7.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(20);
+            translate.setByY(-250);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(seventhCard);
+
+
+            translate.play();
+            seventhCard.setFitHeight(90);
+            seventhCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(dc7.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt7.setVisible(false);
+            aw7.setVisible(false);
+            dc7.setVisible(false);
+
+
+        }
+    }
+
+
 
     @FXML
-    private ImageView thirdCard;
+    void addWonder7(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) aw7.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-850);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(seventhCard);
+
+
+            translate.play();
+            seventhCard.setFitHeight(90);
+            seventhCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(aw7.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt7.setVisible(false);
+            aw7.setVisible(false);
+            dc7.setVisible(false);
+
+
+        }
+    }
 
     @FXML
-    private ImageView firstCard;
+    void putOnTable7(ActionEvent event) throws Exception {
+        try {
+            Stage stage;
+
+            stage = (Stage) pt7.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-150);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(seventhCard);
+
+
+            translate.play();
+            seventhCard.setFitHeight(90);
+            seventhCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(pt7.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+        }
+        catch (Exception e){
+            pt7.setVisible(false);
+            aw7.setVisible(false);
+            dc7.setVisible(false);
+
+
+        }
+
+
+
+    }
+    @FXML
+    void discardCard6(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) dc6.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(100);
+            translate.setByY(-250);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(sixthCard);
+
+
+            translate.play();
+            sixthCard.setFitHeight(90);
+            sixthCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(dc6.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt6.setVisible(false);
+            aw6.setVisible(false);
+            dc6.setVisible(false);
+
+
+        }
+    }
+
+
 
     @FXML
-    private ImageView forthCard;
+    void addWonder6(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) aw6.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-750);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(sixthCard);
+
+
+            translate.play();
+            sixthCard.setFitHeight(90);
+            sixthCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(aw6.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt6.setVisible(false);
+            aw6.setVisible(false);
+            dc6.setVisible(false);
+
+
+        }
+    }
 
     @FXML
-    private ImageView sixthCard;
+    void putOnTable6(ActionEvent event) throws Exception {
+        try {
+            Stage stage;
+
+            stage = (Stage) pt6.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-120);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(sixthCard);
+
+
+            translate.play();
+            sixthCard.setFitHeight(90);
+            sixthCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(pt6.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+        }
+        catch (Exception e){
+            pt6.setVisible(false);
+            aw6.setVisible(false);
+            dc6.setVisible(false);
+
+
+        }
+
+
+
+    }
+
 
     @FXML
-    private ImageView secondCard;
+    void discardCard5(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) dc5.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(250);
+            translate.setByY(-250);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(fifthCard);
+
+
+            translate.play();
+            fifthCard.setFitHeight(90);
+            fifthCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(dc5.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt5.setVisible(false);
+            aw5.setVisible(false);
+            dc5.setVisible(false);
+
+
+        }
+    }
+
+
+
+    @FXML
+    void addWonder5(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) aw5.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-630);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(fifthCard);
+
+
+            translate.play();
+            fifthCard.setFitHeight(90);
+            fifthCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(aw5.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt5.setVisible(false);
+            aw5.setVisible(false);
+            dc5.setVisible(false);
+
+
+        }
+    }
+
+    @FXML
+    void putOnTable5(ActionEvent event) throws Exception {
+        try {
+            Stage stage;
+
+            stage = (Stage) pt5.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-80);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(fifthCard);
+
+
+            translate.play();
+            fifthCard.setFitHeight(90);
+            fifthCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(pt5.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+        }
+        catch (Exception e){
+            pt5.setVisible(false);
+            aw5.setVisible(false);
+            dc5.setVisible(false);
+
+
+        }
+
+
+
+    }
+
+    @FXML
+    void discardCard4(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) dc4.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(320);
+            translate.setByY(-250);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(forthCard);
+
+
+            translate.play();
+            forthCard.setFitHeight(90);
+            forthCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(dc4.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt4.setVisible(false);
+            aw4.setVisible(false);
+            dc4.setVisible(false);
+
+
+        }
+    }
+
+
+
+    @FXML
+    void addWonder4(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) aw4.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-450);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(forthCard);
+
+
+            translate.play();
+            forthCard.setFitHeight(90);
+            forthCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(aw4.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt4.setVisible(false);
+            aw4.setVisible(false);
+            dc4.setVisible(false);
+
+
+        }
+    }
+
+    @FXML
+    void putOnTable4(ActionEvent event) throws Exception {
+        try {
+            Stage stage;
+
+            stage = (Stage) pt4.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-30);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(forthCard);
+
+
+            translate.play();
+            forthCard.setFitHeight(90);
+            forthCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(pt4.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+        }
+        catch (Exception e){
+            pt4.setVisible(false);
+            aw4.setVisible(false);
+            dc4.setVisible(false);
+
+
+        }
+
+
+
+    }
+
+    @FXML
+    void discardCard3(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) dc3.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(450);
+            translate.setByY(-250);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(thirdCard);
+
+
+            translate.play();
+            thirdCard.setFitHeight(90);
+            thirdCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(dc3.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt3.setVisible(false);
+            aw3.setVisible(false);
+            dc3.setVisible(false);
+
+
+        }
+    }
+
+
+
+    @FXML
+    void addWonder3(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) aw3.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-400);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(thirdCard);
+
+
+            translate.play();
+            thirdCard.setFitHeight(90);
+            thirdCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(aw3.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt3.setVisible(false);
+            aw3.setVisible(false);
+            dc3.setVisible(false);
+
+
+        }
+    }
+
+    @FXML
+    void putOnTable3(ActionEvent event) throws Exception {
+        try {
+            Stage stage;
+
+            stage = (Stage) pt3.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(25);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(thirdCard);
+
+
+            translate.play();
+            thirdCard.setFitHeight(90);
+            thirdCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(pt3.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+        }
+        catch (Exception e){
+            pt3.setVisible(false);
+            aw3.setVisible(false);
+            dc3.setVisible(false);
+
+
+        }
+
+
+
+    }
+
+    @FXML
+    void discardCard2(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) dc2.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(500);
+            translate.setByY(-250);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(secondCard);
+
+
+            translate.play();
+            secondCard.setFitHeight(90);
+            secondCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(dc1.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt2.setVisible(false);
+            aw2.setVisible(false);
+            dc2.setVisible(false);
+
+
+        }
+    }
+
+
+
+    @FXML
+    void addWonder2(ActionEvent event) throws Exception{
+        try {
+
+
+            Stage stage;
+
+            stage = (Stage) aw2.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-200);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(secondCard);
+
+
+            translate.play();
+            secondCard.setFitHeight(90);
+            secondCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(aw2.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+            pt2.setVisible(false);
+            aw2.setVisible(false);
+            dc2.setVisible(false);
+
+
+
+        }
+    }
+
+    @FXML
+    void putOnTable2(ActionEvent event) throws Exception {
+        try {
+            Stage stage;
+
+            stage = (Stage) pt2.getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(80);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(secondCard);
+
+
+            translate.play();
+            secondCard.setFitHeight(90);
+            secondCard.setFitWidth(90);
+
+
+
+            Scene scene = new Scene(pt2.getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+        }
+        catch (Exception e){
+            pt2.setVisible(false);
+            aw2.setVisible(false);
+            dc2.setVisible(false);
+
+
+        }
+
+
+
+    }
 
 
     @FXML
@@ -102,7 +760,7 @@ public class GameAreaView implements Initializable {
         }
     }
 
-    
+
 
     @FXML
     void addWonder1(ActionEvent event) throws Exception{

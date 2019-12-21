@@ -25,9 +25,18 @@ public class Menu extends Application {
 
     MediaPlayer mediaPlayer;
     public void music(){
+        /*
         String bip = "src/Media/7wonders.mp3";
         Media hit = new Media(Paths.get(bip).toUri().toString());
         mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
+
+         */
+
+
+        String bip = "src/Media/7wonders.mp3";
+        Media hit = new Media(new File(bip).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(hit);
         mediaPlayer.play();
     }
 

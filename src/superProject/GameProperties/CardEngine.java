@@ -21,26 +21,6 @@ public class CardEngine extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GameProperties/CardViewFX.fxml"));
-            primaryStage.setTitle("Card View");
-
-            primaryStage.setScene(new Scene(root, 200, 300));
-            // primaryStage.setResizable(false);
-            primaryStage.show();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        System.out.println("FIRST AGE CARDS");
-        createFirstAgeCards(7);
-        System.out.println("SECOND AGE CARDS");
-        createSecondAgeCards(3);
-        System.out.println("THIRD AGE CARDS");
-        createThirdAgeCards(5);
-
-
-
     }
 
     public void createGameCards(int numberOfPlayers){
@@ -164,7 +144,7 @@ public class CardEngine extends Application {
         ArrayList<Material> card13reqs = new ArrayList<Material>();
         card13reqs.add(new Material("none",0));
         ArrayList<Material> card13earnings = new ArrayList<Material>();
-        card13earnings.add(new Material("Press",1));
+        card13earnings.add(new Material("Papyrus",1));
         Card thirteen = new Card("press", card13reqs, card13earnings,13,-1,"Grey","press.png",1);
         cards.add(thirteen);
         cards.add(thirteen);
@@ -275,7 +255,7 @@ public class CardEngine extends Application {
         cards.add(twentysix);
 
         ArrayList<Material> card27reqs = new ArrayList<Material>();
-        card27reqs.add(new Material("Paper",1));
+        card27reqs.add(new Material("Papyrus",1));
         ArrayList<Material> card27earnings = new ArrayList<Material>();
         card27earnings.add(new Material("ScienceStone",1));
         Card twentyseven = new Card("scriptorium", card27reqs, card27earnings,27,49,"Green","scriptorium.png",1);
@@ -369,7 +349,7 @@ public class CardEngine extends Application {
         ArrayList<Material> card34reqs = new ArrayList<Material>();
         card34reqs.add(new Material("none",0));
         ArrayList<Material> card34earnings = new ArrayList<Material>();
-        card34earnings.add(new Material("Press",1));
+        card34earnings.add(new Material("Papyrus",1));
         Card thirtyfour = new Card("press", card34reqs, card34earnings,34,-1,"Grey","press.png",2);
         cards2.add(thirtyfour);
         cards2.add(thirtyfour);
@@ -406,7 +386,7 @@ public class CardEngine extends Application {
         ArrayList<Material> card38earnings = new ArrayList<Material>();
         card38earnings.add(new Material("Loom",1));
         card38earnings.add(new Material("Glass",1));
-        card38earnings.add(new Material("Paper",1));
+        card38earnings.add(new Material("Papyrus",1));
         Card thirtyeight = new Card("forum", card38reqs, card38earnings,38,65,"Yellow","forum.png",2,true,"FORUM");
         cards2.add(thirtyeight);
         cards2.add(thirtyeight);
@@ -488,7 +468,7 @@ public class CardEngine extends Application {
 
         ArrayList<Material> card47reqs = new ArrayList<Material>();
         card47reqs.add(new Material("Clay",2));
-        card47reqs.add(new Material("Paper",1));
+        card47reqs.add(new Material("Papyrus",1));
         ArrayList<Material> card47earnings = new ArrayList<Material>();
         card47earnings.add(new Material("ScienceWheel",1));
         Card fourtyseven = new Card("laboratory", card47reqs, card47earnings,47,74,"Green","laboratory.png",2);
@@ -515,7 +495,7 @@ public class CardEngine extends Application {
 
         ArrayList<Material> card50reqs = new ArrayList<Material>();
         card50reqs.add(new Material("Wood",1));
-        card50reqs.add(new Material("Paper",1));
+        card50reqs.add(new Material("Papyrus",1));
         ArrayList<Material> card50earnings = new ArrayList<Material>();
         card50earnings.add(new Material("ScienceStone",1));
         Card fifty = new Card("school", card50reqs, card50earnings,50,78,"Green","school.png",2);
@@ -581,7 +561,7 @@ public class CardEngine extends Application {
 
         ArrayList<Material> card53reqs = new ArrayList<Material>();
         card53reqs.add(new Material("Loom",1));
-        card53reqs.add(new Material("Paper",1));
+        card53reqs.add(new Material("Papyrus",1));
         card53reqs.add(new Material("Glass",1));
         ArrayList<Material> card53earnings = new ArrayList<Material>();
         card53earnings.add(new Material("none",0));
@@ -616,7 +596,7 @@ public class CardEngine extends Application {
 
         ArrayList<Material> card57reqs = new ArrayList<Material>();
         card57reqs.add(new Material("Wood",3));
-        card57reqs.add(new Material("Paper",1));
+        card57reqs.add(new Material("Papyrus",1));
         card57reqs.add(new Material("Glass",1));
         ArrayList<Material> card57earnings = new ArrayList<Material>();
         card57earnings.add(new Material("none",0));
@@ -626,7 +606,7 @@ public class CardEngine extends Application {
         ArrayList<Material> card58reqs = new ArrayList<Material>();
         card58reqs.add(new Material("Wood",2));
         card58reqs.add(new Material("Clay",2));
-        card58reqs.add(new Material("Paper",1));
+        card58reqs.add(new Material("Papyrus",1));
         ArrayList<Material> card58earnings = new ArrayList<Material>();
         card58earnings.add(new Material("ScienceRuler",1));
         card58earnings.add(new Material("ScienceStone",1));
@@ -655,7 +635,7 @@ public class CardEngine extends Application {
         ArrayList<Material> card61reqs = new ArrayList<Material>();
         card61reqs.add(new Material("Clay",2));
         card61reqs.add(new Material("Ore",1));
-        card61reqs.add(new Material("Paper",1));
+        card61reqs.add(new Material("Papyrus",1));
         card61reqs.add(new Material("Loom",2));
         card61reqs.add(new Material("Glass",2));
         ArrayList<Material> card61earnings = new ArrayList<Material>();
@@ -686,7 +666,7 @@ public class CardEngine extends Application {
 
         ArrayList<Material> card64reqs = new ArrayList<Material>();
         card64reqs.add(new Material("Glass",1));
-        card64reqs.add(new Material("Paper",1));
+        card64reqs.add(new Material("Papyrus",1));
         card64reqs.add(new Material("Loom",1));
         card64reqs.add(new Material("Clay",1));
         card64reqs.add(new Material("Wood",1));
@@ -719,7 +699,7 @@ public class CardEngine extends Application {
 
         ArrayList<Material> card67reqs = new ArrayList<Material>();
         card67reqs.add(new Material("Clay",2));
-        card67reqs.add(new Material("Paper",1));
+        card67reqs.add(new Material("Papyrus",1));
         ArrayList<Material> card67earnings = new ArrayList<Material>();
         card67earnings.add(new Material("none",0));
         Card sixtyseven = new Card("chamberofcommerce", card67reqs, card67earnings,67,-1,"Yellow","chamberofcommerce.png",3,"CHAMBEROFCOMMERCE");
@@ -769,7 +749,7 @@ public class CardEngine extends Application {
         ArrayList<Material> card72reqs = new ArrayList<Material>();
         card72reqs.add(new Material("Clay",2));
         card72reqs.add(new Material("Loom",1));
-        card72reqs.add(new Material("Paper",1));
+        card72reqs.add(new Material("Papyrus",1));
         ArrayList<Material> card72earnings = new ArrayList<Material>();
         card72earnings.add(new Material("ScienceRuler",1));
         Card seventytwo = new Card("lodge", card72reqs, card72earnings,72,-1,"Green","lodge.png",3);
@@ -807,7 +787,7 @@ public class CardEngine extends Application {
 
         ArrayList<Material> card76reqs = new ArrayList<Material>();
         card76reqs.add(new Material("Wood",2));
-        card76reqs.add(new Material("Paper",1));
+        card76reqs.add(new Material("Papyrus",1));
         card76reqs.add(new Material("Glass",1));
         ArrayList<Material> card76earnings = new ArrayList<Material>();
         card76earnings.add(new Material("ScienceStone",1));
@@ -826,7 +806,7 @@ public class CardEngine extends Application {
 
         ArrayList<Material> card78reqs = new ArrayList<Material>();
         card78reqs.add(new Material("Wood",1));
-        card78reqs.add(new Material("Paper",1));
+        card78reqs.add(new Material("Papyrus",1));
         card78reqs.add(new Material("Loom",1));
         ArrayList<Material> card78earnings = new ArrayList<Material>();
         card78earnings.add(new Material("ScienceWheel",1));
@@ -839,26 +819,26 @@ public class CardEngine extends Application {
             // do nothing
         }
         else if(numberOfPlayers == 6){
-            int[] cardIdOfCardsToBeDeleted = {64,68,70,71,74,77};
+            int[] cardIdOfCardsToBeDeleted = {51,64,68,70,71,74,77};
             for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
                 cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
             }
         }
         else if(numberOfPlayers == 5){
-            int[] cardIdOfCardsToBeDeleted = {61,63,64,66,67,68,69,70,71,72,74,77};
+            int[] cardIdOfCardsToBeDeleted = {51,56,61,63,64,66,67,68,69,70,71,72,74,77};
             for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
                 cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
             }
         }
         else if(numberOfPlayers == 4){
-            int[] cardIdOfCardsToBeDeleted = {61,63,63,64,66,67,68,69,69,70,71,71,72,73,74,75,77,78};
+            int[] cardIdOfCardsToBeDeleted = {54,52,57,61,63,63,64,66,67,68,69,69,70,71,71,72,73,74,75,77,78};
             for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
                 cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
             }
         }
         // number of players is 3
         else{
-            int[] cardIdOfCardsToBeDeleted = {61,62,63,63,64,65,66,67,67,68,69,69,69,70,70,71,71,72,73,74,75,76,77,78};
+            int[] cardIdOfCardsToBeDeleted = {57,51,54,53,61,62,63,63,64,65,66,67,67,68,69,69,69,70,70,71,71,72,73,74,75,76,77,78};
             for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
                 cards3.remove(findById(cards3,cardIdOfCardsToBeDeleted[i]));
             }
