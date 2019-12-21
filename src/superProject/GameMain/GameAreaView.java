@@ -102,6 +102,8 @@ public class GameAreaView implements Initializable {
         }
     }
 
+    
+
     @FXML
     void addWonder1(ActionEvent event) throws Exception{
         try {
