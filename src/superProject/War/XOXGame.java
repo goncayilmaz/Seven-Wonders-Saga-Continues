@@ -21,11 +21,10 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.awt.*;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XOXGame extends Application{
+public class XOXGame extends Application {
     // Player player1, Player Player2;
     int [] tiles = {0,0,0,0,0,0,0,0,0};
     private boolean isRun;
@@ -40,19 +39,6 @@ public class XOXGame extends Application{
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.show();
-//        try {
-//
-//            Parent root = FXMLLoader.load(getClass().getResource("../View/XOXViewFX.fxml"));
-//            primaryStage.setTitle("XOX Game");
-//
-//            primaryStage.setScene(new Scene(root, 400, 500));
-//            primaryStage.setResizable(false);
-//            primaryStage.show();
-//        }
-//        catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
     }
 
     private Parent createContent(){
@@ -125,7 +111,6 @@ public class XOXGame extends Application{
         int tileNo;
 
         public Tile(){
-            //this.tileNo = tileNo;
             Rectangle border = new Rectangle(200,200);
             border.setFill(null);
             border.setStroke(Color.BLACK);
@@ -134,33 +119,26 @@ public class XOXGame extends Application{
             getChildren().addAll(border, text);
 
 
-
-            setOnMouseClicked( event -> {
+            setOnMouseClicked(event -> {
                 //if(!playable){
                     //return;
                 //}
-
                 if(event.getButton() == MouseButton.PRIMARY){
-                    int clickX = (int)(event.getX()) / 200;
-                    int clickY = (int)(event.getY()) / 200;
-                    tileNo = clickY * 3 + clickX;
+                    //int clickX = (int)(event.getX()) / 200;
+                    //int clickY = (int)(event.getY()) / 200;
+                    // tileNo = clickY * 3 + clickX;
 
                     if(!turnX || tiles[tileNo] == 1)
                         return;
                     else {
                         drawX();
-                        tiles[tileNo] = 1;
+                        //tiles[tileNo] = 1;
                         turnX = false;
                         checkState();
-                        System.out.println(tiles[0] + "  " + tiles[1] + "  " + tiles[2]);
-                        System.out.println(tiles[3] + "  " + tiles[4] + "  " + tiles[5]);
-                        System.out.println(tiles[6] + "  " + tiles[7] + "  " + tiles[8]);
-                        System.out.println();
                         randomTile();
                     }
                 }
-            }
-            );
+            });
         }
 
 
@@ -181,28 +159,24 @@ public class XOXGame extends Application{
         }
 
         public void randomTile(){
-            int nextTile = (int)(Math.random() * 10);
-            while(tiles[nextTile] == 1){
-                nextTile = (nextTile + 1) % 9;
+            int x = (int)(Math.random() * 3);
+            int y = (int)(Math.random() * 3);
+            while(board[x][y].getValue().equals("X") || board[x][y].getValue().equals("0")){
+                x = (int)(Math.random() * 3);
+                y = (int)(Math.random() * 3);
             }
-            System.out.println(nextTile);
-            getTile(nextTile).drawY();
-            tiles[nextTile] = 1;
+            System.out.println(x);
+            System.out.println(y);
+            board[x][y].drawY();
             turnX = true;
             checkState();
-            System.out.println(tiles[0] + "  " + tiles[1] + "  " + tiles[2]);
-            System.out.println(tiles[3] + "  " + tiles[4] + "  " + tiles[5]);
-            System.out.println(tiles[6] + "  " + tiles[7] + "  " + tiles[8]);
-            System.out.println();
-            //setOnMouseClicked();
         }
-
-    }
-    public Tile getTile(int tileNo){
-        return board[(tileNo%3)][(tileNo / 3)];
     }
 
 
+    public boolean playXOX(){
+        return true;
+    }
 
     public static void main(String[] args) {
         launch(args);

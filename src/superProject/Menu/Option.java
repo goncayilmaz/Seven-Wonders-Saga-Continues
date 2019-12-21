@@ -84,7 +84,7 @@ public class Option  implements Initializable {
     public void musicCheck(MouseEvent event) throws  Exception {
 
         try {
-            if (musicBox.isSelected() == true) {
+            if (musicBox.isSelected()) {
                 System.out.println("efe");
 
             }
@@ -254,25 +254,11 @@ public class Option  implements Initializable {
     }
 
     public void changeMusic(){
-        if(music){
-            music=false;
-
-        }
-        else
-        {
-            music=true;
-        }
+        music = !music;
     }
 
     public void changeSound(){
-        if(sound){
-            sound=false;
-
-        }
-        else
-        {
-            sound=true;
-        }
+        sound = !sound;
     }
 
 
