@@ -116,11 +116,11 @@
       <Label layoutX="54.0" layoutY="216.0" text="AD = Add WOnder" />
       <Label layoutX="50.0" layoutY="235.0" text="DC:Discard Card" />
       <Label layoutX="67.0" layoutY="265.0" text="PT : Put ON Table" />
-      <GridPane layoutX="370.0" layoutY="681.0">
+      <GridPane fx:id="secondGridPane" layoutX="370.0" layoutY="681.0">
          <children>
-            <Button ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
-            <Button cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
-            <Button ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+            <Button fx:id="aw2" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder2" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
+            <Button fx:id="dc2" cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" onAction="#discardCard2" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
+            <Button fx:id="pt2" ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" onAction="#putOnTable2" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -131,11 +131,11 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <GridPane layoutX="490.0" layoutY="681.0">
+      <GridPane fx:id="thirdGridPane" layoutX="490.0" layoutY="681.0">
          <children>
-            <Button ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
-            <Button cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
-            <Button ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+            <Button fx:id="aw3" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder3" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
+            <Button fx:id="dc3" cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" onAction="#discardCard3" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
+            <Button fx:id="pt3" ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" onAction="#putOnTable3" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -148,9 +148,9 @@
       </GridPane>
       <GridPane layoutX="610.0" layoutY="681.0">
          <children>
-            <Button ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
-            <Button cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
-            <Button ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+            <Button fx:id="aw4" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder4" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
+            <Button fx:id="dc4" cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" onAction="#discardCard4" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
+            <Button fx:id="pt4" ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" onAction="#putOnTable4" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -163,9 +163,9 @@
       </GridPane>
       <GridPane layoutX="735.0" layoutY="681.0">
          <children>
-            <Button ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
-            <Button cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
-            <Button ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+            <Button fx:id="aw5" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder5" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
+            <Button fx:id="dc5" cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" onAction="#discardCard5" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
+            <Button fx:id="pt5" ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" onAction="#putOnTable5" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -178,9 +178,9 @@
       </GridPane>
       <GridPane layoutX="855.0" layoutY="681.0">
          <children>
-            <Button ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
-            <Button cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
-            <Button ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+            <Button fx:id="aw6" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder6" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
+            <Button fx:id="dc6" cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" onAction="#discardCard6" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
+            <Button fx:id="pt6" ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" onAction="#putOnTable6" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -193,9 +193,9 @@
       </GridPane>
       <GridPane layoutX="975.0" layoutY="681.0">
          <children>
-            <Button ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
-            <Button cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
-            <Button ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+            <Button fx:id="aw7" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder7" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
+            <Button fx:id="dc7" cacheShape="false" centerShape="false" ellipsisString="" focusTraversable="false" layoutX="388.0" layoutY="400.0" mnemonicParsing="false" onAction="#discardCard7" prefHeight="20.0" prefWidth="37.0" scaleShape="false" text="DC" GridPane.columnIndex="2" />
+            <Button fx:id="pt7" ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" onAction="#putOnTable7" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />

@@ -12,6 +12,12 @@ public class Material {
         this.count = count;
     }
 
+    public boolean isWonderConstructorMaterial()
+    {
+        if(name == "Civilian" || name == "Coin" || name == "ScienceWheel" || name == "ScienceRuler" || name == "ScienceStone")
+            return false;
+        return true;
+    }
     public String getName() {
         return name;
     }

@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import superProject.GameProperties.Material;
+import superProject.Player.Player;
 
 
 import java.net.URL;
@@ -579,9 +580,9 @@ public class CityManager implements Initializable {
         return citiesB;
     }
 
-    public void changeCityStage(City city) {
+    public void changeCityStage(City city, Player player) {
 
-        city.setBoardLevel(city.getBoardLevel() + 1);
+        city.increaseLevel(player);
     }
 
     public void printACities() {
