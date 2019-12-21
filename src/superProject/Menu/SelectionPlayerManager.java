@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 
 public class SelectionPlayerManager implements Initializable {
 
-    private int playerNumber=2;
+    private int playerNumber = 3;
 
 
     @FXML
@@ -92,7 +92,7 @@ public class SelectionPlayerManager implements Initializable {
     }
     public void increasePlayer(ActionEvent event){
 
-        if(playerNumber<6) {
+        if(playerNumber < 7) {
             playerNumber++;
 
             playerNumberLabel.setText(String.valueOf(playerNumber));
@@ -100,8 +100,8 @@ public class SelectionPlayerManager implements Initializable {
         else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Maximum Number of Player");
-            alert.setHeaderText("Reach Maximum Number of Player Limit");
-            alert.setContentText("Game can play with 2 to 7 people!");
+            alert.setHeaderText("Maximum number of player limit is reached!");
+            alert.setContentText("Game can play with 3 to 7 people!");
 
             alert.showAndWait();
         /*
@@ -119,7 +119,7 @@ alert.showAndWait();
     }
 
     public void decreasePlayer(ActionEvent event){
-        if(playerNumber>2) {
+        if(playerNumber > 3) {
             playerNumber--;
 
             playerNumberLabel.setText(String.valueOf(playerNumber));
@@ -127,8 +127,8 @@ alert.showAndWait();
         else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Minimum Number of Player");
-            alert.setHeaderText("Reach Minimum Number of Player Limit");
-            alert.setContentText("Game can play with 2 to 7 people!");
+            alert.setHeaderText("Minimum number of player limit is reached!");
+            alert.setContentText("Game can play with 3 to 7 people!");
 
             alert.showAndWait();
         }
