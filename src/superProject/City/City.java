@@ -69,9 +69,10 @@ public class City {
         this.orSituation = orSituation;
         this.maxCityLevel = maxCityLevel;
     }
-    public void increaseLevel()
+    public void increaseLevel(Player player)
     {
-        boardLevel++;
+        if(construct(this, player))
+            boardLevel++;
     }
     public int getMaxCityLevel()
     {
@@ -268,7 +269,9 @@ public class City {
         }
     }
 
-    public void construct(City city, Player player){
+    public boolean construct(City city, Player player)
+    {
+        boolean flag = false;
         int level = city.getBoardLevel();
         if(level < city.getMaxCityLevel())
         {
@@ -325,10 +328,106 @@ public class City {
             }
             if(level == 0)
             {
+                int counter = 0;
                 ArrayList<Material> reqMaterial = city.getCardReqs1();
-
+                for(int i = 0; i < reqMaterial.size(); i++)
+                {
+                    counter = 0;
+                    for(int j = 0; j < materialss.size(); j++)
+                    {
+                        if(reqMaterial.get(i).getName() == materialss.get(j).getName())
+                        {
+                            counter = counter + materialss.get(j).getCount();
+                            if(reqMaterial.get(i).getCount() == counter)
+                            {
+                                flag = true;
+                            }
+                            else
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                }
+                return flag;
+            }
+            if(level == 1)
+            {
+                int counter = 0;
+                ArrayList<Material> reqMaterial = city.getCardReqs2();
+                for(int i = 0; i < reqMaterial.size(); i++)
+                {
+                    counter = 0;
+                    for(int j = 0; j < materialss.size(); j++)
+                    {
+                        if(reqMaterial.get(i).getName() == materialss.get(j).getName())
+                        {
+                            counter = counter + materialss.get(j).getCount();
+                            if(reqMaterial.get(i).getCount() == counter)
+                            {
+                                flag = true;
+                            }
+                            else
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                }
+                return flag;
+            }
+            if(level == 2)
+            {
+                int counter = 0;
+                ArrayList<Material> reqMaterial = city.getCardReqs3();
+                for(int i = 0; i < reqMaterial.size(); i++)
+                {
+                    counter = 0;
+                    for(int j = 0; j < materialss.size(); j++)
+                    {
+                        if(reqMaterial.get(i).getName() == materialss.get(j).getName())
+                        {
+                            counter = counter + materialss.get(j).getCount();
+                            if(reqMaterial.get(i).getCount() == counter)
+                            {
+                                flag = true;
+                            }
+                            else
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                }
+                return flag;
+            }
+            if(level == 3)
+            {
+                int counter = 0;
+                ArrayList<Material> reqMaterial = city.getCardReqs4();
+                for(int i = 0; i < reqMaterial.size(); i++)
+                {
+                    counter = 0;
+                    for(int j = 0; j < materialss.size(); j++)
+                    {
+                        if(reqMaterial.get(i).getName() == materialss.get(j).getName())
+                        {
+                            counter = counter + materialss.get(j).getCount();
+                            if(reqMaterial.get(i).getCount() == counter)
+                            {
+                                flag = true;
+                            }
+                            else
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                }
+                return flag;
             }
         }
+        return false;
 
     }
 }
