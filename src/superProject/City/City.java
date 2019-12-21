@@ -45,6 +45,24 @@ public class City {
         orSituation = false;
         this.maxCityLevel = maxCityLevel;
     }
+
+    public City(){
+        boardLevel = 0;
+        boardName = "";
+        boardNumber = 0;
+        cardReqs1 = new ArrayList<Material>();
+        cardReqs2 = new ArrayList<Material>();
+        cardReqs3 = new ArrayList<Material>();
+        cardReqs4 = new ArrayList<Material>();
+        cardSpecsForLevel1 = new ArrayList<Material>();
+        cardSpecsForLevel2 = new ArrayList<Material>();
+        cardSpecsForLevel3 = new ArrayList<Material>();
+        cardSpecsForLevel4 = new ArrayList<Material>();
+        photoName = "";
+        maxCityLevel = 0;
+        orSituation = false;
+    }
+
     public City(String boardName, ArrayList<Material> cardSpecs,
                 int boardLevel, ArrayList<Material> cardReqs1, ArrayList<Material> cardReqs2,
                 ArrayList<Material> cardReqs3, ArrayList<Material> cardSpecsForLevel1,
@@ -99,6 +117,7 @@ public class City {
         }
     }
 
+
     public String getBoardName()
     {
         return boardName;
@@ -109,9 +128,9 @@ public class City {
         this.boardName = boardName;
     }
 
-    public ArrayList<Material> getCardSpecs()
+    public Material getCardSpecs()
     {
-        return cardSpecs;
+        return cardSpecs.get(0);
     }
 
     public void setCardSpecs(ArrayList<Material> cardSpecs)
@@ -218,6 +237,7 @@ public class City {
     {
         this.boardNumber = boardNumber;
     }
+
     public void print() {
         System.out.println("boardName: " + boardName  + " boardLevel: " + boardLevel);
         System.out.print("Requirements: ");
@@ -253,19 +273,21 @@ public class City {
         System.out.println();
     }
 
-    public ArrayList<Material> getLevelItems(City city){
-        if(city.getBoardLevel()==1){
-            return city.getCardSpecsForLevel1();
+    public ArrayList<Material> getLevelItems(){
+        if(boardLevel == 1){
+            return cardSpecsForLevel1;
         }
-        if(city.getBoardLevel()==2){
-            return city.getCardSpecsForLevel2();
+        else if(boardLevel == 2){
+            return cardSpecsForLevel2;
         }
-        if(city.getBoardLevel()==3){
-            return city.getCardSpecsForLevel3();
+        else if(boardLevel == 3){
+            return cardSpecsForLevel3;
+        }else if(boardLevel == 4){
+            return cardSpecsForLevel4;
         }
-        else{
+        else
             return null;
-        }
+
     }
 
     public void construct(City city, Player player){

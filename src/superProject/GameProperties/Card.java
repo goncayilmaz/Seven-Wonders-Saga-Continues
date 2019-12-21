@@ -147,6 +147,164 @@ public class Card {
         return cardWarPoint;
     }
 
+
+    public int getNumberOfRequiredWood(){
+        for(int i = 0; i < requirements.size(); i++){
+            if(requirements.get(i).getName() == "Wood"){
+                return requirements.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfRequiredClay(){
+        for(int i = 0; i < requirements.size(); i++){
+            if(requirements.get(i).getName() == "Clay"){
+                return requirements.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfRequiredOre(){
+        for(int i = 0; i < requirements.size(); i++){
+            if(requirements.get(i).getName() == "Ore"){
+                return requirements.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfRequiredStone(){
+        for(int i = 0; i < requirements.size(); i++){
+            if(requirements.get(i).getName() == "Stone"){
+                return requirements.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfRequiredGlass(){
+        for(int i = 0; i < requirements.size(); i++){
+            if(requirements.get(i).getName() == "Glass"){
+                return requirements.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfRequiredLoom(){
+        for(int i = 0; i < requirements.size(); i++){
+            if(requirements.get(i).getName() == "Loom"){
+                return requirements.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfRequiredPapyrus(){
+        for(int i = 0; i < requirements.size(); i++){
+            if(requirements.get(i).getName() == "Papyrus"){
+                return requirements.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+
+
+
+    public int getNumberOfEarningWood(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "Wood"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfEarningStone(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "Stone"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfEarningOre(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "Ore"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfEarningClay(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "Clay"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfEarningGlass(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "Glass"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfEarningLoom(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "Loom"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfEarningPapyrus(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "Papyrus"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfEarningCivilian(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "Civilian"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfEarningMilitary(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "Military"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfEarningScienceRuler(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "ScienceRuler"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfEarningScienceWheel(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "ScienceWheel"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+    public int getNumberOfEarningScienceStone(){
+        for(int i = 0; i < earnings.size(); i++){
+            if(earnings.get(i).getName() == "ScienceStone"){
+                return earnings.get(i).getCount();
+            }
+        }
+        return 0;
+    }
+
+
     public void setCardWarPoint(int cardWarPoint) {
         this.cardWarPoint = cardWarPoint;
     }

@@ -53,7 +53,7 @@ public class CityManager implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         createCity(false);
         arrangeCities(2, "The Hanging Gardens of Babylon", false);
-        printCities(citiesB);
+        printBCities();
 
 
 
@@ -111,34 +111,8 @@ public class CityManager implements Initializable {
         firstSelected.setRotate(12);
     }catch (Exception e) {
         }
-        }
-
-/*
-
-    @Override
-    public void start(Stage primaryStage) throws Exception
-    {
-
-
-        try
-        {
-
-            Parent root = FXMLLoader.load(getClass().getResource("../Menu/CitySelectionViewFX.fxml"));
-            primaryStage.setTitle("City Selection");
-
-            primaryStage.setScene(new Scene(root, 500, 350));
-            primaryStage.setResizable(false);
-            primaryStage.show();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
-
-
     }
-    */
+
 
     public void createCity(boolean boardType) {
         if (boardType == true)
@@ -610,9 +584,14 @@ public class CityManager implements Initializable {
         city.setBoardLevel(city.getBoardLevel() + 1);
     }
 
-    public void printCities(ArrayList<City> cardPrint) {
-        for (int i = 0; i < cardPrint.size(); i++) {
-            //    cardPrint.get(i).prit();
+    public void printACities() {
+        for (int i = 0; i < citiesA.size(); i++) {
+             citiesA.get(i).print();
+        }
+    }
+    public void printBCities() {
+        for (int i = 0; i < citiesB.size(); i++) {
+            citiesB.get(i).print();
         }
     }
 }
