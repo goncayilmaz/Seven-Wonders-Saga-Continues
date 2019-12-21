@@ -33,9 +33,31 @@ public class AttackManager {
             if (i == 0) {
                 int compareLeft = Integer.compare( players[i].getWarPoints(), players[numberOfPlayers - 1].getWarPoints());
                 int compareRight  = Integer.compare( players[i].getWarPoints(), players[i + 1].getWarPoints());
+                if(compareLeft == 0){
+                    //TODO
+                    //xox
+                    //change compareLeft value
+                }
+                if(compareRight == 0){
+                    //TODO
+                    //xox
+                    //change also compareRight value
+                }
                 setResults(i, compareLeft);
                 setResults(i, compareRight);
-                view = new WarWiew(players[i], players[players.length-1], false,  players[1], true);
+                boolean isLeftWinner;
+                boolean isRightWinner;
+                if(compareLeft > 0) {
+                    isLeftWinner = true;
+                } else{
+                    isLeftWinner = false;
+                }
+                if(compareRight > 0){
+                    isRightWinner = true;
+                } else{
+                    isRightWinner = false;
+                }
+                view = new WarWiew(players[i], players[players.length-1], isLeftWinner,  players[1], isRightWinner);
             } else if( i == numberOfPlayers - 1) {
                 int compareLeft = Integer.compare( players[i].getWarPoints(), players[i - 1].getWarPoints());
                 int compareRight  = Integer.compare( players[i].getWarPoints(), players[0].getWarPoints());
@@ -52,8 +74,6 @@ public class AttackManager {
     }
 
     public void setResults(int playerId, int compareResult){
-        //these are done by PlayerEngine(???????)
-        //TODO
         int victoryPoints;
         int defeatPoints = 1;
         if(curAgeNo == 1){
@@ -65,11 +85,7 @@ public class AttackManager {
         }
         winners = new ArrayList<Player>();
         losers = new ArrayList<Player>();
-        if (compareResult == 0 ) {
-            //TODO
-            //xox
-
-        } else if( compareResult > 0) {
+        if( compareResult > 0) {
             players[playerId].setScore(players[playerId].getScore() + victoryPoints);
             losers.add(players[playerId]);
         } else {

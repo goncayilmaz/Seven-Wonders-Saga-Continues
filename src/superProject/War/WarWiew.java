@@ -3,6 +3,7 @@ package superProject.War;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import superProject.Player.Player;
@@ -19,7 +20,10 @@ import javafx.scene.layout.*;
 //import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class WarWiew extends Application {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class WarWiew implements Initializable {
 
     @FXML
     private Label leftResLabel;
@@ -55,42 +59,6 @@ public class WarWiew extends Application {
         setRightNeighbour(rightNeighbour);
         setMainPlayer(mainPlayer);
 
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../War/WarViewFX.fxml"));
-            primaryStage.setTitle("War");
-
-            primaryStage.setScene(new Scene(root));
-            primaryStage.setFullScreen(true);
-
-            primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-            System.out.println(primaryScreenBounds);
-
-            prefHeightSmall = (int) primaryScreenBounds.getHeight() * 9 / 10;
-            int prefWidthSmall = (int) primaryScreenBounds.getWidth() / 2;
-
-            /*
-            smallPane1.setMaxWidth(prefWidthSmall);
-            smallPane1.setMaxHeight(prefHeightSmall);
-            smallPane1.setPrefSize(prefWidthSmall, prefHeightSmall);
-            smallPane2.setMaxWidth(prefWidthSmall);
-            smallPane2.setMaxHeight(prefHeightSmall);
-            smallPane2.setPrefSize(prefWidthSmall, prefHeightSmall);
-            */
-
-            primaryStage.setResizable(true);
-            primaryStage.centerOnScreen();
-
-            primaryStage.show();
-
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     public double getPrefHeightSmall(){
@@ -173,8 +141,40 @@ public class WarWiew extends Application {
         this.mainPlayer = mainPlayer;
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //
+        //try {
+        //Parent root = FXMLLoader.load(getClass().getResource("../War/WarViewFX.fxml"));
+        //primaryStage.setTitle("War");
+        //
+        //primaryStage.setScene(new Scene(root));
+        //primaryStage.setFullScreen(true);
+        //
+        //primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        //System.out.println(primaryScreenBounds);
+        //
+        //prefHeightSmall = (int) primaryScreenBounds.getHeight() * 9 / 10;
+        //int prefWidthSmall = (int) primaryScreenBounds.getWidth() / 2;
+        //
+        //
+        //smallPane1.setMaxWidth(prefWidthSmall);
+        //smallPane1.setMaxHeight(prefHeightSmall);
+        //smallPane1.setPrefSize(prefWidthSmall, prefHeightSmall);
+        //smallPane2.setMaxWidth(prefWidthSmall);
+        //smallPane2.setMaxHeight(prefHeightSmall);
+        //smallPane2.setPrefSize(prefWidthSmall, prefHeightSmall);
+        //
+        //
+        //primaryStage.setResizable(true);
+        //primaryStage.centerOnScreen();
+        //
+        //primaryStage.show();
+        //
+        //}
+        //catch (Exception e){
+        //e.printStackTrace();
+        //}
     }
 }
 
