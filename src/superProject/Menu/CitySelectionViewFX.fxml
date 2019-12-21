@@ -72,7 +72,7 @@
             </ImageView>
          </children>
       </GridPane>
-      <Button fx:id="startButton" layoutX="572.0" layoutY="592.0" mnemonicParsing="false" text="Start" />
+      <Button fx:id="startButton" layoutX="572.0" layoutY="592.0" mnemonicParsing="false" onAction="#startToGame" text="Start" />
       <ImageView fitHeight="166.0" fitWidth="290.0" layoutX="459.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/tokens/coin.png" />

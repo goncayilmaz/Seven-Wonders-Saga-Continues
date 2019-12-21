@@ -80,6 +80,27 @@ public class CityManager implements Initializable {
         }
     }
 
+    @FXML
+    void startToGame(ActionEvent event) throws Exception{
+        Stage stage;
+        Parent root;
+
+        try {
+            stage = (Stage) startButton.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (Exception e){
+           e.printStackTrace();
+
+
+        }
+
+    }
+
 
 
 
