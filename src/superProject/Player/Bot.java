@@ -4,7 +4,7 @@ import superProject.GameProperties.Card;
 
 import java.util.ArrayList;
 
-public class Bot {
+public class Bot extends Player{
 
     // bu class gözden geçecek
     // bunu yazdım ama tekrardan bakmamız lazım

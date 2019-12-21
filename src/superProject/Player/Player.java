@@ -12,14 +12,12 @@ public class Player {
     private String name; //added to print player at the end of war (I didn't know what to right) -Gonca
     private int warPoints; // war points
     private ArrayList<Card> cards; // cards in hand
-    private int boardNum; // for connecting with board city
-    private boolean isWinner; // check is winner or not.
     private ArrayList<Card> cardsOnTable;
-    private int[] attributeList;
+    private int boardNum; // for connecting with board city
     private int score;
     private City city;
-    ArrayList<Material> resources;
-
+    private ArrayList<Material> resources;
+    int numberOfCoin;
     int numberOfClay;
     int numberOfOre;
     int numberOfStone;
@@ -29,13 +27,9 @@ public class Player {
     int numberOfPapyrus;
     int numberOfMilitary;
     int numberOfCivilian;
-    int numberOfCoin;
     int numberOfScienceRuler;
     int numberOfScienceStone;
     int numberOfScienceWheel;
-
-
-
 
 
     public Player() {
@@ -46,10 +40,32 @@ public class Player {
         cardsOnTable = new ArrayList<>();;
         boardNum = 0;
         score = 0;
-        isWinner = false;
-        id = 0;
         city = new City();
-        attributeList = new int[9];
+        resources = new ArrayList<>();
+        numberOfCoin = 0;
+        numberOfClay = 0;
+        numberOfOre = 0;
+        numberOfStone = 0;
+        numberOfWood = 0;
+        numberOfLoom = 0;
+        numberOfGlass= 0;
+        numberOfPapyrus = 0;
+        numberOfMilitary = 0;
+        numberOfCivilian = 0;
+        numberOfScienceRuler = 0;
+        numberOfScienceStone = 0;
+        numberOfScienceWheel = 0;
+    }
+
+    public Player(City city) {
+        id = 0;
+        name = "Player " + (id + 1); //if not set, then it is a Bot and it has only number
+        warPoints = 0;
+        cards = new ArrayList<>();
+        cardsOnTable = new ArrayList<>();;
+        boardNum = 0;
+        score = 0;
+        this.city = city;
         resources = new ArrayList<>();
         numberOfCoin = 0;
         numberOfClay = 0;
@@ -214,7 +230,7 @@ public class Player {
             }
 
         }
-
+        System.out.println("Can take card" + enough);
         return enough;
     }
 
@@ -286,14 +302,6 @@ public class Player {
 
     public void setScore(int score) {
         this.score = score;
-    }
-
-    public boolean isWinner() {
-        return isWinner;
-    }
-
-    public void setWinner(boolean winner) {
-        isWinner = winner;
     }
 
     public ArrayList<Card> getCardsOnTable() {
