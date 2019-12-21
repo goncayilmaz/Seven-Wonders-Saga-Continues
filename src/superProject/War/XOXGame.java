@@ -39,19 +39,6 @@ public class XOXGame extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.show();
-//        try {
-//
-//            Parent root = FXMLLoader.load(getClass().getResource("../View/XOXViewFX.fxml"));
-//            primaryStage.setTitle("XOX Game");
-//
-//            primaryStage.setScene(new Scene(root, 400, 500));
-//            primaryStage.setResizable(false);
-//            primaryStage.show();
-//        }
-//        catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
     }
 
     private Parent createContent(){
@@ -124,7 +111,6 @@ public class XOXGame extends Application {
         int tileNo;
 
         public Tile(){
-            //this.tileNo = tileNo;
             Rectangle border = new Rectangle(200,200);
             border.setFill(null);
             border.setStroke(Color.BLACK);
@@ -138,15 +124,15 @@ public class XOXGame extends Application {
                     //return;
                 //}
                 if(event.getButton() == MouseButton.PRIMARY){
-                    int clickX = (int)(event.getX()) / 200;
-                    int clickY = (int)(event.getY()) / 200;
-                    tileNo = clickY * 3 + clickX;
+                    //int clickX = (int)(event.getX()) / 200;
+                    //int clickY = (int)(event.getY()) / 200;
+                    // tileNo = clickY * 3 + clickX;
 
                     if(!turnX || tiles[tileNo] == 1)
                         return;
                     else {
                         drawX();
-                        tiles[tileNo] = 1;
+                        //tiles[tileNo] = 1;
                         turnX = false;
                         checkState();
                         randomTile();
@@ -173,20 +159,20 @@ public class XOXGame extends Application {
         }
 
         public void randomTile(){
-            int nextTile = (int)(Math.random() * 10);
-            while(tiles[nextTile] == 1){
-                nextTile = (nextTile + 1) % 10;
+            int x = (int)(Math.random() * 3);
+            int y = (int)(Math.random() * 3);
+            while(board[x][y].getValue().equals("X") || board[x][y].getValue().equals("0")){
+                x = (int)(Math.random() * 3);
+                y = (int)(Math.random() * 3);
             }
-            getTile(nextTile).drawY();
-            tiles[nextTile] = 1;
+            System.out.println(x);
+            System.out.println(y);
+            board[x][y].drawY();
             turnX = true;
             checkState();
         }
+    }
 
-    }
-    public Tile getTile(int tileNo){
-        return board[(tileNo/3)][(tileNo % 3)];
-    }
 
     public boolean playXOX(){
         return true;
