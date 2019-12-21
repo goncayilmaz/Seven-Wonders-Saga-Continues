@@ -25,8 +25,6 @@ public class GameEngine implements Initializable {
 
 
 
-
-
     private boolean gameLevel;
     private Option controllerListener;
     private ArrayList<Integer> scores;
