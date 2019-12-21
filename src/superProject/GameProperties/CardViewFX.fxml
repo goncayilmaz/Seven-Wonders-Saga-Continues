@@ -2,16 +2,12 @@
 
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="300.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.GameProperties.CardEngine">
    <children>
-      <ImageView fitHeight="222.0" fitWidth="170.0" layoutX="48.0" layoutY="78.0" pickOnBounds="true">
+      <ImageView fx:id="cardImage" fitHeight="222.0" fitWidth="170.0" layoutX="48.0" layoutY="78.0" pickOnBounds="true">
          <image>
             <Image url="@../../../../untitled1a/essiz-manzara.jpg" />
          </image>
