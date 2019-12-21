@@ -70,7 +70,7 @@ public class GameAreaView implements Initializable {
         String cardName4=cardEngine.getFirstAgeCards().get(4).getPhotoName();
         Image image4 = new Image(getClass().getResourceAsStream(preCard+cardName4));
         fifthCard.setImage(image4);
-   
+
 
         FadeTransition fadeInTransition = new FadeTransition(Duration.millis(1500), fifthCard);
         fadeInTransition.setFromValue(1.0);
