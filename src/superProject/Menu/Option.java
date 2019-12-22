@@ -162,10 +162,7 @@ public class Option  implements Initializable {
         try {
             stage = (Stage) startButton.getScene().getWindow();
             System.out.println("efe");
-
             root=FXMLLoader.load(getClass().getResource("../Menu/SelectionPlayerViewFX.fxml"));
-
-
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

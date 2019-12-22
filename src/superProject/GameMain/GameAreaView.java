@@ -18,6 +18,7 @@ import javafx.util.Duration;
 import superProject.GameProperties.CardEngine;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class GameAreaView implements Initializable {
@@ -63,7 +64,6 @@ public class GameAreaView implements Initializable {
             seventhCard.setFitWidth(90);
 
 
-
             Scene scene = new Scene(dc7.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -74,6 +74,8 @@ public class GameAreaView implements Initializable {
             pt7.setVisible(false);
             aw7.setVisible(false);
             dc7.setVisible(false);
+            cardChangeRotate();
+
 
 
         }
@@ -103,6 +105,8 @@ public class GameAreaView implements Initializable {
 
 
 
+
+
             Scene scene = new Scene(aw7.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -113,6 +117,8 @@ public class GameAreaView implements Initializable {
             pt7.setVisible(false);
             aw7.setVisible(false);
             dc7.setVisible(false);
+            cardChangeRotate();
+
 
 
         }
@@ -138,6 +144,7 @@ public class GameAreaView implements Initializable {
 
 
 
+
             Scene scene = new Scene(pt7.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -147,6 +154,7 @@ public class GameAreaView implements Initializable {
             pt7.setVisible(false);
             aw7.setVisible(false);
             dc7.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -176,6 +184,7 @@ public class GameAreaView implements Initializable {
 
 
 
+
             Scene scene = new Scene(dc6.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -186,6 +195,7 @@ public class GameAreaView implements Initializable {
             pt6.setVisible(false);
             aw6.setVisible(false);
             dc6.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -215,6 +225,7 @@ public class GameAreaView implements Initializable {
 
 
 
+
             Scene scene = new Scene(aw6.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -225,6 +236,7 @@ public class GameAreaView implements Initializable {
             pt6.setVisible(false);
             aw6.setVisible(false);
             dc6.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -250,6 +262,8 @@ public class GameAreaView implements Initializable {
 
 
 
+
+
             Scene scene = new Scene(pt6.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -259,6 +273,7 @@ public class GameAreaView implements Initializable {
             pt6.setVisible(false);
             aw6.setVisible(false);
             dc6.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -290,6 +305,8 @@ public class GameAreaView implements Initializable {
 
 
 
+
+
             Scene scene = new Scene(dc5.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -300,6 +317,7 @@ public class GameAreaView implements Initializable {
             pt5.setVisible(false);
             aw5.setVisible(false);
             dc5.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -329,6 +347,7 @@ public class GameAreaView implements Initializable {
 
 
 
+
             Scene scene = new Scene(aw5.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -339,6 +358,7 @@ public class GameAreaView implements Initializable {
             pt5.setVisible(false);
             aw5.setVisible(false);
             dc5.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -364,6 +384,8 @@ public class GameAreaView implements Initializable {
 
 
 
+
+
             Scene scene = new Scene(pt5.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -373,6 +395,7 @@ public class GameAreaView implements Initializable {
             pt5.setVisible(false);
             aw5.setVisible(false);
             dc5.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -403,6 +426,8 @@ public class GameAreaView implements Initializable {
 
 
 
+
+
             Scene scene = new Scene(dc4.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -413,7 +438,7 @@ public class GameAreaView implements Initializable {
             pt4.setVisible(false);
             aw4.setVisible(false);
             dc4.setVisible(false);
-
+            cardChangeRotate();
 
         }
     }
@@ -442,6 +467,8 @@ public class GameAreaView implements Initializable {
 
 
 
+
+
             Scene scene = new Scene(aw4.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -452,6 +479,7 @@ public class GameAreaView implements Initializable {
             pt4.setVisible(false);
             aw4.setVisible(false);
             dc4.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -477,6 +505,8 @@ public class GameAreaView implements Initializable {
 
 
 
+
+
             Scene scene = new Scene(pt4.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -486,7 +516,7 @@ public class GameAreaView implements Initializable {
             pt4.setVisible(false);
             aw4.setVisible(false);
             dc4.setVisible(false);
-
+            cardChangeRotate();
 
         }
 
@@ -516,6 +546,7 @@ public class GameAreaView implements Initializable {
 
 
 
+
             Scene scene = new Scene(dc3.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -526,6 +557,7 @@ public class GameAreaView implements Initializable {
             pt3.setVisible(false);
             aw3.setVisible(false);
             dc3.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -555,6 +587,8 @@ public class GameAreaView implements Initializable {
 
 
 
+
+
             Scene scene = new Scene(aw3.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -565,6 +599,7 @@ public class GameAreaView implements Initializable {
             pt3.setVisible(false);
             aw3.setVisible(false);
             dc3.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -590,6 +625,8 @@ public class GameAreaView implements Initializable {
 
 
 
+
+
             Scene scene = new Scene(pt3.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -599,7 +636,7 @@ public class GameAreaView implements Initializable {
             pt3.setVisible(false);
             aw3.setVisible(false);
             dc3.setVisible(false);
-
+            cardChangeRotate();
 
         }
 
@@ -629,6 +666,7 @@ public class GameAreaView implements Initializable {
 
 
 
+
             Scene scene = new Scene(dc1.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -639,6 +677,7 @@ public class GameAreaView implements Initializable {
             pt2.setVisible(false);
             aw2.setVisible(false);
             dc2.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -668,6 +707,7 @@ public class GameAreaView implements Initializable {
 
 
 
+
             Scene scene = new Scene(aw2.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -678,6 +718,7 @@ public class GameAreaView implements Initializable {
             pt2.setVisible(false);
             aw2.setVisible(false);
             dc2.setVisible(false);
+            cardChangeRotate();
 
 
 
@@ -704,6 +745,7 @@ public class GameAreaView implements Initializable {
 
 
 
+
             Scene scene = new Scene(pt2.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -713,7 +755,7 @@ public class GameAreaView implements Initializable {
             pt2.setVisible(false);
             aw2.setVisible(false);
             dc2.setVisible(false);
-
+            cardChangeRotate();
 
         }
 
@@ -744,6 +786,7 @@ public class GameAreaView implements Initializable {
 
 
 
+
             Scene scene = new Scene(dc1.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -754,6 +797,7 @@ public class GameAreaView implements Initializable {
             pt1.setVisible(false);
             aw1.setVisible(false);
             dc1.setVisible(false);
+            cardChangeRotate();
 
 
 
@@ -784,6 +828,7 @@ public class GameAreaView implements Initializable {
 
 
 
+
             Scene scene = new Scene(aw1.getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
 
@@ -794,6 +839,7 @@ public class GameAreaView implements Initializable {
             pt1.setVisible(false);
             aw1.setVisible(false);
             dc1.setVisible(false);
+            cardChangeRotate();
 
 
 
@@ -822,6 +868,7 @@ public class GameAreaView implements Initializable {
             firstCard.setFitWidth(90);
 
 
+
             //Configuring Group and Scene
             //  root= FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
             //  root.getChildren().addAll(firstCard);
@@ -834,6 +881,7 @@ public class GameAreaView implements Initializable {
             pt1.setVisible(false);
             aw1.setVisible(false);
             dc1.setVisible(false);
+            cardChangeRotate();
 
 
         }
@@ -879,6 +927,67 @@ public class GameAreaView implements Initializable {
 
     }
 
+    
+
+    public void cardChangeRotate(){
+        boolean card1 = false;
+        boolean card2 = false;
+        boolean card3 = false;
+        boolean card4 = false;
+        boolean card5 = false;
+        boolean card6 = false;
+        boolean card7 = false;
+
+
+        ArrayList<ImageView> imageList = new ArrayList<>();
+
+        CardEngine cardEngine = new CardEngine();
+        cardEngine.createFirstAgeCards(7);
+
+        if(pt1.isVisible()){
+            card1=true;
+            imageList.add(firstCard);
+
+
+        }
+        if(pt2.isVisible()){
+            card2=true;
+            imageList.add(secondCard);
+
+
+        }
+        if(pt3.isVisible()){
+            card3=true;
+            imageList.add(thirdCard);
+        }
+        if(pt4.isVisible()){
+            card4=true;
+            imageList.add(forthCard);
+        }if(pt5.isVisible()){
+            card5=true;
+            imageList.add(fifthCard);
+        }if(pt6.isVisible()){
+            card6=true;
+            imageList.add(sixthCard);
+        }
+        if(pt7.isVisible()){
+            card7=true;
+            imageList.add(seventhCard);
+        }
+
+        for(int i=0;i<imageList.size();i++){
+            System.out.println("kac tane kart var" +imageList.size());
+            String preCard= "/Images/images/cards/";
+            String cardName=cardEngine.getFirstAgeCards().get(i).getPhotoName();
+            Image image = new Image(getClass().getResourceAsStream(preCard+cardName));
+            imageList.get(i).setImage(image);
+        }
+
+
+
+
+    }
+
 
 
     @Override
@@ -894,12 +1003,6 @@ public class GameAreaView implements Initializable {
         String preCard= "/Images/images/cards/";
         String cardName=cardEngine.getFirstAgeCards().get(0).getPhotoName();
 
-     /*
-        Label label = new Label();
-
-        System.out.println("ef");
-
-      */
         // kartın üstüne gelince view açacak kısım.
         // karşı tarafın kartlarının rengini ve ne getirdikleirini print edecek sadece.
         String deneme = cardEngine.getFirstAgeCards().toString();
@@ -924,7 +1027,7 @@ public class GameAreaView implements Initializable {
         pt1.setTooltip(tooltip);
 
 
-
+        cardName=cardEngine.getFirstAgeCards().get(0).getPhotoName();
         Image image = new Image(getClass().getResourceAsStream(preCard+cardName));
         firstCard.setImage(image);
 
@@ -950,9 +1053,6 @@ public class GameAreaView implements Initializable {
         Image image4 = new Image(getClass().getResourceAsStream(preCard+cardName4));
         fifthCard.setImage(image4);
 
-
-        //fifthCard.setTranslateX(250);
-        //fifthCard.setTranslateY(123);
 
 
         String cardName5=cardEngine.getFirstAgeCards().get(5).getPhotoName();

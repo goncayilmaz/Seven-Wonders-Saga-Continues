@@ -225,6 +225,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
             stage.show();
         }
         catch (Exception e){
+            System.out.println("gata");
 
         }
     }
@@ -233,10 +234,6 @@ public class WarWiew  /*implements Initializable */ extends Application {
     public void goToXOX_2(){
         Stage stage;
         Parent root;
-        //XOXGame xox;
-        //new XOXGame();
-
-        //System.out.println("xox button is clicked");
 
         try {
             System.out.println("heyy");
@@ -246,8 +243,10 @@ public class WarWiew  /*implements Initializable */ extends Application {
             stage.setScene(scene);
             stage.setFullScreen(true);
             stage.show();
+
         }
         catch (Exception e){
+            System.out.println("aasd");
 
         }
     }
