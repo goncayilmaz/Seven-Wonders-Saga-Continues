@@ -76,6 +76,9 @@ public class Player {
         //city.print();
         resources.add(city.getCardSpecs());
         ArrayList<Material> cityMaterials = city.getLevelItems();
+        System.out.println("city materials");
+
+        System.out.println(cityMaterials.size());
         for(int i = 0; i < cityMaterials.size(); i++){
             resources.add(cityMaterials.get(i));
         }
@@ -311,6 +314,126 @@ public class Player {
             }
         }
     }
+
+
+
+    public int calculateTotalScore(Player leftNeighbour, Player rightNeighbour){
+        score = 0;
+        score += warPoints; // points from military conflicts
+        score += (int) (numberOfCoin / 3); // points from treasury content
+        score += city.getNumberWonderPoints();
+        score += numberOfCivilian; // points from civilian
+        score += numberOfScienceRuler * numberOfScienceRuler;
+        score += numberOfScienceStone * numberOfScienceStone;
+        score += numberOfScienceWheel * numberOfScienceWheel;
+
+
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            if(cardsOnTable.get(i).getName().equals("workersguild")){
+                score += leftNeighbour.getNumberOfBrownCardsOnTable();
+                score += rightNeighbour.getNumberOfBrownCardsOnTable();
+            }
+            else if(cardsOnTable.get(i).getName().equals("craftsmenguild")){
+                score += leftNeighbour.getNumberOfGreyCardsOnTable();
+                score += rightNeighbour.getNumberOfGreyCardsOnTable();
+            }
+            else if(cardsOnTable.get(i).getName().equals("tradersguild")){
+                score += leftNeighbour.getNumberOfYellowCardsOnTable();
+                score += rightNeighbour.getNumberOfYellowCardsOnTable();
+            }
+            else if(cardsOnTable.get(i).getName().equals("philosophersguild")){
+                score += leftNeighbour.getNumberOfGreenCardsOnTable();
+                score += rightNeighbour.getNumberOfGreenCardsOnTable();
+            }
+            else if(cardsOnTable.get(i).getName().equals("spiesguild")){
+                score += leftNeighbour.getNumberOfRedCardsOnTable();
+                score += rightNeighbour.getNumberOfRedCardsOnTable();
+            }
+            else if(cardsOnTable.get(i).getName().equals("strategistsguild")){
+
+            }
+            else if(cardsOnTable.get(i).getName().equals("shipownersguild")){
+                score += getNumberOfBrownCardsOnTable();
+                score += getNumberOfGreyCardsOnTable();
+                score += getNumberOfPurpleCardsOnTable();
+            }
+            else if(cardsOnTable.get(i).getName().equals("scientistsguild")){
+
+            }
+            else if(cardsOnTable.get(i).getName().equals("magistratesguild")){
+                score += leftNeighbour.getNumberOfBlueCardsOnTable();
+                score += rightNeighbour.getNumberOfBlueCardsOnTable();
+            }
+            else if(cardsOnTable.get(i).getName().equals("buildersguild")){
+
+            }
+            else{
+                // do nothing
+            }
+        }
+        return score;
+    }
+
+
+    public int getNumberOfBrownCardsOnTable(){
+        int count = 0;
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            if(cardsOnTable.get(i).getColor().equals("Brown"))
+                count++;
+        }
+        return count;
+    }
+    public int getNumberOfGreyCardsOnTable(){
+        int count = 0;
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            if(cardsOnTable.get(i).getColor().equals("Grey"))
+                count++;
+        }
+        return count;
+    }
+    public int getNumberOfYellowCardsOnTable(){
+        int count = 0;
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            if(cardsOnTable.get(i).getColor().equals("Yellow"))
+                count++;
+        }
+        return count;
+    }
+    public int getNumberOfRedCardsOnTable(){
+        int count = 0;
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            if(cardsOnTable.get(i).getColor().equals("Red"))
+                count++;
+        }
+        return count;
+    }
+    public int getNumberOfGreenCardsOnTable(){
+        int count = 0;
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            if(cardsOnTable.get(i).getColor().equals("Green"))
+                count++;
+        }
+        return count;
+    }
+    public int getNumberOfBlueCardsOnTable(){
+        int count = 0;
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            if(cardsOnTable.get(i).getColor().equals("Blue"))
+                count++;
+        }
+        return count;
+    }
+    public int getNumberOfPurpleCardsOnTable(){
+        int count = 0;
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            if(cardsOnTable.get(i).getColor().equals("Purple"))
+                count++;
+        }
+        return count;
+    }
+
+
+
 
     public void print(){
         System.out.println("Id: " + id + " name :" + name);

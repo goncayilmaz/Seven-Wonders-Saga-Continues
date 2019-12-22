@@ -96,17 +96,20 @@ public class City {
 
     public ArrayList<Material> getInitialItem()
     {
-        if (boardLevel==0) {
+        if (boardLevel == 0) {
             return cardSpecs;
         }
-        if (boardLevel==1) {
+        else if (boardLevel == 1) {
             return cardSpecsForLevel1;
         }
-        if (boardLevel==2) {
+        else if (boardLevel == 2) {
             return cardSpecsForLevel2;
         }
-        if (boardLevel==3) {
+        else if (boardLevel == 3) {
             return cardSpecsForLevel3;
+        }
+        else if (boardLevel == 4){
+            return cardSpecsForLevel4;
         }
         else{
             System.out.println("sorun var getInıtıalItem Metotu");
@@ -270,7 +273,10 @@ public class City {
     }
 
     public ArrayList<Material> getLevelItems(){
-        if(boardLevel == 1){
+        if(boardLevel == 0){
+            return cardSpecs;
+        }
+        else if(boardLevel == 1){
             return cardSpecsForLevel1;
         }
         else if(boardLevel == 2){
@@ -282,6 +288,7 @@ public class City {
             return cardSpecsForLevel4;
         }
         else
+            System.out.println("fuck" + boardLevel);
             return null;
 
     }
@@ -449,4 +456,34 @@ public class City {
         }
         return false;
     }
+    // this method returns the total victory points player get from building wonders
+    public int getNumberWonderPoints(){
+        int total = 0;
+        if(boardLevel >= 1){
+            for(int i = 0; i < cardSpecsForLevel1.size(); i++){
+                if(cardSpecsForLevel1.get(i).getName().equals("Civilian"))
+                    total += cardSpecsForLevel1.get(i).getCount();
+            }
+        }
+        if(boardLevel >= 2){
+            for(int i = 0; i < cardSpecsForLevel2.size(); i++){
+                if(cardSpecsForLevel2.get(i).getName().equals("Civilian"))
+                    total += cardSpecsForLevel2.get(i).getCount();
+            }
+        }
+        if(boardLevel >= 3){
+            for(int i = 0; i < cardSpecsForLevel3.size(); i++){
+                if(cardSpecsForLevel3.get(i).getName().equals("Civilian"))
+                    total += cardSpecsForLevel3.get(i).getCount();
+            }
+        }
+        if(boardLevel >= 4){
+            for(int i = 0; i < cardSpecsForLevel4.size(); i++){
+                if(cardSpecsForLevel4.get(i).getName().equals("Civilian"))
+                    total += cardSpecsForLevel4.get(i).getCount();
+            }
+        }
+        return total;
+    }
+
 }
