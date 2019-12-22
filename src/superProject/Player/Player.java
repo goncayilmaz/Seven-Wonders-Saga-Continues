@@ -331,6 +331,10 @@ public class Player {
         }
     }
 
+    public void addToHandAtFirst(Card c){
+        cards.add(c);
+    }
+
     public void disjointCard(Card c){
         for(int i = 0; i < cards.size(); i++){
             if(cards.get(i).getName().equals(c)){

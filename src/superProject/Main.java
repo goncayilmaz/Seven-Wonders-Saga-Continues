@@ -97,7 +97,13 @@ public class Main {
 
         System.out.println("PLAYER");
         player.print();
-
+        System.out.println();
+        System.out.println();
+        //citymanager.printACities();
+        citymanager.getCitiesA().get(0).print();
+        System.out.println();
+        PlayerEngine playerEngine2 = new PlayerEngine(5,cityofplayer,citymanager.getCitiesA());
+        playerEngine2.printPlayers();
 
     }
 }

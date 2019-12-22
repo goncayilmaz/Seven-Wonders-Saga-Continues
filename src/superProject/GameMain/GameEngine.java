@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
-public class GameEngine implements Initializable {
-
+//public class GameEngine implements Initializable {
+public class GameEngine  {
 
 
 
@@ -45,34 +45,38 @@ public class GameEngine implements Initializable {
     private boolean warState;
     private boolean boardSide;
 
+//
+//    public GameEngine(boolean gameLevel, Option controllerListener, ArrayList<Integer> scores,
+//                      ArrayList<Integer> currentScores, boolean isRun, boolean isFinish,
+//                      int currentTurn, GameEngine gameEngine, ArrayList<Player> players,
+//                      int numberOfPlayers, PlayerEngine playerEngine, ArrayList<Card> cards,
+//                      ArrayList<City> cities, CityManager cityManager, ArrayList<Bot> bots,
+//                      FileEngine fileEngine, boolean boardSide) {
+//        this.gameLevel = gameLevel;
+//        this.controllerListener = controllerListener;
+//        this.scores = scores;
+//        this.currentScores = currentScores;
+//        this.isRun = isRun;
+//        this.isFinish = isFinish;
+//        this.currentTurn = currentTurn;
+//        this.gameEngine = gameEngine;
+//        this.players = players;
+//        this.numberOfPlayers = numberOfPlayers;
+//        this.playerEngine = playerEngine;
+//        this.cards = cards;
+//        this.cities = cities;
+//        this.cityManager = cityManager;
+//        this.bots = bots;
+//        this.fileEngine = fileEngine;
+//        this.boardSide = boardSide;
+//    }
 
-    public GameEngine(boolean gameLevel, Option controllerListener, ArrayList<Integer> scores,
-                      ArrayList<Integer> currentScores, boolean isRun, boolean isFinish,
-                      int currentTurn, GameEngine gameEngine, ArrayList<Player> players,
-                      int numberOfPlayers, PlayerEngine playerEngine, ArrayList<Card> cards,
-                      ArrayList<City> cities, CityManager cityManager, ArrayList<Bot> bots,
-                      FileEngine fileEngine, boolean boardSide) {
-        this.gameLevel = gameLevel;
-        this.controllerListener = controllerListener;
-        this.scores = scores;
-        this.currentScores = currentScores;
-        this.isRun = isRun;
-        this.isFinish = isFinish;
-        this.currentTurn = currentTurn;
-        this.gameEngine = gameEngine;
-        this.players = players;
-        this.numberOfPlayers = numberOfPlayers;
-        this.playerEngine = playerEngine;
-        this.cards = cards;
-        this.cities = cities;
-        this.cityManager = cityManager;
-        this.bots = bots;
-        this.fileEngine = fileEngine;
-        this.boardSide = boardSide;
+    public GameEngine(){
+
     }
 
 
-    @Override
+    //@Override
     public void initialize(URL location, ResourceBundle resources) {
 
 
@@ -214,7 +218,7 @@ public class GameEngine implements Initializable {
 
         AgeManager ageManager = new AgeManager();
         CityManager cityManager = new CityManager();
-        PlayerEngine playerEngine = new PlayerEngine();
+        PlayerEngine playerEngine = new PlayerEngine(3);
         CardEngine cardEngine = new CardEngine();
 
        cityManager.createCity(boardSide);
@@ -239,6 +243,18 @@ public class GameEngine implements Initializable {
     public boolean isGameFinish(){
         return  isFinish;
 
+    }
+
+    public void distributeHands(ArrayList<Player> players, ArrayList<Card> cards){
+        System.out.println("number of players" + players.size());
+        System.out.println("number of cards" + cards.size());
+        int count = 0;
+        for(int i = 0; i < players.size(); i++){
+            for(int j = 0; j < 7; j++){
+                players.get(i).addToHandAtFirst(cards.get(count));
+                count++;
+            }
+        }
     }
 
     public void rotateCards(){
