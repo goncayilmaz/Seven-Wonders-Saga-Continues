@@ -292,7 +292,7 @@ public class CardEngine extends Application {
 
         }
         Collections.shuffle(cards);
-        printCards(cards);
+     //   printCards(cards);
     }
     public void createSecondAgeCards(int numberOfPlayers){
         numberOfCards = numberOfPlayers * 7;

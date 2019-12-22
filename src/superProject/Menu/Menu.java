@@ -24,6 +24,7 @@ public class Menu extends Application {
 
 
     MediaPlayer mediaPlayer;
+
     public void music(){
 
         String bip = "src/Media/7wonders.mp3";
@@ -31,12 +32,7 @@ public class Menu extends Application {
         mediaPlayer = new MediaPlayer(hit);
         mediaPlayer.play();
 
-        /**
-        String bip = "src/Media/7wonders.mp3";
-        Media hit = new Media(new File(bip).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(hit);
-        mediaPlayer.play();
-         */
+
     }
 
     public Stage getPrimaryStage() {
@@ -65,7 +61,6 @@ public class Menu extends Application {
 
     }
     private void goTutorial(){
-        System.out.println("tutorallll");
     }
     private void quitGame(){
 

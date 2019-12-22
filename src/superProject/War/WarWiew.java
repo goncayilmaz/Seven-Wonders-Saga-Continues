@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import superProject.Player.Player;
 import superProject.City.City;
 import javafx.geometry.Rectangle2D;
@@ -225,6 +226,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
             stage.show();
         }
         catch (Exception e){
+            System.out.println("gata");
 
         }
     }
@@ -233,10 +235,6 @@ public class WarWiew  /*implements Initializable */ extends Application {
     public void goToXOX_2(){
         Stage stage;
         Parent root;
-        //XOXGame xox;
-        //new XOXGame();
-
-        //System.out.println("xox button is clicked");
 
         try {
             System.out.println("heyy");
@@ -246,11 +244,39 @@ public class WarWiew  /*implements Initializable */ extends Application {
             stage.setScene(scene);
             stage.setFullScreen(true);
             stage.show();
+
         }
         catch (Exception e){
+            System.out.println("aasd");
 
         }
     }
+
+    @FXML
+    public void drawX(MouseEvent e) throws Exception{
+        try {
+            java.awt.Button sourceButton = (java.awt.Button) e.getSource();
+            sourceButton.setLabel("X");
+            drawO(e);
+
+        }
+        catch (Exception f){
+            f.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    public void drawO(MouseEvent event){
+
+        int i = (int) (Math.random() * 3);
+        int j = (int) (Math.random() * 3);
+
+     //   if(buttons[i][j].equals(""))
+      //      buttons[i][j].setLabel("O");
+
+    }
+
 
 
     public static void main(String[] args) {

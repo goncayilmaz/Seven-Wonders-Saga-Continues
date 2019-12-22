@@ -31,7 +31,7 @@ public class City {
     {
         this.boardName = boardName;
         this.cardSpecs = cardSpecs;
-        this.boardLevel = 1;
+        this.boardLevel = boardLevel;
         this.cardReqs1 = cardReqs1;
         this.cardReqs2 = cardReqs2;
         this.cardReqs3 = cardReqs3;
@@ -47,8 +47,8 @@ public class City {
     }
 
     public City(){
-        this.boardLevel = 1;
-        this.boardName = "";
+        boardLevel = 0;
+        boardName = "";
         boardNumber = 0;
         cardSpecs = new ArrayList<Material>();
         cardReqs1 = new ArrayList<Material>();
@@ -71,7 +71,7 @@ public class City {
     {
         this.boardName = boardName;
         this.cardSpecs = cardSpecs;
-        this.boardLevel = 1;
+        this.boardLevel = boardLevel;
         this.cardReqs1 = cardReqs1;
         this.cardReqs2 = cardReqs2;
         this.cardReqs3 = cardReqs3;
@@ -291,11 +291,19 @@ public class City {
 
     public boolean construct(City city, Player player)
     {
-        boolean flag = false;
+        int numberOfClay = 0;
+        int numberOfOre = 0;
+        int numberOfStone = 0;
+        int numberOfWood = 0;
+        int numberOfLoom = 0;
+        int numberOfGlass= 0;
+        int numberOfPapyrus = 0;
+
+
         int level = city.getBoardLevel();
         if(level < city.getMaxCityLevel())
         {
-            ArrayList<Material> materialss= new ArrayList<>();
+            ArrayList<Material> materialss = new ArrayList<>();
             materialss.add(city.getCardSpecs());
             if(level > 0)
             {
@@ -342,157 +350,105 @@ public class City {
             {
                 materialss.get(i).print();
             }
-            for(int j=0;j<player.getCardsOnTable().size();j++)
+            for(int i=0; i < player.getCardsOnTable().size(); i++)
             {
-                if(player.getCardsOnTable().get(j).getEarnings().get(j).isWonderConstructorMaterial())
+                for(int j = 0; j < player.getCardsOnTable().get(i).getEarnings().size(); j++)
                 {
-                    materialss.add(player.getCardsOnTable().get(j).getEarnings().get(j));
-                }
-            }
-            if(level == 0)
-            {
-                int counter = 0;
-                ArrayList<Material> reqMaterial = city.getCardReqs1();
-                for(int i = 0; i < reqMaterial.size(); i++)
-                {
-                    counter = 0;
-                    for(int j = 0; j < materialss.size(); j++)
+                    if(player.getCardsOnTable().get(i).getEarnings().get(j).isWonderConstructorMaterial())
                     {
-                        if(!contains(materialss, reqMaterial.get(i).getName()))
-                            return false;
-                        if(reqMaterial.get(i).getName() == materialss.get(j).getName())
-                        {
-
-                            counter = counter + materialss.get(j).getCount();
-                            System.out.println("counter:" + counter);
-                            if(j == materialss.size()-2)
-                            {
-                                if(reqMaterial.get(i).getCount() <= counter)
-                                {
-                                    System.out.println("name:  " + reqMaterial.get(i).getName() + "count:  " + reqMaterial.get(i).getCount());
-                                    flag = true;
-                                }
-                                else
-                                {
-                                    flag = false;
-                                }
-                            }
-                        }
+                        materialss.add(player.getCardsOnTable().get(j).getEarnings().get(j));
                     }
                 }
-                return flag;
             }
-            if(level == 1)
-            {
-                int counter = 0;
-                ArrayList<Material> reqMaterial = city.getCardReqs2();
-                for(int i = 0; i < reqMaterial.size(); i++)
-                {
-                    counter = 0;
-                    for(int j = 0; j < materialss.size(); j++)
-                    {
-                        if(!contains(materialss, reqMaterial.get(i).getName()))
-                            return false;
-                        if(reqMaterial.get(i).getName() == materialss.get(j).getName())
-                        {
 
-                            counter = counter + materialss.get(j).getCount();
-                            System.out.println("counter:" + counter);
-                            if(j == materialss.size()-2)
-                            {
-                                if(reqMaterial.get(i).getCount() <= counter)
-                                {
-                                    System.out.println("name:  " + reqMaterial.get(i).getName() + "count:  " + reqMaterial.get(i).getCount());
-                                    flag = true;
-                                }
-                                else
-                                {
-                                    flag = false;
-                                }
-                            }
-                        }
-                    }
+            for(int i = 0; i < materialss.size(); i++) {
+                if (materialss.get(i).getName() == "Clay") {
+                    numberOfClay += materialss.get(i).getCount();
+                } else if (materialss.get(i).getName() == "Ore") {
+                    numberOfOre += materialss.get(i).getCount();
+                } else if (materialss.get(i).getName() == "Stone") {
+                    numberOfStone += materialss.get(i).getCount();
+                } else if (materialss.get(i).getName() == "Wood") {
+                    numberOfWood += materialss.get(i).getCount();
+                } else if (materialss.get(i).getName() == "Loom") {
+                    numberOfLoom += materialss.get(i).getCount();
+                } else if (materialss.get(i).getName() == "Glass") {
+                    numberOfGlass += materialss.get(i).getCount();
+                } else if (materialss.get(i).getName() == "Papyrus") {
+                    numberOfPapyrus += materialss.get(i).getCount();
+                } else {
+                    // do nothing.
                 }
-                return flag;
             }
-            if(level == 2)
-            {
-                int counter = 0;
-                ArrayList<Material> reqMaterial = city.getCardReqs3();
-                for(int i = 0; i < reqMaterial.size(); i++)
-                {
-                    counter = 0;
-                    for(int j = 0; j < materialss.size(); j++)
-                    {
-                        if(!contains(materialss, reqMaterial.get(i).getName()))
-                            return false;
-                        if(reqMaterial.get(i).getName() == materialss.get(j).getName())
-                        {
-
-                            counter = counter + materialss.get(j).getCount();
-                            System.out.println("counter:" + counter);
-                            if(j == materialss.size()-2)
-                            {
-                                if(reqMaterial.get(i).getCount() <= counter)
-                                {
-                                    System.out.println("name:  " + reqMaterial.get(i).getName() + "count:  " + reqMaterial.get(i).getCount());
-                                    flag = true;
-                                }
-                                else
-                                {
-                                    flag = false;
-                                }
-                            }
-                        }
-
-                    }
-                }
-                return flag;
-            }
-            if(level == 3)
-            {
-                int counter = 0;
-                ArrayList<Material> reqMaterial = city.getCardReqs4();
-                for(int i = 0; i < reqMaterial.size(); i++)
-                {
-                    counter = 0;
-                    for(int j = 0; j < materialss.size(); j++)
-                    {
-                        if(!contains(materialss, reqMaterial.get(i).getName()))
-                            return false;
-                        if(reqMaterial.get(i).getName() == materialss.get(j).getName())
-                        {
-
-                            counter = counter + materialss.get(j).getCount();
-                            System.out.println("counter:" + counter);
-                            if(j == materialss.size()-2)
-                            {
-                                if(reqMaterial.get(i).getCount() <= counter)
-                                {
-                                    System.out.println("name:  " + reqMaterial.get(i).getName() + "count:  " + reqMaterial.get(i).getCount());
-                                    flag = true;
-                                }
-                                else
-                                {
-                                    flag = false;
-                                }
-                            }
-                        }
-                    }
-                }
-                return flag;
-            }
+            return isConstructable(level, numberOfClay, numberOfOre, numberOfStone, numberOfWood, numberOfLoom, numberOfGlass, numberOfPapyrus);
         }
         return false;
 
+    }
+    public boolean isConstructable(int level, int numberOfClay, int numberOfOre, int numberOfStone, int numberOfWood, int numberOfLoom,
+                                   int numberOfGlass, int numberOfPapyrus)
+    {
+        int clayCounter    = numberOfClay;
+        int oreCounter     = numberOfOre;
+        int stoneCounter   = numberOfStone;
+        int woodCounter    = numberOfWood;
+        int loomCounter    = numberOfLoom;
+        int glassCounter   = numberOfGlass;
+        int papyrusCounter = numberOfPapyrus;
+        ArrayList<Material> req;
+        if(level == 0)
+            req = getCardReqs1();
+        else if(level == 1)
+            req = getCardReqs2();
+        else if(level == 2)
+            req = getCardReqs3();
+        else
+            req = getCardReqs4();
+
+        boolean flag = true;
+        for(int i = 0; i < req.size(); i++) {
+            if (req.get(i).getName().equals("Clay")) {
+                if (clayCounter < req.get(i).getCount()) {
+                    flag = false;
+                }
+            } else if (req.get(i).getName().equals("Ore")) {
+                if (oreCounter < req.get(i).getCount()) {
+                    flag = false;
+                }
+            } else if (req.get(i).getName().equals("Stone")) {
+                if (stoneCounter < req.get(i).getCount()) {
+                    flag = false;
+                }
+            } else if (req.get(i).getName().equals("Wood")) {
+                if (woodCounter < req.get(i).getCount()) {
+                    flag = false;
+                }
+            } else if (req.get(i).getName().equals("Loom")) {
+                if (loomCounter < req.get(i).getCount()) {
+                    flag = false;
+                }
+            } else if (req.get(i).getName().equals("Glass")) {
+                if (glassCounter < req.get(i).getCount()) {
+                    flag = false;
+                }
+            } else if (req.get(i).getName().equals("Papyrus")) {
+                if (papyrusCounter < req.get(i).getCount()) {
+                    flag = false;
+                }
+            } else {
+
+            }
+        }
+        return flag;
     }
     public static boolean contains(ArrayList<Material> arr, String matName)
     {
         for(int i = 0; i < arr.size(); i++)
         {
-            if(matName == arr.get(i).getName())
+            if(matName.equals(arr.get(i).getName()))
+            {
                 return true;
-            return false;
+            }
         }
         return false;
     }

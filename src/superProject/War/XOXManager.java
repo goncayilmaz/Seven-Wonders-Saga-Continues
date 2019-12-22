@@ -60,22 +60,6 @@ public class XOXManager implements Initializable {
         isWinner = false;
     }
 
-    @FXML
-    public void drawX(MouseEvent e){
-        Button sourceButton = (Button) e.getSource();
-        sourceButton.setLabel("X");
-        drawO();
-    }
-
-    @FXML
-    public void drawO(){
-        int i = (int) (Math.random() * 3);
-        int j = (int) (Math.random() * 3);
-
-        if(buttons[i][j].equals(""))
-            buttons[i][j].setLabel("O");
-
-    }
 
     public boolean checkFinished(int ind0, int ind1){
         for(int i = 0; i < 3; i++){
