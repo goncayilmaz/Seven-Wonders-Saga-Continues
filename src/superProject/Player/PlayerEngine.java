@@ -1,22 +1,77 @@
 package superProject.Player;
 
 
+import javafx.application.Application;
+import javafx.stage.Stage;
+import superProject.City.City;
+import superProject.City.CityManager;
 import superProject.GameProperties.Card;
 import superProject.Player.Player;
 import java.util.ArrayList;
 
-public class PlayerEngine {
+public class PlayerEngine extends Application {
 
-    //private Player player;
-    //private ArrayList<Bot> bots;
-    private ArrayList<Player> winners;
-    private ArrayList<Player> players;
+    private Player player;
+    private ArrayList<Bot> bots;
+    private ArrayList<Player> allPlayers;
+
+    public PlayerEngine(int numberOfPlayers, City desiredCityOfHumanPlayer, ArrayList<City> citiesOfBots){
+        allPlayers = new ArrayList<>();
+        bots = new ArrayList<>();
+        player = new Player(desiredCityOfHumanPlayer);
+        allPlayers.add(player);
+        for(int i = 0; i < numberOfPlayers - 1; i++){
+            Bot bot = new Bot(citiesOfBots.get(i));
+            allPlayers.add(bot);
+            bots.add(bot);
+        }
+        for(int i = 0; i < bots.size(); i++){
+            bots.get(i).print();
+        }
+
+    }
+    public PlayerEngine(int numberOfPlayers){
+        allPlayers = new ArrayList<>();
+        bots = new ArrayList<>();
+        player = new Player();
+
+        for(int i = 0; i < numberOfPlayers - 1; i++){
+            Bot bot = new Bot();
+            allPlayers.add(bot);
+            bots.add(bot);
+        }
+    }
+
+    public Player getHumanPlayer(){
+        return player;
+    }
+
+
+
+
+    public void matchPlayerWithCity(Player player, City city){
+        player.setCity(city);
+    }
+
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        CityManager cityManager = new CityManager();
+        cityManager.createACities();
+        cityManager.printACities();
+        cityManager.createBCities();
+        cityManager.printBCities();
+        Player p = new Player();
+    }
+
+
+
 
     public int getHighScore(){
         int max=0;
-        for(int i=0;i<players.size();i++){
-            if(players.get(i).getScore()>max){
-                max=players.get(i).getScore();
+        for(int i=0;i < allPlayers.size();i++){
+            if( allPlayers.get(i).getScore()>max){
+                max = allPlayers.get(i).getScore();
             }
         }
         return max;
@@ -47,8 +102,8 @@ public class PlayerEngine {
     public Bot getBot(int bot){
         return bots.get(bot);
     }*/
-    public Player getPlayer(int player){
-        return players.get(player);
+    public Player getPlayer(int index){
+        return allPlayers.get(index);
     }
     public ArrayList<Card> getCardsEntity(Player player){
         return player.getCards();
@@ -66,11 +121,6 @@ public class PlayerEngine {
 
 
     }
-    public ArrayList<Player> getWinners(int playerNumber){
-
-        return winners;
-    }
-
 
     public void startAttack(){
         // attack manager ile bağlanacak.
@@ -85,30 +135,16 @@ public class PlayerEngine {
 
     }
 
+    public void printPlayers(){
+        System.out.println("PLAYER");
+        player.print();
+        System.out.println("BOTS");
+        for(int i = 0; i < bots.size(); i++){
+            bots.get(i).print();
+        }
+    }
+
 }
 
-    /*
-    public void addToBoard(Player player,Card card){
-        //disjoint le aynı mantık
 
-    }
-    */
-        /*
-    public void compareNeighbours(Player player){
-        // war bunu yapıyor fight ile
-
-    }
-
-     */
-
-            /*
-    public void processResults(Player player){
-// gereksiz.
-    }
-
-        public void setAttributes(Player player){
-
-    }
-
-     */
 

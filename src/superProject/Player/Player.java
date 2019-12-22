@@ -12,14 +12,12 @@ public class Player {
     private String name; //added to print player at the end of war (I didn't know what to right) -Gonca
     private int warPoints; // war points
     private ArrayList<Card> cards; // cards in hand
-    private int boardNum; // for connecting with board city
-    private boolean isWinner; // check is winner or not.
     private ArrayList<Card> cardsOnTable;
-    private int[] attributeList;
+    private int boardNum; // for connecting with board city
     private int score;
     private City city;
-    ArrayList<Material> resources;
-
+    private ArrayList<Material> resources;
+    int numberOfCoin;
     int numberOfClay;
     int numberOfOre;
     int numberOfStone;
@@ -29,13 +27,9 @@ public class Player {
     int numberOfPapyrus;
     int numberOfMilitary;
     int numberOfCivilian;
-    int numberOfCoin;
     int numberOfScienceRuler;
     int numberOfScienceStone;
     int numberOfScienceWheel;
-
-
-
 
 
     public Player() {
@@ -46,10 +40,32 @@ public class Player {
         cardsOnTable = new ArrayList<>();;
         boardNum = 0;
         score = 0;
-        isWinner = false;
-        id = 0;
         city = new City();
-        attributeList = new int[9];
+        resources = new ArrayList<>();
+        numberOfCoin = 0;
+        numberOfClay = 0;
+        numberOfOre = 0;
+        numberOfStone = 0;
+        numberOfWood = 0;
+        numberOfLoom = 0;
+        numberOfGlass= 0;
+        numberOfPapyrus = 0;
+        numberOfMilitary = 0;
+        numberOfCivilian = 0;
+        numberOfScienceRuler = 0;
+        numberOfScienceStone = 0;
+        numberOfScienceWheel = 0;
+    }
+
+    public Player(City city) {
+        id = 0;
+        name = "Player " + (id + 1); //if not set, then it is a Bot and it has only number
+        warPoints = 0;
+        cards = new ArrayList<>();
+        cardsOnTable = new ArrayList<>();;
+        boardNum = 0;
+        score = 0;
+        this.city = city;
         resources = new ArrayList<>();
         numberOfCoin = 0;
         numberOfClay = 0;
@@ -88,7 +104,8 @@ public class Player {
                 resources.add(nextCard.getEarnings().get(j));
             }
         }
-
+        //System.out.println("inside calculate");
+        //city.print();
         resources.add(city.getCardSpecs());
         ArrayList<Material> cityMaterials = city.getLevelItems();
         for(int i = 0; i < cityMaterials.size(); i++){
@@ -194,6 +211,11 @@ public class Player {
                     enough = false;
                 }
             }
+            else if(requirements.get(i).getName().equals("Coin")){
+                if(numberOfCoin < requirements.get(i).getCount()){
+                    enough = false;
+                }
+            }
             else if(requirements.get(i).getName().equals("ScienceRuler")){
                 if(numberOfScienceRuler < requirements.get(i).getCount()){
                     enough = false;
@@ -214,7 +236,12 @@ public class Player {
             }
 
         }
-
+        // implementing card chain
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            if(cardsOnTable.get(i).getNextCardId() == card.getId())
+                enough = true;
+        }
+        System.out.println("Can take card" + enough);
         return enough;
     }
 
@@ -288,14 +315,6 @@ public class Player {
         this.score = score;
     }
 
-    public boolean isWinner() {
-        return isWinner;
-    }
-
-    public void setWinner(boolean winner) {
-        isWinner = winner;
-    }
-
     public ArrayList<Card> getCardsOnTable() {
         return cardsOnTable;
     }
@@ -307,9 +326,31 @@ public class Player {
     public void addCardsToTable(Card c) {
         if(verifySufficientResources(c)){
             cardsOnTable.add(c);
+        }else{
+            System.out.println("Resources not enough");
         }
-        System.out.println("Resources not enough");
+    }
 
+    public void addToHandAtFirst(Card c){
+        cards.add(c);
+    }
+
+    public void disjointCard(Card c){
+        for(int i = 0; i < cards.size(); i++){
+            if(cards.get(i).getName().equals(c)){
+                cards.remove(i);
+                numberOfCoin = numberOfCoin + 3;
+            }
+        }
+    }
+
+    public void print(){
+        System.out.println("Id: " + id + " name :" + name);
+        city.print();
+        System.out.println("CARDS");
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            cardsOnTable.get(i).print();
+        }
     }
 
     @Override
