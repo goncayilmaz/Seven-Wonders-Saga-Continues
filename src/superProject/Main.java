@@ -1,47 +1,34 @@
 package superProject;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-
 import javafx.application.Application;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import superProject.Player.Player;
+import superProject.War.AttackManager;
 
-import java.awt.*;
-import java.io.File;
-import java.net.URL;
-
-import javafx.application.Application;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.stage.Stage;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import static javafx.fxml.FXMLLoader.load;
-
-
-public class Main {
-
-
-
-
-
-
+public class Main extends Application {
 
     public static void main(String[] args) {
 
-    //    System.out.println("efe");
+        //test unit for AttackManager
+        int numberOfPlayers = 3;
+        Player[] players;
+        players = new Player[numberOfPlayers];
+        for(int i = 0; i < numberOfPlayers; i ++)
+            players[i] = new Player();
+        players[0].setWarPoints(2);
+        players[1].setWarPoints(2);
+        players[2].setWarPoints(3);
 
+        AttackManager attackMan = new AttackManager(numberOfPlayers, 1, players);
+        attackMan.fight();
+
+        for(int i = 0; i < numberOfPlayers; i ++)
+            System.out.println("Player " + i + " score: " + players[i].getScore());
+
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
 
     }
 }

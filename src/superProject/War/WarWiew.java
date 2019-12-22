@@ -233,14 +233,15 @@ public class WarWiew  /*implements Initializable */ extends Application {
     public void goToXOX_2(){
         Stage stage;
         Parent root;
-        XOXGame xox;
+        //XOXGame xox;
         //new XOXGame();
 
         //System.out.println("xox button is clicked");
 
         try {
+            System.out.println("heyy");
             stage = (Stage) xoxButton2.getScene().getWindow();
-            root= FXMLLoader.load(getClass().getResource("../War/XOXViewFX.fxml"));
+            root= FXMLLoader.load(getClass().getResource("../War/XOX_FX.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setFullScreen(true);
