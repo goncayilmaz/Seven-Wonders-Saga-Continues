@@ -155,12 +155,14 @@ public class CityManager implements Initializable {
         a.setBoardLevel(2);
         ArrayList<Material> n = new ArrayList<Material>();
         //n.add(new Material("Stone", 1));
-        n.add(new Material("Ore", 5));
+        n.add(new Material("Stone", 2));
         //n.add(new Material("Stone", 4));
-        //n.add(new Material("Stone", 2));
+        n.add(new Material("Ore", 4));
+
         a.setCardReqs3(n);
         ArrayList<Material> m = new ArrayList<Material>();
         m.add(new Material("Ore" , 3));
+        m.add(new Material("Stone", 3));
         a.setCardSpecsForLevel1(m);
         System.out.println(a.getBoardLevel());
         c.changeCityStage(a, p);
