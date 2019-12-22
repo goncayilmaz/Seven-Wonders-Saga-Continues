@@ -104,7 +104,8 @@ public class Player {
                 resources.add(nextCard.getEarnings().get(j));
             }
         }
-
+        //System.out.println("inside calculate");
+        //city.print();
         resources.add(city.getCardSpecs());
         ArrayList<Material> cityMaterials = city.getLevelItems();
         for(int i = 0; i < cityMaterials.size(); i++){
@@ -210,6 +211,11 @@ public class Player {
                     enough = false;
                 }
             }
+            else if(requirements.get(i).getName().equals("Coin")){
+                if(numberOfCoin < requirements.get(i).getCount()){
+                    enough = false;
+                }
+            }
             else if(requirements.get(i).getName().equals("ScienceRuler")){
                 if(numberOfScienceRuler < requirements.get(i).getCount()){
                     enough = false;
@@ -229,6 +235,11 @@ public class Player {
                 // do nothing
             }
 
+        }
+        // implementing card chain
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            if(cardsOnTable.get(i).getNextCardId() == card.getId())
+                enough = true;
         }
         System.out.println("Can take card" + enough);
         return enough;
@@ -315,9 +326,31 @@ public class Player {
     public void addCardsToTable(Card c) {
         if(verifySufficientResources(c)){
             cardsOnTable.add(c);
+        }else{
+            System.out.println("Resources not enough");
         }
-        System.out.println("Resources not enough");
+    }
 
+    public void addToHandAtFirst(Card c){
+        cards.add(c);
+    }
+
+    public void disjointCard(Card c){
+        for(int i = 0; i < cards.size(); i++){
+            if(cards.get(i).getName().equals(c)){
+                cards.remove(i);
+                numberOfCoin = numberOfCoin + 3;
+            }
+        }
+    }
+
+    public void print(){
+        System.out.println("Id: " + id + " name :" + name);
+        city.print();
+        System.out.println("CARDS");
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            cardsOnTable.get(i).print();
+        }
     }
 
     @Override

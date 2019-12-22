@@ -31,7 +31,7 @@ public class City {
     {
         this.boardName = boardName;
         this.cardSpecs = cardSpecs;
-        this.boardLevel = boardLevel;
+        this.boardLevel = 1;
         this.cardReqs1 = cardReqs1;
         this.cardReqs2 = cardReqs2;
         this.cardReqs3 = cardReqs3;
@@ -47,9 +47,10 @@ public class City {
     }
 
     public City(){
-        boardLevel = 0;
-        boardName = "";
+        this.boardLevel = 1;
+        this.boardName = "";
         boardNumber = 0;
+        cardSpecs = new ArrayList<Material>();
         cardReqs1 = new ArrayList<Material>();
         cardReqs2 = new ArrayList<Material>();
         cardReqs3 = new ArrayList<Material>();
@@ -70,7 +71,7 @@ public class City {
     {
         this.boardName = boardName;
         this.cardSpecs = cardSpecs;
-        this.boardLevel = boardLevel;
+        this.boardLevel = 1;
         this.cardReqs1 = cardReqs1;
         this.cardReqs2 = cardReqs2;
         this.cardReqs3 = cardReqs3;
