@@ -61,8 +61,8 @@
             <Image url="@../../Images/images/tokens/resources/clay.png" />
          </image>
       </ImageView>
-      <Label layoutX="466.0" layoutY="275.0" prefHeight="53.0" prefWidth="205.0" text="Age Number" />
-      <Label layoutX="456.0" layoutY="331.0" prefHeight="23.0" prefWidth="151.0" text="Your City Name" />
+      <Label fx:id="ageNumberLabel" layoutX="466.0" layoutY="275.0" prefHeight="53.0" prefWidth="205.0" text="Age Number = 1" />
+      <Label layoutX="456.0" layoutY="331.0" prefHeight="23.0" prefWidth="151.0" text="Your City Name = EFES" />
       <ImageView fitHeight="74.0" fitWidth="168.0" layoutX="28.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/rhodosA.png" />
@@ -113,9 +113,9 @@
             <Button fx:id="pt1" ellipsisString="" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" onAction="#putOnTable1" prefHeight="20.0" prefWidth="37.0" text="PT" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <Label layoutX="54.0" layoutY="216.0" text="AD = Add WOnder" />
+      <Label layoutX="50.0" layoutY="215.0" text="AD = Add WOnder" />
       <Label layoutX="50.0" layoutY="235.0" text="DC:Discard Card" />
-      <Label layoutX="67.0" layoutY="265.0" text="PT : Put ON Table" />
+      <Label layoutX="50.0" layoutY="255.0" text="PT : Put ON Table" />
       <GridPane fx:id="secondGridPane" layoutX="370.0" layoutY="681.0">
          <children>
             <Button fx:id="aw2" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder2" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP" />
@@ -206,5 +206,11 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
+      <Label fx:id="cards1" layoutX="96.0" layoutY="104.0" text="Cards" />
+      <Label fx:id="cards2" layoutX="272.0" layoutY="103.0" text="Cards" />
+      <Label fx:id="cards3" layoutX="451.0" layoutY="101.0" text="Cards" />
+      <Label fx:id="cards4" layoutX="627.0" layoutY="101.0" text="Cards" />
+      <Label fx:id="cards5" layoutX="803.0" layoutY="99.0" text="Cards" />
+      <Label fx:id="cards6" layoutX="979.0" layoutY="98.0" text="Cards" />
    </children>
 </AnchorPane>

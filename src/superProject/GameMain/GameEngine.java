@@ -243,6 +243,7 @@ public class GameEngine implements Initializable {
 
     public void rotateCards(){
         ArrayList<ArrayList<Card>> hands = new ArrayList<>();
+
         // Collect the hands from players
         for(int i = 0; i < players.size(); i++){
             ArrayList<Card> hand = players.get(i).getCards();

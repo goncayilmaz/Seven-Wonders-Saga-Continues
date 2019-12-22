@@ -322,4 +322,21 @@ public class Card {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "name='" + name + '\'' +
+                ", requirements=" + requirements +
+                ", earnings=" + earnings +
+                ", Id=" + Id +
+                ", nextCardId=" + nextCardId +
+                ", color='" + color + '\'' +
+                ", photoName='" + photoName + '\'' +
+                ", ageNumber=" + ageNumber +
+                ", orSituation=" + orSituation +
+                ", specialFunctionName='" + specialFunctionName + '\'' +
+                ", cardWarPoint=" + cardWarPoint +
+                '}';
+    }
 }

@@ -38,4 +38,11 @@ public class Material {
         System.out.print(name + " " + count + " ");
     }
 
+    @Override
+    public String toString() {
+        return "Material{" +
+                "name='" + name + '\'' +
+                ", count=" + count +
+                '}';
+    }
 }

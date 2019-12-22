@@ -298,7 +298,7 @@ public class City {
         if(level < city.getMaxCityLevel())
         {
             ArrayList<Material> materialss= new ArrayList<>();
-            materialss.add(city.getCardSpecs().get(0));
+           // materialss.add(city.getCardSpecs().get(0));
             if(level > 0)
             {
                 for(int i=0;i<city.getCardSpecsForLevel1().size();i++)

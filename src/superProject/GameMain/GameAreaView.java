@@ -1,25 +1,18 @@
 package superProject.GameMain;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.PathTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.Parent;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.CubicCurveTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
+
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import superProject.GameProperties.CardEngine;
@@ -41,6 +34,13 @@ public class GameAreaView implements Initializable {
 
     @FXML
     private ImageView firstCard,secondCard,thirdCard,forthCard,fifthCard,sixthCard,seventhCard;
+
+    @FXML
+    private Label ageNumberLabel;
+
+    @FXML
+    private Label cards1,cards2,cards3,cards4,cards5,cards6;
+
 
     @FXML
     void discardCard7(ActionEvent event) throws Exception{
@@ -884,6 +884,9 @@ public class GameAreaView implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        /// player number a göre yukarıdaki imageviewlar visible yada invisible olacak.
+        // imagelerin önüne label koyup tooltip ile kartları liste haline getirio gösterebiliriz.
+
 
         CardEngine cardEngine = new CardEngine();
         cardEngine.createFirstAgeCards(7);
@@ -891,8 +894,41 @@ public class GameAreaView implements Initializable {
         String preCard= "/Images/images/cards/";
         String cardName=cardEngine.getFirstAgeCards().get(0).getPhotoName();
 
+     /*
+        Label label = new Label();
+
+        System.out.println("ef");
+
+      */
+        // kartın üstüne gelince view açacak kısım.
+        // karşı tarafın kartlarının rengini ve ne getirdikleirini print edecek sadece.
+        String deneme = cardEngine.getFirstAgeCards().toString();
+
+        ImageView imageFor = new ImageView();
+        Image imageForTip = new Image(getClass().getResourceAsStream(preCard+cardName));
+        imageFor.setImage(imageForTip);
+        Tooltip tooltip = new Tooltip();
+        tooltip.setMaxWidth(250);
+        tooltip.setWrapText(true);
+
+      //  tooltip.setGraphic(imageFor);
+        tooltip.setText(deneme);
+
+        ageNumberLabel.setTooltip(tooltip);
+        cards1.setTooltip(tooltip);
+        cards2.setTooltip(tooltip);
+        cards3.setTooltip(tooltip);
+        cards4.setTooltip(tooltip);
+        cards5.setTooltip(tooltip);
+        cards6.setTooltip(tooltip);
+        pt1.setTooltip(tooltip);
+
+
+
         Image image = new Image(getClass().getResourceAsStream(preCard+cardName));
         firstCard.setImage(image);
+
+
 
 
         String cardName1=cardEngine.getFirstAgeCards().get(1).getPhotoName();
