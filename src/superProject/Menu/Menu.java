@@ -47,55 +47,11 @@ public class Menu extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-/*            try{
-                MenuViewManager m = new MenuViewManager();
-                primaryStage = m.getMainStage();
-                primaryStage.show();
-            }catch (Exception e){
-                e.printStackTrace();
-            }*/
-
         Parent root = FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         music();
         primaryStage.show();
-            /*
-            smallPane1.setMaxWidth(prefWidthSmall);
-            smallPane1.setMaxHeight(prefHeightSmall);
-            smallPane1.setPrefSize(prefWidthSmall, prefHeightSmall);
-            smallPane2.setMaxWidth(prefWidthSmall);
-            smallPane2.setMaxHeight(prefHeightSmall);
-            smallPane2.setPrefSize(prefWidthSmall, prefHeightSmall);
-
-
-        primaryStage.setResizable(false);
-        primaryStage.setFullScreen(true);
-        primaryStage.centerOnScreen();
-*/
-
-
-
-
-
-        /*
-
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
-            primaryStage.setTitle("Menu");
-
-            primaryStage.setScene(new Scene(root));
-            primaryStage.setFullScreen(true);
-            //primaryStage.setResizable(false);
-            //primaryStage.centerOnScreen();
-            primaryStage.show();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
-         */
-
 
     }
 

@@ -18,13 +18,14 @@ public class PlayerEngine extends Application {
     public PlayerEngine(int numberOfPlayers, City desiredCityOfHumanPlayer, ArrayList<City> citiesOfBots){
         allPlayers = new ArrayList<>();
         bots = new ArrayList<>();
-        player = new Player(desiredCityOfHumanPlayer);
+        player = new Player(0, desiredCityOfHumanPlayer);
         allPlayers.add(player);
         for(int i = 0; i < numberOfPlayers - 1; i++){
-            Bot bot = new Bot(citiesOfBots.get(i));
+            Bot bot = new Bot(i, citiesOfBots.get(i));
             allPlayers.add(bot);
             bots.add(bot);
         }
+
         for(int i = 0; i < bots.size(); i++){
             bots.get(i).print();
         }
@@ -136,6 +137,9 @@ public class PlayerEngine extends Application {
     }
 
     public void printPlayers(){
+        System.out.println();
+        System.out.println("LIST OF ALL PLAYERS");
+        System.out.println();
         System.out.println("PLAYER");
         player.print();
         System.out.println("BOTS");

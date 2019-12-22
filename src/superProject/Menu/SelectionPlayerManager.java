@@ -13,9 +13,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -44,6 +48,8 @@ public class SelectionPlayerManager implements Initializable {
     @FXML
     private Button nextToSelection;
 
+    @FXML
+    private ImageView backgroundImageView;
 
 
 
@@ -51,7 +57,9 @@ public class SelectionPlayerManager implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         playerNumberLabel.setText(String.valueOf(playerNumber));
-
+        playerNumberLabel.setAlignment(Pos.CENTER);
+        playerNumberLabel.setTextAlignment(TextAlignment.CENTER);
+        nextToSelection.setAlignment(Pos.BASELINE_CENTER);
 
     }
 
@@ -62,6 +70,9 @@ public class SelectionPlayerManager implements Initializable {
 
         try {
             stage = (Stage) nextToSelection.getScene().getWindow();
+            stage.setFullScreen(true);
+            stage.setResizable(true);
+            System.out.println("go to city selection");
             root=FXMLLoader.load(getClass().getResource("../Menu/CitySelectionViewFX.fxml"));
 
             Scene scene = new Scene(root);
@@ -121,7 +132,6 @@ alert.showAndWait();
     public void decreasePlayer(ActionEvent event){
         if(playerNumber > 3) {
             playerNumber--;
-
             playerNumberLabel.setText(String.valueOf(playerNumber));
         }
         else {

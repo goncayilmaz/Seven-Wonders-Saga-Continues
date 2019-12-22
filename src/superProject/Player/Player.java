@@ -35,51 +35,19 @@ public class Player {
     public Player() {
         id = 0;
         name = "Player " + (id + 1); //if not set, then it is a Bot and it has only number
-        warPoints = 0;
         cards = new ArrayList<>();
         cardsOnTable = new ArrayList<>();;
-        boardNum = 0;
-        score = 0;
         city = new City();
         resources = new ArrayList<>();
-        numberOfCoin = 0;
-        numberOfClay = 0;
-        numberOfOre = 0;
-        numberOfStone = 0;
-        numberOfWood = 0;
-        numberOfLoom = 0;
-        numberOfGlass= 0;
-        numberOfPapyrus = 0;
-        numberOfMilitary = 0;
-        numberOfCivilian = 0;
-        numberOfScienceRuler = 0;
-        numberOfScienceStone = 0;
-        numberOfScienceWheel = 0;
     }
 
-    public Player(City city) {
-        id = 0;
+    public Player(int id, City city) {
+        this.id = id;
+        this.city = city;
         name = "Player " + (id + 1); //if not set, then it is a Bot and it has only number
-        warPoints = 0;
         cards = new ArrayList<>();
         cardsOnTable = new ArrayList<>();;
-        boardNum = 0;
-        score = 0;
-        this.city = city;
         resources = new ArrayList<>();
-        numberOfCoin = 0;
-        numberOfClay = 0;
-        numberOfOre = 0;
-        numberOfStone = 0;
-        numberOfWood = 0;
-        numberOfLoom = 0;
-        numberOfGlass= 0;
-        numberOfPapyrus = 0;
-        numberOfMilitary = 0;
-        numberOfCivilian = 0;
-        numberOfScienceRuler = 0;
-        numberOfScienceStone = 0;
-        numberOfScienceWheel = 0;
     }
 
     public ArrayList<Material> calculateResources(){

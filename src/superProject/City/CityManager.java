@@ -5,12 +5,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import superProject.GameProperties.Material;
 import superProject.Player.Player;
@@ -20,6 +23,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
+
+import static javafx.scene.layout.GridPane.*;
 
 public class CityManager implements Initializable {
 
@@ -47,19 +52,23 @@ public class CityManager implements Initializable {
 
     private int numberOfCities;
 
+    @FXML
+    private GridPane citiesGridPane;
+
+    private boolean boardType;
+    private City chosenCity;
+
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         createCity(false);
-        arrangeCities(2, "The Hanging Gardens of Babylon", false);
+        arrangeCities(3, "The Hanging Gardens of Babylon", false);
+        boardType = true;
         //printCities(citiesB);
-
-
-
-
     }
+
     @FXML
     void prevv(ActionEvent event)throws Exception{
 
@@ -83,21 +92,30 @@ public class CityManager implements Initializable {
 
     @FXML
     void startToGame(ActionEvent event) throws Exception{
-        Stage stage;
-        Parent root;
 
-        try {
-            stage = (Stage) startButton.getScene().getWindow();
-            root=FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+        if( radioA.isPressed() || radioB.isPressed()) {
+            Stage stage;
+            Parent root;
 
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }
-        catch (Exception e){
-            e.printStackTrace();
+            try {
+                stage = (Stage) startButton.getScene().getWindow();
+                root = FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
 
 
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Side of Game");
+            alert.setHeaderText("Side is not chosen.");
+            alert.setContentText("To start game, choose side!");
+
+            alert.showAndWait();
         }
 
     }
@@ -108,7 +126,6 @@ public class CityManager implements Initializable {
     public void firstSelected(MouseEvent event)throws Exception{
 
         try{
-            System.out.println("efeasd");
             firstSelected.setRotate(12);
         }catch (Exception e) {
         }
@@ -167,7 +184,7 @@ public class CityManager implements Initializable {
         System.out.println(a.getBoardLevel());
     }
     public void createCity(boolean boardType) {
-        if (boardType == true)
+        if (boardType)
             createACities();
         else
             createBCities();
@@ -591,7 +608,7 @@ public class CityManager implements Initializable {
     }
 
     /**
-     * This method returns the city object which is played by Player
+     * This method returns the city object which is chosen by Player
      *
      * @param boardType
      * @param cityName
@@ -616,8 +633,56 @@ public class CityManager implements Initializable {
         return chosenCity;
     }
 
+
+    /**
+     * This method sets the city chosen by the player
+     * @param chosenIndex, it comes from the button itself
+     */
+    public void setChosenCity(int chosenIndex){
+        System.out.println("Column index: " + chosenIndex);
+        if( boardType )
+            chosenCity = citiesA.get(chosenIndex);
+        else
+            chosenCity = citiesA.get(chosenIndex);
+    }
+
+    @FXML
+    public void setChosenCity0(){
+        setChosenCity(0);
+    }
+
+    @FXML
+    public void setChosenCity1(){
+        setChosenCity(1);
+    }
+
+    @FXML
+    public void setChosenCity2(){
+        setChosenCity(2);
+    }
+
+    @FXML
+    public void setChosenCity3(){
+        setChosenCity(3);
+    }
+
+    @FXML
+    public void setChosenCity4(){
+        setChosenCity(4);
+    }
+
+    @FXML
+    public void setChosenCity5(){
+        setChosenCity(5);
+    }
+
+    @FXML
+    public void setChosenCity6(){
+        setChosenCity(6);
+    }
+
     public int getNumberOfCities(boolean boardType) {
-        if (boardType == true)
+        if ( boardType )
             return citiesA.size();
         else
             return citiesB.size();
@@ -632,7 +697,6 @@ public class CityManager implements Initializable {
     }
 
     public void changeCityStage(City city, Player player) {
-
         city.increaseLevel(player);
     }
 

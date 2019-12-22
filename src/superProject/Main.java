@@ -32,6 +32,7 @@ import superProject.City.CityManager;
 import superProject.GameMain.GameEngine;
 import superProject.GameProperties.Card;
 import superProject.GameProperties.CardEngine;
+import superProject.Player.Bot;
 import superProject.Player.Player;
 import superProject.Player.PlayerEngine;
 
@@ -39,11 +40,6 @@ import static javafx.fxml.FXMLLoader.load;
 
 
 public class Main {
-
-
-
-
-
 
 
     public static void main(String[] args) {
@@ -95,6 +91,8 @@ public class Main {
         player.addCardsToTable(cards.get(3));
         System.out.println();
 
+        System.out.println();
+        System.out.println("*********************************************************************************");
         System.out.println("PLAYER");
         player.print();
         System.out.println();
@@ -102,8 +100,14 @@ public class Main {
         //citymanager.printACities();
         citymanager.getCitiesA().get(0).print();
         System.out.println();
-        PlayerEngine playerEngine2 = new PlayerEngine(5,cityofplayer,citymanager.getCitiesA());
+        PlayerEngine playerEngine2 = new PlayerEngine(5, cityofplayer, citymanager.getCitiesA());
         playerEngine2.printPlayers();
+        System.out.println();
+        System.out.println("*********************************************************************************");
+        System.out.println();
+        Bot b = new Bot(3);
+        System.out.println("Bot war points: " + b.getWarPoints());
+
 
     }
 }

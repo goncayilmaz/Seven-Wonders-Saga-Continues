@@ -161,7 +161,8 @@ public class Option  implements Initializable {
 
         try {
             stage = (Stage) startButton.getScene().getWindow();
-            System.out.println("efe");
+            stage.setFullScreen(true);
+            stage.setResizable(true);
 
             root=FXMLLoader.load(getClass().getResource("../Menu/SelectionPlayerViewFX.fxml"));
 

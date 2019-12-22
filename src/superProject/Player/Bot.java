@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Bot extends Player{
 
+    //private static int id_count = 0;
     private int id;
     private String name; //added to print player at the end of war (I didn't know what to right) -Gonca
     private int warPoints; // war points
@@ -17,6 +18,7 @@ public class Bot extends Player{
     private int score;
     private City city;
     private ArrayList<Material> resources;
+    //you do not need to initalize integers, if their initial value is zero
     int numberOfCoin;
     int numberOfClay;
     int numberOfOre;
@@ -33,53 +35,30 @@ public class Bot extends Player{
 
 
     public Bot() {
-        id = 0;
         name = "Bot " + (id + 1); //if not set, then it is a Bot and it has only number
-        warPoints = 0;
         cards = new ArrayList<>();
         cardsOnTable = new ArrayList<>();;
-        boardNum = 0;
-        score = 0;
         city = new City();
         resources = new ArrayList<>();
-        numberOfCoin = 0;
-        numberOfClay = 0;
-        numberOfOre = 0;
-        numberOfStone = 0;
-        numberOfWood = 0;
-        numberOfLoom = 0;
-        numberOfGlass= 0;
-        numberOfPapyrus = 0;
-        numberOfMilitary = 0;
-        numberOfCivilian = 0;
-        numberOfScienceRuler = 0;
-        numberOfScienceStone = 0;
-        numberOfScienceWheel = 0;
     }
 
-    public Bot(City city) {
-        id = 0;
+    public Bot(int id) {
+        id =  this.id;
         name = "Bot " + (id + 1); //if not set, then it is a Bot and it has only number
-        warPoints = 0;
         cards = new ArrayList<>();
         cardsOnTable = new ArrayList<>();;
-        boardNum = 0;
-        score = 0;
+        city = new City();
+        resources = new ArrayList<>();
+    }
+
+    public Bot(int id, City city) {
+        System.out.println("Bot constructor with City parameter");
+        this.id = id;
+        name = "Bot " + (this.id + 1); //if not set, then it is a Bot and it has only number
+        cards = new ArrayList<>();
+        cardsOnTable = new ArrayList<>();;
         this.city = city;
         resources = new ArrayList<>();
-        numberOfCoin = 0;
-        numberOfClay = 0;
-        numberOfOre = 0;
-        numberOfStone = 0;
-        numberOfWood = 0;
-        numberOfLoom = 0;
-        numberOfGlass= 0;
-        numberOfPapyrus = 0;
-        numberOfMilitary = 0;
-        numberOfCivilian = 0;
-        numberOfScienceRuler = 0;
-        numberOfScienceStone = 0;
-        numberOfScienceWheel = 0;
     }
 
 
@@ -151,20 +130,25 @@ public class Bot extends Player{
 
         // war point icin imaginate
         if(playerWarPoint>nearPlayer&&playerWarPoint>awayPlayer){
+            //TODO
             // savaş kartı oynama
         }
         else if(playerWarPoint>nearPlayer&&playerWarPoint<awayPlayer){
+            //TODO
             // savaş kartı oynamak için booolean random at
         }
         else if(playerWarPoint<nearPlayer&&playerWarPoint>awayPlayer){
+            //TODO
             // savaş kartı oynamak için booolean random at
         }
         else{
+            //TODO
             //kesin savaş kartı at.
         }
         return card;
     }
 
+    @Override
     public void print(){
         System.out.println("Id: " + id + " name :" + name);
         city.print();
