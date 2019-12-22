@@ -50,6 +50,7 @@ public class City {
         this.boardLevel = 1;
         this.boardName = "";
         boardNumber = 0;
+        cardSpecs = new ArrayList<Material>();
         cardReqs1 = new ArrayList<Material>();
         cardReqs2 = new ArrayList<Material>();
         cardReqs3 = new ArrayList<Material>();

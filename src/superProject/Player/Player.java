@@ -236,7 +236,7 @@ public class Player {
             }
 
         }
-        // implementing card chain 
+        // implementing card chain
         for(int i = 0; i < cardsOnTable.size(); i++){
             if(cardsOnTable.get(i).getNextCardId() == card.getId())
                 enough = true;
@@ -341,7 +341,7 @@ public class Player {
     }
 
     public void print(){
-        System.out.println("Id: " + id + "name :" + name);
+        System.out.println("Id: " + id + " name :" + name);
         city.print();
         System.out.println("CARDS");
         for(int i = 0; i < cardsOnTable.size(); i++){

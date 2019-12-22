@@ -1,20 +1,88 @@
 package superProject.Player;
 
+import superProject.City.City;
 import superProject.GameProperties.Card;
+import superProject.GameProperties.Material;
 
 import java.util.ArrayList;
 
 public class Bot extends Player{
 
-    // bu class gözden geçecek
-    // bunu yazdım ama tekrardan bakmamız lazım
+    private int id;
+    private String name; //added to print player at the end of war (I didn't know what to right) -Gonca
+    private int warPoints; // war points
+    private ArrayList<Card> cards; // cards in hand
+    private ArrayList<Card> cardsOnTable;
+    private int boardNum; // for connecting with board city
+    private int score;
+    private City city;
+    private ArrayList<Material> resources;
+    int numberOfCoin;
+    int numberOfClay;
+    int numberOfOre;
+    int numberOfStone;
+    int numberOfWood;
+    int numberOfLoom;
+    int numberOfGlass;
+    int numberOfPapyrus;
+    int numberOfMilitary;
+    int numberOfCivilian;
+    int numberOfScienceRuler;
+    int numberOfScienceStone;
+    int numberOfScienceWheel;
 
-  //  private ArrayList<Player> players;
-  //  private Player player;
 
-  //  public Player getPlayer() {return player;}
+    public Bot() {
+        id = 0;
+        name = "Bot " + (id + 1); //if not set, then it is a Bot and it has only number
+        warPoints = 0;
+        cards = new ArrayList<>();
+        cardsOnTable = new ArrayList<>();;
+        boardNum = 0;
+        score = 0;
+        city = new City();
+        resources = new ArrayList<>();
+        numberOfCoin = 0;
+        numberOfClay = 0;
+        numberOfOre = 0;
+        numberOfStone = 0;
+        numberOfWood = 0;
+        numberOfLoom = 0;
+        numberOfGlass= 0;
+        numberOfPapyrus = 0;
+        numberOfMilitary = 0;
+        numberOfCivilian = 0;
+        numberOfScienceRuler = 0;
+        numberOfScienceStone = 0;
+        numberOfScienceWheel = 0;
+    }
 
-   // public void setPlayer(Player player) {this.player = player;}
+    public Bot(City city) {
+        id = 0;
+        name = "Bot " + (id + 1); //if not set, then it is a Bot and it has only number
+        warPoints = 0;
+        cards = new ArrayList<>();
+        cardsOnTable = new ArrayList<>();;
+        boardNum = 0;
+        score = 0;
+        this.city = city;
+        resources = new ArrayList<>();
+        numberOfCoin = 0;
+        numberOfClay = 0;
+        numberOfOre = 0;
+        numberOfStone = 0;
+        numberOfWood = 0;
+        numberOfLoom = 0;
+        numberOfGlass= 0;
+        numberOfPapyrus = 0;
+        numberOfMilitary = 0;
+        numberOfCivilian = 0;
+        numberOfScienceRuler = 0;
+        numberOfScienceStone = 0;
+        numberOfScienceWheel = 0;
+    }
+
+
 
     public Card imaginate(Player player, ArrayList<Player> players){
 
@@ -94,11 +162,16 @@ public class Bot extends Player{
         else{
             //kesin savaş kartı at.
         }
-
-
-
-
         return card;
+    }
+
+    public void print(){
+        System.out.println("Id: " + id + " name :" + name);
+        city.print();
+        System.out.println("CARDS");
+        for(int i = 0; i < cardsOnTable.size(); i++){
+            cardsOnTable.get(i).print();
+        }
     }
 
 

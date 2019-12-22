@@ -15,16 +15,20 @@ public class PlayerEngine extends Application {
     private ArrayList<Bot> bots;
     private ArrayList<Player> allPlayers;
 
-    public PlayerEngine(int numberOfPlayers, City desiredCityOfHumanPlayer){
+    public PlayerEngine(int numberOfPlayers, City desiredCityOfHumanPlayer, ArrayList<City> citiesOfBots){
         allPlayers = new ArrayList<>();
         bots = new ArrayList<>();
         player = new Player(desiredCityOfHumanPlayer);
-
+        allPlayers.add(player);
         for(int i = 0; i < numberOfPlayers - 1; i++){
-            Bot bot = new Bot();
+            Bot bot = new Bot(citiesOfBots.get(i));
             allPlayers.add(bot);
             bots.add(bot);
         }
+        for(int i = 0; i < bots.size(); i++){
+            bots.get(i).print();
+        }
+
     }
     public PlayerEngine(int numberOfPlayers){
         allPlayers = new ArrayList<>();
@@ -129,6 +133,15 @@ public class PlayerEngine extends Application {
     public void startXOX(Boolean bool){
         //xox game ile bağlanacak.
 
+    }
+
+    public void printPlayers(){
+        System.out.println("PLAYER");
+        player.print();
+        System.out.println("BOTS");
+        for(int i = 0; i < bots.size(); i++){
+            bots.get(i).print();
+        }
     }
 
 }
