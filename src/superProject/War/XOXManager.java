@@ -85,7 +85,7 @@ public class XOXManager implements Initializable {
     }
 
     @FXML
-    public void returnWarView (MouseEvent event){
+    public void returnToWarView (MouseEvent event){
         Stage stage;
         Parent root;
 

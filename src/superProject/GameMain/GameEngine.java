@@ -221,7 +221,8 @@ public class GameEngine  {
         PlayerEngine playerEngine = new PlayerEngine(3);
         CardEngine cardEngine = new CardEngine();
 
-       cityManager.createCity(boardSide);
+        cityManager.setBoardType(boardSide);
+        cityManager.createCity();
         //cityManager.arrangeCities(numberOfPlayers, ,boardSide);
 
 

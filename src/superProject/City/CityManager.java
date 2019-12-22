@@ -5,12 +5,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.NodeOrientation;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -55,18 +58,99 @@ public class CityManager implements Initializable {
     @FXML
     private GridPane citiesGridPane;
 
+    @FXML
+    private ImageView chosenCityImage;
+
     private boolean boardType;
+
     private City chosenCity;
 
+    private int chosenIndex;
 
+    @FXML
+    private Image imageCity;
+
+    String mainPath;
+
+    @FXML
+    Button button0;
+
+    @FXML
+    Button button1;
+
+    @FXML
+    Button button2;
+
+    @FXML
+    Button button3;
+
+    @FXML
+    Button button4;
+
+    @FXML
+    Button button5;
+
+    @FXML
+    Button button6;
+
+    @FXML
+    ImageView imageView0;
+
+    @FXML
+    ImageView imageView1;
+
+    @FXML
+    ImageView imageView2;
+
+    @FXML
+    ImageView imageView3;
+
+    @FXML
+    ImageView imageView4;
+
+    @FXML
+    ImageView imageView5;
+
+    @FXML
+    ImageView imageView6;
+
+    @FXML
+    Label chosenCityLabel;
+
+
+
+
+    public CityManager(){
+        boardType = false; //true olduğunda olmuyor niyeyse
+        mainPath = "@../../Images/images/wonders/";
+    }
+
+    public CityManager(boolean boardType){
+        this.boardType = boardType;
+        mainPath = "@../../Images/images/wonders/";
+    }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        createCity(false);
-        arrangeCities(3, "The Hanging Gardens of Babylon", false);
-        boardType = true;
-        //printCities(citiesB);
+        createCity();
+        //arrangeCities(7, "The Hanging Gardens of Babylon", false);
+        radioB.setSelected(true);
+        radioB.setDisable(true);
+        String imageName = citiesB.get(0).getPhotoName();
+        //System.out.println("url " + mainPath + imageName);
+        imageCity = new Image( mainPath + citiesB.get(0).getPhotoName());
+        chosenCityImage.setImage(imageCity);
+        imageView0.setImage(imageCity);
+        imageView1.setImage( new Image( mainPath + citiesB.get(1).getPhotoName()));
+        imageView2.setImage( new Image( mainPath + citiesB.get(2).getPhotoName()));
+        imageView3.setImage( new Image( mainPath + citiesB.get(3).getPhotoName()));
+        imageView4.setImage( new Image( mainPath + citiesB.get(4).getPhotoName()));
+        imageView5.setImage( new Image( mainPath + citiesB.get(5).getPhotoName()));
+        imageView6.setImage( new Image( mainPath + citiesB.get(6).getPhotoName()));
+        //chosenCityImage.setFitHeight(200);
+        chosenCityImage.setFitWidth(262);
+        setChosenCity(0);
     }
 
     @FXML
@@ -93,29 +177,22 @@ public class CityManager implements Initializable {
     @FXML
     void startToGame(ActionEvent event) throws Exception{
 
-        if( radioA.isPressed() || radioB.isPressed()) {
-            Stage stage;
-            Parent root;
+        Stage stage;
+        Parent root;
 
-            try {
-                stage = (Stage) startButton.getScene().getWindow();
-                root = FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+        arrangeCities(3, chosenCity.getBoardName(), boardType);
 
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            } catch (Exception e) {
-                e.printStackTrace();
+        try {
+            stage = (Stage) startButton.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
 
 
-            }
-        } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Side of Game");
-            alert.setHeaderText("Side is not chosen.");
-            alert.setContentText("To start game, choose side!");
-
-            alert.showAndWait();
         }
 
     }
@@ -164,8 +241,8 @@ public class CityManager implements Initializable {
      */
     public static void main(String [] args)
     {
-        CityManager c = new CityManager();
-        c.createCity(true);
+        CityManager c = new CityManager(true);
+        c.createCity();
         c.arrangeCities(4, "The Colossus of Rhodes", true);
         Player p = new Player();
         City a = c.getPlayerCity(true, "The Colossus of Rhodes");
@@ -185,7 +262,8 @@ public class CityManager implements Initializable {
         c.changeCityStage(a, p);
         System.out.println(a.getBoardLevel());
     }
-    public void createCity(boolean boardType) {
+
+    public void createCity() {
         if (boardType)
             createACities();
         else
@@ -619,7 +697,7 @@ public class CityManager implements Initializable {
     public City getPlayerCity(boolean boardType, String cityName) {
         City chosenCity = null;
 
-        if (boardType == true) {
+        if (boardType ) {
             for (int i = 0; i < citiesA.size(); i++) {
                 if (cityName == citiesA.get(i).getBoardName()) {
                     chosenCity = citiesA.get(i);
@@ -640,12 +718,18 @@ public class CityManager implements Initializable {
      * This method sets the city chosen by the player
      * @param chosenIndex, it comes from the button itself
      */
+
     public void setChosenCity(int chosenIndex){
+        this.chosenIndex = chosenIndex;
         System.out.println("Column index: " + chosenIndex);
         if( boardType )
             chosenCity = citiesA.get(chosenIndex);
         else
-            chosenCity = citiesA.get(chosenIndex);
+            chosenCity = citiesB.get(chosenIndex);
+        chosenCityImage.setImage(new Image(mainPath + chosenCity.getPhotoName()));
+        System.out.println("chosen city: " + chosenCity.getBoardName());
+        chosenCityLabel.setText(chosenCity.getBoardName());
+        System.out.println("chosen city label " + chosenCityLabel.getText());
     }
 
     @FXML
@@ -711,6 +795,65 @@ public class CityManager implements Initializable {
     public void printBCities() {
         for (int i = 0; i < citiesB.size(); i++) {
             citiesB.get(i).print();
+        }
+    }
+
+    public void setBoardType( boolean boardType){
+        this.boardType = boardType;
+    }
+
+    public boolean getBoardType(){
+        return boardType;
+    }
+
+    @FXML
+    public void changeBoardType(MouseEvent e){
+        System.out.println("here");
+        if( e.getSource() == radioB && !radioB.isSelected())
+        {
+            boardType = false;
+            radioA.setSelected(false);
+            radioB.setSelected(true);
+            radioB.setDisable(true);
+            radioA.setDisable(false);
+            if( citiesB == null )
+                createBCities();
+            button0.setDefaultButton(true);
+            chosenCity = citiesB.get(0);
+            chosenIndex = 0;
+            imageCity = new Image( mainPath + citiesB.get(0).getPhotoName());
+            chosenCityImage.setImage(imageCity);
+            imageView0.setImage(imageCity);
+            imageView1.setImage( new Image( mainPath + citiesB.get(1).getPhotoName()));
+            imageView2.setImage( new Image( mainPath + citiesB.get(2).getPhotoName()));
+            imageView3.setImage( new Image( mainPath + citiesB.get(3).getPhotoName()));
+            imageView4.setImage( new Image( mainPath + citiesB.get(4).getPhotoName()));
+            imageView5.setImage( new Image( mainPath + citiesB.get(5).getPhotoName()));
+            imageView6.setImage( new Image( mainPath + citiesB.get(6).getPhotoName()));
+        }
+
+        if( e.getSource() == radioA && !radioA.isSelected()){
+            System.out.println("here2");
+            boardType = true;
+            radioA.setSelected(true);
+            radioA.setDisable(true);
+            radioB.setSelected(false);
+            radioB.setDisable(false);
+            if( citiesA == null )
+                createACities();
+            chosenCity = citiesA.get(0);
+            button0.setDefaultButton(true);
+            chosenIndex = 0;
+            imageCity = new Image( mainPath + citiesA.get(0).getPhotoName());
+            chosenCityImage.setImage(imageCity);
+            imageView0.setImage(imageCity);
+            imageView1.setImage( new Image( mainPath + citiesA.get(1).getPhotoName()));
+            imageView2.setImage( new Image( mainPath + citiesA.get(2).getPhotoName()));
+            imageView3.setImage( new Image( mainPath + citiesA.get(3).getPhotoName()));
+            imageView4.setImage( new Image( mainPath + citiesA.get(4).getPhotoName()));
+            imageView5.setImage( new Image( mainPath + citiesA.get(5).getPhotoName()));
+            imageView6.setImage( new Image( mainPath + citiesA.get(6).getPhotoName()));
+
         }
     }
 }

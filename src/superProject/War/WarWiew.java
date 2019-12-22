@@ -1,5 +1,9 @@
 package superProject.War;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Line;
+import javafx.util.Duration;
 import superProject.Player.Player;
 import superProject.City.City;
 import javafx.geometry.Rectangle2D;
@@ -23,6 +29,7 @@ import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
 import java.net.URL;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 import static javafx.stage.Screen.getPrimary;
@@ -46,6 +53,36 @@ public class WarWiew  /*implements Initializable */ extends Application {
     @FXML
     private  AnchorPane smallPane2;
 
+    @FXML
+    private Button button00;
+    @FXML
+    private Button button01;
+    @FXML
+    private Button button02;
+    @FXML
+    private Button button10;
+    @FXML
+    private Button button11;
+    @FXML
+    private Button button12;
+    @FXML
+    private Button button20;
+    @FXML
+    private Button button21;
+    @FXML
+    private Button button22;
+
+    @FXML
+    private Label resultLabel;
+
+    @FXML
+    private Button returnButton;
+
+    @FXML
+    private Label turnLabel;
+
+    private boolean isWinner; //for only xox
+
 
     @FXML
     private double prefHeightSmall;
@@ -59,11 +96,18 @@ public class WarWiew  /*implements Initializable */ extends Application {
     private Player rightNeighbour;
     private Player mainPlayer;
 
+    @FXML
+    Button[] buttons;
+
+    private boolean isXOXover;
+
     public WarWiew(){
         //leftWarWinner = true;
         //rightWarWinner = true;
         leftWarWinner = 1;
         rightWarWinner = 0;
+        buttons = new Button[9];
+        isXOXover = true;
     }
 
 
@@ -77,13 +121,10 @@ public class WarWiew  /*implements Initializable */ extends Application {
             primaryStage.setScene(new Scene(root));
             primaryStage.setFullScreen(true);
 
-        //
-        //
-        primaryStage.setResizable(true);
-        primaryStage.centerOnScreen();
-        //
-        primaryStage.show();
-        //
+            primaryStage.setResizable(true);
+            primaryStage.centerOnScreen();
+            primaryStage.show();
+
         }
         catch (Exception e){
             e.printStackTrace();
@@ -96,6 +137,8 @@ public class WarWiew  /*implements Initializable */ extends Application {
         setLeftNeighbour(leftNeighbour);
         setRightNeighbour(rightNeighbour);
         setMainPlayer(mainPlayer);
+        buttons = new Button[9];
+        isXOXover = true;
     }
 
     /*
@@ -218,6 +261,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
         //System.out.println("xox button is clicked");
 
         try {
+
             stage = (Stage) xoxButton1.getScene().getWindow();
             root=FXMLLoader.load(getClass().getResource("../War/XOXViewFX.fxml"));
 
@@ -237,7 +281,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
         Parent root;
 
         try {
-            System.out.println("heyy");
+            //System.out.println("heyy");
             stage = (Stage) xoxButton2.getScene().getWindow();
             root= FXMLLoader.load(getClass().getResource("../War/XOX_FX.fxml"));
             Scene scene = new Scene(root);
@@ -252,29 +296,187 @@ public class WarWiew  /*implements Initializable */ extends Application {
         }
     }
 
+    private void createButtons(){
+        isXOXover = false;
+        buttons[0] = button00;
+        buttons[1] = button01;
+        buttons[2] = button02;
+        buttons[3] = button10;
+        buttons[4] = button11;
+        buttons[5] = button12;
+        buttons[6] = button20;
+        buttons[7] = button21;
+        buttons[8] = button22;
+    }
+
+    public void isGameFinished(){
+        boolean areButtonsFull = true;
+        boolean isCombo = false;
+        for(int i = 0; i < 9; i++){
+            if(!buttons[i].isDisabled())
+                areButtonsFull = false;
+        }
+
+        System.out.println("are buttons full " + areButtonsFull);
+
+        //TODO
+        //check for xxx or ooo
+        Button[] combo = new Button[3];
+
+        //horizontal
+        for(int i = 0; i < 9; i = i + 3){
+            if(!buttons[i].getText().equals("") && buttons[i].getText().equals(buttons[i+1].getText()) && buttons[i].getText().equals(buttons[i+2].getText())) {
+                if (buttons[i].getText().equals("X"))
+                    isWinner = true;
+                else
+                    isWinner = false;
+                combo[0] = buttons[i];
+                combo[1] = buttons[i+1];
+                combo[2] = buttons[i+2];
+                isXOXover = true;
+                isCombo = true;
+            }
+        }
+
+        if( !isXOXover) {
+
+            //vertical
+            for (int i = 0; i < 3; i++) {
+                if (!buttons[i].getText().equals("") && buttons[i].getText().equals(buttons[i + 3].getText()) && buttons[i].getText().equals(buttons[i + 6].getText())) {
+                    if (buttons[i].getText().equals("X"))
+                        isWinner = true;
+                    else
+                        isWinner = false;
+                    combo[0] = buttons[i];
+                    combo[1] = buttons[i+3];
+                    combo[2] = buttons[i+6];
+                    isXOXover = true;
+                    isCombo = true;
+                }
+            }
+
+        }
+
+        if(!isXOXover) {
+            //diagonal
+            if (!buttons[0].getText().equals("") && buttons[0].getText().equals(buttons[4].getText()) && buttons[0].getText().equals(buttons[8].getText())) {
+                if (buttons[0].getText().equals("X"))
+                    isWinner = true;
+                else
+                    isWinner = false;
+                combo[0] = buttons[0];
+                combo[1] = buttons[4];
+                combo[2] = buttons[8];
+                isXOXover = true;
+                isCombo = true;
+            }
+            else if( !buttons[2].getText().equals("")&&  buttons[2].getText().equals(buttons[4].getText()) && buttons[4].getText().equals(buttons[6].getText()))
+            {
+                if (buttons[2].getText().equals("X"))
+                    isWinner = true;
+                else
+                    isWinner = false;
+                combo[0] = buttons[2];
+                combo[1] = buttons[4];
+                combo[2] = buttons[6];
+                isXOXover = true;
+                isCombo = true;
+            }
+        }
+
+
+
+        if(isWinner)
+            resultLabel.setText("YOU WON");
+        else
+            resultLabel.setText("YOU LOST");
+
+        if( areButtonsFull && !isCombo) {
+            isWinner = false; //that means player couldn't win against bot
+            isXOXover = true;
+            resultLabel.setVisible(true);
+        }
+
+        if( isXOXover ) {
+            resultLabel.setVisible(true);
+            turnLabel.setVisible(false);
+            if( isCombo ) {
+                playWinAnimation(combo);
+            }
+            returnButton.setDisable(false);
+            for(int i = 0; i < 9; i ++){
+                buttons[i].setDisable(true);
+            }
+        }
+
+
+    }
+
+    public void playWinAnimation(Button[] combo){
+        Line line = new Line();
+        line.setStartX(combo[0].getLayoutX());
+        line.setStartY(combo[0].getLayoutY());
+        line.setEndX(combo[0].getLayoutX());
+        line.setEndY(combo[0].getLayoutY());
+
+        //root.getChildren().add(line);
+        Timeline timeline = new Timeline();
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(0.5),
+                new KeyValue(line.endXProperty(), combo[2].getLayoutX()),
+                new KeyValue(line.endYProperty(), combo[2].getLayoutY())));
+        timeline.play();
+
+    }
+
     @FXML
     public void drawX(MouseEvent e) throws Exception{
+        Button sourceButton = (Button) e.getSource();
+        if(buttons[0] == null || buttons[0].equals(button00))
+            createButtons();
         try {
-            java.awt.Button sourceButton = (java.awt.Button) e.getSource();
-            sourceButton.setLabel("X");
-            drawO(e);
-
+            sourceButton.setText("X");
+            sourceButton.setDisable(true);
         }
         catch (Exception f){
             f.printStackTrace();
         }
 
+        isWinner = true;
+        isGameFinished();
+
+        if( !isXOXover)
+            drawO();
+
     }
 
     @FXML
-    public void drawO(MouseEvent event){
+    public void drawO(){
 
-        int i = (int) (Math.random() * 3);
-        int j = (int) (Math.random() * 3);
 
-     //   if(buttons[i][j].equals(""))
-      //      buttons[i][j].setLabel("O");
+        System.out.println("drawing o ");
 
+        int i = (int) (Math.random() * 9);
+
+        while (!buttons[i].getText().equals("")) {
+            System.out.println("hhh");
+            i = (int) (Math.random() * 9);
+
+        }
+
+        PauseTransition pauseTransition = new PauseTransition();
+        pauseTransition.setDuration(Duration.millis(600));
+        buttons[i].setText("O");
+        buttons[i].setDisable(true);
+        isWinner = false;
+        isGameFinished();
+
+
+    }
+
+    @FXML
+    public void returnToWarView(){
+        //TODO
+        System.out.println("return button is clicked");
     }
 
 

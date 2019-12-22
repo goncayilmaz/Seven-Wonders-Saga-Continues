@@ -32,8 +32,10 @@ public class AgeManager extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
     try{}
     catch(Exception e){}
+
     }
 
 
@@ -41,7 +43,8 @@ public class AgeManager extends Application {
     private void startAge(boolean citySide, CityManager cityM, CardEngine cardE,
                           int noOfPlayers, PlayerEngine playerE, String chosenCity){
         currentGameAge = 1;
-        cityM.createCity(citySide);
+        cityM.setBoardType(citySide);
+        cityM.createCity();
         cardE.createGameCards(noOfPlayers);
         cityM.arrangeCities(noOfPlayers, chosenCity, citySide);
         gameAge = new Age( cardE.getFirstAgeCards(), currentGameAge);

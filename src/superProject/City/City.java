@@ -47,9 +47,7 @@ public class City {
     }
 
     public City(){
-        boardLevel = 0;
         boardName = "";
-        boardNumber = 0;
         cardSpecs = new ArrayList<Material>();
         cardReqs1 = new ArrayList<Material>();
         cardReqs2 = new ArrayList<Material>();
@@ -60,7 +58,6 @@ public class City {
         cardSpecsForLevel3 = new ArrayList<Material>();
         cardSpecsForLevel4 = new ArrayList<Material>();
         photoName = "";
-        maxCityLevel = 0;
         orSituation = false;
     }
     public City(String boardName, ArrayList<Material> cardSpecs,
