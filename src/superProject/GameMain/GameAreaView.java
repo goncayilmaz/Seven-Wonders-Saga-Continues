@@ -927,7 +927,7 @@ public class GameAreaView implements Initializable {
 
     }
 
-    
+
 
     public void cardChangeRotate(){
         boolean card1 = false;
@@ -1010,6 +1010,7 @@ public class GameAreaView implements Initializable {
         ImageView imageFor = new ImageView();
         Image imageForTip = new Image(getClass().getResourceAsStream(preCard+cardName));
         imageFor.setImage(imageForTip);
+
         Tooltip tooltip = new Tooltip();
         tooltip.setMaxWidth(250);
         tooltip.setWrapText(true);
