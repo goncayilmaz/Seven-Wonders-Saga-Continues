@@ -52,16 +52,25 @@ public class GameAreaView implements Initializable {
     @FXML
     private ImageView cityImageView;
 
+    @FXML
+    private ImageView botCity0, botCity1, botCity2, botCity3, botCity4, botCity5;
+
+    private ImageView [] botCities;
+    private ArrayList<City> citiesOfBots;
+
     private int noOfPlayers = 7;
     private Button [] pt_buttons;
     private Button [] aw_buttons;
     private Button [] dc_buttons;
-    private String preCard = "/Images/images/cards/";
-    private String preCity = "/Images/images/wonders/";
     private ImageView[] cardsOnHandImageView;
+
+    //for image paths
+    private String preCard;
+    private String preCity;
+
     private CardEngine cardEngine;
     private int round = 0;
-    private PlayerEngine playerEngine; //this should be created and şnitialized with cities
+    private PlayerEngine playerEngine; //this should be created and initialized with cities
     private CityManager cityManager; //bu da iletilmeli
 
     //TODO
@@ -73,6 +82,8 @@ public class GameAreaView implements Initializable {
         /// player number a göre yukarıdaki imageviewlar visible yada invisible olacak.
         // imagelerin önüne label koyup tooltip ile kartları liste haline getirio gösterebiliriz.
 
+        preCard = "/Images/images/cards/";
+        preCity = "/Images/images/wonders/";
 
         cardEngine = new CardEngine();
         playerEngine = new PlayerEngine(noOfPlayers);
@@ -111,6 +122,14 @@ public class GameAreaView implements Initializable {
         dc_buttons[5] = dc6;
         dc_buttons[6] = dc7;
 
+        botCities = new ImageView[6];
+
+        botCities[0] = botCity0;
+        botCities[1] = botCity1;
+        botCities[2] = botCity2;
+        botCities[3] = botCity3;
+        botCities[4] = botCity4;
+        botCities[5] = botCity5;
 
         String cardName=cardEngine.getFirstAgeCards().get(0).getPhotoName();
 
@@ -163,12 +182,41 @@ public class GameAreaView implements Initializable {
         }
 
         //TODO it can be changed this is just for testing now, CityManager should be forwarded
+        boolean boardType = false;
         cityManager = new CityManager(false);
         cityManager.createBCities();
-        City chosen = cityManager.arrangeCities(noOfPlayers, "The Colossus of Rhodes", false);
+        City chosen = cityManager.arrangeCities(noOfPlayers, "The Colossus of Rhodes", boardType);
         playerEngine.getHumanPlayer().setCity(chosen);
         Image imCity = new Image(preCity + playerEngine.getHumanPlayer().getCity().getPhotoName());
         cityImageView.setImage(imCity);
+
+        //disabling cities
+        for( int i = noOfPlayers; i < 6; i++){
+            botCities[i].setVisible(false);
+        }
+
+        //City images for bots
+        if(boardType) {
+            citiesOfBots = cityManager.getCitiesA();
+            for(int i = 0; i < citiesOfBots.size(); i++)
+            {
+                if( citiesOfBots.get(i).getBoardName().equals(playerEngine.getHumanPlayer().getCity().getBoardName()))
+                    citiesOfBots.remove(i);
+            }
+        }
+        else{
+            citiesOfBots = cityManager.getCitiesB();
+            for(int i = 0; i < citiesOfBots.size(); i++)
+            {
+                if( citiesOfBots.get(i).getBoardName().equals(playerEngine.getHumanPlayer().getCity().getBoardName()))
+                    citiesOfBots.remove(i);
+            }
+        }
+
+        for(int i = 0; i < citiesOfBots.size(); i++){
+            Image city_img = new Image(preCity + citiesOfBots.get(i).getPhotoName());
+            botCities[i].setImage(city_img);
+        }
 
     }
 
@@ -305,116 +353,116 @@ public class GameAreaView implements Initializable {
 
 
     @FXML
-    void discardCard7(ActionEvent event) throws Exception{
+    void discardCard7() throws Exception{
         discardCard(6);
     }
 
     @FXML
-    void addWonder7(ActionEvent event) throws Exception{
+    void addWonder7() throws Exception{
         addWonder(6);
     }
 
     @FXML
-    void putOnTable7(ActionEvent event) throws Exception {
+    void putOnTable7() throws Exception {
         putOnTable(6);
     }
 
     @FXML
-    void discardCard6(ActionEvent event) throws Exception{
+    void discardCard6() throws Exception{
         discardCard(5);
     }
 
 
 
     @FXML
-    void addWonder6(ActionEvent event) throws Exception{
+    void addWonder6() throws Exception{
         addWonder(5);
     }
 
     @FXML
-    void putOnTable6(ActionEvent event) throws Exception {
+    void putOnTable6() throws Exception {
         putOnTable(5);
     }
 
 
     @FXML
-    void discardCard5(ActionEvent event) throws Exception{
+    void discardCard5() throws Exception{
         discardCard(4);
     }
 
 
 
     @FXML
-    void addWonder5(ActionEvent event) throws Exception{
+    void addWonder5() throws Exception{
         addWonder(4);
     }
 
     @FXML
-    void putOnTable5(ActionEvent event) throws Exception {
+    void putOnTable5() throws Exception {
         putOnTable(4);
     }
 
     @FXML
-    void discardCard4(ActionEvent event) throws Exception{
+    void discardCard4() throws Exception{
         discardCard(3);
     }
 
 
     @FXML
-    void addWonder4(ActionEvent event) throws Exception{
+    void addWonder4() throws Exception{
         addWonder(3);
     }
 
     @FXML
-    void putOnTable4(ActionEvent event) throws Exception {
+    void putOnTable4() throws Exception {
         putOnTable(3);
     }
 
     @FXML
-    void discardCard3(ActionEvent event) throws Exception{
+    void discardCard3() throws Exception{
         discardCard(2);
     }
 
     @FXML
-    void addWonder3(ActionEvent event) throws Exception{
+    void addWonder3() throws Exception{
         addWonder(2);
     }
 
     @FXML
-    void putOnTable3(ActionEvent event) throws Exception {
+    void putOnTable3() throws Exception {
         putOnTable(2);
     }
 
     @FXML
-    void discardCard2(ActionEvent event) throws Exception{
+    void discardCard2() throws Exception{
         discardCard(1);
     }
 
     @FXML
-    void addWonder2(ActionEvent event) throws Exception{
+    void addWonder2() throws Exception{
         addWonder(1);
     }
 
     @FXML
-    void putOnTable2(ActionEvent event) throws Exception {
+    void putOnTable2() throws Exception {
         putOnTable(1);
     }
 
 
     @FXML
-    void discardCard1(ActionEvent event) throws Exception{
+    void discardCard1() throws Exception{
         discardCard(0);
     }
 
 
 
     @FXML
-    void addWonder1(ActionEvent event) throws Exception{
+    void addWonder1() throws Exception{
         addWonder(0);
     }
 
     @FXML
-    void putOnTable1(ActionEvent event) throws Exception {
+    void putOnTable1() throws Exception {
         putOnTable(0);
     }
 

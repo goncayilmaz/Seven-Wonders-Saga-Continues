@@ -66,32 +66,32 @@
       </ImageView>
       <Label fx:id="ageNumberLabel" layoutX="466.0" layoutY="275.0" prefHeight="53.0" prefWidth="205.0" text="Age Number = 1" />
       <Label layoutX="456.0" layoutY="331.0" prefHeight="23.0" prefWidth="151.0" text="Your City Name = EFES" />
-      <ImageView fitHeight="74.0" fitWidth="168.0" layoutX="28.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botCity0" fitHeight="74.0" fitWidth="168.0" layoutX="28.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/rhodosA.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="168.0" layoutX="209.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botCity1" fitHeight="74.0" fitWidth="168.0" layoutX="209.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/olympiaA.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="168.0" layoutX="390.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botCity2" fitHeight="74.0" fitWidth="168.0" layoutX="390.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/halikarnassusA.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="168.0" layoutX="565.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botCity3" fitHeight="74.0" fitWidth="168.0" layoutX="565.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/gizahA.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="168.0" layoutX="740.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botCity4" fitHeight="74.0" fitWidth="168.0" layoutX="740.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/ephesosA.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="168.0" layoutX="915.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botCity5" fitHeight="74.0" fitWidth="168.0" layoutX="915.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/babylonA.png" />
          </image>
