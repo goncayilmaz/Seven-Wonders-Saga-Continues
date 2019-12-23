@@ -140,6 +140,10 @@ public class PlayerEngine extends Application {
 
     }
 
+    public ArrayList<Player> getAllPlayers(){
+        return allPlayers;
+    }
+
     public void printPlayers(){
         System.out.println();
         System.out.println("LIST OF ALL PLAYERS");

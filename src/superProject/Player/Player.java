@@ -76,9 +76,9 @@ public class Player {
         //city.print();
         resources.add(city.getCardSpecs());
         ArrayList<Material> cityMaterials = city.getLevelItems();
-        //System.out.println("city materials");
+        System.out.println("city materials");
 
-        //System.out.println(cityMaterials.size());
+        System.out.println(cityMaterials.size());
         for(int i = 0; i < cityMaterials.size(); i++){
             resources.add(cityMaterials.get(i));
         }
@@ -263,11 +263,7 @@ public class Player {
     }
 
     public ArrayList<Card> getCards() {
-        ArrayList<Card> cards_unused = new ArrayList<Card>();
-        for(int i = 0; i < cards.size(); i++)
-            if( !cards.get(i).isUsed())
-                cards_unused.add(cards.get(i));
-        return cards_unused;
+        return cards;
     }
 
     public void setCards(ArrayList<Card> cards) {
@@ -302,7 +298,7 @@ public class Player {
         if(verifySufficientResources(c)){
             cardsOnTable.add(c);
             return "";
-        }else {
+        }else{
             return ("Resources not enough");
         }
     }
@@ -316,15 +312,13 @@ public class Player {
     public void disjointCard(Card c){
         for(int i = 0; i < cards.size(); i++){
             if(cards.get(i).getName().equals(c)){
-                //cards.remove(i);
+                cards.remove(i);
                 numberOfCoin = numberOfCoin + 3;
             }
         }
     }
 
-    public int numberOfCardAtHand(){
-        return cards.size();
-    }
+
 
     public int calculateTotalScore(Player leftNeighbour, Player rightNeighbour){
         score = 0;
