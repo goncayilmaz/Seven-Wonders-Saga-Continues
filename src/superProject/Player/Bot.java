@@ -163,7 +163,7 @@ public class Bot extends Player{
         // if(canbuild wonder) --> build wonder
         // else ----> take card
         System.out.println(" inside do action");
-            takeCard(ageNumber,players);
+        takeCard(ageNumber,players);
         System.out.println(" inside do action2");
     }
 
