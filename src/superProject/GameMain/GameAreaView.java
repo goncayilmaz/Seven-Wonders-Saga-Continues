@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
@@ -15,10 +16,16 @@ import javafx.scene.layout.GridPane;
 
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import superProject.City.City;
+import superProject.City.CityManager;
+import superProject.GameProperties.Card;
 import superProject.GameProperties.CardEngine;
+import superProject.Player.Bot;
+import superProject.Player.PlayerEngine;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class GameAreaView implements Initializable {
@@ -42,953 +49,23 @@ public class GameAreaView implements Initializable {
     @FXML
     private Label cards1,cards2,cards3,cards4,cards5,cards6;
 
-
     @FXML
-    void discardCard7(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) dc7.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(20);
-            translate.setByY(-250);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(seventhCard);
-
-
-            translate.play();
-            seventhCard.setFitHeight(90);
-            seventhCard.setFitWidth(90);
-
-
-            Scene scene = new Scene(dc7.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt7.setVisible(false);
-            aw7.setVisible(false);
-            dc7.setVisible(false);
-            cardChangeRotate();
-
-
-
-        }
-    }
-
-
-
-    @FXML
-    void addWonder7(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) aw7.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-850);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(seventhCard);
-
-
-            translate.play();
-            seventhCard.setFitHeight(90);
-            seventhCard.setFitWidth(90);
-
-
-
-
-
-            Scene scene = new Scene(aw7.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt7.setVisible(false);
-            aw7.setVisible(false);
-            dc7.setVisible(false);
-            cardChangeRotate();
-
-
-
-        }
-    }
-
-    @FXML
-    void putOnTable7(ActionEvent event) throws Exception {
-        try {
-            Stage stage;
-
-            stage = (Stage) pt7.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-150);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(seventhCard);
-
-
-            translate.play();
-            seventhCard.setFitHeight(90);
-            seventhCard.setFitWidth(90);
-
-
-
-
-            Scene scene = new Scene(pt7.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-        }
-        catch (Exception e){
-            pt7.setVisible(false);
-            aw7.setVisible(false);
-            dc7.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-
-
-
-    }
-    @FXML
-    void discardCard6(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) dc6.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(100);
-            translate.setByY(-250);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(sixthCard);
-
-
-            translate.play();
-            sixthCard.setFitHeight(90);
-            sixthCard.setFitWidth(90);
-
-
-
-
-            Scene scene = new Scene(dc6.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt6.setVisible(false);
-            aw6.setVisible(false);
-            dc6.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-    }
-
-
-
-    @FXML
-    void addWonder6(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) aw6.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-750);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(sixthCard);
-
-
-            translate.play();
-            sixthCard.setFitHeight(90);
-            sixthCard.setFitWidth(90);
-
-
-
-
-            Scene scene = new Scene(aw6.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt6.setVisible(false);
-            aw6.setVisible(false);
-            dc6.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-    }
-
-    @FXML
-    void putOnTable6(ActionEvent event) throws Exception {
-        try {
-            Stage stage;
-
-            stage = (Stage) pt6.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-120);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(sixthCard);
-
-
-            translate.play();
-            sixthCard.setFitHeight(90);
-            sixthCard.setFitWidth(90);
-
-
-
-
-
-            Scene scene = new Scene(pt6.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-        }
-        catch (Exception e){
-            pt6.setVisible(false);
-            aw6.setVisible(false);
-            dc6.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-
-
-
-    }
-
-
-    @FXML
-    void discardCard5(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) dc5.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(250);
-            translate.setByY(-250);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(fifthCard);
-
-
-            translate.play();
-            fifthCard.setFitHeight(90);
-            fifthCard.setFitWidth(90);
-
-
-
-
-
-            Scene scene = new Scene(dc5.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt5.setVisible(false);
-            aw5.setVisible(false);
-            dc5.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-    }
-
-
-
-    @FXML
-    void addWonder5(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) aw5.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-630);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(fifthCard);
-
-
-            translate.play();
-            fifthCard.setFitHeight(90);
-            fifthCard.setFitWidth(90);
-
-
-
-
-            Scene scene = new Scene(aw5.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt5.setVisible(false);
-            aw5.setVisible(false);
-            dc5.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-    }
-
-    @FXML
-    void putOnTable5(ActionEvent event) throws Exception {
-        try {
-            Stage stage;
-
-            stage = (Stage) pt5.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-80);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(fifthCard);
-
-
-            translate.play();
-            fifthCard.setFitHeight(90);
-            fifthCard.setFitWidth(90);
-
-
-
-
-
-            Scene scene = new Scene(pt5.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-        }
-        catch (Exception e){
-            pt5.setVisible(false);
-            aw5.setVisible(false);
-            dc5.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-
-
-
-    }
-
-    @FXML
-    void discardCard4(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) dc4.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(320);
-            translate.setByY(-250);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(forthCard);
-
-
-            translate.play();
-            forthCard.setFitHeight(90);
-            forthCard.setFitWidth(90);
-
-
-
-
-
-            Scene scene = new Scene(dc4.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt4.setVisible(false);
-            aw4.setVisible(false);
-            dc4.setVisible(false);
-            cardChangeRotate();
-
-        }
-    }
-
-
-
-    @FXML
-    void addWonder4(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) aw4.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-450);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(forthCard);
-
-
-            translate.play();
-            forthCard.setFitHeight(90);
-            forthCard.setFitWidth(90);
-
-
-
-
-
-            Scene scene = new Scene(aw4.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt4.setVisible(false);
-            aw4.setVisible(false);
-            dc4.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-    }
-
-    @FXML
-    void putOnTable4(ActionEvent event) throws Exception {
-        try {
-            Stage stage;
-
-            stage = (Stage) pt4.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-30);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(forthCard);
-
-
-            translate.play();
-            forthCard.setFitHeight(90);
-            forthCard.setFitWidth(90);
-
-
-
-
-
-            Scene scene = new Scene(pt4.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-        }
-        catch (Exception e){
-            pt4.setVisible(false);
-            aw4.setVisible(false);
-            dc4.setVisible(false);
-            cardChangeRotate();
-
-        }
-
-
-
-    }
-
-    @FXML
-    void discardCard3(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) dc3.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(450);
-            translate.setByY(-250);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(thirdCard);
-
-
-            translate.play();
-            thirdCard.setFitHeight(90);
-            thirdCard.setFitWidth(90);
-
-
-
-
-            Scene scene = new Scene(dc3.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt3.setVisible(false);
-            aw3.setVisible(false);
-            dc3.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-    }
-
-
-
-    @FXML
-    void addWonder3(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) aw3.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-400);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(thirdCard);
-
-
-            translate.play();
-            thirdCard.setFitHeight(90);
-            thirdCard.setFitWidth(90);
-
-
-
-
-
-            Scene scene = new Scene(aw3.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt3.setVisible(false);
-            aw3.setVisible(false);
-            dc3.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-    }
-
-    @FXML
-    void putOnTable3(ActionEvent event) throws Exception {
-        try {
-            Stage stage;
-
-            stage = (Stage) pt3.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(25);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(thirdCard);
-
-
-            translate.play();
-            thirdCard.setFitHeight(90);
-            thirdCard.setFitWidth(90);
-
-
-
-
-
-            Scene scene = new Scene(pt3.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-        }
-        catch (Exception e){
-            pt3.setVisible(false);
-            aw3.setVisible(false);
-            dc3.setVisible(false);
-            cardChangeRotate();
-
-        }
-
-
-
-    }
-
-    @FXML
-    void discardCard2(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) dc2.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(500);
-            translate.setByY(-250);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(secondCard);
-
-
-            translate.play();
-            secondCard.setFitHeight(90);
-            secondCard.setFitWidth(90);
-
-
-
-
-            Scene scene = new Scene(dc1.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt2.setVisible(false);
-            aw2.setVisible(false);
-            dc2.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-    }
-
-
-
-    @FXML
-    void addWonder2(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) aw2.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-200);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(secondCard);
-
-
-            translate.play();
-            secondCard.setFitHeight(90);
-            secondCard.setFitWidth(90);
-
-
-
-
-            Scene scene = new Scene(aw2.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt2.setVisible(false);
-            aw2.setVisible(false);
-            dc2.setVisible(false);
-            cardChangeRotate();
-
-
-
-        }
-    }
-
-    @FXML
-    void putOnTable2(ActionEvent event) throws Exception {
-        try {
-            Stage stage;
-
-            stage = (Stage) pt2.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(80);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(secondCard);
-
-
-            translate.play();
-            secondCard.setFitHeight(90);
-            secondCard.setFitWidth(90);
-
-
-
-
-            Scene scene = new Scene(pt2.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-        }
-        catch (Exception e){
-            pt2.setVisible(false);
-            aw2.setVisible(false);
-            dc2.setVisible(false);
-            cardChangeRotate();
-
-        }
-
-
-
-    }
-
-
-    @FXML
-    void discardCard1(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) dc1.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(700);
-            translate.setByY(-250);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(firstCard);
-
-
-            translate.play();
-            firstCard.setFitHeight(90);
-            firstCard.setFitWidth(90);
-
-
-
-
-            Scene scene = new Scene(dc1.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt1.setVisible(false);
-            aw1.setVisible(false);
-            dc1.setVisible(false);
-            cardChangeRotate();
-
-
-
-        }
-    }
-
-
-
-    @FXML
-    void addWonder1(ActionEvent event) throws Exception{
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) aw1.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-100);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(firstCard);
-
-
-            translate.play();
-            firstCard.setFitHeight(90);
-            firstCard.setFitWidth(90);
-
-
-
-
-            Scene scene = new Scene(aw1.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-
-        }catch (Exception e){
-
-            pt1.setVisible(false);
-            aw1.setVisible(false);
-            dc1.setVisible(false);
-            cardChangeRotate();
-
-
-
-        }
-    }
-
-    @FXML
-    void putOnTable1(ActionEvent event) throws Exception {
-
-        try {
-
-
-            Stage stage;
-
-            stage = (Stage) pt1.getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(150);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(firstCard);
-
-            //playing the transition
-            translate.play();
-            firstCard.setFitHeight(90);
-            firstCard.setFitWidth(90);
-
-
-
-            //Configuring Group and Scene
-            //  root= FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
-            //  root.getChildren().addAll(firstCard);
-            Scene scene = new Scene(pt1.getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
-
-            stage.show();
-        }
-        catch (Exception e){
-            pt1.setVisible(false);
-            aw1.setVisible(false);
-            dc1.setVisible(false);
-            cardChangeRotate();
-
-
-        }
-
- /*
-        try {
-
-
-            Stage stage;
-            // Parent root;
-
-            Pane root = new Pane();
-
-            stage = (Stage) pt1.getScene().getWindow();
-            Path path = new Path();
-            path.getElements().add(new MoveTo(248, 532));
-            path.getElements().add(new CubicCurveTo(248, 532, 500, 700, 350, 400));
-
-            PathTransition ptr = new PathTransition();
-
-            ptr.setDuration(Duration.seconds(6));
-            ptr.setDelay(Duration.seconds(2));
-            ptr.setPath(path);
-            ptr.setNode(firstCard);
-          //  ptr.setCycleCount(2);
-            //ptr.setAutoReverse(true);
-            ptr.play();
-
-            root= FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
-            root.getChildren().addAll(path,firstCard);
-           // root.getChildren().addAll(path, circle);
-
-            Scene scene = new Scene(root, 1080, 720);
-
-
-            stage.setScene(scene);
-            stage.show();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-             */
-
-    }
-
-
-
-    public void cardChangeRotate(){
-        boolean card1 = false;
-        boolean card2 = false;
-        boolean card3 = false;
-        boolean card4 = false;
-        boolean card5 = false;
-        boolean card6 = false;
-        boolean card7 = false;
-
-
-        ArrayList<ImageView> imageList = new ArrayList<>();
-
-        CardEngine cardEngine = new CardEngine();
-        cardEngine.createFirstAgeCards(7);
-
-        if(pt1.isVisible()){
-            card1=true;
-            imageList.add(firstCard);
-
-
-        }
-        if(pt2.isVisible()){
-            card2=true;
-            imageList.add(secondCard);
-
-
-        }
-        if(pt3.isVisible()){
-            card3=true;
-            imageList.add(thirdCard);
-        }
-        if(pt4.isVisible()){
-            card4=true;
-            imageList.add(forthCard);
-        }if(pt5.isVisible()){
-            card5=true;
-            imageList.add(fifthCard);
-        }if(pt6.isVisible()){
-            card6=true;
-            imageList.add(sixthCard);
-        }
-        if(pt7.isVisible()){
-            card7=true;
-            imageList.add(seventhCard);
-        }
-
-        for(int i=0;i<imageList.size();i++){
-            System.out.println("kac tane kart var" +imageList.size());
-            String preCard= "/Images/images/cards/";
-            String cardName=cardEngine.getFirstAgeCards().get(i).getPhotoName();
-            Image image = new Image(getClass().getResourceAsStream(preCard+cardName));
-            imageList.get(i).setImage(image);
-        }
-
-
-
-
-    }
-
-
+    private ImageView cityImageView;
+
+    private int noOfPlayers = 7;
+    private Button [] pt_buttons;
+    private Button [] aw_buttons;
+    private Button [] dc_buttons;
+    private String preCard = "/Images/images/cards/";
+    private String preCity = "/Images/images/wonders/";
+    private ImageView[] cardsOnHandImageView;
+    private CardEngine cardEngine;
+    private int round = 0;
+    private PlayerEngine playerEngine; //this should be created and şnitialized with cities
+    private CityManager cityManager; //bu da iletilmeli
+
+    //TODO
+    private int age = 1; //data flow for this and noOfPlayers
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -997,14 +74,47 @@ public class GameAreaView implements Initializable {
         // imagelerin önüne label koyup tooltip ile kartları liste haline getirio gösterebiliriz.
 
 
-        CardEngine cardEngine = new CardEngine();
-        cardEngine.createFirstAgeCards(7);
+        cardEngine = new CardEngine();
+        playerEngine = new PlayerEngine(noOfPlayers);
+        if( age == 1 )
+            cardEngine.createFirstAgeCards(noOfPlayers);
+        else if( age == 2)
+            cardEngine.createSecondAgeCards(noOfPlayers);
+        else
+            cardEngine.createThirdAgeCards(noOfPlayers);
 
-        String preCard= "/Images/images/cards/";
+        pt_buttons = new Button[7];
+        aw_buttons = new Button[7];
+        dc_buttons = new Button[7];
+
+        pt_buttons[0] = pt1;
+        pt_buttons[1] = pt2;
+        pt_buttons[2] = pt3;
+        pt_buttons[3] = pt4;
+        pt_buttons[4] = pt5;
+        pt_buttons[5] = pt6;
+        pt_buttons[6] = pt7;
+
+        aw_buttons[0] = aw1;
+        aw_buttons[1] = aw2;
+        aw_buttons[2] = aw3;
+        aw_buttons[3] = aw4;
+        aw_buttons[4] = aw5;
+        aw_buttons[5] = aw6;
+        aw_buttons[6] = aw7;
+
+        dc_buttons[0] = dc1;
+        dc_buttons[1] = dc2;
+        dc_buttons[2] = dc3;
+        dc_buttons[3] = dc4;
+        dc_buttons[4] = dc5;
+        dc_buttons[5] = dc6;
+        dc_buttons[6] = dc7;
+
+
         String cardName=cardEngine.getFirstAgeCards().get(0).getPhotoName();
 
-        // kartın üstüne gelince view açacak kısım.
-        // karşı tarafın kartlarının rengini ve ne getirdikleirini print edecek sadece.
+        //tooltip mantığını çöz ne icin kullanılıyor
         String deneme = cardEngine.getFirstAgeCards().toString();
 
         ImageView imageFor = new ImageView();
@@ -1015,7 +125,7 @@ public class GameAreaView implements Initializable {
         tooltip.setMaxWidth(250);
         tooltip.setWrapText(true);
 
-      //  tooltip.setGraphic(imageFor);
+        //tooltip.setGraphic(imageFor);
         tooltip.setText(deneme);
 
         ageNumberLabel.setTooltip(tooltip);
@@ -1027,46 +137,309 @@ public class GameAreaView implements Initializable {
         cards6.setTooltip(tooltip);
         pt1.setTooltip(tooltip);
 
+        cardsOnHandImageView = new ImageView[7];
+        cardsOnHandImageView[0] = firstCard;
+        cardsOnHandImageView[1] = secondCard;
+        cardsOnHandImageView[2] = thirdCard;
+        cardsOnHandImageView[3] = forthCard;
+        cardsOnHandImageView[4] = fifthCard;
+        cardsOnHandImageView[5] = sixthCard;
+        cardsOnHandImageView[6] = seventhCard;
 
-        cardName=cardEngine.getFirstAgeCards().get(0).getPhotoName();
-        Image image = new Image(getClass().getResourceAsStream(preCard+cardName));
-        firstCard.setImage(image);
+        for( int j = 0; j < noOfPlayers - 1; j++){
+            for( int i = 0; i < 7; i++){ //always starts with same number of cards
+                if( j == 0)
+                {
+                    playerEngine.getHumanPlayer().addToHandAtFirst(cardEngine.getFirstAgeCards().get(i));
+                    Image imCard = new Image( preCard + cardEngine.getFirstAgeCards().get(i).getPhotoName());
+                    cardsOnHandImageView[i].setImage(imCard);
+                    pt_buttons[i].setVisible(true);
+                    aw_buttons[i].setVisible(true);
+                    dc_buttons[i].setVisible(true);
+                }
+                else //add card to bots
+                    playerEngine.getBots().get(j-1).addToHandAtFirst(cardEngine.getFirstAgeCards().get(i + j));
+            }
+        }
+
+        //TODO it can be changed this is just for testing now, CityManager should be forwarded
+        cityManager = new CityManager(false);
+        cityManager.createBCities();
+        City chosen = cityManager.arrangeCities(noOfPlayers, "The Colossus of Rhodes", false);
+        playerEngine.getHumanPlayer().setCity(chosen);
+        Image imCity = new Image(preCity + playerEngine.getHumanPlayer().getCity().getPhotoName());
+        cityImageView.setImage(imCity);
+
+    }
+
+    void discardCard(int cardIndex) throws Exception{
+        try {
+            Stage stage;
+
+            stage = (Stage) dc_buttons[cardIndex].getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(20 + (6 - cardIndex ) * 20);
+            translate.setByY(-250);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(cardsOnHandImageView[cardIndex]);
+
+
+            translate.play();
+            cardsOnHandImageView[cardIndex].setFitHeight(90);
+            cardsOnHandImageView[cardIndex].setFitWidth(90);
+
+
+            Scene scene = new Scene(dc_buttons[cardIndex].getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+        } catch (Exception e) {
+            pt_buttons[cardIndex].setVisible(false);
+            aw_buttons[cardIndex].setVisible(false);
+            dc_buttons[cardIndex].setVisible(false);
+            playerEngine.getHumanPlayer().getCardsOnTable().get(cardIndex).setUsed(true);
+            //add 3 coin to the human player
+            playerEngine.getHumanPlayer().setCoin(playerEngine.getHumanPlayer().getCoin() + 3);
+            //TODO remove card from human player
+            for(int i = 0; i < noOfPlayers - 1; i++){
+                Bot b = playerEngine.getBots().get(i);
+                //TODO play for bot
+            }
+            round++;
+            cardChangeRotate();
+            //TODO new distribution of cards on hand
+        }
+    }
+
+    public void addWonder(int cardIndex) throws Exception{
+        try {
+            Stage stage;
+
+            stage = (Stage) aw_buttons[cardIndex].getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-150 - (cardIndex * 90));
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(cardsOnHandImageView[cardIndex]);
+
+
+            translate.play();
+            cardsOnHandImageView[cardIndex].setFitHeight(90);
+            cardsOnHandImageView[cardIndex].setFitWidth(90);
+
+
+            Scene scene = new Scene(aw_buttons[cardIndex].getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+
+        }catch (Exception e){
+
+
+            pt_buttons[cardIndex].setVisible(false);
+            aw_buttons[cardIndex].setVisible(false);
+            dc_buttons[cardIndex].setVisible(false);
+            playerEngine.getHumanPlayer().getCards().get(cardIndex).setUsed(true);
+            //TODO remove card from human player
+            //TODO city manager adds the wonder to the associated city
+            for(int i = 0; i < noOfPlayers - 1; i++){
+                Bot b = playerEngine.getBots().get(i);
+                //TODO play for bot
+            }
+            round++;
+            cardChangeRotate();
+            //TODO new distribution of cards to players
+        }
+    }
+
+    public void putOnTable(int cardIndex) throws Exception{
+        try {
+            Stage stage;
+
+            stage = (Stage) pt_buttons[cardIndex].getScene().getWindow();
+            TranslateTransition translate = new TranslateTransition();
+            translate.setByX(-150);
+            translate.setByY(-150);
+            translate.setDuration(Duration.millis(1000));
+            translate.setCycleCount(1);
+            translate.setNode(cardsOnHandImageView[cardIndex]);
+
+            translate.play();
+            cardsOnHandImageView[cardIndex].setFitHeight(90);
+            cardsOnHandImageView[cardIndex].setFitWidth(90);
+
+            Scene scene = new Scene(pt_buttons[cardIndex].getScene().getRoot(), 1080, 720);
+            stage.setScene(scene);
+
+            stage.show();
+        }
+        catch (Exception e){
+            String message = playerEngine.getHumanPlayer().addCardsToTable(playerEngine.getHumanPlayer().getCards().get(cardIndex));
+            //if card was added to table
+            if( message.equals(""))
+            {
+                pt_buttons[cardIndex].setVisible(false);
+                aw_buttons[cardIndex].setVisible(false);
+                dc_buttons[cardIndex].setVisible(false);
+                //TODO remove card from human player
+                playerEngine.getHumanPlayer().getCards().get(cardIndex).setUsed(true);
+                for(int i = 0; i < noOfPlayers - 1; i++){
+                    Bot b = playerEngine.getBots().get(i);
+                    //TODO play for bot
+                }
+                round++;
+                cardChangeRotate();
+                //TODO new distribution of cards
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Card cannot be added.");
+                alert.setHeaderText("Please choose another card or choose another operation.");
+                alert.setContentText(message);
+            }
+        }
+    }
 
 
 
+    @FXML
+    void discardCard7(ActionEvent event) throws Exception{
+        discardCard(6);
+    }
 
-        String cardName1=cardEngine.getFirstAgeCards().get(1).getPhotoName();
-        Image image1 = new Image(getClass().getResourceAsStream(preCard+cardName1));
-        secondCard.setImage(image1);
+    @FXML
+    void addWonder7(ActionEvent event) throws Exception{
+        addWonder(6);
+    }
 
+    @FXML
+    void putOnTable7(ActionEvent event) throws Exception {
+        putOnTable(6);
+    }
 
-        String cardName2=cardEngine.getFirstAgeCards().get(2).getPhotoName();
-        Image image2 = new Image(getClass().getResourceAsStream(preCard+cardName2));
-        thirdCard.setImage(image2);
-
-
-        String cardName3=cardEngine.getFirstAgeCards().get(3).getPhotoName();
-        Image image3 = new Image(getClass().getResourceAsStream(preCard+cardName3));
-        forthCard.setImage(image3);
-
-
-        String cardName4=cardEngine.getFirstAgeCards().get(4).getPhotoName();
-        Image image4 = new Image(getClass().getResourceAsStream(preCard+cardName4));
-        fifthCard.setImage(image4);
-
-
-
-        String cardName5=cardEngine.getFirstAgeCards().get(5).getPhotoName();
-        Image image5 = new Image(getClass().getResourceAsStream(preCard+cardName5));
-        sixthCard.setImage(image5);
-
-
-        String cardName6=cardEngine.getFirstAgeCards().get(6).getPhotoName();
-        Image image6 = new Image(getClass().getResourceAsStream(preCard+cardName6));
-        seventhCard.setImage(image6);
+    @FXML
+    void discardCard6(ActionEvent event) throws Exception{
+        discardCard(5);
+    }
 
 
 
+    @FXML
+    void addWonder6(ActionEvent event) throws Exception{
+        addWonder(5);
+    }
 
+    @FXML
+    void putOnTable6(ActionEvent event) throws Exception {
+        putOnTable(5);
+    }
+
+
+    @FXML
+    void discardCard5(ActionEvent event) throws Exception{
+        discardCard(4);
+    }
+
+
+
+    @FXML
+    void addWonder5(ActionEvent event) throws Exception{
+        addWonder(4);
+    }
+
+    @FXML
+    void putOnTable5(ActionEvent event) throws Exception {
+        putOnTable(4);
+    }
+
+    @FXML
+    void discardCard4(ActionEvent event) throws Exception{
+        discardCard(3);
+    }
+
+
+    @FXML
+    void addWonder4(ActionEvent event) throws Exception{
+        addWonder(3);
+    }
+
+    @FXML
+    void putOnTable4(ActionEvent event) throws Exception {
+        putOnTable(3);
+    }
+
+    @FXML
+    void discardCard3(ActionEvent event) throws Exception{
+        discardCard(2);
+    }
+
+    @FXML
+    void addWonder3(ActionEvent event) throws Exception{
+        addWonder(2);
+    }
+
+    @FXML
+    void putOnTable3(ActionEvent event) throws Exception {
+        putOnTable(2);
+    }
+
+    @FXML
+    void discardCard2(ActionEvent event) throws Exception{
+        discardCard(1);
+    }
+
+    @FXML
+    void addWonder2(ActionEvent event) throws Exception{
+        addWonder(1);
+    }
+
+    @FXML
+    void putOnTable2(ActionEvent event) throws Exception {
+        putOnTable(1);
+    }
+
+
+    @FXML
+    void discardCard1(ActionEvent event) throws Exception{
+        discardCard(0);
+    }
+
+
+
+    @FXML
+    void addWonder1(ActionEvent event) throws Exception{
+        addWonder(0);
+    }
+
+    @FXML
+    void putOnTable1(ActionEvent event) throws Exception {
+        putOnTable(0);
+    }
+
+
+
+    public void cardChangeRotate(){
+        boolean [] cards = new boolean[7];
+        ArrayList<ImageView> imageList = new ArrayList<>();
+
+        //cardEngine.getFirstAgeCards();
+
+        for(int i = 0; i < 7; i++){
+            cards[i] = false;
+            if(pt_buttons[i].isVisible())
+            {
+                cards[i] = true;
+                imageList.add(cardsOnHandImageView[i]);
+            }
+        }
+
+        for(int i=0; i < imageList.size() ;i++){
+            String preCard= "/Images/images/cards/";
+            String cardName = cardEngine.getFirstAgeCards().get(i).getPhotoName();
+            Image image = new Image(getClass().getResourceAsStream(preCard+cardName));
+            imageList.get(i).setImage(image);
+        }
     }
 }

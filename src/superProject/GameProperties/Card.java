@@ -14,6 +14,7 @@ public class Card {
     private int ageNumber; // age number of card.
     private boolean orSituation;
     private String specialFunctionName;
+    private boolean used;
     private int cardWarPoint; // bunu sonradan ekledim aşağıdakilere göre eklemek lazım- efe
 
     public Card(String name, ArrayList<Material> requirements, ArrayList<Material> earnings, int Id, int nextCardId, String color, String photoName, int ageNumber) {
@@ -338,5 +339,13 @@ public class Card {
                 ", specialFunctionName='" + specialFunctionName + '\'' +
                 ", cardWarPoint=" + cardWarPoint +
                 '}';
+    }
+
+    public boolean isUsed() {
+        return used;
+    }
+
+    public void setUsed(boolean used) {
+        this.used = used;
     }
 }

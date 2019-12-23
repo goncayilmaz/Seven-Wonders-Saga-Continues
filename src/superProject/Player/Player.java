@@ -294,11 +294,12 @@ public class Player {
         this.cardsOnTable = cardsOnTable;
     }
 
-    public void addCardsToTable(Card c) {
+    public String addCardsToTable(Card c) {
         if(verifySufficientResources(c)){
             cardsOnTable.add(c);
+            return "";
         }else{
-            System.out.println("Resources not enough");
+            return ("Resources not enough");
         }
     }
 
@@ -434,9 +435,8 @@ public class Player {
 
 
 
-
     public void print(){
-        System.out.println("Id: " + id + " name :" + name);
+        System.out.println("PLAYER " + id + " name : " + name);
         city.print();
         System.out.println("CARDS");
         for(int i = 0; i < cardsOnTable.size(); i++){

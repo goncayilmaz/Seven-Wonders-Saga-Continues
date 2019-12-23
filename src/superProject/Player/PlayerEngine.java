@@ -48,6 +48,9 @@ public class PlayerEngine extends Application {
     }
 
 
+    public ArrayList<Bot> getBots(){
+        return bots;
+    }
 
 
     public void matchPlayerWithCity(Player player, City city){
@@ -106,6 +109,7 @@ public class PlayerEngine extends Application {
     public Player getPlayer(int index){
         return allPlayers.get(index);
     }
+
     public ArrayList<Card> getCardsEntity(Player player){
         return player.getCards();
 

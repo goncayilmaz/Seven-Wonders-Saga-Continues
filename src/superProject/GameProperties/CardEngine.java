@@ -30,13 +30,30 @@ public class CardEngine extends Application {
     }
 
     public ArrayList<Card> getFirstAgeCards(){
-        return cards;
+        ArrayList<Card> notUsedCards = new ArrayList<Card>();
+        for(int i = 0; i < cards.size(); i++)
+            if( !cards.get(i).isUsed())
+                notUsedCards.add(cards.get(i));
+
+        //shuffleCards(notUsedCards);
+
+        return notUsedCards;
     }
     public ArrayList<Card> getSecondAgeCards(){
-        return cards2;
+        ArrayList<Card> notUsedCards = new ArrayList<Card>();
+        for(int i = 0; i < cards2.size(); i++)
+            if( !cards2.get(i).isUsed())
+                notUsedCards.add(cards2.get(i));
+
+        return notUsedCards;
     }
     public ArrayList<Card> getThirdAgeCards(){
-        return cards3;
+        ArrayList<Card> notUsedCards = new ArrayList<Card>();
+        for(int i = 0; i < cards3.size(); i++)
+            if( !cards3.get(i).isUsed())
+                notUsedCards.add(cards3.get(i));
+
+        return notUsedCards;
     }
 
 
@@ -931,9 +948,11 @@ public class CardEngine extends Application {
     }
 
 
+    /*
     public void distributeCards(ArrayList<Player> players, ArrayList<Card> distributeCards){
 
     }
+    */
 
 
 
@@ -945,6 +964,10 @@ public class CardEngine extends Application {
         for(int i = 0; i < cardPrint.size(); i++){
             cardPrint.get(i).print();
         }
+    }
+
+    public void used( Card used){
+        used.setUsed(true);
     }
 
 

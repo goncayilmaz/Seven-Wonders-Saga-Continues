@@ -180,7 +180,7 @@ public class CityManager implements Initializable {
         Stage stage;
         Parent root;
 
-        arrangeCities(3, chosenCity.getBoardName(), boardType);
+        arrangeCities(7, chosenCity.getBoardName(), boardType);
 
         try {
             stage = (Stage) startButton.getScene().getWindow();
@@ -672,19 +672,29 @@ public class CityManager implements Initializable {
      * @param chosenCity
      * @param boardType
      */
-    public void arrangeCities(int numberOfPlayers, String chosenCity, boolean boardType) {
+    public City arrangeCities(int numberOfPlayers, String chosenCity, boolean boardType) {
+        City chosen;
+        if( boardType)
+            chosen = citiesA.get(0);
+        else
+            chosen = citiesB.get(0);
         for (int i = 6; 0 <= i; i--) {
             if (boardType == true)//A side
-            {
-                if (citiesA.size() != numberOfPlayers && citiesA.get(i).getBoardName() != chosenCity) {
+             {
+                if (citiesA.size() != numberOfPlayers && !citiesA.get(i).getBoardName().equals(chosenCity)) {
                     citiesA.remove(i);
                 }
+                if( citiesA.get(i).getBoardName().equals(chosenCity))
+                    chosen = citiesA.get(i);
             } else {
-                if (citiesB.size() != numberOfPlayers && citiesB.get(i).getBoardName() != chosenCity) {
+                if (citiesB.size() != numberOfPlayers && !citiesB.get(i).getBoardName().equals(chosenCity)) {
                     citiesB.remove(i);
                 }
+                if( citiesB.get(i).getBoardName().equals(chosenCity))
+                    chosen = citiesB.get(i);
             }
         }
+        return chosen;
     }
 
     /**
