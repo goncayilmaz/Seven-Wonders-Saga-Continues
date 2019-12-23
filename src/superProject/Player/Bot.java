@@ -154,9 +154,9 @@ public class Bot extends Player{
     public void doAction(int ageNumber, ArrayList<Player> players){
         // if(canbuild wonder) --> build wonder
         // else ----> take card
-        System.out.println(" inside oç");
+        System.out.println(" inside do action");
             takeCard(ageNumber,players);
-        System.out.println(" inside oç 2");
+        System.out.println(" inside do action");
     }
 
     public void buildWonder(int ageNumber, ArrayList<Player> players){
