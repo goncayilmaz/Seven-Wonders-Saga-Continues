@@ -246,10 +246,11 @@ public class GameAreaView implements Initializable {
             pt_buttons[cardIndex].setVisible(false);
             aw_buttons[cardIndex].setVisible(false);
             dc_buttons[cardIndex].setVisible(false);
-            playerEngine.getHumanPlayer().getCardsOnTable().get(cardIndex).setUsed(true);
             //add 3 coin to the human player
             playerEngine.getHumanPlayer().setCoin(playerEngine.getHumanPlayer().getCoin() + 3);
-            //TODO remove card from human player
+            Card chosenCard = playerEngine.getHumanPlayer().getCards().get(cardIndex);
+            chosenCard.setUsed(true);
+            playerEngine.getHumanPlayer().removeFromHand(chosenCard);
             for(int i = 0; i < noOfPlayers - 1; i++){
                 Bot b = playerEngine.getBots().get(i);
                 //TODO play for bot
@@ -289,8 +290,9 @@ public class GameAreaView implements Initializable {
             pt_buttons[cardIndex].setVisible(false);
             aw_buttons[cardIndex].setVisible(false);
             dc_buttons[cardIndex].setVisible(false);
-            playerEngine.getHumanPlayer().getCards().get(cardIndex).setUsed(true);
-            //TODO remove card from human player
+            Card chosenCard = playerEngine.getHumanPlayer().getCards().get(cardIndex);
+            chosenCard.setUsed(true);
+            playerEngine.getHumanPlayer().removeFromHand(chosenCard);
             //TODO city manager adds the wonder to the associated city
             for(int i = 0; i < noOfPlayers - 1; i++){
                 Bot b = playerEngine.getBots().get(i);
@@ -331,8 +333,9 @@ public class GameAreaView implements Initializable {
                 pt_buttons[cardIndex].setVisible(false);
                 aw_buttons[cardIndex].setVisible(false);
                 dc_buttons[cardIndex].setVisible(false);
-                //TODO remove card from human player
-                playerEngine.getHumanPlayer().getCards().get(cardIndex).setUsed(true);
+                Card chosenCard = playerEngine.getHumanPlayer().getCards().get(cardIndex);
+                chosenCard.setUsed(true);
+                playerEngine.getHumanPlayer().removeFromHand(chosenCard);
                 for(int i = 0; i < noOfPlayers - 1; i++){
                     Bot b = playerEngine.getBots().get(i);
                     //TODO play for bot

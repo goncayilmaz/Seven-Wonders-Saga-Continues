@@ -425,7 +425,6 @@ public class WarWiew  /*implements Initializable */ extends Application {
                 new KeyValue(line.endXProperty(), combo[2].getLayoutX()),
                 new KeyValue(line.endYProperty(), combo[2].getLayoutY())));
         timeline.play();
-
     }
 
     @FXML

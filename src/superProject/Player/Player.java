@@ -307,6 +307,8 @@ public class Player {
         cards.add(c);
     }
 
+    public void removeFromHand(Card c) { cards.remove(c); }
+
     public void disjointCard(Card c){
         for(int i = 0; i < cards.size(); i++){
             if(cards.get(i).getName().equals(c)){
