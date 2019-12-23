@@ -267,7 +267,7 @@ public class Player {
         ArrayList<Card> temp  = new ArrayList<>();
         for(int i = 0; i < cards.size(); i++)
         {
-            if( cards.get(i).isUsed())
+            if( !cards.get(i).isUsed())
                 temp.add(cards.get(i));
         }
         return temp;

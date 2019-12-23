@@ -62,6 +62,14 @@ public class Bot extends Player{
         resources = new ArrayList<>();
     }
 
+    public int numberOfCard(){
+        return cardsOnTable.size();
+    }
+
+    public void setHand(ArrayList<Card> cards){
+        this.cards = cards;
+    }
+
 
 
     public Card imaginate(Player player, ArrayList<Player> players){
@@ -156,7 +164,7 @@ public class Bot extends Player{
         // else ----> take card
         System.out.println(" inside do action");
             takeCard(ageNumber,players);
-        System.out.println(" inside do action");
+        System.out.println(" inside do action2");
     }
 
     public void buildWonder(int ageNumber, ArrayList<Player> players){
@@ -164,14 +172,19 @@ public class Bot extends Player{
     }
     private void takeCard(int ageNumber, ArrayList<Player> players){
         // TAKE CARD
+        System.out.println("boo ");
         if(ageNumber == 1){
+            System.out.println("boo 2");
             for(int i = 0; i < cards.size(); i++){
+                System.out.println("boo 3 ");
                 // IF CARD IS FREE, CONSIDER TAKING IT
                 if(cards.get(i).getRequirements().get(0).getName().equals("none")){
                     // IF IT HAS SAME MATERIAL WITH WONDER
                     for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
                         if(cards.get(i).getEarnings().get(j).isWonderConstructorMaterial()){
-                            System.out.println(" inside 1 " + addCardsToTable(cards.get(i)));
+                            //addCardsToTable(cards.get(i));
+                            cardsOnTable.add(cards.get(i));
+                           // System.out.println(" inside 1 " + addCardsToTable(cards.get(i)));
                             return ;
                         }
                     }
@@ -181,14 +194,18 @@ public class Bot extends Player{
                     // TAKE POSSİBLE MILITARY
                     for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
                         if(cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))){
-                            addCardsToTable(cards.get(i));
-                            System.out.println(" inside 2 " + addCardsToTable(cards.get(i)));
+                            //System.out.println(" inside 2 " + addCardsToTable(cards.get(i)));
+                            cardsOnTable.add(cards.get(i));
+                            return;
+                            //addCardsToTable(cards.get(i));
                         }
                     }
                     // TAKE POSSIBLE CIVILIAN
                     for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
                         if(cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))){
-                            System.out.println(" inside 3 " + addCardsToTable(cards.get(i)));
+                            cardsOnTable.add(cards.get(i));
+                            //addCardsToTable(cards.get(i));
+                            //System.out.println(" inside 3 " + addCardsToTable(cards.get(i)));
                             return;
                         }
                     }
@@ -197,16 +214,22 @@ public class Bot extends Player{
                         if( (cards.get(i).getEarnings().get(j).getName().equals("ScienceRuler") ||
                                 cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel") ||
                                 cards.get(i).getEarnings().get(j).getName().equals("ScienceStone") ) && verifySufficientResources(cards.get(i))){
-                            System.out.println(" inside 4" + addCardsToTable(cards.get(i)));
+                            cardsOnTable.add(cards.get(i));
+                            //addCardsToTable(cards.get(i));
+                            // System.out.println(" inside 4" + addCardsToTable(cards.get(i)));
                             return;
                         }
                     }
                 }
+                System.out.println(" inside 5" + addCardsToTable(cards.get(i)));
             }
             // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
             for(int i = 0; i < cards.size(); i++){
                 if(verifySufficientResources(cards.get(i))) {
-                    System.out.println(" inside 5 " + addCardsToTable(cards.get(i)));
+                    cardsOnTable.add(cards.get(i));
+                    return;
+                    //addCardsToTable(cards.get(i));
+                    //System.out.println(" inside 6 " + addCardsToTable(cards.get(i)));
                 }
             }
         }
@@ -217,7 +240,7 @@ public class Bot extends Player{
                 if(cards.get(i).getRequirements().get(0).getName().equals("none")){
                     for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
                         if(cards.get(i).getEarnings().get(j).isWonderConstructorMaterial()){
-                            addCardsToTable(cards.get(i));
+                            cardsOnTable.add(cards.get(i));
                             return;
                         }
                     }
@@ -227,14 +250,16 @@ public class Bot extends Player{
                     // TAKE POSSİBLE MILITARY
                     for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
                         if(cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))){
-                            addCardsToTable(cards.get(i));
+                            cardsOnTable.add(cards.get(i));
+                            //addCardsToTable(cards.get(i));
                             return;
                         }
                     }
                     // TAKE POSSIBLE CIVILIAN
                     for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
                         if(cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))){
-                            addCardsToTable(cards.get(i));
+                            cardsOnTable.add(cards.get(i));
+                            //addCardsToTable(cards.get(i));
                             return;
                         }
                     }
@@ -243,7 +268,8 @@ public class Bot extends Player{
                         if( (cards.get(i).getEarnings().get(j).getName().equals("ScienceRuler") ||
                                 cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel") ||
                                 cards.get(i).getEarnings().get(j).getName().equals("ScienceStone") ) && verifySufficientResources(cards.get(i))){
-                            addCardsToTable(cards.get(i));
+                            cardsOnTable.add(cards.get(i));
+                            //addCardsToTable(cards.get(i));
                             return;
                         }
                     }
@@ -252,7 +278,9 @@ public class Bot extends Player{
             // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
             for(int i = 0; i < cards.size(); i++){
                 if(verifySufficientResources(cards.get(i))) {
-                    addCardsToTable(cards.get(i));
+                    cardsOnTable.add(cards.get(i));
+                    return;
+                    //addCardsToTable(cards.get(i));
                 }
             }
         }
@@ -265,29 +293,33 @@ public class Bot extends Player{
                         || (cards.get(i).getId() == 57 && verifySufficientResources(cards.get(i))) || (cards.get(i).getId() == 58 && verifySufficientResources(cards.get(i)))
                         || (cards.get(i).getId() == 59 && verifySufficientResources(cards.get(i)))
                         || (cards.get(i).getId() == 60 && verifySufficientResources(cards.get(i))) ) {
-                    addCardsToTable(cards.get(i));
+                    cardsOnTable.add(cards.get(i));
+                    //addCardsToTable(cards.get(i));
                     return;
                 }
                 // TAKE POSSİBLE MILITARY
                 for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
                     if(cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))){
-                        addCardsToTable(cards.get(i));
+                        cardsOnTable.add(cards.get(i));
+                        //addCardsToTable(cards.get(i));
                         return;
                     }
                 }
                 // TAKE POSSIBLE CIVILIAN
                 for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
                     if(cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))){
-                        addCardsToTable(cards.get(i));
+                        cardsOnTable.add(cards.get(i));
+                        //addCardsToTable(cards.get(i));
                         return;
                     }
                 }
                 // TAKE POSSIBLE SCIENCE
                 for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                    if( (cards.get(i).getEarnings().get(j).getName().equals("ScienceRuler") ||
-                            cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel") ||
-                            cards.get(i).getEarnings().get(j).getName().equals("ScienceStone") ) && verifySufficientResources(cards.get(i))){
-                        addCardsToTable(cards.get(i));
+                    if( ((cards.get(i).getEarnings().get(j).getName().equals("ScienceRuler") && verifySufficientResources(cards.get(i))) ||
+                            (cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel")&&verifySufficientResources(cards.get(i))) ||
+                            (cards.get(i).getEarnings().get(j).getName().equals("ScienceStone")  && verifySufficientResources(cards.get(i))))){
+                        cardsOnTable.add(cards.get(i));
+                        //addCardsToTable(cards.get(i));
                         return;
                     }
                 }
@@ -295,22 +327,27 @@ public class Bot extends Player{
             // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
             for(int i = 0; i < cards.size(); i++){
                 if(verifySufficientResources(cards.get(i))) {
-                    addCardsToTable(cards.get(i));
+                    cardsOnTable.add(cards.get(i));
+                    return;
+                    //addCardsToTable(cards.get(i));
                 }
             }
         }else{
+            System.out.println("DO NOTHİNG");
             // do nothing.
         }
     }
 
 
-
+    public void addToHandAtFirst(Card c){
+        cards.add(c);
+    }
 
 
 
     @Override
     public void print(){
-        System.out.println("Id: " + id + " name :" + name);
+        System.out.println("Bot Id: " + id + " name :" + name);
         city.print();
         System.out.println("CARDS");
         for(int i = 0; i < cardsOnTable.size(); i++){
