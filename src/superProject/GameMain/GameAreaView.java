@@ -3,13 +3,12 @@ package superProject.GameMain;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -55,6 +54,9 @@ public class GameAreaView implements Initializable {
     @FXML
     private ImageView botCity0, botCity1, botCity2, botCity3, botCity4, botCity5;
 
+    @FXML
+    private Button returnButton;
+
     private ImageView [] botCities;
     private ArrayList<City> citiesOfBots;
 
@@ -63,6 +65,11 @@ public class GameAreaView implements Initializable {
     private Button [] aw_buttons;
     private Button [] dc_buttons;
     private ImageView[] cardsOnHandImageView;
+
+    //to start war
+    private boolean startWar;
+    @FXML
+    private Button startWarButton;
 
     //for image paths
     private String preCard;
@@ -343,6 +350,10 @@ public class GameAreaView implements Initializable {
                 round++;
                 cardChangeRotate();
                 //TODO new distribution of cards
+                if( startWar ){
+                    //TODO go to xox
+                    startWar = false;
+                }
             }
             else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -469,6 +480,15 @@ public class GameAreaView implements Initializable {
         putOnTable(0);
     }
 
+    @FXML
+    void startWarButtonClicked(){
+        System.out.println("war button clicked");
+        startWar = true;
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Starting war");
+        alert.setContentText("War will be started after this round is over.");
+        alert.showAndWait();
+    }
 
 
     public void cardChangeRotate(){
@@ -492,5 +512,26 @@ public class GameAreaView implements Initializable {
             Image image = new Image(getClass().getResourceAsStream(preCard+cardName));
             imageList.get(i).setImage(image);
         }
+    }
+
+    @FXML
+    public void returnToMain() throws Exception{
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Return to Main");
+        alert.setContentText("Game information will be lost.");
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                try {
+                    Stage stage = new Stage();
+                    Parent root = FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    //music();
+                    stage.show();
+                } catch (Exception e) {
+
+                }
+            }
+        });
     }
 }
