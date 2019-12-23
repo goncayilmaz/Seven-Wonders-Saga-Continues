@@ -506,13 +506,29 @@ public class GameAreaView implements Initializable {
     }
 
     @FXML
-    void startWarButtonClicked(){
+    void startWarButtonClicked()throws Exception{
+
         System.out.println("war button clicked");
         startWar = true;
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Starting war");
         alert.setContentText("War will be started after this round is over.");
         alert.showAndWait();
+
+        Stage stage;
+        Parent root;
+
+        try {
+            stage = (Stage) startWarButton.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../War/WarViewFX.fxml"));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (Exception e){
+
+        }
     }
 
 
@@ -588,6 +604,22 @@ public class GameAreaView implements Initializable {
 
         } else{
             isAgeFinished = true;
+            // wara geçiş age bitti diyor.
+            Stage stage;
+            Parent root;
+
+            try {
+                stage = (Stage) startWarButton.getScene().getWindow();
+                root=FXMLLoader.load(getClass().getResource("../War/WarViewFX.fxml"));
+
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+            catch (Exception e){
+
+            }
+
             try {
                 isGameFinished();
             } catch( Exception e){

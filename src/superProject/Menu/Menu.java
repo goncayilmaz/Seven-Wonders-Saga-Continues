@@ -6,11 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.File;
 import java.nio.file.Paths;
 
@@ -49,6 +52,7 @@ public class Menu extends Application {
         music();
         primaryStage.show();
 
+
     }
 
     private void startGame(){
@@ -68,6 +72,9 @@ public class Menu extends Application {
     private void setNumberOfPlayers(int number){
 
     }
+
+
+
 
 
     public static void main(String[] args) {

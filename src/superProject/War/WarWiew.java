@@ -5,6 +5,7 @@ import javafx.animation.KeyValue;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,7 +28,6 @@ import javafx.scene.layout.*;
 //import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.Collections;
 import java.util.ResourceBundle;
@@ -425,6 +425,26 @@ public class WarWiew  /*implements Initializable */ extends Application {
                 new KeyValue(line.endXProperty(), combo[2].getLayoutX()),
                 new KeyValue(line.endYProperty(), combo[2].getLayoutY())));
         timeline.play();
+    }
+
+
+
+    @FXML
+    public void returnToGameVieww(ActionEvent event) throws Exception{
+        Stage stage;
+        Parent root;
+
+        try {
+            stage = (Stage) returnButton.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (Exception e){
+
+        }
     }
 
     @FXML
