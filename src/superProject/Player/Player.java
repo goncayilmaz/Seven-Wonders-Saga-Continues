@@ -4,6 +4,7 @@ import superProject.City.City;
 import superProject.GameProperties.Card;
 import superProject.GameProperties.Material;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Player {
@@ -263,7 +264,17 @@ public class Player {
     }
 
     public ArrayList<Card> getCards() {
-        return cards;
+        ArrayList<Card> temp  = new ArrayList<>();
+        for(int i = 0; i < cards.size(); i++)
+        {
+            if( cards.get(i).isUsed())
+                temp.add(cards.get(i));
+        }
+        return temp;
+    }
+
+    public int numberOfCardAtHand(){
+        return getCards().size();
     }
 
     public void setCards(ArrayList<Card> cards) {
