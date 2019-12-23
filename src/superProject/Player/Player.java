@@ -5,6 +5,8 @@ import superProject.GameProperties.Card;
 import superProject.GameProperties.Material;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Player {
 
@@ -311,7 +313,7 @@ public class Player {
 
     public void disjointCard(Card c){
         for(int i = 0; i < cards.size(); i++){
-            if(cards.get(i).getName().equals(c)){
+            if(cards.get(i).getName().equals(c.getName())){
                 cards.remove(i);
                 numberOfCoin = numberOfCoin + 3;
             }
@@ -353,7 +355,7 @@ public class Player {
                 score += rightNeighbour.getNumberOfRedCardsOnTable();
             }
             else if(cardsOnTable.get(i).getName().equals("strategistsguild")){
-
+                // TO DO...
             }
             else if(cardsOnTable.get(i).getName().equals("shipownersguild")){
                 score += getNumberOfBrownCardsOnTable();
@@ -361,6 +363,9 @@ public class Player {
                 score += getNumberOfPurpleCardsOnTable();
             }
             else if(cardsOnTable.get(i).getName().equals("scientistsguild")){
+                Integer[] nums = {numberOfScienceStone,numberOfScienceWheel,numberOfScienceWheel};
+                int max = Collections.max(Arrays.asList(nums));
+                score += ((max + 1) * (max + 1)) - (max * max);
 
             }
             else if(cardsOnTable.get(i).getName().equals("magistratesguild")){
@@ -368,7 +373,9 @@ public class Player {
                 score += rightNeighbour.getNumberOfBlueCardsOnTable();
             }
             else if(cardsOnTable.get(i).getName().equals("buildersguild")){
-
+                score += leftNeighbour.getCity().getBoardLevel();
+                score += leftNeighbour.getCity().getBoardLevel();
+                score += city.getBoardLevel();
             }
             else{
                 // do nothing

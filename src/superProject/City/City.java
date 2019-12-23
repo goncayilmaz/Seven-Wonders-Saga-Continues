@@ -486,4 +486,30 @@ public class City {
         return total;
     }
 
+
+    public boolean isWonderConstructMaterial(Material material){
+        if (boardLevel == 0) {
+            for(int i = 0; i < cardSpecsForLevel1.size(); i++){
+                if(cardSpecsForLevel1.get(i).getName().equals(material.getName()))
+                    return true;
+            }
+        }
+        else if(boardLevel == 1){
+            for(int i = 0; i < cardSpecsForLevel2.size(); i++){
+                if(cardSpecsForLevel2.get(i).getName().equals(material.getName()))
+                    return true;
+            }
+        }
+        else if(boardLevel == 2){
+            for(int i = 0; i < cardSpecsForLevel3.size(); i++){
+                if(cardSpecsForLevel3.get(i).getName().equals(material.getName()))
+                    return true;
+            }
+        }
+        else{ // 3 wonder build, gizah exception sonra
+            return false;
+        }
+        return false;
+    }
+
 }
