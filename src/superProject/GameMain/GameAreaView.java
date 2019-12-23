@@ -80,6 +80,9 @@ public class GameAreaView implements Initializable {
     private PlayerEngine playerEngine; //this should be created and initialized with cities
     private CityManager cityManager; //bu da iletilmeli
 
+    //GameEngine attributes
+    private boolean isAgeFinished;
+
     //TODO
     private int age = 1; //data flow for this and noOfPlayers
 
@@ -225,6 +228,9 @@ public class GameAreaView implements Initializable {
             botCities[i].setImage(city_img);
         }
 
+        //GameEngine attributes
+        isAgeFinished = false;
+
     }
 
     void discardCard(int cardIndex) throws Exception{
@@ -237,12 +243,20 @@ public class GameAreaView implements Initializable {
             translate.setByY(-250);
             translate.setDuration(Duration.millis(1000));
             translate.setCycleCount(1);
-            translate.setNode(cardsOnHandImageView[cardIndex]);
+            ImageView temp = cardsOnHandImageView[cardIndex];
+            ImageView temp2 = cardsOnHandImageView[6-round];
+            cardsOnHandImageView[6-round].setImage(temp.getImage());
+            cardsOnHandImageView[6-round].setX(temp.getX());
+            cardsOnHandImageView[6-round].setY(temp.getY());
+            cardsOnHandImageView[cardIndex].setImage(temp2.getImage());
+            cardsOnHandImageView[cardIndex].setX(temp2.getX());
+            cardsOnHandImageView[cardIndex].setY(temp2.getY());
+            translate.setNode(cardsOnHandImageView[6-round]);
 
 
             translate.play();
-            cardsOnHandImageView[cardIndex].setFitHeight(90);
-            cardsOnHandImageView[cardIndex].setFitWidth(90);
+            cardsOnHandImageView[6-round].setFitHeight(90);
+            cardsOnHandImageView[6-round].setFitWidth(90);
 
 
             Scene scene = new Scene(dc_buttons[cardIndex].getScene().getRoot(), 1080, 720);
@@ -250,20 +264,20 @@ public class GameAreaView implements Initializable {
 
             stage.show();
         } catch (Exception e) {
-            pt_buttons[cardIndex].setVisible(false);
-            aw_buttons[cardIndex].setVisible(false);
-            dc_buttons[cardIndex].setVisible(false);
+            pt_buttons[6-round].setVisible(false);
+            aw_buttons[6-round].setVisible(false);
+            dc_buttons[6-round].setVisible(false);
             //add 3 coin to the human player
             playerEngine.getHumanPlayer().setCoin(playerEngine.getHumanPlayer().getCoin() + 3);
             Card chosenCard = playerEngine.getHumanPlayer().getCards().get(cardIndex);
             chosenCard.setUsed(true);
-            playerEngine.getHumanPlayer().removeFromHand(chosenCard);
+            //playerEngine.getHumanPlayer().removeFromHand(chosenCard);
             for(int i = 0; i < noOfPlayers - 1; i++){
                 Bot b = playerEngine.getBots().get(i);
                 //TODO play for bot
             }
-            round++;
             cardChangeRotate();
+            round++;
             //TODO new distribution of cards on hand
         }
     }
@@ -278,12 +292,20 @@ public class GameAreaView implements Initializable {
             translate.setByY(-150);
             translate.setDuration(Duration.millis(1000));
             translate.setCycleCount(1);
-            translate.setNode(cardsOnHandImageView[cardIndex]);
+            ImageView temp = cardsOnHandImageView[cardIndex];
+            ImageView temp2 = cardsOnHandImageView[6-round];
+            cardsOnHandImageView[6-round].setImage(temp.getImage());
+            cardsOnHandImageView[6-round].setX(temp.getX());
+            cardsOnHandImageView[6-round].setY(temp.getY());
+            cardsOnHandImageView[cardIndex].setImage(temp2.getImage());
+            cardsOnHandImageView[cardIndex].setX(temp2.getX());
+            cardsOnHandImageView[cardIndex].setY(temp2.getY());
+            translate.setNode(cardsOnHandImageView[6-round]);
 
 
             translate.play();
-            cardsOnHandImageView[cardIndex].setFitHeight(90);
-            cardsOnHandImageView[cardIndex].setFitWidth(90);
+            cardsOnHandImageView[6-round].setFitHeight(90);
+            cardsOnHandImageView[6-round].setFitWidth(90);
 
 
             Scene scene = new Scene(aw_buttons[cardIndex].getScene().getRoot(), 1080, 720);
@@ -292,75 +314,78 @@ public class GameAreaView implements Initializable {
             stage.show();
 
         }catch (Exception e){
-
-
-            pt_buttons[cardIndex].setVisible(false);
-            aw_buttons[cardIndex].setVisible(false);
-            dc_buttons[cardIndex].setVisible(false);
+            pt_buttons[6-round].setVisible(false);
+            aw_buttons[6-round].setVisible(false);
+            dc_buttons[6-round].setVisible(false);
             Card chosenCard = playerEngine.getHumanPlayer().getCards().get(cardIndex);
             chosenCard.setUsed(true);
-            playerEngine.getHumanPlayer().removeFromHand(chosenCard);
+            //playerEngine.getHumanPlayer().removeFromHand(chosenCard);
             //TODO city manager adds the wonder to the associated city
             for(int i = 0; i < noOfPlayers - 1; i++){
                 Bot b = playerEngine.getBots().get(i);
                 //TODO play for bot
             }
-            round++;
             cardChangeRotate();
+            round++;
             //TODO new distribution of cards to players
         }
     }
 
     public void putOnTable(int cardIndex) throws Exception{
-        try {
-            Stage stage;
+        System.out.println("card size " + playerEngine.getHumanPlayer().getCards().size());
+        String message = playerEngine.getHumanPlayer().addCardsToTable(playerEngine.getHumanPlayer().getCards().get(cardIndex));
+        if( message.equals("")) {
+            try {
+                Stage stage;
 
-            stage = (Stage) pt_buttons[cardIndex].getScene().getWindow();
-            TranslateTransition translate = new TranslateTransition();
-            translate.setByX(-150);
-            translate.setByY(-150);
-            translate.setDuration(Duration.millis(1000));
-            translate.setCycleCount(1);
-            translate.setNode(cardsOnHandImageView[cardIndex]);
+                stage = (Stage) pt_buttons[cardIndex].getScene().getWindow();
+                TranslateTransition translate = new TranslateTransition();
+                translate.setByX(-150);
+                translate.setByY(-150);
+                translate.setDuration(Duration.millis(1000));
+                translate.setCycleCount(1);
+                ImageView temp = cardsOnHandImageView[cardIndex];
+                ImageView temp2 = cardsOnHandImageView[6 - round];
+                cardsOnHandImageView[6 - round].setImage(temp.getImage());
+                cardsOnHandImageView[6 - round].setX(temp.getX());
+                cardsOnHandImageView[6 - round].setY(temp.getY());
+                cardsOnHandImageView[cardIndex].setImage(temp2.getImage());
+                cardsOnHandImageView[cardIndex].setX(temp2.getX());
+                cardsOnHandImageView[cardIndex].setY(temp2.getY());
+                translate.setNode(cardsOnHandImageView[6 - round]);
 
-            translate.play();
-            cardsOnHandImageView[cardIndex].setFitHeight(90);
-            cardsOnHandImageView[cardIndex].setFitWidth(90);
+                translate.play();
+                cardsOnHandImageView[6 - round].setFitHeight(90);
+                cardsOnHandImageView[6 - round].setFitWidth(90);
 
-            Scene scene = new Scene(pt_buttons[cardIndex].getScene().getRoot(), 1080, 720);
-            stage.setScene(scene);
+                Scene scene = new Scene(pt_buttons[cardIndex].getScene().getRoot(), 1080, 720);
+                stage.setScene(scene);
 
-            stage.show();
-        }
-        catch (Exception e){
-            String message = playerEngine.getHumanPlayer().addCardsToTable(playerEngine.getHumanPlayer().getCards().get(cardIndex));
-            //if card was added to table
-            if( message.equals(""))
-            {
-                pt_buttons[cardIndex].setVisible(false);
-                aw_buttons[cardIndex].setVisible(false);
-                dc_buttons[cardIndex].setVisible(false);
+                stage.show();
+            } catch (Exception e) {
+                pt_buttons[6-round].setVisible(false);
+                aw_buttons[6-round].setVisible(false);
+                dc_buttons[6-round].setVisible(false);
                 Card chosenCard = playerEngine.getHumanPlayer().getCards().get(cardIndex);
                 chosenCard.setUsed(true);
-                playerEngine.getHumanPlayer().removeFromHand(chosenCard);
-                for(int i = 0; i < noOfPlayers - 1; i++){
+                for (int i = 0; i < noOfPlayers - 1; i++) {
                     Bot b = playerEngine.getBots().get(i);
                     //TODO play for bot
                 }
-                round++;
                 cardChangeRotate();
+                round++;
                 //TODO new distribution of cards
-                if( startWar ){
+                if (startWar) {
                     //TODO go to xox
                     startWar = false;
                 }
             }
-            else{
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Card cannot be added.");
-                alert.setHeaderText("Please choose another card or choose another operation.");
-                alert.setContentText(message);
-            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Card cannot be added.");
+            alert.setHeaderText("Please choose another card or choose another operation.");
+            alert.setContentText(message);
+            alert.showAndWait();
         }
     }
 
@@ -492,11 +517,33 @@ public class GameAreaView implements Initializable {
 
 
     public void cardChangeRotate(){
-        boolean [] cards = new boolean[7];
-        ArrayList<ImageView> imageList = new ArrayList<>();
+        //boolean [] cards = new boolean[7];
+        //ArrayList<ImageView> imageList = new ArrayList<>();
+
+        //rotating cards at hand
+        ArrayList<Card> tempCard = playerEngine.getHumanPlayer().getCards(); //cards on hand
+        playerEngine.getHumanPlayer().setCards(playerEngine.getBots().get(0).getCards());
+
+        for( int i = 0; i < playerEngine.getBots().size() - 1; i++ ){
+            System.out.println("Bot " + i + " card size: " + playerEngine.getBots().get(i+1).getCards().size());
+            playerEngine.getBots().get(i).setCards(playerEngine.getBots().get(i+1).getCards());
+        }
+
+        playerEngine.getBots().get(playerEngine.getBots().size()-1).setCards(tempCard);
+
+
+        int totRounds = 6;
+
+        for(int i = 0; i < totRounds - round; i++ ){
+            //System.out.println("card size " + playerEngine.getHumanPlayer().getCards().size());
+            String cardName =  preCard + playerEngine.getHumanPlayer().getCards().get(i).getPhotoName();
+            Image imCard = new Image(cardName);
+            cardsOnHandImageView[i].setImage(imCard);
+        }
 
         //cardEngine.getFirstAgeCards();
 
+        /*
         for(int i = 0; i < 7; i++){
             cards[i] = false;
             if(pt_buttons[i].isVisible())
@@ -511,7 +558,7 @@ public class GameAreaView implements Initializable {
             String cardName = cardEngine.getFirstAgeCards().get(i).getPhotoName();
             Image image = new Image(getClass().getResourceAsStream(preCard+cardName));
             imageList.get(i).setImage(image);
-        }
+        } */
     }
 
     @FXML
@@ -533,5 +580,54 @@ public class GameAreaView implements Initializable {
                 }
             }
         });
+    }
+
+    public void isAgeFinished() {
+        if( playerEngine.getHumanPlayer().numberOfCardAtHand() > 1 ){
+            isAgeFinished = false;
+
+        } else{
+            isAgeFinished = true;
+            try {
+                isGameFinished();
+            } catch( Exception e){
+
+            }
+        }
+    }
+
+    public void isGameFinished() throws Exception{
+        if( isAgeFinished && age == 3 ){
+            //TODO
+        }
+        else if( isAgeFinished )
+        {
+            ButtonType nextAge = new ButtonType("Go to Next Age");
+            ButtonType returnB = new ButtonType("Return to Main");
+            Alert alert = new Alert(Alert.AlertType.NONE);
+            alert.setTitle("Age " + (age + 1) + " is finished.");
+            alert.setContentText("Go to next age, or return to main.");
+            alert.showAndWait().ifPresent(response -> {
+                if (response == nextAge) {
+                    try {
+                        Stage stage = new Stage();
+                        Parent root = FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        //music();
+                        stage.show();
+                    } catch (Exception e) {
+
+                    }
+                } else if( response == returnB )
+                {
+                    try {
+                        returnToMain();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
     }
 }
