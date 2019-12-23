@@ -46,21 +46,21 @@ public class Main {
         // GameEngine gameEngine = new GameEngine();
         CityManager citymanager = new CityManager();
         CardEngine cardEngine = new CardEngine();
-        PlayerEngine playerEngine = new PlayerEngine(5);
+        PlayerEngine playerEngine = new PlayerEngine(7);
 
         citymanager.createACities();
         System.out.println(" BEFORE ARRANGE");
         citymanager.printACities();
         System.out.println(" AFTER ARRANGE");
-        citymanager.arrangeCities(5,"The Mausoleum of Halicarnassus",true);
+        citymanager.arrangeCities(7,"The Mausoleum of Halicarnassus",true);
         citymanager.printACities();
         City cityofplayer = citymanager.getPlayerCity(true,"The Mausoleum of Halicarnassus" );
         System.out.println(" CITY OF PLAYER");
         cityofplayer.print();
         System.out.println(" AGE CARDS");
         Player player = playerEngine.getHumanPlayer();
-        cardEngine.createFirstAgeCards(5);
-        cardEngine.createSecondAgeCards(5);
+        cardEngine.createFirstAgeCards(7);
+        cardEngine.createSecondAgeCards(7);
         ArrayList<Card> cards = cardEngine.getFirstAgeCards();
         //ArrayList<Card> cards = cardEngine.getSecondAgeCards();
         player.setCity(cityofplayer);
@@ -82,6 +82,8 @@ public class Main {
         System.out.println();
         cards.get(3).print();
         System.out.println();
+        System.out.println("meowww");
+        cards.get(0).print();
         player.addCardsToTable(cards.get(0));
         System.out.println();
         player.addCardsToTable(cards.get(1));
@@ -100,7 +102,7 @@ public class Main {
         //citymanager.printACities();
         citymanager.getCitiesA().get(0).print();
         System.out.println();
-        PlayerEngine playerEngine2 = new PlayerEngine(5, cityofplayer, citymanager.getCitiesA());
+        PlayerEngine playerEngine2 = new PlayerEngine(7, cityofplayer, citymanager.getCitiesA());
         playerEngine2.printPlayers();
         System.out.println();
         System.out.println("*********************************************************************************");
@@ -108,6 +110,29 @@ public class Main {
         Bot b = new Bot(3);
         System.out.println("Bot war points: " + b.getWarPoints());
 
+        System.out.println("*********************************************************************************");
+        System.out.println("*********************************************************************************");
+        System.out.println("*********************************************************************************");
+
+
+        ArrayList<Player> players = playerEngine.getAllPlayers();
+        System.out.println("   " + players.size());
+        for(int i = 0; i < 7; i++){
+            b.addToHandAtFirst(cards.get(i));
+        }
+        b.setCity(cityofplayer);
+        b.print();
+        b.doAction(1,playerEngine.getAllPlayers());
+        System.out.println(b.numberOfCard());
+
+        ArrayList<Card> newhand = new ArrayList<>();
+        for(int i = 7; i < 14; i++){
+            newhand.add(cards.get(i));
+        }
+        b.setHand(newhand);
+        b.doAction(1,playerEngine.getAllPlayers());
+        System.out.println(b.numberOfCard());
+        b.print();
 
     }
 }
