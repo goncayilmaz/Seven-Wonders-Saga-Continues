@@ -70,6 +70,8 @@ public class CardEngine extends Application {
         cards.add(one);
         cards.add(one);
 
+
+        
         ArrayList<Material> card2reqs = new ArrayList<Material>();
         card2reqs.add(new Material("none",0));
         ArrayList<Material> card2earnings = new ArrayList<Material>();
