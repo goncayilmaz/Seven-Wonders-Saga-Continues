@@ -159,183 +159,188 @@ public class Bot extends Player{
 
 
 
-    public void doAction(int ageNumber, ArrayList<Player> players){
+    public Card doAction(int ageNumber, ArrayList<Player> players){
         // if(canbuild wonder) --> build wonder
         // else ----> take card
         System.out.println(" inside do action");
-            takeCard(ageNumber,players);
-        System.out.println(" inside do action2");
+        return takeCard(ageNumber,players);
     }
 
     public void buildWonder(int ageNumber, ArrayList<Player> players){
         // TO DO
     }
-    private void takeCard(int ageNumber, ArrayList<Player> players){
+    private Card takeCard(int ageNumber, ArrayList<Player> players){
         // TAKE CARD
-        System.out.println("boo ");
-        if(ageNumber == 1){
-            System.out.println("boo 2");
-            for(int i = 0; i < cards.size(); i++){
-                System.out.println("boo 3 ");
-                // IF CARD IS FREE, CONSIDER TAKING IT
-                if(cards.get(i).getRequirements().get(0).getName().equals("none")){
+        if(cards.size() == 0){
+            System.out.println("no cards on hand ");
+            return null;
+        }
+        else {
+            System.out.println("boo ");
+            if (ageNumber == 1) {
+                System.out.println("boo 2");
+                for (int i = 0; i < cards.size(); i++) {
+                    System.out.println("boo 3 ");
+                    // IF CARD IS FREE, CONSIDER TAKING IT
+                    if (cards.get(i).getRequirements().get(0).getName().equals("none")) {
+                        // IF IT HAS SAME MATERIAL WITH WONDER
+                        for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
+                            if (cards.get(i).getEarnings().get(j).isWonderConstructorMaterial()) {
+                                //addCardsToTable(cards.get(i));
+                                cardsOnTable.add(cards.get(i));
+                                // System.out.println(" inside 1 " + addCardsToTable(cards.get(i)));
+                                return cards.get(i);
+                            }
+                        }
+                    }
+                    // CARD NOT FREE
+                    else {
+                        // TAKE POSSİBLE MILITARY
+                        for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
+                            if (cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))) {
+                                //System.out.println(" inside 2 " + addCardsToTable(cards.get(i)));
+                                cardsOnTable.add(cards.get(i));
+                                return cards.get(i);
+                                //addCardsToTable(cards.get(i));
+                            }
+                        }
+                        // TAKE POSSIBLE CIVILIAN
+                        for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
+                            if (cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))) {
+                                cardsOnTable.add(cards.get(i));
+                                //addCardsToTable(cards.get(i));
+                                //System.out.println(" inside 3 " + addCardsToTable(cards.get(i)));
+                                return cards.get(i);
+                            }
+                        }
+                        // TAKE POSSIBLE SCIENCE
+                        for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
+                            if ((cards.get(i).getEarnings().get(j).getName().equals("ScienceRuler") ||
+                                    cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel") ||
+                                    cards.get(i).getEarnings().get(j).getName().equals("ScienceStone")) && verifySufficientResources(cards.get(i))) {
+                                cardsOnTable.add(cards.get(i));
+                                //addCardsToTable(cards.get(i));
+                                // System.out.println(" inside 4" + addCardsToTable(cards.get(i)));
+                                return cards.get(i);
+                            }
+                        }
+                    }
+                    System.out.println(" inside 5" + addCardsToTable(cards.get(i)));
+                }
+                // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
+                for (int i = 0; i < cards.size(); i++) {
+                    if (verifySufficientResources(cards.get(i))) {
+                        cardsOnTable.add(cards.get(i));
+                        return cards.get(i);
+                        //addCardsToTable(cards.get(i));
+                        //System.out.println(" inside 6 " + addCardsToTable(cards.get(i)));
+                    }
+                }
+            } else if (ageNumber == 2) {
+                for (int i = 0; i < cards.size(); i++) {
+                    // IF CARD IS FREE, CONSIDER TAKING IT
                     // IF IT HAS SAME MATERIAL WITH WONDER
-                    for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                        if(cards.get(i).getEarnings().get(j).isWonderConstructorMaterial()){
-                            //addCardsToTable(cards.get(i));
-                            cardsOnTable.add(cards.get(i));
-                           // System.out.println(" inside 1 " + addCardsToTable(cards.get(i)));
-                            return ;
+                    if (cards.get(i).getRequirements().get(0).getName().equals("none")) {
+                        for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
+                            if (cards.get(i).getEarnings().get(j).isWonderConstructorMaterial()) {
+                                cardsOnTable.add(cards.get(i));
+                                return cards.get(i);
+                            }
+                        }
+                    }
+                    // CARD NOT FREE
+                    else {
+                        // TAKE POSSİBLE MILITARY
+                        for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
+                            if (cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))) {
+                                cardsOnTable.add(cards.get(i));
+                                //addCardsToTable(cards.get(i));
+                                return cards.get(i);
+                            }
+                        }
+                        // TAKE POSSIBLE CIVILIAN
+                        for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
+                            if (cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))) {
+                                cardsOnTable.add(cards.get(i));
+                                //addCardsToTable(cards.get(i));
+                                return cards.get(i);
+                            }
+                        }
+                        // TAKE POSSIBLE SCIENCE
+                        for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
+                            if ((cards.get(i).getEarnings().get(j).getName().equals("ScienceRuler") ||
+                                    cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel") ||
+                                    cards.get(i).getEarnings().get(j).getName().equals("ScienceStone")) && verifySufficientResources(cards.get(i))) {
+                                cardsOnTable.add(cards.get(i));
+                                //addCardsToTable(cards.get(i));
+                                return cards.get(i);
+                            }
                         }
                     }
                 }
-                // CARD NOT FREE
-                else{
+                // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
+                for (int i = 0; i < cards.size(); i++) {
+                    if (verifySufficientResources(cards.get(i))) {
+                        cardsOnTable.add(cards.get(i));
+                        return cards.get(i);
+                        //addCardsToTable(cards.get(i));
+                    }
+                }
+            } else if (ageNumber == 3) {
+                for (int i = 0; i < cards.size(); i++) {
+                    // TAKE THE POSSIBLE PURPLE CARD
+                    if ((cards.get(i).getId() == 51 && verifySufficientResources(cards.get(i))) || (cards.get(i).getId() == 52 && verifySufficientResources(cards.get(i))) ||
+                            (cards.get(i).getId() == 53 && verifySufficientResources(cards.get(i))) || (cards.get(i).getId() == 54 && verifySufficientResources(cards.get(i)))
+                            || (cards.get(i).getId() == 55 && verifySufficientResources(cards.get(i))) || (cards.get(i).getId() == 56 && verifySufficientResources(cards.get(i)))
+                            || (cards.get(i).getId() == 57 && verifySufficientResources(cards.get(i))) || (cards.get(i).getId() == 58 && verifySufficientResources(cards.get(i)))
+                            || (cards.get(i).getId() == 59 && verifySufficientResources(cards.get(i)))
+                            || (cards.get(i).getId() == 60 && verifySufficientResources(cards.get(i)))) {
+                        cardsOnTable.add(cards.get(i));
+                        //addCardsToTable(cards.get(i));
+                        return cards.get(i);
+                    }
                     // TAKE POSSİBLE MILITARY
-                    for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                        if(cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))){
-                            //System.out.println(" inside 2 " + addCardsToTable(cards.get(i)));
+                    for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
+                        if (cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))) {
                             cardsOnTable.add(cards.get(i));
-                            return;
                             //addCardsToTable(cards.get(i));
+                            return cards.get(i);
                         }
                     }
                     // TAKE POSSIBLE CIVILIAN
-                    for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                        if(cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))){
+                    for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
+                        if (cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))) {
                             cardsOnTable.add(cards.get(i));
                             //addCardsToTable(cards.get(i));
-                            //System.out.println(" inside 3 " + addCardsToTable(cards.get(i)));
-                            return;
+                            return cards.get(i);
                         }
                     }
                     // TAKE POSSIBLE SCIENCE
-                    for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                        if( (cards.get(i).getEarnings().get(j).getName().equals("ScienceRuler") ||
-                                cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel") ||
-                                cards.get(i).getEarnings().get(j).getName().equals("ScienceStone") ) && verifySufficientResources(cards.get(i))){
+                    for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
+                        if (((cards.get(i).getEarnings().get(j).getName().equals("ScienceRuler") && verifySufficientResources(cards.get(i))) ||
+                                (cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel") && verifySufficientResources(cards.get(i))) ||
+                                (cards.get(i).getEarnings().get(j).getName().equals("ScienceStone") && verifySufficientResources(cards.get(i))))) {
                             cardsOnTable.add(cards.get(i));
                             //addCardsToTable(cards.get(i));
-                            // System.out.println(" inside 4" + addCardsToTable(cards.get(i)));
-                            return;
+                            return cards.get(i);
                         }
                     }
                 }
-                System.out.println(" inside 5" + addCardsToTable(cards.get(i)));
-            }
-            // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
-            for(int i = 0; i < cards.size(); i++){
-                if(verifySufficientResources(cards.get(i))) {
-                    cardsOnTable.add(cards.get(i));
-                    return;
-                    //addCardsToTable(cards.get(i));
-                    //System.out.println(" inside 6 " + addCardsToTable(cards.get(i)));
+                // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
+                for (int i = 0; i < cards.size(); i++) {
+                    if (verifySufficientResources(cards.get(i))) {
+                        cardsOnTable.add(cards.get(i));
+                        return cards.get(i);
+                        //addCardsToTable(cards.get(i));
+                    }
                 }
+            } else {
+                System.out.println("DO NOTHİNG");
+                return null;
+                // do nothing.
             }
         }
-        else if(ageNumber == 2){
-            for(int i = 0; i < cards.size(); i++){
-                // IF CARD IS FREE, CONSIDER TAKING IT
-                // IF IT HAS SAME MATERIAL WITH WONDER
-                if(cards.get(i).getRequirements().get(0).getName().equals("none")){
-                    for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                        if(cards.get(i).getEarnings().get(j).isWonderConstructorMaterial()){
-                            cardsOnTable.add(cards.get(i));
-                            return;
-                        }
-                    }
-                }
-                // CARD NOT FREE
-                else{
-                    // TAKE POSSİBLE MILITARY
-                    for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                        if(cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))){
-                            cardsOnTable.add(cards.get(i));
-                            //addCardsToTable(cards.get(i));
-                            return;
-                        }
-                    }
-                    // TAKE POSSIBLE CIVILIAN
-                    for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                        if(cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))){
-                            cardsOnTable.add(cards.get(i));
-                            //addCardsToTable(cards.get(i));
-                            return;
-                        }
-                    }
-                    // TAKE POSSIBLE SCIENCE
-                    for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                        if( (cards.get(i).getEarnings().get(j).getName().equals("ScienceRuler") ||
-                                cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel") ||
-                                cards.get(i).getEarnings().get(j).getName().equals("ScienceStone") ) && verifySufficientResources(cards.get(i))){
-                            cardsOnTable.add(cards.get(i));
-                            //addCardsToTable(cards.get(i));
-                            return;
-                        }
-                    }
-                }
-            }
-            // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
-            for(int i = 0; i < cards.size(); i++){
-                if(verifySufficientResources(cards.get(i))) {
-                    cardsOnTable.add(cards.get(i));
-                    return;
-                    //addCardsToTable(cards.get(i));
-                }
-            }
-        }
-        else if(ageNumber == 3){
-            for(int i = 0; i < cards.size(); i++){
-                // TAKE THE POSSIBLE PURPLE CARD
-                if((cards.get(i).getId() == 51 && verifySufficientResources(cards.get(i))) || (cards.get(i).getId() == 52 && verifySufficientResources(cards.get(i))) ||
-                        (cards.get(i).getId() == 53 && verifySufficientResources(cards.get(i))) || (cards.get(i).getId() == 54 && verifySufficientResources(cards.get(i)))
-                        || (cards.get(i).getId() == 55 && verifySufficientResources(cards.get(i))) || (cards.get(i).getId() == 56 && verifySufficientResources(cards.get(i)))
-                        || (cards.get(i).getId() == 57 && verifySufficientResources(cards.get(i))) || (cards.get(i).getId() == 58 && verifySufficientResources(cards.get(i)))
-                        || (cards.get(i).getId() == 59 && verifySufficientResources(cards.get(i)))
-                        || (cards.get(i).getId() == 60 && verifySufficientResources(cards.get(i))) ) {
-                    cardsOnTable.add(cards.get(i));
-                    //addCardsToTable(cards.get(i));
-                    return;
-                }
-                // TAKE POSSİBLE MILITARY
-                for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                    if(cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))){
-                        cardsOnTable.add(cards.get(i));
-                        //addCardsToTable(cards.get(i));
-                        return;
-                    }
-                }
-                // TAKE POSSIBLE CIVILIAN
-                for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                    if(cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))){
-                        cardsOnTable.add(cards.get(i));
-                        //addCardsToTable(cards.get(i));
-                        return;
-                    }
-                }
-                // TAKE POSSIBLE SCIENCE
-                for(int j = 0; j < cards.get(i).getEarnings().size(); j++){
-                    if( ((cards.get(i).getEarnings().get(j).getName().equals("ScienceRuler") && verifySufficientResources(cards.get(i))) ||
-                            (cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel")&&verifySufficientResources(cards.get(i))) ||
-                            (cards.get(i).getEarnings().get(j).getName().equals("ScienceStone")  && verifySufficientResources(cards.get(i))))){
-                        cardsOnTable.add(cards.get(i));
-                        //addCardsToTable(cards.get(i));
-                        return;
-                    }
-                }
-            }
-            // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
-            for(int i = 0; i < cards.size(); i++){
-                if(verifySufficientResources(cards.get(i))) {
-                    cardsOnTable.add(cards.get(i));
-                    return;
-                    //addCardsToTable(cards.get(i));
-                }
-            }
-        }else{
-            System.out.println("DO NOTHİNG");
-            // do nothing.
-        }
+        return null;
     }
 
 
