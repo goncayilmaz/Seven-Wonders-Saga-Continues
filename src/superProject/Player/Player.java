@@ -67,7 +67,7 @@ public class Player {
         numberOfPapyrus = 0;
         numberOfMilitary = 0;
         numberOfCivilian = 0;
-        numberOfCoin = 0;
+        //numberOfCoin = 0;
         numberOfScienceRuler = 0;
         numberOfScienceStone = 0;
         numberOfScienceWheel = 0;
