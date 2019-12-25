@@ -107,13 +107,7 @@ public class GameAreaView implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        playerEngine= new PlayerEngine(noOfPlayers);
-
-
-        //noOfPlayers=numberPlayer;
-
-        /// player number a göre yukarıdaki imageviewlar visible yada invisible olacak.
-        // imagelerin önüne label koyup tooltip ile kartları liste haline getirio gösterebiliriz.
+        //playerEngine= new PlayerEngine(noOfPlayers);
 
         preCard = "/Images/images/cards/";
         preCity = "/Images/images/wonders/";
@@ -164,33 +158,6 @@ public class GameAreaView implements Initializable {
         botCities[4] = botCity4;
         botCities[5] = botCity5;
 
-        /*
-
-        String cardName=cardEngine.getFirstAgeCards().get(0).getPhotoName();
-
-        //tooltip mantığını çöz ne icin kullanılıyor
-        String deneme = cardEngine.getFirstAgeCards().toString();
-
-        ImageView imageFor = new ImageView();
-        Image imageForTip = new Image(getClass().getResourceAsStream(preCard+cardName));
-        imageFor.setImage(imageForTip);
-
-        Tooltip tooltip = new Tooltip();
-        tooltip.setMaxWidth(250);
-        tooltip.setWrapText(true);
-
-        //tooltip.setGraphic(imageFor);
-        tooltip.setText(deneme);
-
-        ageNumberLabel.setTooltip(tooltip);
-        cards1.setTooltip(tooltip);
-        cards2.setTooltip(tooltip);
-        cards3.setTooltip(tooltip);
-        cards4.setTooltip(tooltip);
-        cards5.setTooltip(tooltip);
-        cards6.setTooltip(tooltip);
-        pt1.setTooltip(tooltip); */
-
         cardsOnHandImageView = new ImageView[7];
         cardsOnHandImageView[0] = firstCard;
         cardsOnHandImageView[1] = secondCard;
@@ -203,9 +170,6 @@ public class GameAreaView implements Initializable {
 
         //GameEngine attributes
         isAgeFinished = false;
-
-        getAgeNumberLabel().setText("Age is " +String.valueOf(age));
-        getCityNameLabel().setText("City Name is "+playerEngine.getHumanPlayer().getCity().getBoardName());
 
     }
 
@@ -283,20 +247,27 @@ public class GameAreaView implements Initializable {
     public void setInitialView(int age){
         this.age = age;
         cardEngine = new CardEngine();
-        if( age == 1 )
+        ArrayList<Card> ageCards = new ArrayList<Card>();
+        if( age == 1 ){
             cardEngine.createFirstAgeCards(noOfPlayers);
-        else if( age == 2)
+            ageCards = cardEngine.getFirstAgeCards();
+        }
+        else if( age == 2) {
             cardEngine.createSecondAgeCards(noOfPlayers);
-        else
+            ageCards = cardEngine.getSecondAgeCards();
+        }
+        else {
             cardEngine.createThirdAgeCards(noOfPlayers);
+            ageCards = cardEngine.getThirdAgeCards();
+        }
 
         //adding cards
         for( int j = 0; j < noOfPlayers; j++){
             for( int i = 0; i < 7; i++){ //always starts with same number of cards
                 if( j == 0)
                 {
-                    playerEngine.getHumanPlayer().addToHandAtFirst(cardEngine.getFirstAgeCards().get(i));
-                    Image imCard = new Image( preCard + cardEngine.getFirstAgeCards().get(i).getPhotoName());
+                    playerEngine.getHumanPlayer().addToHandAtFirst(ageCards.get(i));
+                    Image imCard = new Image( preCard + ageCards.get(i).getPhotoName());
                     cardsOnHandImageView[i].setImage(imCard);
                     pt_buttons[i].setVisible(true);
                     aw_buttons[i].setVisible(true);
@@ -305,12 +276,17 @@ public class GameAreaView implements Initializable {
                 }
                 else //add card to bots
                 {
-                    playerEngine.getBots().get(j - 1).setId(j);
-                    playerEngine.getBots().get(j - 1).addToHandAtFirst(cardEngine.getFirstAgeCards().get(i + (j*7)));
+                    playerEngine.getAllPlayers().get(j).setId(j);
+                    playerEngine.getAllPlayers().get(j).addToHandAtFirst(ageCards.get(i + (j*7)));
                     System.out.println("bot " + playerEngine.getBots().get(j  - 1).numberOfCardAtHand());
                 }
             }
         }
+
+        Image imCity = new Image(preCity + playerEngine.getHumanPlayer().getCity().getPhotoName());
+        setCityImageView(new ImageView(imCity));
+        getAgeNumberLabel().setText("Age is " +String.valueOf(age));
+        getCityNameLabel().setText("City Name is " + playerEngine.getHumanPlayer().getCity().getBoardName());
     }
 
     public void disableCities(){
@@ -342,12 +318,9 @@ public class GameAreaView implements Initializable {
             cardsOnHandImageView[cardIndex].setX(temp2.getX());
             cardsOnHandImageView[cardIndex].setY(temp2.getY());
             translate.setNode(cardsOnHandImageView[6-round]);
-
-
             translate.play();
             cardsOnHandImageView[6-round].setFitHeight(90);
             cardsOnHandImageView[6-round].setFitWidth(90);
-
 
             Scene scene = new Scene(dc_buttons[cardIndex].getScene().getRoot(), 1080, 720);
             stage.setScene(scene);
@@ -368,11 +341,12 @@ public class GameAreaView implements Initializable {
             }
             cardChangeRotate();
             round++;
+            if (startWar) {
+                goToWar();
+                startWar = false;
+            }
             isAgeFinished();
         }
-
-
-
     }
 
     public void addWonder(int cardIndex) throws Exception{
@@ -421,6 +395,10 @@ public class GameAreaView implements Initializable {
                 }
                 cardChangeRotate();
                 round++;
+                if (startWar) {
+                    goToWar();
+                    startWar = false;
+                }
                 isAgeFinished();
             }
         } else {
@@ -475,9 +453,8 @@ public class GameAreaView implements Initializable {
                 }
                 cardChangeRotate();
                 round++;
-                //TODO new distribution of cards
                 if (startWar) {
-                    //TODO go to xox
+                    goToWar();
                     startWar = false;
                 }
                 isAgeFinished();
@@ -512,8 +489,6 @@ public class GameAreaView implements Initializable {
     void discardCard6() throws Exception{
         discardCard(5);
     }
-
-
 
     @FXML
     void addWonder6() throws Exception{
@@ -609,14 +584,15 @@ public class GameAreaView implements Initializable {
 
     @FXML
     void startWarButtonClicked()throws Exception{
-
-        System.out.println("war button clicked");
         startWar = true;
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Starting war");
         alert.setContentText("War will be started after this round is over.");
         alert.showAndWait();
+    }
 
+    //TODO bunu ekledim burdan gidiyor wara cünkü startwar button round bitince çalışmalı
+    void goToWar() throws Exception{
         Stage stage;
         Parent root;
 
@@ -625,9 +601,10 @@ public class GameAreaView implements Initializable {
 
             root=loader.load();
 
-            WarWiew secondController=loader.getController();
-          //  System.out.println(cardsOnHandImageView);
-           // secondController.setCardsOnHandImageViewTranferList(playerEngine.getHumanPlayer().getCards());
+            WarWiew secondController = loader.getController();
+            secondController.setPlayerEngine(this.playerEngine);
+            //  System.out.println(cardsOnHandImageView);
+            // secondController.setCardsOnHandImageViewTranferList(playerEngine.getHumanPlayer().getCards());
             // güncel liste burasıyla war view e yollanicak.
 
 
@@ -645,9 +622,6 @@ public class GameAreaView implements Initializable {
 
 
     public void cardChangeRotate(){
-        //boolean [] cards = new boolean[7];
-        //ArrayList<ImageView> imageList = new ArrayList<>();
-
         //rotating cards at hand
         ArrayList<Card> tempCard = playerEngine.getHumanPlayer().getCards(); //cards on hand
         playerEngine.getHumanPlayer().setCards(playerEngine.getBots().get(0).getCards());
@@ -699,8 +673,6 @@ public class GameAreaView implements Initializable {
         } else{
             isAgeFinished = true;
 
-
-
             ButtonType nextAge = new ButtonType("Go to War");
             ButtonType returnB = new ButtonType("Return to Main");
             Alert alert;
@@ -711,12 +683,7 @@ public class GameAreaView implements Initializable {
             alert.showAndWait().ifPresent(response -> {
                 if (response == nextAge) {
                     try {
-                        Stage stage = new Stage();
-                        Parent root = FXMLLoader.load(getClass().getResource("../Menu/WarViewFX.fxml"));
-                        Scene scene = new Scene(root);
-                        stage.setScene(scene);
-                        //music();
-                        stage.show();
+                        goToWar();
                     } catch (Exception e) {
 
                     }
@@ -729,27 +696,6 @@ public class GameAreaView implements Initializable {
                     }
                 }
             });
-
-            Stage stage;
-            Parent root;
-
-            try {
-                stage = (Stage) startWarButton.getScene().getWindow();
-                root=FXMLLoader.load(getClass().getResource("../War/WarViewFX.fxml"));
-
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            }
-            catch (Exception e){
-
-            }
-
-            try {
-                isGameFinished();
-            } catch( Exception e){
-
-            }
         }
     }
 
@@ -765,7 +711,7 @@ public class GameAreaView implements Initializable {
             alert.showAndWait().ifPresent(response -> {
                 if (response == gotToScoreBoard) {
                     try {
-                        //TODO
+                        //TODO scoreboard a geciş
                         Stage stage = new Stage();
                         //Parent root = FXMLLoader.load(getClass().getResource("../Menu/WarViewFX.fxml"));
                         //Scene scene = new Scene(root);

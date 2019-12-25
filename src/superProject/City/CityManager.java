@@ -225,13 +225,15 @@ public class CityManager implements Initializable {
             secondController.setNumberPlayer(numberOfPeople);
             secondController.setCityManager(this);
             secondController.setPlayerEngine(playerEngine);
+            String url = mainPath + chosenCity.getPhotoName();
+            chosenCityImage =new ImageView(new Image(url));
             secondController.setCityImageView(chosenCityImage);
             secondController.setBotCityImages(botCities);
             secondController.setInitialView(1);
             secondController.disableCities();
             secondController.getCoinLabel().setText(String.valueOf(playerEngine.getHumanPlayer().getCoin()));
             secondController.getWarLabel().setText(String.valueOf(playerEngine.getHumanPlayer().getWarPoints()));
-            //secondController.getStartButton().setText(String.valueOf(playerNumber)+" People Start");
+
             stage = (Stage) startButton.getScene().getWindow();
 
             Scene scene = new Scene(root);
@@ -244,44 +246,6 @@ public class CityManager implements Initializable {
         }
 
     }
-
-
-
-
-    public void firstSelected(MouseEvent event)throws Exception{
-
-        try{
-            firstSelected.setRotate(12);
-        }catch (Exception e) {
-        }
-    }
-
-/*
-
-    @Override
-    public void start(Stage primaryStage) throws Exception
-    {
-
-
-        try
-        {
-
-            Parent root = FXMLLoader.load(getClass().getResource("../Menu/CitySelectionViewFX.fxml"));
-            primaryStage.setTitle("City Selection");
-
-            primaryStage.setScene(new Scene(root, 500, 350));
-            primaryStage.setResizable(false);
-            primaryStage.show();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
-
-
-    }
-    */
 
     public void createCity() {
         if (boardType)
@@ -698,21 +662,8 @@ public class CityManager implements Initializable {
             chosen = citiesA.get(0);
         else
             chosen = citiesB.get(0);
-        /*
-        for (int i = 6; 0 <= i ; i--) {
-            if (boardType == true)//A side
-             {
-                if (citiesA.size() != numberOfPlayers && !citiesA.get(i).getBoardName().equals(chosenCity)) {
-                    citiesA.remove(i);
-                }
-            } else {
-                if (citiesB.size() != numberOfPlayers && !citiesB.get(i).getBoardName().equals(chosenCity)) {
-                    citiesB.remove(i);
-                }
-            }
-        } */
 
-        ArrayList<City> citiesOfBots = new ArrayList<City>();
+        ArrayList<City> citiesOfBots;
         //City images for bots
         if(boardType) {
             citiesOfBots = citiesA;

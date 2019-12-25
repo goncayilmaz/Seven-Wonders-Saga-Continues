@@ -36,6 +36,7 @@ public class PlayerEngine extends Application {
         bots = new ArrayList<>();
         player = new Player();
 
+        allPlayers.add(player);
         for(int i = 0; i < numberOfPlayers - 1; i++){
             Bot bot = new Bot(i);
             allPlayers.add(bot);

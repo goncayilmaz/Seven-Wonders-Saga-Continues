@@ -31,6 +31,7 @@ import javafx.scene.layout.*;
 //import javafx.event.EventHandler;
 //import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import superProject.Player.PlayerEngine;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -86,10 +87,15 @@ public class WarWiew  /*implements Initializable */ extends Application {
     @FXML
     private Label turnLabel;
 
-    private boolean isWinner; //for only xox
+    private boolean isXOXwinner; //for only xox
+
+    private PlayerEngine playerEngine;
 
     private ArrayList<Card> cardsOnHandImageViewTranferList;
-    //  bu card listesi olması gerekiyor.
+
+    private int curAgeNo;
+
+    private int whichXOX; //in case we have equality in both
 
 
     @FXML
@@ -157,15 +163,15 @@ public class WarWiew  /*implements Initializable */ extends Application {
         isXOXover = true;
     }
 
-    /*
-    public double getPrefHeightSmall(){
-        System.out.println("hey " + this.prefHeightSmall);
-        return this.prefHeightSmall;
-    } */
 
-    public void setPrefHeightSmall(int prefHeightSmall) {
-        this.prefHeightSmall = prefHeightSmall;
+    public PlayerEngine getPlayerEngine() {
+        return playerEngine;
     }
+
+    public void setPlayerEngine(PlayerEngine playerEngine) {
+        this.playerEngine = playerEngine;
+    }
+
 
     public void setLeftWarWinner(int leftWarWinner) {
         this.leftWarWinner = leftWarWinner;
@@ -196,6 +202,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
     @FXML
     public void setLeftWarLabel(){
+        xoxButton1.setVisible(false);
         if( leftWarWinner > 0 )
             leftResLabel.setText("VICTORY");
         else if (leftWarWinner < 0)
@@ -208,6 +215,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
     @FXML
     public void setRightWarLabel(){
+        xoxButton2.setVisible(false);
         if( rightWarWinner > 0 )
             rightResLabel.setText("VICTORY");
         else if (rightWarWinner < 0)
@@ -250,31 +258,12 @@ public class WarWiew  /*implements Initializable */ extends Application {
         this.mainPlayer = mainPlayer;
     }
 
-    /*
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        //leftNeighbour.
-        primaryScreenBounds = getPrimary().getVisualBounds();
-        //System.out.println(primaryScreenBounds);
-
-        prefHeightSmall = primaryScreenBounds.getHeight() * 9 / 10;
-        prefWidthSmall  = primaryScreenBounds.getWidth() / 2;
-
-        smallPane1.setMaxWidth(prefWidthSmall);
-        smallPane1.setMaxHeight(prefHeightSmall);
-        smallPane1.setPrefSize(prefWidthSmall, prefHeightSmall);
-        smallPane2.setMaxWidth(prefWidthSmall);
-        smallPane2.setMaxHeight(prefHeightSmall);
-        smallPane2.setPrefSize(prefWidthSmall, prefHeightSmall);
-
-    } */
-
     @FXML
     public void goToXOX_1(){
         Stage stage;
         Parent root;
 
-        //System.out.println("xox button is clicked");
+        whichXOX = 1;
 
         try {
 
@@ -295,6 +284,8 @@ public class WarWiew  /*implements Initializable */ extends Application {
     public void goToXOX_2(){
         Stage stage;
         Parent root;
+
+        whichXOX = 2;
 
         try {
             //System.out.println("heyy");
@@ -339,9 +330,9 @@ public class WarWiew  /*implements Initializable */ extends Application {
         for(int i = 0; i < 9; i = i + 3){
             if(!buttons[i].getText().equals("") && buttons[i].getText().equals(buttons[i+1].getText()) && buttons[i].getText().equals(buttons[i+2].getText())) {
                 if (buttons[i].getText().equals("X"))
-                    isWinner = true;
+                    isXOXwinner = true;
                 else
-                    isWinner = false;
+                    isXOXwinner = false;
                 combo[0] = buttons[i];
                 combo[1] = buttons[i+1];
                 combo[2] = buttons[i+2];
@@ -356,9 +347,9 @@ public class WarWiew  /*implements Initializable */ extends Application {
             for (int i = 0; i < 3; i++) {
                 if (!buttons[i].getText().equals("") && buttons[i].getText().equals(buttons[i + 3].getText()) && buttons[i].getText().equals(buttons[i + 6].getText())) {
                     if (buttons[i].getText().equals("X"))
-                        isWinner = true;
+                        isXOXwinner = true;
                     else
-                        isWinner = false;
+                        isXOXwinner = false;
                     combo[0] = buttons[i];
                     combo[1] = buttons[i+3];
                     combo[2] = buttons[i+6];
@@ -373,9 +364,9 @@ public class WarWiew  /*implements Initializable */ extends Application {
             //diagonal
             if (!buttons[0].getText().equals("") && buttons[0].getText().equals(buttons[4].getText()) && buttons[0].getText().equals(buttons[8].getText())) {
                 if (buttons[0].getText().equals("X"))
-                    isWinner = true;
+                    isXOXwinner = true;
                 else
-                    isWinner = false;
+                    isXOXwinner = false;
                 combo[0] = buttons[0];
                 combo[1] = buttons[4];
                 combo[2] = buttons[8];
@@ -385,9 +376,9 @@ public class WarWiew  /*implements Initializable */ extends Application {
             else if( !buttons[2].getText().equals("")&&  buttons[2].getText().equals(buttons[4].getText()) && buttons[4].getText().equals(buttons[6].getText()))
             {
                 if (buttons[2].getText().equals("X"))
-                    isWinner = true;
+                    isXOXwinner = true;
                 else
-                    isWinner = false;
+                    isXOXwinner = false;
                 combo[0] = buttons[2];
                 combo[1] = buttons[4];
                 combo[2] = buttons[6];
@@ -398,7 +389,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
 
 
-        if(isWinner) {
+        if(isXOXwinner) {
             resultLabel.setText("YOU WON");
             /// burda coin artacak.
 
@@ -409,7 +400,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
         }
 
         if( areButtonsFull && !isCombo) {
-            isWinner = false; //that means player couldn't win against bot
+            isXOXwinner = false; //that means player couldn't win against bot
             isXOXover = true;
             resultLabel.setVisible(true);
         }
@@ -429,6 +420,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
     }
 
+    //TODO problem with play win animation
     public void playWinAnimation(Button[] combo){
         Line line = new Line();
         line.setStartX(combo[0].getLayoutX());
@@ -444,12 +436,44 @@ public class WarWiew  /*implements Initializable */ extends Application {
         timeline.play();
     }
 
+    @FXML
+    public void returnToWarView(){
+        //TODO, after xox
+        //set results for human player after xox
+        if( isXOXwinner ){
+            //equality only in right war
+            if( rightWarWinner == 0 && leftWarWinner != 0){
+                rightWarWinner = 1;
+            } else if( leftWarWinner == 0 && rightWarWinner != 0){
+                leftWarWinner = 1;
+            } else {
+                if( whichXOX == 1 )
+                    leftWarWinner = 1;
+                else
+                    rightWarWinner = 1;
+            }
+        } else{
+            if( rightWarWinner == 0 && leftWarWinner != 0){
+                rightWarWinner = -1;
+            } else if( leftWarWinner == 0 && rightWarWinner != 0){
+                leftWarWinner = -1;
+            } else {
+                if( whichXOX == 1 )
+                    leftWarWinner = -1;
+                else
+                    rightWarWinner = -1;
+            }
+        }
+        setResults(0, leftWarWinner);
+        setResults(0, rightWarWinner);
+        //change labels as Victory or Defeat and set invisivle the xox button
+        setLabels();
+    }
 
 
     @FXML
     public void returnToGameVieww(ActionEvent event) throws Exception{
 
-        System.out.println(cardsOnHandImageViewTranferList);
         Stage stage;
         Parent root;
 
@@ -459,13 +483,14 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
             root=loader.load();
             GameAreaView secondController=loader.getController();
+            secondController.setPlayerEngine(getPlayerEngine());
             // main playerinin skoru gelcek
            // secondController.getScoreLabel().setText(String.valueOf(mainPlayer.getScore() + 3));
           //  secondController.getScoreLabel().setText("efe");
             // secondController.getCoinLabel().setText("efe");
             //System.out.println("asd"+secondController.getPlayerEngine().getHumanPlayer().getScore());
-            secondController.getScoreLabel().setText(String.valueOf(secondController.getPlayerEngine().getHumanPlayer().getScore()+3));
-            secondController.getPlayerEngine().getHumanPlayer().setScore(secondController.getPlayerEngine().getHumanPlayer().getScore()+3);
+            //secondController.getScoreLabel().setText(String.valueOf(getPlayerEngine().getHumanPlayer().getScore()+3));
+            //secondController.getPlayerEngine().getHumanPlayer().setScore(secondController.getPlayerEngine().getHumanPlayer().getScore()+3);
            // güncel liste burayla game areaya yollanicak.
            // secondController.setCardsOnHandImageView(getCardsOnHandImageViewTranferList());
           //  secondController.getPlayerEngine().getHumanPlayer().setCards(getCardsOnHandImageViewTranferList());
@@ -480,7 +505,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
             stage.show();
         }
         catch (Exception e){
-e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -497,7 +522,7 @@ e.printStackTrace();
             f.printStackTrace();
         }
 
-        isWinner = true;
+        isXOXwinner = true;
         isGameFinished();
 
         if( !isXOXover)
@@ -507,10 +532,6 @@ e.printStackTrace();
 
     @FXML
     public void drawO(){
-
-
-        System.out.println("drawing o ");
-
         int i = (int) (Math.random() * 9);
 
         while (!buttons[i].getText().equals("")) {
@@ -521,18 +542,105 @@ e.printStackTrace();
 
         PauseTransition pauseTransition = new PauseTransition();
         pauseTransition.setDuration(Duration.millis(600));
+        pauseTransition.play();
         buttons[i].setText("O");
         buttons[i].setDisable(true);
-        isWinner = false;
+        isXOXwinner = false;
         isGameFinished();
 
 
     }
 
-    @FXML
-    public void returnToWarView(){
-        //TODO
-        System.out.println("return button is clicked");
+    //attack manager methods
+    public void fight() {
+        int numberOfPlayers = playerEngine.getAllPlayers().size();
+        setLeftNeighbour(playerEngine.getAllPlayers().get(numberOfPlayers-1));
+        setRightNeighbour(playerEngine.getAllPlayers().get(1));
+        for( int i = 0; i < numberOfPlayers; i++){
+            if (i == 0) {
+                int compareLeft = Integer.compare( playerEngine.getHumanPlayer().getWarPoints(),
+                        playerEngine.getAllPlayers().get(numberOfPlayers-1).getWarPoints());
+                int compareRight  = Integer.compare( playerEngine.getHumanPlayer().getWarPoints(),
+                        playerEngine.getAllPlayers().get(1).getWarPoints());
+                leftWarWinner = compareLeft;
+                rightWarWinner = compareRight;
+            } else if( i == numberOfPlayers - 1) {
+                int compareLeft = Integer.compare( playerEngine.getAllPlayers().get(i).getWarPoints(),
+                        playerEngine.getAllPlayers().get(i-1).getWarPoints());
+                int compareRight  = Integer.compare( playerEngine.getAllPlayers().get(i).getWarPoints(),
+                        playerEngine.getAllPlayers().get(0).getWarPoints());
+                int leftXOXwinner;
+                if(compareLeft == 0){
+                    leftXOXwinner = (int) (Math.random());
+                    if( leftXOXwinner == 0 )
+                        compareLeft = -1;
+                    else
+                        compareLeft = 1;
+                }
+                int rightXOXwinner;
+                if(compareRight == 0){
+                    rightXOXwinner = (int) (Math.random());
+                    if( rightXOXwinner == 0 )
+                        compareRight = -1;
+                    else
+                        compareRight = 1;
+                }
+                setResults(i, compareLeft);
+                setResults(i, compareRight);
+            } else { //playerId is between edges
+                int compareLeft = Integer.compare( playerEngine.getAllPlayers().get(i).getWarPoints(),
+                        playerEngine.getAllPlayers().get(i-1).getWarPoints());
+                int compareRight  = Integer.compare( playerEngine.getAllPlayers().get(i).getWarPoints(),
+                        playerEngine.getAllPlayers().get(i+1).getWarPoints());
+                //if equality, random winners
+                int leftXOXwinner;
+                if(compareLeft == 0){
+                    leftXOXwinner = (int) (Math.random());
+                    if( leftXOXwinner == 0 )
+                        compareLeft = -1;
+                    else
+                        compareLeft = 1;
+                }
+                int rightXOXwinner;
+                if(compareRight == 0){
+                    rightXOXwinner = (int) (Math.random());
+                    if( rightXOXwinner == 0 )
+                        compareRight = -1;
+                    else
+                        compareRight = 1;
+                }
+                setResults(i, compareLeft);
+                setResults(i, compareRight);
+            }
+        }
+
+    }
+
+    public void setResults(int playerId, int compareResult){
+        int victoryPoints;
+        int defeatPoints = 1;
+        if(curAgeNo == 1){
+            victoryPoints = 1;
+        } else if(curAgeNo == 2){
+            victoryPoints = 3;
+        } else{
+            victoryPoints = 5;
+        }
+
+        if( compareResult > 0) {
+            playerEngine.getAllPlayers().get(playerId).setScore(playerEngine.getAllPlayers().get(playerId).getScore() + victoryPoints);
+        } else {
+            playerEngine.getAllPlayers().get(playerId).setScore(playerEngine.getAllPlayers().get(playerId).getScore() - defeatPoints);
+        }
+    }
+
+
+    public int getCurAgeNo() {
+        return curAgeNo;
+    }
+
+    public void setCurAgeNo(int curAgeNo) {
+        this.curAgeNo = curAgeNo;
     }
 
 
