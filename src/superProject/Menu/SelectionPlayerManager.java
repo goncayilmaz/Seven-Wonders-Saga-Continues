@@ -23,6 +23,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import superProject.City.CityManager;
 
 import java.io.IOException;
 import java.net.URL;
@@ -66,14 +67,28 @@ public class SelectionPlayerManager implements Initializable {
     public void selectCity(ActionEvent event){
 
         Stage stage;
-        Parent root;
+       Parent root;
+
+
+
+
+
 
         try {
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("../Menu/CitySelectionViewFX.fxml"));
+
+            root=loader.load();
+            CityManager secondController=loader.getController();
+
+            secondController.setNumberOfPeople(playerNumber);
+            secondController.getStartButton().setText(String.valueOf(playerNumber)+" People Start");
+           // secondController.setChosenCityLabel(getPlayerNumberLabel());
+
             stage = (Stage) nextToSelection.getScene().getWindow();
             stage.setFullScreen(true);
             stage.setResizable(true);
             System.out.println("go to city selection");
-            root=FXMLLoader.load(getClass().getResource("../Menu/CitySelectionViewFX.fxml"));
+          //  root=FXMLLoader.load(getClass().getResource("../Menu/CitySelectionViewFX.fxml"));
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -144,6 +159,15 @@ alert.showAndWait();
         }
 
 
+    }
+
+
+    public int getPlayerNumber() {
+        return playerNumber;
+    }
+
+    public Label getPlayerNumberLabel() {
+        return playerNumberLabel;
     }
 
     public void backToMainMenu(ActionEvent event){

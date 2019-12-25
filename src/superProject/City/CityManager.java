@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import superProject.GameMain.GameAreaView;
 import superProject.GameProperties.Material;
 import superProject.Player.Player;
 
@@ -33,6 +34,8 @@ public class CityManager implements Initializable {
 
     private ArrayList<City> citiesA;
     private ArrayList<City> citiesB;
+
+    private int numberOfPeople;
 
 
     @FXML
@@ -118,7 +121,13 @@ public class CityManager implements Initializable {
     Label chosenCityLabel;
 
 
+    public int getNumberOfPeople() {
+        return numberOfPeople;
+    }
 
+    public void setNumberOfPeople(int numberOfPeople) {
+        this.numberOfPeople = numberOfPeople;
+    }
 
     public CityManager(){
         boardType = false; //true olduğunda olmuyor niyeyse
@@ -130,6 +139,19 @@ public class CityManager implements Initializable {
         mainPath = "@../../Images/images/wonders/";
     }
 
+
+    public void setChosenCityLabel(Label chosenCityLabel) {
+        this.chosenCityLabel = chosenCityLabel;
+    }
+
+
+    public Button getStartButton() {
+        return startButton;
+    }
+
+    public void setStartButton(Button startButton) {
+        this.startButton = startButton;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -180,11 +202,21 @@ public class CityManager implements Initializable {
         Stage stage;
         Parent root;
 
+        // player sayısı gidicek  numberOfPeople
+
         arrangeCities(7, chosenCity.getBoardName(), boardType);
 
         try {
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+
+            root=loader.load();
+
+            GameAreaView secondController=loader.getController();
+            secondController.setNumberPlayer(numberOfPeople);
+            secondController.silme();
+            //secondController.getStartButton().setText(String.valueOf(playerNumber)+" People Start");
             stage = (Stage) startButton.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+          //  root = FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
 
             Scene scene = new Scene(root);
             stage.setScene(scene);

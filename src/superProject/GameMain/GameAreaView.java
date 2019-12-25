@@ -29,6 +29,8 @@ import java.util.ResourceBundle;
 
 public class GameAreaView implements Initializable {
 
+    private int numberPlayer; // buraya kişi sayısı geliyor. initiliaze bittikten sonra geliyor ama.
+
     @FXML
     private GridPane firstGridPane;
 
@@ -61,10 +63,12 @@ public class GameAreaView implements Initializable {
     private ArrayList<City> citiesOfBots;
 
     private int noOfPlayers = 7;
+   // private int noOfPlayers =numberPlayer;
     private Button [] pt_buttons;
     private Button [] aw_buttons;
     private Button [] dc_buttons;
     private ImageView[] cardsOnHandImageView;
+    private Label[] cardLabelLists;
 
     //to start war
     private boolean startWar;
@@ -86,8 +90,25 @@ public class GameAreaView implements Initializable {
     //TODO
     private int age = 1; //data flow for this and noOfPlayers
 
+
+    public int getNumberPlayer() {
+        return numberPlayer;
+    }
+
+    public void setNumberPlayer(int numberPlayer) {
+        this.numberPlayer = numberPlayer;
+    }
+
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+        //noOfPlayers=numberPlayer;
+
+        System.out.println("bura"+numberPlayer);
 
         /// player number a göre yukarıdaki imageviewlar visible yada invisible olacak.
         // imagelerin önüne label koyup tooltip ile kartları liste haline getirio gösterebiliriz.
@@ -107,6 +128,18 @@ public class GameAreaView implements Initializable {
         pt_buttons = new Button[7];
         aw_buttons = new Button[7];
         dc_buttons = new Button[7];
+        cardLabelLists= new Label[7];
+
+        cardLabelLists[0]=cards1;
+        cardLabelLists[1]=cards2;
+        cardLabelLists[2]=cards3;
+        cardLabelLists[3]=cards4;
+        cardLabelLists[4]=cards5;
+        cardLabelLists[5]=cards6;
+
+
+
+
 
         pt_buttons[0] = pt1;
         pt_buttons[1] = pt2;
@@ -210,6 +243,7 @@ public class GameAreaView implements Initializable {
         //disabling cities
         for( int i = noOfPlayers; i < 6; i++){
             botCities[i].setVisible(false);
+            cardLabelLists[i].setVisible(false);
         }
 
         //City images for bots
@@ -238,6 +272,17 @@ public class GameAreaView implements Initializable {
         //GameEngine attributes
         isAgeFinished = false;
 
+
+
+    }
+
+    public void silme(){
+       //System.out.println("la."+numberPlayer);
+        noOfPlayers=numberPlayer;
+        for( int i = noOfPlayers; i < 6; i++){
+            botCities[i].setVisible(false);
+            cardLabelLists[i].setVisible(false);
+        }
     }
 
     void discardCard(int cardIndex) throws Exception{
@@ -288,6 +333,9 @@ public class GameAreaView implements Initializable {
             cardChangeRotate();
             round++;
         }
+
+
+
     }
 
     public void addWonder(int cardIndex) throws Exception{
