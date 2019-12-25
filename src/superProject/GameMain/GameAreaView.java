@@ -21,6 +21,7 @@ import superProject.GameProperties.Card;
 import superProject.GameProperties.CardEngine;
 import superProject.Player.Bot;
 import superProject.Player.PlayerEngine;
+import superProject.War.WarWiew;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class GameAreaView implements Initializable {
     private ImageView firstCard,secondCard,thirdCard,forthCard,fifthCard,sixthCard,seventhCard;
 
     @FXML
-    private Label ageNumberLabel;
+    private Label ageNumberLabel,coinLabel,warLabel,scoreLabel,cityNameLabel;
 
     @FXML
     private Label cards1,cards2,cards3,cards4,cards5,cards6;
@@ -65,6 +66,7 @@ public class GameAreaView implements Initializable {
     private Button [] aw_buttons;
     private Button [] dc_buttons;
     private ImageView[] cardsOnHandImageView;
+    // buna bir de kart listesi eklenmesi gerekiyor.
     private Label[] cardLabelLists;
 
     //to start war
@@ -104,6 +106,8 @@ public class GameAreaView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        playerEngine= new PlayerEngine(noOfPlayers);
 
 
         //noOfPlayers=numberPlayer;
@@ -199,6 +203,10 @@ public class GameAreaView implements Initializable {
 
         //GameEngine attributes
         isAgeFinished = false;
+
+        getAgeNumberLabel().setText("Age is " +String.valueOf(age));
+        getCityNameLabel().setText("City Name is "+playerEngine.getHumanPlayer().getCity().getBoardName());
+
     }
 
     public PlayerEngine getPlayerEngine() {
@@ -219,6 +227,57 @@ public class GameAreaView implements Initializable {
 
     public void setCityImageView(ImageView cityImageView) {
         this.cityImageView = cityImageView;
+    }
+
+    public void setCoinLabel(Label coinLabel) {
+        this.coinLabel = coinLabel;
+    }
+
+    public Label getCoinLabel() {
+        return coinLabel;
+    }
+
+
+    public Label getWarLabel() {
+        return warLabel;
+    }
+
+    public void setWarLabel(Label warLabel) {
+        this.warLabel = warLabel;
+    }
+
+    public Label getScoreLabel() {
+        return scoreLabel;
+    }
+
+    public void setScoreLabel(Label scoreLabel) {
+        this.scoreLabel = scoreLabel;
+    }
+
+    public Label getAgeNumberLabel() {
+        return ageNumberLabel;
+    }
+
+    public void setAgeNumberLabel(Label ageNumberLabel) {
+        this.ageNumberLabel = ageNumberLabel;
+    }
+
+
+    public Label getCityNameLabel() {
+        return cityNameLabel;
+    }
+
+    public void setCityNameLabel(Label cityNameLabel) {
+        this.cityNameLabel = cityNameLabel;
+    }
+
+
+    public ImageView[] getCardsOnHandImageView() {
+        return cardsOnHandImageView;
+    }
+
+    public void setCardsOnHandImageView(ImageView[] cardsOnHandImageView) {
+        this.cardsOnHandImageView = cardsOnHandImageView;
     }
 
     public void setInitialView(int age){
@@ -562,8 +621,18 @@ public class GameAreaView implements Initializable {
         Parent root;
 
         try {
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("../War/WarViewFX.fxml"));
+
+            root=loader.load();
+
+            WarWiew secondController=loader.getController();
+          //  System.out.println(cardsOnHandImageView);
+           // secondController.setCardsOnHandImageViewTranferList(playerEngine.getHumanPlayer().getCards());
+            // güncel liste burasıyla war view e yollanicak.
+
+
             stage = (Stage) startWarButton.getScene().getWindow();
-            root=FXMLLoader.load(getClass().getResource("../War/WarViewFX.fxml"));
+
 
             Scene scene = new Scene(root);
             stage.setScene(scene);

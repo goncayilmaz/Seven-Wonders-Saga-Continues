@@ -11,9 +11,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
+import superProject.City.CityManager;
+import superProject.GameMain.GameAreaView;
+import superProject.GameProperties.Card;
 import superProject.Player.Player;
 import superProject.City.City;
 import javafx.geometry.Rectangle2D;
@@ -29,6 +33,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
@@ -83,6 +88,9 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
     private boolean isWinner; //for only xox
 
+    private ArrayList<Card> cardsOnHandImageViewTranferList;
+    //  bu card listesi olması gerekiyor.
+
 
     @FXML
     private double prefHeightSmall;
@@ -110,6 +118,14 @@ public class WarWiew  /*implements Initializable */ extends Application {
         isXOXover = true;
     }
 
+
+    public ArrayList<Card> getCardsOnHandImageViewTranferList() {
+        return cardsOnHandImageViewTranferList;
+    }
+
+    public void setCardsOnHandImageViewTranferList(ArrayList<Card> cardsOnHandImageViewTranferList) {
+        this.cardsOnHandImageViewTranferList = cardsOnHandImageViewTranferList;
+    }
 
     @Override
     public void start( Stage primaryStage) throws Exception{
@@ -382,10 +398,15 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
 
 
-        if(isWinner)
+        if(isWinner) {
             resultLabel.setText("YOU WON");
-        else
+            /// burda coin artacak.
+
+          //  mainPlayer.setScore(mainPlayer.getScore() + 3);
+        }
+        else {
             resultLabel.setText("YOU LOST");
+        }
 
         if( areButtonsFull && !isCombo) {
             isWinner = false; //that means player couldn't win against bot
@@ -427,19 +448,39 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
     @FXML
     public void returnToGameVieww(ActionEvent event) throws Exception{
+
+        System.out.println(cardsOnHandImageViewTranferList);
         Stage stage;
         Parent root;
 
         try {
+
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+
+            root=loader.load();
+            GameAreaView secondController=loader.getController();
+            // main playerinin skoru gelcek
+           // secondController.getScoreLabel().setText(String.valueOf(mainPlayer.getScore() + 3));
+          //  secondController.getScoreLabel().setText("efe");
+            // secondController.getCoinLabel().setText("efe");
+            //System.out.println("asd"+secondController.getPlayerEngine().getHumanPlayer().getScore());
+            secondController.getScoreLabel().setText(String.valueOf(secondController.getPlayerEngine().getHumanPlayer().getScore()+3));
+            secondController.getPlayerEngine().getHumanPlayer().setScore(secondController.getPlayerEngine().getHumanPlayer().getScore()+3);
+           // güncel liste burayla game areaya yollanicak.
+           // secondController.setCardsOnHandImageView(getCardsOnHandImageViewTranferList());
+          //  secondController.getPlayerEngine().getHumanPlayer().setCards(getCardsOnHandImageViewTranferList());
+
+
+
             stage = (Stage) returnButton.getScene().getWindow();
-            root=FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         }
         catch (Exception e){
-
+e.printStackTrace();
         }
     }
 

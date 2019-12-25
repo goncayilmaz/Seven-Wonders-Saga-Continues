@@ -40,6 +40,7 @@ public class Player {
         cardsOnTable = new ArrayList<>();;
         city = new City();
         resources = new ArrayList<>();
+        score=0;
     }
 
     public Player(int id, City city) {
@@ -49,6 +50,7 @@ public class Player {
         cards = new ArrayList<>();
         cardsOnTable = new ArrayList<>();;
         resources = new ArrayList<>();
+        score=0;
     }
 
     public ArrayList<Material> calculateResources(){
