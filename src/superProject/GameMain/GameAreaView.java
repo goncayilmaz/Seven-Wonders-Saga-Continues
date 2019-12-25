@@ -290,7 +290,6 @@ public class GameAreaView implements Initializable {
             }
         }
 
-        //TODO city image of player should be changed
         Image imCity = new Image(preCity + playerEngine.getHumanPlayer().getCity().getPhotoName());
         setCityImageView(new ImageView(imCity));
         getAgeNumberLabel().setText("Age is " +String.valueOf(age));
@@ -610,13 +609,17 @@ public class GameAreaView implements Initializable {
             root=loader.load();
 
             WarWiew secondController = loader.getController();
-            secondController.setPlayerEngine(this.playerEngine);
+            secondController.setCityManager(this.cityManager);
+            secondController.setPlayerEngine(playerEngine);
+            Image[] botCityImages = new Image[noOfPlayers-1];
+            for(int i = 0; i < noOfPlayers -1; i++)
+            {
+                botCityImages[i] = botCities[i].getImage();
+            }
+            secondController.setBotCities(botCityImages);
+            secondController.setIsAgeFinished(isAgeFinished);
             secondController.setCurAgeNo(age);
             secondController.fight();
-            //  System.out.println(cardsOnHandImageView);
-            // secondController.setCardsOnHandImageViewTranferList(playerEngine.getHumanPlayer().getCards());
-            // güncel liste burasıyla war view e yollanicak.
-
 
             stage = (Stage) startWarButton.getScene().getWindow();
             Scene scene = new Scene(root);
@@ -680,7 +683,6 @@ public class GameAreaView implements Initializable {
 
         } else{
             isAgeFinished = true;
-
             ButtonType nextAge = new ButtonType("Go to War");
             ButtonType returnB = new ButtonType("Return to Main");
             Alert alert;
@@ -705,9 +707,16 @@ public class GameAreaView implements Initializable {
                 }
             });
         }
+        try{
+            isGameFinished();
+        } catch(Exception e){
+
+        }
     }
 
     public void isGameFinished() throws Exception{
+        //TODO bunu warview a koymak daha mantıklı galiba
+        //TODO alert da eğer eşitlik yoksa çıkar
         if( isAgeFinished && age == 3 ){
             ButtonType gotToScoreBoard = new ButtonType("Go to Score Board");
             ButtonType returnB = new ButtonType("Return to Main");
@@ -739,6 +748,10 @@ public class GameAreaView implements Initializable {
                 }
             });
         }
+    }
+
+    public void setRound(int round){
+        this.round = round;
     }
 
 
