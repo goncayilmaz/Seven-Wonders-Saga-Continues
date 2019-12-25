@@ -122,6 +122,7 @@ public class Main {
         }
         b.setCity(cityofplayer);
         b.print();
+        /*
         b.doAction(1,playerEngine.getAllPlayers());
         System.out.println(b.numberOfCard());
 
@@ -129,10 +130,10 @@ public class Main {
         for(int i = 7; i < 14; i++){
             newhand.add(cards.get(i));
         }
-        b.setHand(newhand);
+        //b.setHand(newhand);
         b.doAction(1,playerEngine.getAllPlayers());
         System.out.println(b.numberOfCard());
-        b.print();
+        b.print(); */
 
     }
 }

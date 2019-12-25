@@ -37,7 +37,7 @@ public class Bot extends Player{
     public Bot() {
         this.id = 0;
         name = "Bot " + (id + 1); //if not set, then it is a Bot and it has only number
-        cards = new ArrayList<>();
+        cards = super.getCards();
         cardsOnTable = new ArrayList<>();;
         city = new City();
         resources = new ArrayList<>();
@@ -46,7 +46,7 @@ public class Bot extends Player{
     public Bot(int id) {
         this.id = id;
         name = "Bot " + (id + 1); //if not set, then it is a Bot and it has only number
-        cards = new ArrayList<>();
+        cards = super.getCards();
         cardsOnTable = new ArrayList<>();;
         city = new City();
         resources = new ArrayList<>();
@@ -56,22 +56,24 @@ public class Bot extends Player{
         System.out.println("Bot constructor with City parameter");
         this.id = id;
         name = "Bot " + (this.id + 1); //if not set, then it is a Bot and it has only number
-        cards = new ArrayList<>();
+        cards = super.getCards();
         cardsOnTable = new ArrayList<>();;
         this.city = city;
         resources = new ArrayList<>();
     }
 
+    /*
     public int numberOfCard(){
         return cardsOnTable.size();
     }
 
     public void setHand(ArrayList<Card> cards){
         this.cards = cards;
-    }
+    } */
 
 
 
+    /*
     public Card imaginate(Player player, ArrayList<Player> players){
 
         Card card = player.getCards().get(0);
@@ -344,6 +346,7 @@ public class Bot extends Player{
     }
 
 
+    @Override
     public void addToHandAtFirst(Card c){
         cards.add(c);
     }
@@ -360,5 +363,6 @@ public class Bot extends Player{
         }
     }
 
+    */
 
 }

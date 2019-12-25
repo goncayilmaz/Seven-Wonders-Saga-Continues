@@ -175,7 +175,8 @@ public class GameAreaView implements Initializable {
         cardsOnHandImageView[5] = sixthCard;
         cardsOnHandImageView[6] = seventhCard;
 
-        for( int j = 0; j < noOfPlayers - 1; j++){
+        //adding cards
+        for( int j = 0; j < noOfPlayers; j++){
             for( int i = 0; i < 7; i++){ //always starts with same number of cards
                 if( j == 0)
                 {
@@ -185,11 +186,17 @@ public class GameAreaView implements Initializable {
                     pt_buttons[i].setVisible(true);
                     aw_buttons[i].setVisible(true);
                     dc_buttons[i].setVisible(true);
+                    System.out.println("player cards " + playerEngine.getHumanPlayer().numberOfCardAtHand());
                 }
                 else //add card to bots
-                    playerEngine.getBots().get(j-1).addToHandAtFirst(cardEngine.getFirstAgeCards().get(i + j));
+                {
+                    playerEngine.getBots().get(j - 1).setId(j);
+                    playerEngine.getBots().get(j - 1).addToHandAtFirst(cardEngine.getFirstAgeCards().get(i + (j*7)));
+                    System.out.println("bot " + playerEngine.getBots().get(j  - 1).numberOfCardAtHand());
+                }
             }
         }
+
 
         //TODO it can be changed this is just for testing now, CityManager should be forwarded
         boolean boardType = false;
@@ -235,6 +242,8 @@ public class GameAreaView implements Initializable {
 
     void discardCard(int cardIndex) throws Exception{
         try {
+            System.out.println("round : " + round);
+
             Stage stage;
 
             stage = (Stage) dc_buttons[cardIndex].getScene().getWindow();
@@ -278,7 +287,6 @@ public class GameAreaView implements Initializable {
             }
             cardChangeRotate();
             round++;
-            //TODO new distribution of cards on hand
         }
     }
 
