@@ -619,8 +619,6 @@ public class GameAreaView implements Initializable {
 
 
             stage = (Stage) startWarButton.getScene().getWindow();
-
-
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

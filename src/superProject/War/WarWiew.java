@@ -118,8 +118,6 @@ public class WarWiew  /*implements Initializable */ extends Application {
     public WarWiew(){
         //leftWarWinner = true;
         //rightWarWinner = true;
-        leftWarWinner = 1;
-        rightWarWinner = 0;
         buttons = new Button[9];
         isXOXover = true;
     }
@@ -267,8 +265,16 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
         try {
             //System.out.println("heyy");
-            stage = (Stage) xoxButton2.getScene().getWindow();
-            root= FXMLLoader.load(getClass().getResource("../War/XOX_FX.fxml"));
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("../War/XOX_FX.fxml"));
+
+            root = loader.load();
+            WarWiew secondController = loader.getController();
+            secondController.setCurAgeNo(curAgeNo);
+            secondController.setPlayerEngine(playerEngine);
+            secondController.setWhichXOX(1);
+            secondController.setLeftWarWinner(0);
+            secondController.setRightWarWinner(rightWarWinner);
+            stage = (Stage) xoxButton1.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setFullScreen(true);
@@ -290,8 +296,15 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
         try {
             //System.out.println("heyy");
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("../War/XOX_FX.fxml"));
+            root = loader.load();
+            WarWiew secondController = loader.getController();
+            secondController.setCurAgeNo(curAgeNo);
+            secondController.setPlayerEngine(playerEngine);
+            secondController.setWhichXOX(2);
+            secondController.setLeftWarWinner(leftWarWinner);
+            secondController.setRightWarWinner(0);
             stage = (Stage) xoxButton2.getScene().getWindow();
-            root= FXMLLoader.load(getClass().getResource("../War/XOX_FX.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setFullScreen(true);
@@ -299,7 +312,6 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
         }
         catch (Exception e){
-            System.out.println("aasd");
 
         }
     }
@@ -441,49 +453,46 @@ public class WarWiew  /*implements Initializable */ extends Application {
     public void returnToWarView(){
         //TODO, after xox
         //set results for human player after xox
+        System.out.println("left war winner(3): " + leftWarWinner);
+        System.out.println("right war winner(3): " + rightWarWinner);
         if( isXOXwinner ){
             //equality only in right war
-            if( rightWarWinner == 0 && leftWarWinner != 0){
-                rightWarWinner = 1;
-            } else if( leftWarWinner == 0 && rightWarWinner != 0){
+            if(whichXOX == 1){
                 leftWarWinner = 1;
-            } else {
-                if( whichXOX == 1 )
-                    leftWarWinner = 1;
-                else
-                    rightWarWinner = 1;
+            } else if( whichXOX == 2){
+                rightWarWinner = 1;
             }
         } else{
-            if( rightWarWinner == 0 && leftWarWinner != 0){
-                rightWarWinner = -1;
-            } else if( leftWarWinner == 0 && rightWarWinner != 0){
+            if(whichXOX == 1){
                 leftWarWinner = -1;
-            } else {
-                if( whichXOX == 1 )
-                    leftWarWinner = -1;
-                else
-                    rightWarWinner = -1;
+            } else if( whichXOX == 2){
+                rightWarWinner = -1;
             }
         }
-        setResults(0, leftWarWinner);
-        setResults(0, rightWarWinner);
+        System.out.println("left war winner: " + leftWarWinner);
+        System.out.println("right war winner: " + rightWarWinner);
         //change labels as Victory or Defeat and set invisivle the xox button
-        setLabels();
-
         Stage stage;
         Parent root;
 
         try {
 
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("../GameMain/WarViewFX.fxml"));
-
-            root=loader.load();
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../War/WarViewFX.fxml"));
+            root = loader.load();
+            WarWiew secondController = loader.getController();
+            secondController.setCurAgeNo(curAgeNo);
+            secondController.setPlayerEngine(playerEngine);
+            secondController.setLeftWarWinner(leftWarWinner);
+            secondController.setRightWarWinner(rightWarWinner);
+            //this should only be called once
+            if( leftWarWinner != 0 && rightWarWinner != 0) {
+                secondController.setResults(0, this.leftWarWinner);
+                secondController.setResults(0, this.rightWarWinner);
+            }
             stage = (Stage) returnButton.getScene().getWindow();
-
-
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setFullScreen(true);
             stage.show();
         }
         catch (Exception e){
@@ -649,22 +658,21 @@ public class WarWiew  /*implements Initializable */ extends Application {
         }
 
         if( compareResult > 0) {
+            if( playerEngine == null )
+                System.out.println("null player engine");
             playerEngine.getAllPlayers().get(playerId).setScore(playerEngine.getAllPlayers().get(playerId).getScore() + victoryPoints);
         } else {
             playerEngine.getAllPlayers().get(playerId).setScore(playerEngine.getAllPlayers().get(playerId).getScore() - defeatPoints);
         }
     }
 
-
-    public int getCurAgeNo() {
-        return curAgeNo;
-    }
-
     public void setCurAgeNo(int curAgeNo) {
         this.curAgeNo = curAgeNo;
     }
 
-
+    public void setWhichXOX(int whichXOX) {
+        this.whichXOX = whichXOX;
+    }
 
     public static void main(String[] args) {
         launch(args);
