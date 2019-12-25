@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
@@ -52,6 +53,8 @@ public class WarWiew  /*implements Initializable */ extends Application {
     private Button xoxButton1;
     @FXML
     private Button xoxButton2;
+    @FXML
+    private Button returnGameButton;
     @FXML
     private Rectangle2D primaryScreenBounds;
     @FXML
@@ -96,6 +99,11 @@ public class WarWiew  /*implements Initializable */ extends Application {
     private int curAgeNo;
 
     private int whichXOX; //in case we have equality in both
+
+    private CityManager cityManager;
+    Image[] botCities;
+    ImageView chosenCityImage;
+    boolean isAgeFinished;
 
 
     @FXML
@@ -224,16 +232,8 @@ public class WarWiew  /*implements Initializable */ extends Application {
         }
     }
 
-    public void getPlayerLeft() {
-        System.out.print("hey"); //prints left player
-    }
-
-    public void getPlayerRight(){
-        System.out.print("hey2"); //prints right player
-    }
-
     public Player getLeftNeighbour() {
-        return leftNeighbour;
+        return playerEngine.getAllPlayers().get(playerEngine.getAllPlayers().size()-1);
     }
 
     public void setLeftNeighbour(Player leftNeighbour) {
@@ -241,15 +241,11 @@ public class WarWiew  /*implements Initializable */ extends Application {
     }
 
     public Player getRightNeighbour() {
-        return rightNeighbour;
+     return playerEngine.getAllPlayers().get(1);
     }
 
     public void setRightNeighbour(Player rightNeighbour) {
         this.rightNeighbour = rightNeighbour;
-    }
-
-    public Player getMainPlayer() {
-        return mainPlayer;
     }
 
     public void setMainPlayer(Player mainPlayer) {
@@ -269,8 +265,11 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
             root = loader.load();
             WarWiew secondController = loader.getController();
-            secondController.setCurAgeNo(curAgeNo);
             secondController.setPlayerEngine(playerEngine);
+            secondController.setCityManager(cityManager);
+            secondController.setBotCities(botCities);
+            secondController.setIsAgeFinished(isAgeFinished);
+            secondController.setCurAgeNo(curAgeNo);
             secondController.setWhichXOX(1);
             secondController.setLeftWarWinner(0);
             secondController.setRightWarWinner(rightWarWinner);
@@ -299,8 +298,11 @@ public class WarWiew  /*implements Initializable */ extends Application {
             FXMLLoader loader=new FXMLLoader(getClass().getResource("../War/XOX_FX.fxml"));
             root = loader.load();
             WarWiew secondController = loader.getController();
-            secondController.setCurAgeNo(curAgeNo);
             secondController.setPlayerEngine(playerEngine);
+            secondController.setCityManager(cityManager);
+            secondController.setBotCities(botCities);
+            secondController.setIsAgeFinished(isAgeFinished);
+            secondController.setCurAgeNo(curAgeNo);
             secondController.setWhichXOX(2);
             secondController.setLeftWarWinner(leftWarWinner);
             secondController.setRightWarWinner(0);
@@ -480,15 +482,18 @@ public class WarWiew  /*implements Initializable */ extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../War/WarViewFX.fxml"));
             root = loader.load();
             WarWiew secondController = loader.getController();
-            secondController.setCurAgeNo(curAgeNo);
+            secondController.setCityManager(this.cityManager);
             secondController.setPlayerEngine(playerEngine);
+            secondController.setBotCities(botCities);
+            secondController.setIsAgeFinished(isAgeFinished);
+            secondController.setCurAgeNo(curAgeNo);
             secondController.setLeftWarWinner(leftWarWinner);
             secondController.setRightWarWinner(rightWarWinner);
-            //this should only be called once
             if( leftWarWinner != 0 && rightWarWinner != 0) {
                 secondController.setResults(0, this.leftWarWinner);
                 secondController.setResults(0, this.rightWarWinner);
             }
+            //this should only be called once
             stage = (Stage) returnButton.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -502,34 +507,34 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
 
     @FXML
-    public void returnToGameVieww(ActionEvent event) throws Exception{
+    public void returnToGameView(ActionEvent event) throws Exception{
 
         Stage stage;
         Parent root;
 
         try {
-
             FXMLLoader loader=new FXMLLoader(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
 
             root=loader.load();
-            GameAreaView secondController=loader.getController();
-            secondController.setPlayerEngine(getPlayerEngine());
-            // main playerinin skoru gelcek
-           // secondController.getScoreLabel().setText(String.valueOf(mainPlayer.getScore() + 3));
-          //  secondController.getScoreLabel().setText("efe");
-            // secondController.getCoinLabel().setText("efe");
-            //System.out.println("asd"+secondController.getPlayerEngine().getHumanPlayer().getScore());
-            //secondController.getScoreLabel().setText(String.valueOf(getPlayerEngine().getHumanPlayer().getScore()+3));
-            //secondController.getPlayerEngine().getHumanPlayer().setScore(secondController.getPlayerEngine().getHumanPlayer().getScore()+3);
-           // güncel liste burayla game areaya yollanicak.
-           // secondController.setCardsOnHandImageView(getCardsOnHandImageViewTranferList());
-          //  secondController.getPlayerEngine().getHumanPlayer().setCards(getCardsOnHandImageViewTranferList());
 
+            GameAreaView secondController = loader.getController();
+            int numberOfPeople = playerEngine.getAllPlayers().size();
+            secondController.setNumberPlayer(numberOfPeople);
+            secondController.setCityManager(cityManager);
+            secondController.setPlayerEngine(playerEngine);
+            secondController.setBotCityImages(botCities);
+            secondController.setRound( 7 - playerEngine.getHumanPlayer().getCards().size());
+            if( isAgeFinished ) {
+                secondController.setInitialView(curAgeNo + 1, numberOfPeople);
+                secondController.setRound(0);
+            }
+            else
+                secondController.setInitialView( curAgeNo, numberOfPeople);
+            secondController.disableCities();
+            secondController.getCoinLabel().setText(String.valueOf(playerEngine.getHumanPlayer().getCoin()));
+            secondController.getWarLabel().setText(String.valueOf(playerEngine.getHumanPlayer().getWarPoints()));
 
-
-            stage = (Stage) returnButton.getScene().getWindow();
-
-
+            stage = (Stage) returnGameButton.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -672,6 +677,18 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
     public void setWhichXOX(int whichXOX) {
         this.whichXOX = whichXOX;
+    }
+
+    public void setCityManager( CityManager cityManager){
+        this.cityManager = cityManager;
+    }
+
+    public void setBotCities(Image[] botCities){
+        this.botCities = botCities;
+    }
+
+    public void setIsAgeFinished(boolean isAgeFinished){
+        this.isAgeFinished = isAgeFinished;
     }
 
     public static void main(String[] args) {
