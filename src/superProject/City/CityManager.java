@@ -229,7 +229,7 @@ public class CityManager implements Initializable {
             chosenCityImage =new ImageView(new Image(url));
             secondController.setCityImageView(chosenCityImage);
             secondController.setBotCityImages(botCities);
-            secondController.setInitialView(1);
+            secondController.setInitialView(1, numberOfPeople);
             secondController.disableCities();
             secondController.getCoinLabel().setText(String.valueOf(playerEngine.getHumanPlayer().getCoin()));
             secondController.getWarLabel().setText(String.valueOf(playerEngine.getHumanPlayer().getWarPoints()));

@@ -190,7 +190,13 @@ public class GameAreaView implements Initializable {
     }
 
     public void setCityImageView(ImageView cityImageView) {
-        this.cityImageView = cityImageView;
+        this.cityImageView.setImage(cityImageView.getImage());
+    }
+
+    public void setBotCityImages(Image[] imagesOfCity){
+        for(int i = 0; i < noOfPlayers - 1; i++){
+            botCities[i].setImage(imagesOfCity[i]);
+        }
     }
 
     public void setCoinLabel(Label coinLabel) {
@@ -244,8 +250,9 @@ public class GameAreaView implements Initializable {
         this.cardsOnHandImageView = cardsOnHandImageView;
     }
 
-    public void setInitialView(int age){
+    public void setInitialView(int age, int noOfPlayers){
         this.age = age;
+        this.noOfPlayers = noOfPlayers;
         cardEngine = new CardEngine();
         ArrayList<Card> ageCards = new ArrayList<Card>();
         if( age == 1 ){
@@ -283,6 +290,7 @@ public class GameAreaView implements Initializable {
             }
         }
 
+        //TODO city image of player should be changed
         Image imCity = new Image(preCity + playerEngine.getHumanPlayer().getCity().getPhotoName());
         setCityImageView(new ImageView(imCity));
         getAgeNumberLabel().setText("Age is " +String.valueOf(age));
@@ -730,12 +738,6 @@ public class GameAreaView implements Initializable {
                     }
                 }
             });
-        }
-    }
-
-    public void setBotCityImages(Image[] imagesOfCity){
-        for(int i = 0; i < noOfPlayers - 1; i++){
-            botCities[i].setImage(imagesOfCity[i]);
         }
     }
 
