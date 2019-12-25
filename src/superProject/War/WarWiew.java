@@ -263,19 +263,20 @@ public class WarWiew  /*implements Initializable */ extends Application {
         Stage stage;
         Parent root;
 
-        whichXOX = 1;
+        whichXOX = 2;
 
         try {
-
-            stage = (Stage) xoxButton1.getScene().getWindow();
-            root=FXMLLoader.load(getClass().getResource("../War/XOXViewFX.fxml"));
-
+            //System.out.println("heyy");
+            stage = (Stage) xoxButton2.getScene().getWindow();
+            root= FXMLLoader.load(getClass().getResource("../War/XOX_FX.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setFullScreen(true);
             stage.show();
+
         }
         catch (Exception e){
-            System.out.println("gata");
+            System.out.println("aasd");
 
         }
     }

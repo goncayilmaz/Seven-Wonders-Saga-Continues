@@ -611,6 +611,8 @@ public class GameAreaView implements Initializable {
 
             WarWiew secondController = loader.getController();
             secondController.setPlayerEngine(this.playerEngine);
+            secondController.setCurAgeNo(age);
+            secondController.fight();
             //  System.out.println(cardsOnHandImageView);
             // secondController.setCardsOnHandImageViewTranferList(playerEngine.getHumanPlayer().getCards());
             // güncel liste burasıyla war view e yollanicak.
