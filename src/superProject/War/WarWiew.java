@@ -317,10 +317,6 @@ public class WarWiew  /*implements Initializable */ extends Application {
                 areButtonsFull = false;
         }
 
-        System.out.println("are buttons full " + areButtonsFull);
-
-        //TODO
-        //check for xxx or ooo
         Button[] combo = new Button[3];
 
         //horizontal

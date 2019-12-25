@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import superProject.GameMain.GameAreaView;
 import superProject.GameProperties.Material;
 import superProject.Player.Player;
+import superProject.Player.PlayerEngine;
 
 
 import java.net.URL;
@@ -149,9 +150,10 @@ public class CityManager implements Initializable {
         return startButton;
     }
 
+    /*
     public void setStartButton(Button startButton) {
         this.startButton = startButton;
-    }
+    } */
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -202,21 +204,33 @@ public class CityManager implements Initializable {
         Stage stage;
         Parent root;
 
-        // player sayısı gidicek  numberOfPeople
+        PlayerEngine playerEngine = new PlayerEngine(numberOfPeople);
+        playerEngine.getHumanPlayer().setCity(chosenCity);
 
-        arrangeCities(7, chosenCity.getBoardName(), boardType);
+        //String preCity = "../Images/images/wonders/";
+        ArrayList<City> citiesOfBots = arrangeCities(numberOfPeople, chosenCity.getBoardName(), boardType);
+        Image[] botCities = new Image[citiesOfBots.size()];
+        for(int i = 0; i < citiesOfBots.size() ; i++){
+            String imgName = mainPath + citiesOfBots.get(i).getPhotoName();
+            Image city_img = new Image(imgName);
+            botCities[i] = city_img;
+        }
 
         try {
             FXMLLoader loader=new FXMLLoader(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
 
             root=loader.load();
 
-            GameAreaView secondController=loader.getController();
+            GameAreaView secondController = loader.getController();
             secondController.setNumberPlayer(numberOfPeople);
-            secondController.silme();
+            secondController.setCityManager(this);
+            secondController.setPlayerEngine(playerEngine);
+            secondController.setCityImageView(chosenCityImage);
+            secondController.setBotCityImages(botCities);
+            secondController.setInitialView(1);
+            secondController.disableCities();
             //secondController.getStartButton().setText(String.valueOf(playerNumber)+" People Start");
             stage = (Stage) startButton.getScene().getWindow();
-          //  root = FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -266,34 +280,6 @@ public class CityManager implements Initializable {
 
     }
     */
-
-    /**
-     * bu şehri sonraki levela geçirme fonksyionunu denemek için
-     * @param args
-     */
-    public static void main(String [] args)
-    {
-        CityManager c = new CityManager(true);
-        c.createCity();
-        c.arrangeCities(4, "The Colossus of Rhodes", true);
-        Player p = new Player();
-        City a = c.getPlayerCity(true, "The Colossus of Rhodes");
-        a.setBoardLevel(2);
-        ArrayList<Material> n = new ArrayList<Material>();
-        //n.add(new Material("Stone", 1));
-        n.add(new Material("Stone", 2));
-        //n.add(new Material("Stone", 4));
-        n.add(new Material("Ore", 4));
-
-        a.setCardReqs3(n);
-        ArrayList<Material> m = new ArrayList<Material>();
-        m.add(new Material("Ore" , 3));
-        m.add(new Material("Stone", 3));
-        a.setCardSpecsForLevel1(m);
-        System.out.println(a.getBoardLevel());
-        c.changeCityStage(a, p);
-        System.out.println(a.getBoardLevel());
-    }
 
     public void createCity() {
         if (boardType)
@@ -704,29 +690,46 @@ public class CityManager implements Initializable {
      * @param chosenCity
      * @param boardType
      */
-    public City arrangeCities(int numberOfPlayers, String chosenCity, boolean boardType) {
+    public ArrayList<City> arrangeCities(int numberOfPlayers, String chosenCity, boolean boardType) {
         City chosen;
         if( boardType)
             chosen = citiesA.get(0);
         else
             chosen = citiesB.get(0);
-        for (int i = 6; 0 <= i; i--) {
+        /*
+        for (int i = 6; 0 <= i ; i--) {
             if (boardType == true)//A side
              {
                 if (citiesA.size() != numberOfPlayers && !citiesA.get(i).getBoardName().equals(chosenCity)) {
                     citiesA.remove(i);
                 }
-                if( citiesA.get(i).getBoardName().equals(chosenCity))
-                    chosen = citiesA.get(i);
             } else {
                 if (citiesB.size() != numberOfPlayers && !citiesB.get(i).getBoardName().equals(chosenCity)) {
                     citiesB.remove(i);
                 }
-                if( citiesB.get(i).getBoardName().equals(chosenCity))
-                    chosen = citiesB.get(i);
+            }
+        } */
+
+        ArrayList<City> citiesOfBots = new ArrayList<City>();
+        //City images for bots
+        if(boardType) {
+            citiesOfBots = citiesA;
+            for(int i = 0; i < citiesOfBots.size(); i++)
+            {
+                if( citiesOfBots.get(i).getBoardName().equals(chosen.getBoardName()))
+                    citiesOfBots.remove(i);
             }
         }
-        return chosen;
+        else{
+            citiesOfBots = citiesB;
+            for(int i = 0; i < citiesOfBots.size(); i++)
+            {
+                if( citiesOfBots.get(i).getBoardName().equals(chosen.getBoardName()))
+                    citiesOfBots.remove(i);
+            }
+        }
+
+        return citiesOfBots;
     }
 
     /**

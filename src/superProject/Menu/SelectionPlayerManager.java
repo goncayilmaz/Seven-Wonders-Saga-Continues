@@ -67,11 +67,7 @@ public class SelectionPlayerManager implements Initializable {
     public void selectCity(ActionEvent event){
 
         Stage stage;
-       Parent root;
-
-
-
-
+        Parent root;
 
 
         try {
@@ -130,16 +126,6 @@ public class SelectionPlayerManager implements Initializable {
             alert.setContentText("Game can play with 3 to 7 people!");
 
             alert.showAndWait();
-        /*
-        kırmızı alert için bu da olabilir
-        Alert alert = new Alert(AlertType.ERROR);
-alert.setTitle("Error Dialog");
-alert.setHeaderText("Look, an Error Dialog");
-alert.setContentText("Ooops, there was an error!");
-
-alert.showAndWait();
-         */
-
         }
 
     }
