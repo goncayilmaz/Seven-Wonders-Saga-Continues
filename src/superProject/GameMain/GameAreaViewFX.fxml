@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -11,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.GameMain.GameAreaView">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.GameMain.GameAreaView">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="9.0" layoutY="10.0" opacity="0.21" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -279,10 +284,14 @@
       <Label fx:id="cards4" layoutX="627.0" layoutY="101.0" text="Cards" />
       <Label fx:id="cards5" layoutX="803.0" layoutY="99.0" text="Cards" />
       <Label fx:id="cards6" layoutX="979.0" layoutY="98.0" text="Cards" />
-      <Button fx:id="startWarButton" mnemonicParsing="false" onMouseClicked="#startWarButtonClicked" text="Start War" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="80.0">
+      <Button fx:id="startWarButton" layoutX="144.0" layoutY="682.0" mnemonicParsing="false" onMouseClicked="#startWarButtonClicked" text="Start War" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="144.0">
          <font>
             <Font name="Avenir Next Condensed Regular" size="14.0" />
          </font>
       </Button>
+      <Label fx:id="coinLabel" layoutX="37.0" layoutY="679.0" text="coin" />
+      <Label fx:id="warLabel" layoutX="98.0" layoutY="679.0" text="War" />
+      <Label layoutX="50.0" layoutY="447.0" text="Score" />
+      <Label fx:id="scoreLabel" layoutX="51.0" layoutY="475.0" text="scoreL" />
    </children>
 </AnchorPane>

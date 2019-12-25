@@ -43,7 +43,7 @@ public class GameAreaView implements Initializable {
     private ImageView firstCard,secondCard,thirdCard,forthCard,fifthCard,sixthCard,seventhCard;
 
     @FXML
-    private Label ageNumberLabel;
+    private Label ageNumberLabel,coinLabel,warLabel,scoreLabel;
 
     @FXML
     private Label cards1,cards2,cards3,cards4,cards5,cards6;
@@ -104,6 +104,8 @@ public class GameAreaView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        playerEngine= new PlayerEngine(noOfPlayers);
 
 
         //noOfPlayers=numberPlayer;
@@ -199,6 +201,7 @@ public class GameAreaView implements Initializable {
 
         //GameEngine attributes
         isAgeFinished = false;
+
     }
 
     public PlayerEngine getPlayerEngine() {
@@ -219,6 +222,31 @@ public class GameAreaView implements Initializable {
 
     public void setCityImageView(ImageView cityImageView) {
         this.cityImageView = cityImageView;
+    }
+
+    public void setCoinLabel(Label coinLabel) {
+        this.coinLabel = coinLabel;
+    }
+
+    public Label getCoinLabel() {
+        return coinLabel;
+    }
+
+
+    public Label getWarLabel() {
+        return warLabel;
+    }
+
+    public void setWarLabel(Label warLabel) {
+        this.warLabel = warLabel;
+    }
+
+    public Label getScoreLabel() {
+        return scoreLabel;
+    }
+
+    public void setScoreLabel(Label scoreLabel) {
+        this.scoreLabel = scoreLabel;
     }
 
     public void setInitialView(int age){

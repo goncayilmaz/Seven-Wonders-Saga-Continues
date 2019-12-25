@@ -229,6 +229,8 @@ public class CityManager implements Initializable {
             secondController.setBotCityImages(botCities);
             secondController.setInitialView(1);
             secondController.disableCities();
+            secondController.getCoinLabel().setText(String.valueOf(playerEngine.getHumanPlayer().getCoin()));
+            secondController.getWarLabel().setText(String.valueOf(playerEngine.getHumanPlayer().getWarPoints()));
             //secondController.getStartButton().setText(String.valueOf(playerNumber)+" People Start");
             stage = (Stage) startButton.getScene().getWindow();
 

@@ -14,6 +14,8 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
+import superProject.City.CityManager;
+import superProject.GameMain.GameAreaView;
 import superProject.Player.Player;
 import superProject.City.City;
 import javafx.geometry.Rectangle2D;
@@ -382,10 +384,15 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
 
 
-        if(isWinner)
+        if(isWinner) {
             resultLabel.setText("YOU WON");
-        else
+            /// burda coin artacak.
+
+          //  mainPlayer.setScore(mainPlayer.getScore() + 3);
+        }
+        else {
             resultLabel.setText("YOU LOST");
+        }
 
         if( areButtonsFull && !isCombo) {
             isWinner = false; //that means player couldn't win against bot
@@ -431,15 +438,31 @@ public class WarWiew  /*implements Initializable */ extends Application {
         Parent root;
 
         try {
+
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+
+            root=loader.load();
+            GameAreaView secondController=loader.getController();
+            // main playerinin skoru gelcek
+           // secondController.getScoreLabel().setText(String.valueOf(mainPlayer.getScore() + 3));
+          //  secondController.getScoreLabel().setText("efe");
+            // secondController.getCoinLabel().setText("efe");
+            //System.out.println("asd"+secondController.getPlayerEngine().getHumanPlayer().getScore());
+            secondController.getScoreLabel().setText(String.valueOf(secondController.getPlayerEngine().getHumanPlayer().getScore()+3));
+            secondController.getPlayerEngine().getHumanPlayer().setScore(secondController.getPlayerEngine().getHumanPlayer().getScore()+3);
+
+
+
+
             stage = (Stage) returnButton.getScene().getWindow();
-            root=FXMLLoader.load(getClass().getResource("../GameMain/GameAreaViewFX.fxml"));
+
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         }
         catch (Exception e){
-
+e.printStackTrace();
         }
     }
 
