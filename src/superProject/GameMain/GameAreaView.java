@@ -66,6 +66,7 @@ public class GameAreaView implements Initializable {
     private Button [] aw_buttons;
     private Button [] dc_buttons;
     private ImageView[] cardsOnHandImageView;
+    // buna bir de kart listesi eklenmesi gerekiyor.
     private Label[] cardLabelLists;
 
     //to start war
@@ -623,9 +624,12 @@ public class GameAreaView implements Initializable {
             FXMLLoader loader=new FXMLLoader(getClass().getResource("../War/WarViewFX.fxml"));
 
             root=loader.load();
-            WarWiew secondController=loader.getController();
 
-            secondController.setCardsOnHandImageViewTranferList(cardsOnHandImageView);
+            WarWiew secondController=loader.getController();
+          //  System.out.println(cardsOnHandImageView);
+           // secondController.setCardsOnHandImageViewTranferList(playerEngine.getHumanPlayer().getCards());
+            // güncel liste burasıyla war view e yollanicak.
+
 
             stage = (Stage) startWarButton.getScene().getWindow();
 

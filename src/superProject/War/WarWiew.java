@@ -17,6 +17,7 @@ import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import superProject.City.CityManager;
 import superProject.GameMain.GameAreaView;
+import superProject.GameProperties.Card;
 import superProject.Player.Player;
 import superProject.City.City;
 import javafx.geometry.Rectangle2D;
@@ -32,6 +33,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
@@ -86,7 +88,8 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
     private boolean isWinner; //for only xox
 
-    private ImageView[] cardsOnHandImageViewTranferList;
+    private ArrayList<Card> cardsOnHandImageViewTranferList;
+    //  bu card listesi olması gerekiyor.
 
 
     @FXML
@@ -116,11 +119,11 @@ public class WarWiew  /*implements Initializable */ extends Application {
     }
 
 
-    public ImageView[] getCardsOnHandImageViewTranferList() {
+    public ArrayList<Card> getCardsOnHandImageViewTranferList() {
         return cardsOnHandImageViewTranferList;
     }
 
-    public void setCardsOnHandImageViewTranferList(ImageView[] cardsOnHandImageViewTranferList) {
+    public void setCardsOnHandImageViewTranferList(ArrayList<Card> cardsOnHandImageViewTranferList) {
         this.cardsOnHandImageViewTranferList = cardsOnHandImageViewTranferList;
     }
 
@@ -445,6 +448,8 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
     @FXML
     public void returnToGameVieww(ActionEvent event) throws Exception{
+
+        System.out.println(cardsOnHandImageViewTranferList);
         Stage stage;
         Parent root;
 
@@ -461,7 +466,9 @@ public class WarWiew  /*implements Initializable */ extends Application {
             //System.out.println("asd"+secondController.getPlayerEngine().getHumanPlayer().getScore());
             secondController.getScoreLabel().setText(String.valueOf(secondController.getPlayerEngine().getHumanPlayer().getScore()+3));
             secondController.getPlayerEngine().getHumanPlayer().setScore(secondController.getPlayerEngine().getHumanPlayer().getScore()+3);
-            secondController.setCardsOnHandImageView(getCardsOnHandImageViewTranferList());
+           // güncel liste burayla game areaya yollanicak.
+           // secondController.setCardsOnHandImageView(getCardsOnHandImageViewTranferList());
+          //  secondController.getPlayerEngine().getHumanPlayer().setCards(getCardsOnHandImageViewTranferList());
 
 
 
