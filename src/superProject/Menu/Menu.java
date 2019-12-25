@@ -27,6 +27,7 @@ public class Menu extends Application {
 
 
     MediaPlayer mediaPlayer;
+    //dede
 
     public void music(){
 
