@@ -47,7 +47,7 @@ public class City {
     }
 
     public City(){
-        boardName = "";
+        boardName = "Ephesus The Efe King";
         cardSpecs = new ArrayList<Material>();
         cardReqs1 = new ArrayList<Material>();
         cardReqs2 = new ArrayList<Material>();

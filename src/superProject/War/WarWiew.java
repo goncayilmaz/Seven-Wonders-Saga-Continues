@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
@@ -85,6 +86,8 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
     private boolean isWinner; //for only xox
 
+    private ImageView[] cardsOnHandImageViewTranferList;
+
 
     @FXML
     private double prefHeightSmall;
@@ -112,6 +115,14 @@ public class WarWiew  /*implements Initializable */ extends Application {
         isXOXover = true;
     }
 
+
+    public ImageView[] getCardsOnHandImageViewTranferList() {
+        return cardsOnHandImageViewTranferList;
+    }
+
+    public void setCardsOnHandImageViewTranferList(ImageView[] cardsOnHandImageViewTranferList) {
+        this.cardsOnHandImageViewTranferList = cardsOnHandImageViewTranferList;
+    }
 
     @Override
     public void start( Stage primaryStage) throws Exception{
@@ -450,7 +461,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
             //System.out.println("asd"+secondController.getPlayerEngine().getHumanPlayer().getScore());
             secondController.getScoreLabel().setText(String.valueOf(secondController.getPlayerEngine().getHumanPlayer().getScore()+3));
             secondController.getPlayerEngine().getHumanPlayer().setScore(secondController.getPlayerEngine().getHumanPlayer().getScore()+3);
-
+            secondController.setCardsOnHandImageView(getCardsOnHandImageViewTranferList());
 
 
 
