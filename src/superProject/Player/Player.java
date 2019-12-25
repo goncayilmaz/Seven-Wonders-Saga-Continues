@@ -6,6 +6,8 @@ import superProject.GameProperties.Material;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Player {
 
@@ -34,23 +36,25 @@ public class Player {
 
 
     public Player() {
-        id = 0;
-        name = "Player " + (id + 1); //if not set, then it is a Bot and it has only number
-        cards = new ArrayList<>();
-        cardsOnTable = new ArrayList<>();;
-        city = new City();
-        resources = new ArrayList<>();
-        score=0;
+        this.id = 0;
+        this.name = "Player " + (id + 1); //if not set, then it is a Bot and it has only number
+        this.cards = new ArrayList<>();
+        this.cardsOnTable = new ArrayList<>();;
+        this.city = new City();
+        this.resources = new ArrayList<>();
+        this.score = 0;
+        this.numberOfCoin = 3;
     }
 
     public Player(int id, City city) {
         this.id = id;
         this.city = city;
-        name = "Player " + (id + 1); //if not set, then it is a Bot and it has only number
-        cards = new ArrayList<>();
-        cardsOnTable = new ArrayList<>();;
-        resources = new ArrayList<>();
-        score=0;
+        this.name = "Player " + (id + 1); //if not set, then it is a Bot and it has only number
+        this.cards = new ArrayList<>();
+        this.cardsOnTable = new ArrayList<>();;
+        this.resources = new ArrayList<>();
+        this.score = 0;
+        this.numberOfCoin = 3;
     }
 
     public ArrayList<Material> calculateResources(){
@@ -76,7 +80,7 @@ public class Player {
             }
         }
         //System.out.println("inside calculate");
-        //city.print();
+        city.print();
         resources.add(city.getCardSpecs());
         ArrayList<Material> cityMaterials = city.getLevelItems();
         System.out.println("city materials");
@@ -324,9 +328,11 @@ public class Player {
 
     public void disjointCard(Card c){
         for(int i = 0; i < cards.size(); i++){
-            if(cards.get(i).getName().equals(c)){
+            if(cards.get(i).getName().equals(c.getName())){
+                System.out.println("discarding inside method");
                 cards.remove(i);
                 numberOfCoin = numberOfCoin + 3;
+                return;
             }
         }
     }
@@ -374,14 +380,18 @@ public class Player {
                 score += getNumberOfPurpleCardsOnTable();
             }
             else if(cardsOnTable.get(i).getName().equals("scientistsguild")){
-
+                Integer[] nums = {numberOfScienceStone,numberOfScienceWheel,numberOfScienceWheel};
+                int max = Collections.max(Arrays.asList(nums));
+                score += ((max + 1) * (max + 1)) - (max * max);
             }
             else if(cardsOnTable.get(i).getName().equals("magistratesguild")){
                 score += leftNeighbour.getNumberOfBlueCardsOnTable();
                 score += rightNeighbour.getNumberOfBlueCardsOnTable();
             }
             else if(cardsOnTable.get(i).getName().equals("buildersguild")){
-
+                score += leftNeighbour.getCity().getBoardLevel();
+                score += leftNeighbour.getCity().getBoardLevel();
+                score += city.getBoardLevel();
             }
             else{
                 // do nothing
@@ -451,12 +461,22 @@ public class Player {
 
 
     public void print(){
-        System.out.println("PLAYER " + id + " name : " + name);
+        System.out.println("PLAYER " + id + " name : " + name + " coin " + numberOfCoin);
         city.print();
-        System.out.println("CARDS");
+        System.out.println("CARDS ON TABLE");
         for(int i = 0; i < cardsOnTable.size(); i++){
             cardsOnTable.get(i).print();
         }
+        System.out.println("CARDS ON HAND");
+        for(int i = 0; i < cards.size(); i++){
+            cards.get(i).print();
+        }
+        for(int i = 0; i < 5; i++){
+            System.out.println();
+        }
+
+
+
     }
 
     @Override

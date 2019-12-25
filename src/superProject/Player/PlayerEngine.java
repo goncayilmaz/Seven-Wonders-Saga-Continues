@@ -61,12 +61,29 @@ public class PlayerEngine extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        System.out.println("inside start");
         CityManager cityManager = new CityManager();
         cityManager.createACities();
         cityManager.printACities();
         cityManager.createBCities();
         cityManager.printBCities();
         Player p = new Player();
+    }
+
+    public void distributeHands(ArrayList<Card> cards){
+        System.out.println("number of players" + allPlayers.size());
+        System.out.println("number of cards" + cards.size());
+        int count = 0;
+        for(int i = 0; i < 7; i++){
+            player.addToHandAtFirst(cards.get(count));
+            count++;
+        }
+        for(int i = 0; i < bots.size(); i++){
+            for(int j = 0; j < 7; j++){
+                bots.get(i).addToHandAtFirst(cards.get(count));
+                count++;
+            }
+        }
     }
 
 

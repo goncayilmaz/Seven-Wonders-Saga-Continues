@@ -42,23 +42,23 @@ public class City {
         this.cardSpecsForLevel4 = cardSpecsForLevel4;
         this.photoName = photoName;
         this.boardNumber = boardNumber;
-        orSituation = false;
+        this.orSituation = false;
         this.maxCityLevel = maxCityLevel;
     }
 
     public City(){
-        boardName = "Ephesus The Efe King";
-        cardSpecs = new ArrayList<Material>();
-        cardReqs1 = new ArrayList<Material>();
-        cardReqs2 = new ArrayList<Material>();
-        cardReqs3 = new ArrayList<Material>();
-        cardReqs4 = new ArrayList<Material>();
-        cardSpecsForLevel1 = new ArrayList<Material>();
-        cardSpecsForLevel2 = new ArrayList<Material>();
-        cardSpecsForLevel3 = new ArrayList<Material>();
-        cardSpecsForLevel4 = new ArrayList<Material>();
-        photoName = "";
-        orSituation = false;
+        this.boardName = "Ephesus The Efe King";
+        this.cardSpecs = new ArrayList<Material>();
+        this.cardReqs1 = new ArrayList<Material>();
+        this.cardReqs2 = new ArrayList<Material>();
+        this.cardReqs3 = new ArrayList<Material>();
+        this.cardReqs4 = new ArrayList<Material>();
+        this.cardSpecsForLevel1 = new ArrayList<Material>();
+        this.cardSpecsForLevel2 = new ArrayList<Material>();
+        this.cardSpecsForLevel3 = new ArrayList<Material>();
+        this.cardSpecsForLevel4 = new ArrayList<Material>();
+        this.photoName = "";
+        this.orSituation = false;
     }
     public City(String boardName, ArrayList<Material> cardSpecs,
                 int boardLevel, ArrayList<Material> cardReqs1, ArrayList<Material> cardReqs2,
@@ -72,13 +72,13 @@ public class City {
         this.cardReqs1 = cardReqs1;
         this.cardReqs2 = cardReqs2;
         this.cardReqs3 = cardReqs3;
-        cardReqs4 = new ArrayList<Material>();
-        cardReqs4.add(new Material("none",0));
+        this.cardReqs4 = new ArrayList<Material>();
+        this.cardReqs4.add(new Material("none",0));
         this.cardSpecsForLevel1 = cardSpecsForLevel1;
         this.cardSpecsForLevel2 = cardSpecsForLevel2;
         this.cardSpecsForLevel3 = cardSpecsForLevel3;
-        cardSpecsForLevel4 = new ArrayList<Material>();
-        cardSpecsForLevel4.add(new Material("none",0));
+        this.cardSpecsForLevel4 = new ArrayList<Material>();
+        this.cardSpecsForLevel4.add(new Material("none",0));
         this.photoName = photoName;
         this.boardNumber = boardNumber;
         this.orSituation = orSituation;
