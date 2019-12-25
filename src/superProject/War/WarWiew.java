@@ -263,7 +263,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
         Stage stage;
         Parent root;
 
-        whichXOX = 2;
+        whichXOX = 1;
 
         try {
             //System.out.println("heyy");
@@ -469,6 +469,26 @@ public class WarWiew  /*implements Initializable */ extends Application {
         setResults(0, rightWarWinner);
         //change labels as Victory or Defeat and set invisivle the xox button
         setLabels();
+
+        Stage stage;
+        Parent root;
+
+        try {
+
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("../GameMain/WarViewFX.fxml"));
+
+            root=loader.load();
+
+            stage = (Stage) returnButton.getScene().getWindow();
+
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
