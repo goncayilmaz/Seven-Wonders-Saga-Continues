@@ -12,12 +12,13 @@ public class Bot extends Player{
     private int id;
     private String name; //added to print player at the end of war (I didn't know what to right) -Gonca
     private int warPoints; // war points
-    private ArrayList<Card> cards; // cards in hand
-    private ArrayList<Card> cardsOnTable;
+    //private ArrayList<Card> cards; // cards in hand
+    //private ArrayList<Card> cardsOnTable;
     private int boardNum; // for connecting with board city
     private int score;
     private City city;
     private ArrayList<Material> resources;
+
     //you do not need to initalize integers, if their initial value is zero
     int numberOfCoin;
     int numberOfClay;
@@ -37,8 +38,8 @@ public class Bot extends Player{
     public Bot() {
         this.id = 0;
         name = "Bot " + (id + 1); //if not set, then it is a Bot and it has only number
-        cards = super.getCards();
-        cardsOnTable = new ArrayList<>();;
+        //cards = super.getCards();
+        //cardsOnTable = super.getCardsOnTable();
         city = new City();
         resources = new ArrayList<>();
     }
@@ -46,8 +47,8 @@ public class Bot extends Player{
     public Bot(int id) {
         this.id = id;
         name = "Bot " + (id + 1); //if not set, then it is a Bot and it has only number
-        cards = super.getCards();
-        cardsOnTable = new ArrayList<>();;
+        //cards = super.getCards();
+        //cardsOnTable = new ArrayList<>();;
         city = new City();
         resources = new ArrayList<>();
     }
@@ -56,8 +57,8 @@ public class Bot extends Player{
         System.out.println("Bot constructor with City parameter");
         this.id = id;
         name = "Bot " + (this.id + 1); //if not set, then it is a Bot and it has only number
-        cards = super.getCards();
-        cardsOnTable = new ArrayList<>();;
+        //cards = super.getCards();
+        //cardsOnTable = new ArrayList<>();;
         this.city = city;
         resources = new ArrayList<>();
     }
@@ -158,7 +159,7 @@ public class Bot extends Player{
         }
         return card;
     }
-
+    */
 
 
     public Card doAction(int ageNumber, ArrayList<Player> players){
@@ -169,9 +170,12 @@ public class Bot extends Player{
     }
 
     public void buildWonder(int ageNumber, ArrayList<Player> players){
-        // TO DO
+        // TODO
     }
+
     private Card takeCard(int ageNumber, ArrayList<Player> players){
+        ArrayList<Card> cards = super.getCards();
+        ArrayList<Card> cardsOnTable = super.getCardsOnTable();
         // TAKE CARD
         if(cards.size() == 0){
             System.out.println("no cards on hand ");
@@ -345,24 +349,16 @@ public class Bot extends Player{
         return null;
     }
 
-
-    @Override
-    public void addToHandAtFirst(Card c){
-        cards.add(c);
-    }
-
-
-
     @Override
     public void print(){
         System.out.println("Bot Id: " + id + " name :" + name);
         city.print();
         System.out.println("CARDS");
-        for(int i = 0; i < cardsOnTable.size(); i++){
-            cardsOnTable.get(i).print();
+        for(int i = 0; i < super.getCardsOnTable().size(); i++){
+            super.getCardsOnTable().get(i).print();
         }
     }
 
-    */
+
 
 }
