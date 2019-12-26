@@ -2,65 +2,71 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1430.0" prefWidth="1439.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.War.WarWiew">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.War.WarWiew">
    <children>
-      <AnchorPane layoutX="-6.0" layoutY="-10.0" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <SplitPane depthTest="DISABLE" dividerPositions="0.5" layoutY="98.0" opacity="0.52" prefHeight="1080.0" prefWidth="1440.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="600.0">
-              <items>
-                <AnchorPane fx:id="smallPane1" minHeight="300.0" minWidth="300.0" prefHeight="580.0" prefWidth="600.0">
-                     <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#goToXOX_1" text="Go to XOX" visible="false" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="400.0" fx:id="xoxButton1">
-                           <font>
-                              <Font name="Avenir Next Condensed Regular" size="24.0" />
-                           </font>
-                        </Button>
-                        <Label alignment="CENTER" contentDisplay="TOP" layoutX="86.0" layoutY="141.0" prefHeight="62.0" prefWidth="126.0" text="YOU vs. LEFT NEIGHBOUR" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="300.0">
-                           <font>
-                              <Font name="Avenir Next Condensed Regular" size="24.0" />
-                           </font></Label>
-                        <Label fx:id="leftResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="57.0" prefHeight="62.0" prefWidth="119.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="100.0">
-                           <font>
-                              <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="290.0" fitWidth="720.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-                     </children></AnchorPane>
-                <AnchorPane fx:id="smallPane2" minHeight="300.0" minWidth="300" prefHeight="742.0" prefWidth="720.0">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="143.0" prefHeight="43.0" prefWidth="160.0" text="YOU vs. RIGHT NEIGHBOUR" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="300.0">
-                           <font>
-                              <Font name="Avenir Next Condensed Regular" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="rightResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="55.0" prefHeight="62.0" prefWidth="119.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="100.0">
-                           <font>
-                              <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToXOX_2" onMouseClicked="#goToXOX_2" text="Go to XOX" visible="false" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="400.0" fx:id="xoxButton2">
-                           <font>
-                              <Font name="Avenir Next Condensed Regular" size="24.0" />
-                           </font>
-                        </Button>
-                     </children></AnchorPane>
-              </items>
-            </SplitPane>
-            <Button fx:id="returnGameButton" layoutX="969.0" layoutY="1375.0" mnemonicParsing="false" onAction="#returnToGameView" prefHeight="43.0" prefWidth="144.0" text="Return to Game" AnchorPane.bottomAnchor="37.0" AnchorPane.rightAnchor="59.0">
-               <font>
-                  <Font name="Avenir Next Condensed Demi Bold" size="18.0" />
-               </font>
-            </Button>
-         </children></AnchorPane>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="112.0" prefWidth="413.0" text="War" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="100.0">
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#goToXOX_1" text="Go to XOX" visible="false" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="400.0" fx:id="xoxButton1">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="24.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="200.0" layoutY="811.0" prefHeight="101.0" prefWidth="282.0" text="LEFT NEIGHBOUR  vs. YOU" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="811.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="leftResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="183.0" layoutY="303.0" prefHeight="62.0" prefWidth="316.0" text="WAR RES1" AnchorPane.leftAnchor="183.0" AnchorPane.topAnchor="200.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
          </font>
       </Label>
+      <ImageView fx:id="yourCityImage1" fitHeight="400.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="300.0">
+         <image>
+            <Image url="@../../Images/images/wonders/rhodosA.png" />
+         </image></ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="273.0" text="YOU vs. RIGHT NEIGHBOUR" AnchorPane.bottomAnchor="600.0" AnchorPane.rightAnchor="187.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="rightResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="995.0" layoutY="303.0" prefHeight="62.0" prefWidth="243.0" text="WAR RES2" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="200.0">
+         <font>
+            <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToXOX_2" onMouseClicked="#goToXOX_2" text="Go to XOX" visible="false" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="400.0" fx:id="xoxButton2">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="returnGameButton" mnemonicParsing="false" onAction="#returnToGameView" prefHeight="43.0" prefWidth="144.0" text="Return to Game" AnchorPane.bottomAnchor="37.0" AnchorPane.rightAnchor="59.0">
+         <font>
+            <Font name="Avenir Next Condensed Demi Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="112.0" prefWidth="413.0" text="WAR" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="leftNeighbourImageView" fitHeight="400.0" fitWidth="720.0" layoutY="1030.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="100.0">
+         <image>
+            <Image url="@../../Images/images/wonders/babylonA.png" />
+         </image></ImageView>
+      <ImageView fx:id="yourCityImage2" fitHeight="400.0" fitWidth="720.0" layoutX="720.0" layoutY="1042.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="100.0">
+         <image>
+            <Image url="@../../Images/images/wonders/babylonA.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rightNeighbourImageView" fitHeight="400.0" fitWidth="720.0" layoutX="720.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="300.0">
+         <image>
+            <Image url="@../../Images/images/wonders/rhodosA.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

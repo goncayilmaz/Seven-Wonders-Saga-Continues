@@ -48,8 +48,6 @@ public class WarWiew  /*implements Initializable */ extends Application {
     @FXML
     private Label rightResLabel;
     @FXML
-    private Button resultsButton;
-    @FXML
     private Button xoxButton1;
     @FXML
     private Button xoxButton2;
@@ -89,6 +87,9 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
     @FXML
     private Label turnLabel;
+
+    @FXML
+    private ImageView leftNeighbourImageView, rightNeighbourImageView, yourCityImage1, yourCityImage2;
 
     private boolean isXOXwinner; //for only xox
 
@@ -203,7 +204,16 @@ public class WarWiew  /*implements Initializable */ extends Application {
     public void setLabels(){
         setLeftWarLabel();
         setRightWarLabel();
-        resultsButton.setDisable(true);
+    }
+
+    @FXML
+    public void setCityImagesForWar(){
+        String preCity = "@../../Images/images/wonders/";
+        yourCityImage1.setImage(new Image(preCity + playerEngine.getHumanPlayer().getCity().getPhotoName()));
+        yourCityImage2.setImage(new Image(preCity + playerEngine.getHumanPlayer().getCity().getPhotoName()));
+        leftNeighbourImageView.setImage(new Image(preCity + playerEngine.getAllPlayers().get(playerEngine.getAllPlayers().size()-1)
+                .getCity().getPhotoName()));
+        rightNeighbourImageView.setImage(new Image(preCity + playerEngine.getAllPlayers().get(1).getCity().getPhotoName()));
     }
 
     @FXML
@@ -481,6 +491,8 @@ public class WarWiew  /*implements Initializable */ extends Application {
             WarWiew secondController = loader.getController();
             secondController.setCityManager(this.cityManager);
             secondController.setPlayerEngine(playerEngine);
+            secondController.setLabels();
+            secondController.setCityImagesForWar();
             secondController.setBotCities(botCities);
             secondController.setIsAgeFinished(isAgeFinished);
             secondController.setCurAgeNo(curAgeNo);

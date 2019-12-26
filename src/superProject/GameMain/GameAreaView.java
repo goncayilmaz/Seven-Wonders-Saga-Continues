@@ -363,7 +363,7 @@ public class GameAreaView implements Initializable {
             stage = (Stage) dc_buttons[cardIndex].getScene().getWindow();
             TranslateTransition translate = new TranslateTransition();
             translate.setByX(0);
-            translate.setByY(-250);
+            translate.setByY(-300);
             translate.setDuration(Duration.millis(1000));
             translate.setCycleCount(1);
             ImageView temp = cardsOnHandImageView[cardIndex];
@@ -426,8 +426,8 @@ public class GameAreaView implements Initializable {
 
                 stage = (Stage) aw_buttons[cardIndex].getScene().getWindow();
                 TranslateTransition translate = new TranslateTransition();
-                translate.setByX(-150 - (cardIndex * 90));
-                translate.setByY(-150);
+                translate.setByX(-200 - (cardIndex * 90));
+                translate.setByY(-200);
                 translate.setDuration(Duration.millis(1000));
                 translate.setCycleCount(1);
                 ImageView temp = cardsOnHandImageView[cardIndex];
@@ -526,8 +526,8 @@ public class GameAreaView implements Initializable {
 
                 stage = (Stage) pt_buttons[cardIndex].getScene().getWindow();
                 TranslateTransition translate = new TranslateTransition();
-                translate.setByX(-150);
-                translate.setByY(-150);
+                translate.setByX(-200);
+                translate.setByY(-200);
                 translate.setDuration(Duration.millis(1000));
                 translate.setCycleCount(1);
                 ImageView temp = cardsOnHandImageView[cardIndex];
@@ -715,6 +715,8 @@ public class GameAreaView implements Initializable {
             WarWiew secondController = loader.getController();
             secondController.setCityManager(this.cityManager);
             secondController.setPlayerEngine(playerEngine);
+            secondController.setLabels();
+            secondController.setCityImagesForWar();
             Image[] botCityImages = new Image[noOfPlayers-1];
             for(int i = 0; i < noOfPlayers -1; i++)
             {

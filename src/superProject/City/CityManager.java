@@ -238,6 +238,7 @@ public class CityManager implements Initializable {
             secondController.getWarLabel().setText(String.valueOf(playerEngine.getHumanPlayer().getWarPoints()));
 
             stage = (Stage) startButton.getScene().getWindow();
+            stage.setMaximized(true);
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
