@@ -114,6 +114,7 @@ public class Player {
             }
             else if(resources.get(i).getName() == "Military"){
                 numberOfMilitary += resources.get(i).getCount();
+                warPoints = numberOfMilitary;
             }
             else if(resources.get(i).getName() == "Civilian"){
                 numberOfCivilian += resources.get(i).getCount();
@@ -330,7 +331,8 @@ public class Player {
         for(int i = 0; i < cards.size(); i++){
             if(cards.get(i).getName().equals(c.getName())){
                 System.out.println("discarding inside method");
-                cards.remove(i);
+                //cards.remove(i);
+                cards.get(i).setUsed(true);
                 numberOfCoin = numberOfCoin + 3;
                 return;
             }
