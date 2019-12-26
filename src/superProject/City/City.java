@@ -360,7 +360,7 @@ public class City {
                 {
                     if(player.getCardsOnTable().get(i).getEarnings().get(j).isWonderConstructorMaterial())
                     {
-                        materialss.add(player.getCardsOnTable().get(j).getEarnings().get(j));
+                        materialss.add(player.getCardsOnTable().get(i).getEarnings().get(j));
                     }
                 }
             }
@@ -383,6 +383,10 @@ public class City {
                 } else {
                     // do nothing.
                 }
+            }
+            for(int i = 0; i < materialss.size(); i++)
+            {
+                materialss.get(i).print();
             }
             return isConstructable(level, numberOfClay, numberOfOre, numberOfStone, numberOfWood, numberOfLoom, numberOfGlass, numberOfPapyrus);
         }

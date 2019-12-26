@@ -280,7 +280,7 @@ public class CardEngine extends Application {
             }
         }
         else if(numberOfPlayers == 4){
-            int[] cardIdOfCardsToBeDeleted = {2,3,5,9,10,11,12,13,14,15,15,16,17,18,18,19,20,21,22,23,25,26};
+            int[] cardIdOfCardsToBeDeleted = {2,3,5,9,10,11,12,13,14,15,16,17,18,18,19,20,21,22,23,25,26};
             for(int i = 0; i < cardIdOfCardsToBeDeleted.length; i++){
                 cards.remove(findById(cards,cardIdOfCardsToBeDeleted[i]));
             }

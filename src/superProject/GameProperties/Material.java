@@ -14,7 +14,7 @@ public class Material {
 
     public boolean isWonderConstructorMaterial()
     {
-        if(name == "Civilian" || name == "Coin" || name == "ScienceWheel" || name == "ScienceRuler" || name == "ScienceStone")
+        if(name.equals("Civilian") || name.equals("Coin") || name.equals("ScienceWheel") || name.equals("ScienceRuler") || name.equals("ScienceStone"))
             return false;
         return true;
     }
