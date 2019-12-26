@@ -371,6 +371,7 @@ public class CityManager implements Initializable {
         ArrayList<Material> earningOfOlympiaLev1 = new ArrayList<Material>();
         earningOfOlympiaLev1.add(new Material("Civilian", 3));
         ArrayList<Material> earningOfOlympiaLev2 = new ArrayList<Material>();//buraya özel fonksiyon gerekecek özel durum var
+        earningOfOlympiaLev2.add(new Material("Stone", 2));
         ArrayList<Material> earningOfOlympiaLev3 = new ArrayList<Material>();
         earningOfOlympiaLev3.add(new Material("Civilian", 7));
 
@@ -394,6 +395,7 @@ public class CityManager implements Initializable {
         ArrayList<Material> earningOfHalicarnassusLev1 = new ArrayList<Material>();
         earningOfHalicarnassusLev1.add(new Material("Civilian", 3));
         ArrayList<Material> earningOfHalicarnassusLev2 = new ArrayList<Material>();//buraya özel fonksiyon gerekecek özel durum var
+        earningOfHalicarnassusLev2.add(new Material("Ore",2));
         ArrayList<Material> earningOfHalicarnassusLev3 = new ArrayList<Material>();
         earningOfHalicarnassusLev3.add(new Material("Civilian", 7));
 
