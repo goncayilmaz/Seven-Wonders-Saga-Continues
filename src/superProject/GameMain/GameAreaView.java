@@ -102,8 +102,6 @@ public class GameAreaView implements Initializable {
     }
 
 
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -250,50 +248,51 @@ public class GameAreaView implements Initializable {
         this.cardsOnHandImageView = cardsOnHandImageView;
     }
 
-    public void setInitialView(int age, int noOfPlayers){
+    public void setInitialView(int age, int noOfPlayers) {
         this.age = age;
         this.noOfPlayers = noOfPlayers;
         cardEngine = new CardEngine();
+        System.out.println("no of players before age cards creation " + noOfPlayers);
         ArrayList<Card> ageCards = new ArrayList<Card>();
-        if( age == 1 ){
-            cardEngine.createFirstAgeCards(noOfPlayers);
-            ageCards = cardEngine.getFirstAgeCards();
-        }
-        else if( age == 2) {
-            cardEngine.createSecondAgeCards(noOfPlayers);
-            ageCards = cardEngine.getSecondAgeCards();
-        }
-        else {
-            cardEngine.createThirdAgeCards(noOfPlayers);
-            ageCards = cardEngine.getThirdAgeCards();
-        }
+        if (round == 0) {
+            if (age == 1) {
+                cardEngine.createFirstAgeCards(noOfPlayers);
+                ageCards = cardEngine.getFirstAgeCards();
+            } else if (age == 2) {
+                cardEngine.createSecondAgeCards(noOfPlayers);
+                ageCards = cardEngine.getSecondAgeCards();
+            } else {
+                cardEngine.createThirdAgeCards(noOfPlayers);
+                ageCards = cardEngine.getThirdAgeCards();
+            }
 
-        //adding cards
-        for( int j = 0; j < noOfPlayers; j++){
-            for( int i = 0; i < 7; i++){ //always starts with same number of cards
-                if( j == 0)
-                {
-                    playerEngine.getHumanPlayer().addToHandAtFirst(ageCards.get(i));
-                    Image imCard = new Image( preCard + ageCards.get(i).getPhotoName());
-                    cardsOnHandImageView[i].setImage(imCard);
-                    pt_buttons[i].setVisible(true);
-                    aw_buttons[i].setVisible(true);
-                    dc_buttons[i].setVisible(true);
-                    System.out.println("player cards " + playerEngine.getHumanPlayer().numberOfCardAtHand());
-                }
-                else //add card to bots
-                {
-                    playerEngine.getAllPlayers().get(j).setId(j);
-                    playerEngine.getAllPlayers().get(j).addToHandAtFirst(ageCards.get(i + (j*7)));
-                    System.out.println("bot " + playerEngine.getBots().get(j  - 1).numberOfCardAtHand());
+            //adding cards
+            for (int j = 0; j < noOfPlayers; j++) {
+                for (int i = 0; i < 7; i++) { //always starts with same number of cards
+                    if (j == 0) {
+                        playerEngine.getHumanPlayer().addToHandAtFirst(ageCards.get(i));
+                        Image imCard = new Image(preCard + ageCards.get(i).getPhotoName());
+                        cardsOnHandImageView[i].setImage(imCard);
+                        pt_buttons[i].setVisible(true);
+                        aw_buttons[i].setVisible(true);
+                        dc_buttons[i].setVisible(true);
+                        System.out.println("player cards " + playerEngine.getHumanPlayer().numberOfCardAtHand());
+                    } else //add card to bots
+                    {
+                        playerEngine.getAllPlayers().get(j).setId(j);
+                        playerEngine.getAllPlayers().get(j).addToHandAtFirst(ageCards.get(i + (j * 7)));
+                        System.out.println("bot cards size on hand " + playerEngine.getBots().get(j - 1).numberOfCardAtHand());
+                    }
                 }
             }
-        }
 
-        Image imCity = new Image(preCity + playerEngine.getHumanPlayer().getCity().getPhotoName());
-        setCityImageView(new ImageView(imCity));
-        getAgeNumberLabel().setText("Age is " +String.valueOf(age));
-        getCityNameLabel().setText("City Name is " + playerEngine.getHumanPlayer().getCity().getBoardName());
+            Image imCity = new Image(preCity + playerEngine.getHumanPlayer().getCity().getPhotoName());
+            setCityImageView(new ImageView(imCity));
+            getAgeNumberLabel().setText("Age is " + String.valueOf(age));
+            getCityNameLabel().setText("City Name is " + playerEngine.getHumanPlayer().getCity().getBoardName());
+        } else{
+            //TODO
+        }
     }
 
     public void disableCities(){
@@ -342,9 +341,19 @@ public class GameAreaView implements Initializable {
             Card chosenCard = playerEngine.getHumanPlayer().getCards().get(cardIndex);
             chosenCard.setUsed(true);
             //playerEngine.getHumanPlayer().removeFromHand(chosenCard);
+            int action;
             for(int i = 0; i < noOfPlayers - 1; i++){
+                action = 0; //TODO 0 add wonder, 1 put on table, 2 discard
                 Bot b = playerEngine.getBots().get(i);
-                //TODO play for bot
+                Card played = b.doAction(age, playerEngine.getAllPlayers());
+                System.out.println("bot " + b.getId() + " plays, card size " + b.getCards().size());
+                if( action == 0 ){
+
+                } else  if( action == 1){
+
+                } else {
+
+                }
             }
             cardChangeRotate();
             round++;
@@ -396,9 +405,10 @@ public class GameAreaView implements Initializable {
                 dc_buttons[6 - round].setVisible(false);
                 Card chosenCard = playerEngine.getHumanPlayer().getCards().get(cardIndex);
                 chosenCard.setUsed(true);
-                for (int i = 0; i < noOfPlayers - 1; i++) {
+                for(int i = 0; i < noOfPlayers - 1; i++){
                     Bot b = playerEngine.getBots().get(i);
-                    //TODO play for bot
+                    b.doAction(age, playerEngine.getAllPlayers());
+                    System.out.println("bot " + b.getId() + " plays, card size " + b.getCards().size());
                 }
                 cardChangeRotate();
                 round++;
@@ -454,9 +464,10 @@ public class GameAreaView implements Initializable {
                 dc_buttons[6-round].setVisible(false);
                 Card chosenCard = playerEngine.getHumanPlayer().getCards().get(cardIndex);
                 chosenCard.setUsed(true);
-                for (int i = 0; i < noOfPlayers - 1; i++) {
+                for(int i = 0; i < noOfPlayers - 1; i++){
                     Bot b = playerEngine.getBots().get(i);
-                    //TODO play for bot
+                    b.doAction(age, playerEngine.getAllPlayers());
+                    System.out.println("bot " + b.getId() + " plays, card size " + b.getCards().size());
                 }
                 cardChangeRotate();
                 round++;
@@ -598,7 +609,6 @@ public class GameAreaView implements Initializable {
         alert.showAndWait();
     }
 
-    //TODO bunu ekledim burdan gidiyor wara cünkü startwar button round bitince çalışmalı
     void goToWar() throws Exception{
         Stage stage;
         Parent root;
@@ -648,7 +658,7 @@ public class GameAreaView implements Initializable {
         int totRounds = 6;
 
         for(int i = 0; i < totRounds - round; i++ ){
-            //System.out.println("card size " + playerEngine.getHumanPlayer().getCards().size());
+            System.out.println("card size " + playerEngine.getHumanPlayer().getCards().size());
             String cardName =  preCard + playerEngine.getHumanPlayer().getCards().get(i).getPhotoName();
             Image imCard = new Image(cardName);
             cardsOnHandImageView[i].setImage(imCard);

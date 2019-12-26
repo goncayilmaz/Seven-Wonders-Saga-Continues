@@ -77,7 +77,7 @@ public class SelectionPlayerManager implements Initializable {
             CityManager secondController=loader.getController();
 
             secondController.setNumberOfPeople(playerNumber);
-            secondController.getStartButton().setText(String.valueOf(playerNumber)+" People Start");
+            secondController.getStartButton().setText("Start with " + String.valueOf(playerNumber) + " Player");
            // secondController.setChosenCityLabel(getPlayerNumberLabel());
 
             stage = (Stage) nextToSelection.getScene().getWindow();
@@ -94,24 +94,8 @@ public class SelectionPlayerManager implements Initializable {
         catch (Exception e){
 
         }
-        /*
-        try {
-            Stage stage = new Stage();
-            AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("../Menu/CitySelectionViewFX.fxml"));
-            stage.setScene(new Scene(root));
-            stage.setTitle("City Selection");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(((Node)event.getSource()).getScene().getWindow() );
-
-            stage.show();
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-         */
     }
+
     public void increasePlayer(ActionEvent event){
 
         if(playerNumber < 7) {

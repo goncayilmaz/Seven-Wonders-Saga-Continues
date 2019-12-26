@@ -210,10 +210,13 @@ public class CityManager implements Initializable {
         //String preCity = "../Images/images/wonders/";
         ArrayList<City> citiesOfBots = arrangeCities(numberOfPeople, chosenCity.getBoardName(), boardType);
         Image[] botCities = new Image[citiesOfBots.size()];
-        for(int i = 0; i < citiesOfBots.size() ; i++){
+        System.out.println("citiesOfBots size " + citiesOfBots.size());
+        System.out.println("bot size " + playerEngine.getBots().size());
+        for(int i = 0; i < playerEngine.getBots().size() ; i++){
             String imgName = mainPath + citiesOfBots.get(i).getPhotoName();
             Image city_img = new Image(imgName);
             botCities[i] = city_img;
+            playerEngine.getBots().get(i).setCity(citiesOfBots.get(i));
         }
 
         try {
@@ -229,7 +232,7 @@ public class CityManager implements Initializable {
             chosenCityImage =new ImageView(new Image(url));
             secondController.setCityImageView(chosenCityImage);
             secondController.setBotCityImages(botCities);
-            secondController.setInitialView(1, numberOfPeople);
+            secondController.setInitialView(1, numberOfPeople); //age cards should be initialized
             secondController.disableCities();
             secondController.getCoinLabel().setText(String.valueOf(playerEngine.getHumanPlayer().getCoin()));
             secondController.getWarLabel().setText(String.valueOf(playerEngine.getHumanPlayer().getWarPoints()));
@@ -721,15 +724,12 @@ public class CityManager implements Initializable {
 
     public void setChosenCity(int chosenIndex){
         this.chosenIndex = chosenIndex;
-        System.out.println("Column index: " + chosenIndex);
         if( boardType )
             chosenCity = citiesA.get(chosenIndex);
         else
             chosenCity = citiesB.get(chosenIndex);
         chosenCityImage.setImage(new Image(mainPath + chosenCity.getPhotoName()));
-        System.out.println("chosen city: " + chosenCity.getBoardName());
         chosenCityLabel.setText(chosenCity.getBoardName());
-        System.out.println("chosen city label " + chosenCityLabel.getText());
     }
 
     @FXML
@@ -808,7 +808,6 @@ public class CityManager implements Initializable {
 
     @FXML
     public void changeBoardType(MouseEvent e){
-        System.out.println("here");
         if( e.getSource() == radioB && !radioB.isSelected())
         {
             boardType = false;
@@ -833,7 +832,6 @@ public class CityManager implements Initializable {
         }
 
         if( e.getSource() == radioA && !radioA.isSelected()){
-            System.out.println("here2");
             boardType = true;
             radioA.setSelected(true);
             radioA.setDisable(true);

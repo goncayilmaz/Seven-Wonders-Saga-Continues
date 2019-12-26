@@ -163,7 +163,7 @@ public class Bot extends Player{
                             if(cards.get(i).getEarnings().get(j).isWonderConstructorMaterial()) {
                                 //addCardsToTable(cards.get(i));
                                 super.addCardsToTable(cards.get(i));
-                                //super.removeFromHand(cards.get(i));
+                                cards.get(i).setUsed(true);
                                 return cards.get(i);
                             }
                         }
@@ -176,7 +176,7 @@ public class Bot extends Player{
                                 System.out.println("taking military card");
                                 cards.get(i).print();
                                 super.addCardsToTable(cards.get(i));
-                                //super.removeFromHand(cards.get(i));
+                                cards.get(i).setUsed(true);
                                 return cards.get(i);
                             }
                         }
@@ -186,7 +186,7 @@ public class Bot extends Player{
                                 System.out.println("taking civilian card");
                                 cards.get(i).print();
                                 super.addCardsToTable(cards.get(i));
-                                //super.removeFromHand(cards.get(i));
+                                cards.get(i).setUsed(true);
                                 return cards.get(i);
                             }
                         }
@@ -198,7 +198,7 @@ public class Bot extends Player{
                                 System.out.println("taking science card");
                                 cards.get(i).print();
                                 super.addCardsToTable(cards.get(i));
-                                //super.removeFromHand(cards.get(i));
+                                cards.get(i).setUsed(true);
                                 return cards.get(i);
                             }
                         }
@@ -210,7 +210,7 @@ public class Bot extends Player{
                         System.out.println("taking first available card card");
                         cards.get(i).print();
                         super.addCardsToTable(cards.get(i));
-                        //super.removeFromHand(cards.get(i));
+                        cards.get(i).setUsed(true);
                         return cards.get(i);
                     }
                 }
@@ -227,7 +227,7 @@ public class Bot extends Player{
                         for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
                             if (cards.get(i).getEarnings().get(j).isWonderConstructorMaterial()) {
                                 super.addCardsToTable(cards.get(i));
-                                //super.removeFromHand(cards.get(i));
+                                cards.get(i).setUsed(true);
                                 return cards.get(i);
                             }
                         }
@@ -238,7 +238,7 @@ public class Bot extends Player{
                         for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
                             if (cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))) {
                                 super.addCardsToTable(cards.get(i));
-                                //super.removeFromHand(cards.get(i));
+                                cards.get(i).setUsed(true);
                                 return cards.get(i);
                             }
                         }
@@ -246,7 +246,7 @@ public class Bot extends Player{
                         for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
                             if (cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))) {
                                 super.addCardsToTable(cards.get(i));
-                                //super.removeFromHand(cards.get(i));
+                                cards.get(i).setUsed(true);
                                 return cards.get(i);
                             }
                         }
@@ -256,7 +256,7 @@ public class Bot extends Player{
                                     cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel") ||
                                     cards.get(i).getEarnings().get(j).getName().equals("ScienceStone")) && verifySufficientResources(cards.get(i))) {
                                 super.addCardsToTable(cards.get(i));
-                                //super.removeFromHand(cards.get(i));
+                                cards.get(i).setUsed(true);
                                 return cards.get(i);
                             }
                         }
@@ -266,7 +266,7 @@ public class Bot extends Player{
                 for (int i = 0; i < cards.size(); i++) {
                     if (verifySufficientResources(cards.get(i))) {
                         super.addCardsToTable(cards.get(i));
-                        //super.removeFromHand(cards.get(i));
+                        cards.get(i).setUsed(true);
                         return cards.get(i);
                     }
                 }
@@ -285,12 +285,14 @@ public class Bot extends Player{
                             || (cards.get(i).getId() == 59 && verifySufficientResources(cards.get(i)))
                             || (cards.get(i).getId() == 60 && verifySufficientResources(cards.get(i)))) {
                         super.addCardsToTable(cards.get(i));
+                        cards.get(i).setUsed(true);
                         return cards.get(i);
                     }
                     // TAKE POSSİBLE MILITARY
                     for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
                         if (cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))) {
                             super.addCardsToTable(cards.get(i));
+                            cards.get(i).setUsed(true);
                             return cards.get(i);
                         }
                     }
@@ -298,6 +300,7 @@ public class Bot extends Player{
                     for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
                         if (cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))) {
                             super.addCardsToTable(cards.get(i));
+                            cards.get(i).setUsed(true);
                             return cards.get(i);
                         }
                     }
@@ -307,6 +310,7 @@ public class Bot extends Player{
                                 (cards.get(i).getEarnings().get(j).getName().equals("ScienceWheel") && verifySufficientResources(cards.get(i))) ||
                                 (cards.get(i).getEarnings().get(j).getName().equals("ScienceStone") && verifySufficientResources(cards.get(i))))) {
                             super.addCardsToTable(cards.get(i));
+                            cards.get(i).setUsed(true);
                             return cards.get(i);
                         }
                     }
@@ -315,6 +319,7 @@ public class Bot extends Player{
                 for (int i = 0; i < cards.size(); i++) {
                     if (verifySufficientResources(cards.get(i))) {
                         super.addCardsToTable(cards.get(i));
+                        cards.get(i).setUsed(true);
                         return cards.get(i);
                     }
                 }

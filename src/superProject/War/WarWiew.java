@@ -294,7 +294,6 @@ public class WarWiew  /*implements Initializable */ extends Application {
         whichXOX = 2;
 
         try {
-            //System.out.println("heyy");
             FXMLLoader loader=new FXMLLoader(getClass().getResource("../War/XOX_FX.fxml"));
             root = loader.load();
             WarWiew secondController = loader.getController();
@@ -407,8 +406,6 @@ public class WarWiew  /*implements Initializable */ extends Application {
         if(isXOXwinner) {
             resultLabel.setText("YOU WON");
             /// burda coin artacak.
-
-          //  mainPlayer.setScore(mainPlayer.getScore() + 3);
         }
         else {
             resultLabel.setText("YOU LOST");
@@ -520,10 +517,10 @@ public class WarWiew  /*implements Initializable */ extends Application {
             GameAreaView secondController = loader.getController();
             int numberOfPeople = playerEngine.getAllPlayers().size();
             secondController.setNumberPlayer(numberOfPeople);
+            secondController.setRound( 7 - playerEngine.getHumanPlayer().getCards().size());
             secondController.setCityManager(cityManager);
             secondController.setPlayerEngine(playerEngine);
             secondController.setBotCityImages(botCities);
-            secondController.setRound( 7 - playerEngine.getHumanPlayer().getCards().size());
             if( isAgeFinished ) {
                 secondController.setInitialView(curAgeNo + 1, numberOfPeople);
                 secondController.setRound(0);

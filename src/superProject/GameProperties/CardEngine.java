@@ -30,30 +30,13 @@ public class CardEngine extends Application {
     }
 
     public ArrayList<Card> getFirstAgeCards(){
-        ArrayList<Card> notUsedCards = new ArrayList<Card>();
-        for(int i = 0; i < cards.size(); i++)
-            if( !cards.get(i).isUsed())
-                notUsedCards.add(cards.get(i));
-
-        //shuffleCards(notUsedCards);
-
-        return notUsedCards;
+        return cards;
     }
     public ArrayList<Card> getSecondAgeCards(){
-        ArrayList<Card> notUsedCards = new ArrayList<Card>();
-        for(int i = 0; i < cards2.size(); i++)
-            if( !cards2.get(i).isUsed())
-                notUsedCards.add(cards2.get(i));
-
-        return notUsedCards;
+        return cards2;
     }
     public ArrayList<Card> getThirdAgeCards(){
-        ArrayList<Card> notUsedCards = new ArrayList<Card>();
-        for(int i = 0; i < cards3.size(); i++)
-            if( !cards3.get(i).isUsed())
-                notUsedCards.add(cards3.get(i));
-
-        return notUsedCards;
+        return cards3;
     }
 
 
