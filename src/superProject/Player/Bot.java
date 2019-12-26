@@ -39,6 +39,10 @@ public class Bot extends Player{
         lastCardPlayed = new Card();
         System.out.println("Bot constructor with City parameter");
     }
+
+    public Card getLastCardPlayed(){
+        return lastCardPlayed;
+    }
     /*
     public Card imaginate(Player player, ArrayList<Player> players){
 
@@ -145,7 +149,7 @@ public class Bot extends Player{
         // TODO
     }
     // -1 başarısız, 0 kart alma, 1 discard etme, 2 wonder yapma
-
+/*
     private int takeCard(int ageNumber, ArrayList<Player> players){
         Card cardToTake = new Card();
         City city = super.getCity();
@@ -371,8 +375,8 @@ public class Bot extends Player{
             System.out.println("Age number not valid");
             return -1;
         }
-    }
-    /**
+    }*/
+
     private int takeCard(int ageNumber, ArrayList<Player> players){
         ArrayList<Card> cards = super.getCards();
         ArrayList<Card> cardsOnTable = super.getCardsOnTable();
@@ -450,8 +454,10 @@ public class Bot extends Player{
 
                 // NO CARD AVAILABLE DISCARD FIRST CARD
                 System.out.println("DISCARDING CARD");
-                super.disjointCard(cards.get(0));
                 lastCardPlayed = new Card(cards.get(0));
+                cards.get(0).setUsed(true);
+                numberOfCoin = numberOfCoin + 3;
+                //super.disjointCard(cards.get(0));
                 return 1;
             } else if (ageNumber == 2) {
                 for (int i = 0; i < cards.size(); i++) {
@@ -512,8 +518,9 @@ public class Bot extends Player{
 
                 // NO CARD AVAILABLE DISCARD FIRST CARD
                 System.out.println("DISCARDING CARD");
-                super.disjointCard(cards.get(0));
                 lastCardPlayed = new Card(cards.get(0));
+                cards.get(0).setUsed(true);
+                numberOfCoin = numberOfCoin + 3;
                 return 1;
             } else if (ageNumber == 3) {
                 for (int i = 0; i < cards.size(); i++) {
@@ -570,8 +577,9 @@ public class Bot extends Player{
                 }
                 // NO CARD AVAILABLE DISCARD FIRST CARD
                 System.out.println("DISCARDING CARD");
-                super.disjointCard(cards.get(0));
                 lastCardPlayed = new Card(cards.get(0));
+                cards.get(0).setUsed(true);
+                numberOfCoin = numberOfCoin + 3;
                 return 1;
             } else {
                 System.out.println("AGE 4 ?");
@@ -579,7 +587,7 @@ public class Bot extends Player{
                 // do nothing.
             }
         }
-    }*/
+    }
 
     @Override
     public void print(){
