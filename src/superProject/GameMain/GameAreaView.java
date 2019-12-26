@@ -190,23 +190,6 @@ public class GameAreaView implements Initializable {
         //GameEngine attributes
         isAgeFinished = false;
 
-           /*
-
-
-        Tooltip tooltip = new Tooltip();
-        tooltip.setMaxWidth(250);
-        tooltip.setWrapText(true);
-        tooltip.setText(deneme);
-        ageNumberLabel.setTooltip(tooltip);
-        cards1.setTooltip(tooltip);
-        cards2.setTooltip(tooltip);
-        cards3.setTooltip(tooltip);
-        cards4.setTooltip(tooltip);
-        cards5.setTooltip(tooltip);
-        cards6.setTooltip(tooltip);
-
-        */
-
 
 
 
@@ -293,6 +276,9 @@ public class GameAreaView implements Initializable {
         this.age = age;
         this.noOfPlayers = noOfPlayers;
         cardEngine = new CardEngine();
+        System.out.println("********************************************************************");
+        System.out.println("NEW AGE!!");
+        System.out.println("********************************************************************");
         System.out.println("no of players before age cards creation " + noOfPlayers);
         System.out.println("round: " + round);
         ArrayList<Card> ageCards = new ArrayList<Card>();
@@ -342,18 +328,6 @@ public class GameAreaView implements Initializable {
                 aw_buttons[i].setVisible(false);
                 dc_buttons[i].setVisible(false);
                 cardsOnHandImageView[i].setVisible(false);
-            }
-        }
-
-        ArrayList<Card> cardsOfPlayer = playerEngine.getHumanPlayer().getCardsOnTable();
-        if( cardsOfPlayer != null && cardsOfPlayer.size() != 0){
-            ImageView imageView = new ImageView();
-            for(int i = 0; i < cardsOfPlayer.size(); i++){
-                Image imCard = new Image(preCard + cardsOfPlayer.get(i).getPhotoName());
-                imageView.setImage(imCard);
-                imageView.setX(cardsOnHandImageView[i].getX() - (age) * 10);
-                imageView.setY(cardsOnHandImageView[i].getY() - 150);
-                //TODO efe bunu göstermeye bakabilir misiinn
             }
         }
 
@@ -417,12 +391,13 @@ public class GameAreaView implements Initializable {
             playerEngine.getHumanPlayer().setCoin(playerEngine.getHumanPlayer().getCoin() + 3);
             Card chosenCard = playerEngine.getHumanPlayer().getCards().get(cardIndex);
             chosenCard.setUsed(true);
-            //playerEngine.getHumanPlayer().removeFromHand(chosenCard);
+            System.out.println("card name for player: "+playerEngine.getHumanPlayer().getCards().get(0).getName());
             int action;
-            for(int i = 0; i < noOfPlayers - 1; i++){
+            for(int i = 0; i < noOfPlayers-1 ; i++){
                 action = 0; //TODO 0 add wonder, 1 put on table, 2 discard
-                Bot b = playerEngine.getBots().get(i);
-                Card played = b.doAction(age, playerEngine.getAllPlayers());
+                Bot b = (Bot) playerEngine.getBots().get(i);
+                System.out.println("card name for bot: " + b.getCards().get(0).getName());
+                //Card played = b.doAction(age, playerEngine.getAllPlayers());
                 System.out.println("bot " + b.getId() + " plays, card size " + b.getCards().size());
                 if( action == 0 ){
 
@@ -432,14 +407,14 @@ public class GameAreaView implements Initializable {
 
                 }
             }
-            cardChangeRotate();
+            //cardChangeRotate();
             round++;
-            if (startWar) {
-                goToWar();
-                startWar = false;
-            }
-            isAgeFinished();
         }
+        if (startWar) {
+            goToWar();
+            startWar = false;
+        }
+        isAgeFinished();
     }
 
     public void addWonder(int cardIndex) throws Exception{
@@ -482,6 +457,7 @@ public class GameAreaView implements Initializable {
                 dc_buttons[6 - round].setVisible(false);
                 Card chosenCard = playerEngine.getHumanPlayer().getCards().get(cardIndex);
                 chosenCard.setUsed(true);
+
                 for(int i = 0; i < noOfPlayers - 1; i++){
                     Bot b = playerEngine.getBots().get(i);
                     b.doAction(age, playerEngine.getAllPlayers());
@@ -489,12 +465,12 @@ public class GameAreaView implements Initializable {
                 }
                 cardChangeRotate();
                 round++;
-                if (startWar) {
-                    goToWar();
-                    startWar = false;
-                }
-                isAgeFinished();
             }
+            if (startWar) {
+                goToWar();
+                startWar = false;
+            }
+            isAgeFinished();
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Wonder cannot be built.");
@@ -585,12 +561,12 @@ public class GameAreaView implements Initializable {
                 }
                 cardChangeRotate();
                 round++;
-                if (startWar) {
-                    goToWar();
-                    startWar = false;
-                }
-                isAgeFinished();
             }
+            if (startWar) {
+                goToWar();
+                startWar = false;
+            }
+            isAgeFinished();
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Card cannot be added.");
@@ -770,13 +746,15 @@ public class GameAreaView implements Initializable {
             playerEngine.getBots().get(i).setCards(playerEngine.getBots().get(i+1).getCards());
         }
 
+        System.out.println("Bot " + (playerEngine.getBots().size()-1)
+                + " card size: " + playerEngine.getBots().get(playerEngine.getBots().size()-1).getCards().size());
         playerEngine.getBots().get(playerEngine.getBots().size()-1).setCards(tempCard);
 
 
         int totRounds = 6;
 
+        System.out.println("player card size " + playerEngine.getHumanPlayer().getCards().size());
         for(int i = 0; i < totRounds - round; i++ ){
-            System.out.println("card size " + playerEngine.getHumanPlayer().getCards().size());
             String cardName =  preCard + playerEngine.getHumanPlayer().getCards().get(i).getPhotoName();
             Image imCard = new Image(cardName);
             cardsOnHandImageView[i].setImage(imCard);
@@ -838,14 +816,11 @@ public class GameAreaView implements Initializable {
                 }
             });
         }
-        try{
-            isGameFinished();
-        } catch(Exception e){
 
-        }
+        isGameFinished();
     }
 
-    public void isGameFinished() throws Exception{
+    public void isGameFinished(){
         //TODO bunu warview a koymak daha mantıklı galiba
         //TODO alert da eğer eşitlik yoksa çıkar
         if( isAgeFinished && age == 3 ){

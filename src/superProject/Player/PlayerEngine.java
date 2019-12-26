@@ -153,19 +153,6 @@ public class PlayerEngine extends Application {
 
     }
 
-    public void startAttack(){
-        // attack manager ile bağlanacak.
-
-    }
-    public void finishAttack(){
-        // attack manager ile bağlanacak.
-
-    }
-    public void startXOX(Boolean bool){
-        //xox game ile bağlanacak.
-
-    }
-
     public ArrayList<Player> getAllPlayers(){
         return allPlayers;
     }

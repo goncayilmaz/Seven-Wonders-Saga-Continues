@@ -10,16 +10,16 @@
 
 <AnchorPane prefHeight="842.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.City.CityManager">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1200.0" layoutY="1.0" opacity="0.7" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="182.0" AnchorPane.rightAnchor="182.0" AnchorPane.topAnchor="35.0">
+      <ImageView fitHeight="1080.0" fitWidth="1200.0" layoutY="1.0" opacity="0.7" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="35.0">
          <image>
             <Image fx:id="imageCity" url="@../../Images/7wonders.jpg" />
          </image>
       </ImageView>
-      <RadioButton fx:id="radioA" layoutX="101.0" layoutY="581.0" mnemonicParsing="false" onMousePressed="#changeBoardType" text="A" textFill="WHITE" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="600.0">
+      <RadioButton fx:id="radioA" layoutX="101.0" layoutY="581.0" mnemonicParsing="false" onMousePressed="#changeBoardType" text="A" textFill="WHITE" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="600.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="27.0" />
          </font></RadioButton>
-      <RadioButton fx:id="radioB" layoutX="185.0" layoutY="584.0" mnemonicParsing="false" onMousePressed="#changeBoardType" text="B" textFill="WHITE" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="600.0">
+      <RadioButton fx:id="radioB" layoutX="185.0" layoutY="584.0" mnemonicParsing="false" onMousePressed="#changeBoardType" text="B" textFill="WHITE" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="600.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="27.0" />
          </font></RadioButton>
@@ -98,7 +98,7 @@
          <font>
             <Font name="Avenir Next Condensed Regular" size="18.0" />
          </font></Button>
-      <Label text="Choose Side" textFill="WHITE" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="550.0">
+      <Label text="Choose Side" textFill="WHITE" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="550.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="24.0" />
          </font>

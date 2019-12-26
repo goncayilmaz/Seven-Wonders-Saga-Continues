@@ -11,98 +11,107 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAnchor" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.GameMain.GameAreaView">
+<AnchorPane fx:id="mainAnchor" prefHeight="1080.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.GameMain.GameAreaView">
    <children>
-      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="9.0" layoutY="10.0" opacity="0.21" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1080.0" fitWidth="1200.0" layoutX="170.0" layoutY="187.0" opacity="0.21" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="396.0982666015625" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="187.0">
          <image>
             <Image url="@../../Images/7wonders.jpg" />
          </image>
       </ImageView>
-      <Separator layoutX="9.0" layoutY="483.0" prefHeight="59.0" prefWidth="1057.0" />
-      <ImageView fx:id="secondCard" fitHeight="150.0" fitWidth="90.0" layoutX="380.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true">
+      <Separator layoutX="170.0" layoutY="667.0" prefHeight="59.0" prefWidth="1200.0" AnchorPane.bottomAnchor="620.3224487304688" AnchorPane.leftAnchor="170.0" />
+      <ImageView fx:id="secondCard" fitHeight="150.0" fitWidth="90.0" layoutX="380.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="463.0" AnchorPane.rightAnchor="1000.0">
          <image>
             <Image url="@../../Images/images/cards/workersguild.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="firstCard" fitHeight="150.0" fitWidth="90.0" layoutX="248.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="firstCard" fitHeight="150.0" fitWidth="90.0" layoutX="248.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="463.0" AnchorPane.rightAnchor="1150.0">
          <image>
             <Image url="@../../Images/images/cards/workshop.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="thirdCard" fitHeight="150.0" fitWidth="90.0" layoutX="501.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="thirdCard" fitHeight="150.0" fitWidth="90.0" layoutX="501.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="463.0" AnchorPane.rightAnchor="850.0">
          <image>
             <Image url="@../../Images/images/cards/vineyard.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="forthCard" fitHeight="150.0" fitWidth="90.0" layoutX="630.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="forthCard" fitHeight="150.0" fitWidth="90.0" layoutX="630.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="462.5" AnchorPane.rightAnchor="700.0">
          <image>
             <Image url="@../../Images/images/cards/walls.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="fifthCard" fitHeight="150.0" fitWidth="90.0" layoutX="749.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fifthCard" fitHeight="150.0" fitWidth="90.0" layoutX="749.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="462.0" AnchorPane.rightAnchor="550.0">
          <image>
             <Image url="@../../Images/images/cards/westtradingpost.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="sixthCard" fitHeight="150.0" fitWidth="90.0" layoutX="865.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="sixthCard" fitHeight="150.0" fitWidth="90.0" layoutX="865.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="462.82244873046875" AnchorPane.rightAnchor="400.0">
          <image>
             <Image url="@../../Images/images/cards/trainingground.png" />
          </image>
       </ImageView>
-      <Button fx:id="returnButton" layoutX="1001.0" layoutY="416.0" mnemonicParsing="false" onMouseClicked="#returnToMain" prefWidth="150.0" text="Return to Main Menu" AnchorPane.bottomAnchor="350.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="350.0" />
-      <ImageView fx:id="cityImageView" fitHeight="84.0" fitWidth="232.0" layoutX="15.0" layoutY="527.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="returnButton" layoutX="1001.0" layoutY="416.0" mnemonicParsing="false" onMouseClicked="#returnToMain" prefHeight="40.0" prefWidth="200.0" text="Return to Main Menu" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Button>
+      <ImageView fx:id="cityImageView" fitHeight="300.0" fitWidth="600.0" layoutX="15.0" layoutY="527.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="170.0">
          <image>
             <Image url="@../../Images/images/wonders/alexandriaA.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="43.0" fitWidth="48.0" layoutX="20.0" layoutY="628.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="43.0" fitWidth="48.0" layoutX="20.0" layoutY="628.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="510.0">
          <image>
             <Image url="@../../Images/images/tokens/coin.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="53.0" fitWidth="38.0" layoutX="94.0" layoutY="628.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="43.0" fitWidth="48.0" layoutX="94.0" layoutY="628.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="670.0">
          <image>
             <Image url="@../../Images/images/tokens/resources/clay.png" />
          </image>
       </ImageView>
-      <Label fx:id="ageNumberLabel" layoutX="466.0" layoutY="275.0" prefHeight="53.0" prefWidth="205.0" text="Age Number = 1" />
-      <Label fx:id="cityNameLabel" layoutX="456.0" layoutY="331.0" prefHeight="23.0" prefWidth="249.0" text="Your City Name = EFES" />
-      <ImageView fx:id="botCity0" fitHeight="74.0" fitWidth="168.0" layoutX="28.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="ageNumberLabel" layoutX="693.0" layoutY="107.0" prefHeight="53.0" prefWidth="205.0" text="Age: 1">
+         <font>
+            <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
+         </font></Label>
+      <Label fx:id="cityNameLabel" layoutX="456.0" layoutY="331.0" prefHeight="23.0" prefWidth="249.0" text="Your City" AnchorPane.bottomAnchor="350.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="800.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="24.0" />
+         </font></Label>
+      <ImageView fx:id="botCity0" fitHeight="74.0" fitWidth="168.0" layoutX="188.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/rhodosA.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="botCity1" fitHeight="74.0" fitWidth="168.0" layoutX="209.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botCity1" fitHeight="74.0" fitWidth="168.0" layoutX="371.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/olympiaA.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="botCity2" fitHeight="74.0" fitWidth="168.0" layoutX="390.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botCity2" fitHeight="74.0" fitWidth="168.0" layoutX="569.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/halikarnassusA.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="botCity3" fitHeight="74.0" fitWidth="168.0" layoutX="565.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botCity3" fitHeight="74.0" fitWidth="168.0" layoutX="774.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/gizahA.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="botCity4" fitHeight="74.0" fitWidth="168.0" layoutX="740.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botCity4" fitHeight="74.0" fitWidth="168.0" layoutX="984.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/ephesosA.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="botCity5" fitHeight="74.0" fitWidth="168.0" layoutX="915.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="botCity5" fitHeight="74.0" fitWidth="168.0" layoutX="1182.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/wonders/babylonA.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="seventhCard" fitHeight="150.0" fitWidth="90.0" layoutX="974.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="seventhCard" fitHeight="150.0" fitWidth="90.0" layoutX="1210.0" layoutY="746.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="250.0">
          <image>
             <Image url="@../../Images/images/cards/theater.png" />
          </image>
       </ImageView>
-      <GridPane fx:id="firstGridPane" layoutX="230.0" layoutY="681.0">
+      <GridPane fx:id="firstGridPane" layoutX="230.0" layoutY="681.0" AnchorPane.bottomAnchor="420.0" AnchorPane.rightAnchor="1140.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
             <ColumnConstraints minWidth="10.0" />
@@ -126,10 +135,19 @@
                </font></Button>
          </children>
       </GridPane>
-      <Label layoutX="42.0" layoutY="276.0" text="AD = Add WOnder" />
-      <Label layoutX="44.0" layoutY="304.0" text="DC:Discard Card" />
-      <Label layoutX="42.0" layoutY="333.0" text="PT : Put ON Table" />
-      <GridPane fx:id="secondGridPane" layoutX="370.0" layoutY="681.0">
+      <Label layoutX="15.0" layoutY="443.0" text="BW = Build Wonder">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Label layoutX="14.0" layoutY="470.0" text="DC = Discard Card">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Label layoutX="16.0" layoutY="497.0" text="TK = Take Card">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <GridPane fx:id="secondGridPane" layoutX="370.0" layoutY="681.0" AnchorPane.bottomAnchor="420.0" AnchorPane.rightAnchor="990.0">
          <children>
             <Button fx:id="aw2" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder2" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP">
                <font>
@@ -153,7 +171,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <GridPane fx:id="thirdGridPane" layoutX="490.0" layoutY="681.0">
+      <GridPane fx:id="thirdGridPane" layoutX="490.0" layoutY="681.0" AnchorPane.bottomAnchor="420.0" AnchorPane.rightAnchor="838.0">
          <children>
             <Button fx:id="aw3" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder3" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP">
                <font>
@@ -177,7 +195,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <GridPane layoutX="610.0" layoutY="681.0">
+      <GridPane layoutX="610.0" layoutY="681.0" AnchorPane.bottomAnchor="420.0" AnchorPane.rightAnchor="688.0">
          <children>
             <Button fx:id="aw4" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder4" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP">
                <font>
@@ -201,7 +219,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <GridPane layoutX="735.0" layoutY="681.0">
+      <GridPane layoutX="735.0" layoutY="681.0" AnchorPane.bottomAnchor="420.0" AnchorPane.rightAnchor="538.0">
          <children>
             <Button fx:id="aw5" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder5" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP">
                <font>
@@ -225,7 +243,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <GridPane layoutX="855.0" layoutY="681.0">
+      <GridPane layoutX="855.0" layoutY="681.0" AnchorPane.bottomAnchor="420.0" AnchorPane.rightAnchor="388.0">
          <children>
             <Button fx:id="aw6" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder6" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP">
                <font>
@@ -249,7 +267,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <GridPane layoutX="975.0" layoutY="681.0">
+      <GridPane layoutX="975.0" layoutY="681.0" AnchorPane.bottomAnchor="420.0" AnchorPane.rightAnchor="225.0">
          <children>
             <Button fx:id="aw7" ellipsisString="" layoutX="309.0" layoutY="400.0" mnemonicParsing="false" onAction="#addWonder7" prefHeight="20.0" prefWidth="40.0" text="AW" textOverrun="CLIP">
                <font>
@@ -273,81 +291,129 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Label fx:id="cards1" layoutX="96.0" layoutY="104.0" text="Cards" />
-      <Label fx:id="cards2" layoutX="272.0" layoutY="103.0" text="Cards" />
-      <Label fx:id="cards3" layoutX="451.0" layoutY="101.0" text="Cards" />
-      <Label fx:id="cards4" layoutX="627.0" layoutY="101.0" text="Cards" />
-      <Label fx:id="cards5" layoutX="803.0" layoutY="99.0" text="Cards" />
-      <Label fx:id="cards6" layoutX="979.0" layoutY="98.0" text="Cards" />
-      <Button fx:id="startWarButton" layoutX="144.0" layoutY="682.0" mnemonicParsing="false" onMouseClicked="#startWarButtonClicked" text="Start War" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="144.0">
+      <Label fx:id="cards1" layoutX="264.0" layoutY="284.0" text="Cards">
          <font>
-            <Font name="Avenir Next Condensed Regular" size="14.0" />
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Label fx:id="cards2" layoutX="432.0" layoutY="284.0" text="Cards">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Label fx:id="cards3" layoutX="635.0" layoutY="284.0" text="Cards">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Label fx:id="cards4" layoutX="822.0" layoutY="279.0" text="Cards">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Label fx:id="cards5" layoutX="1032.0" layoutY="280.0" text="Cards">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Label fx:id="cards6" layoutX="1248.0" layoutY="280.0" text="Cards">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Button fx:id="startWarButton" layoutX="144.0" layoutY="682.0" mnemonicParsing="false" onMouseClicked="#startWarButtonClicked" prefHeight="60.0" prefWidth="300.0" text="Start War" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="170.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="24.0" />
          </font>
       </Button>
-      <Label fx:id="coinLabel" layoutX="37.0" layoutY="679.0" text="coin" />
-      <Label fx:id="warLabel" layoutX="98.0" layoutY="679.0" text="War" />
-      <Label layoutX="50.0" layoutY="447.0" text="Score" />
-      <Label fx:id="scoreLabel" layoutX="51.0" layoutY="475.0" text="scoreL" />
-      <Label fx:id="cardInfo" layoutX="502.0" layoutY="467.0" text="Cards Information" />
-      <ImageView fx:id="cardImage11" fitHeight="91.0" fitWidth="52.0" layoutX="97.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="coinLabel" layoutX="37.0" layoutY="679.0" prefWidth="80.0" text="Coin: " AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="510.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Label fx:id="warLabel" layoutX="98.0" layoutY="679.0" prefWidth="100.0" text="War Points: " AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="650.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Label layoutX="50.0" layoutY="447.0" prefHeight="27.0" prefWidth="100.0" text="Your Score:" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="50.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Label fx:id="scoreLabel" layoutX="51.0" layoutY="475.0" text="scoreL" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="52.0">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <Label fx:id="cardInfo" layoutX="740.0" layoutY="658.0" text="Cards Information">
+         <font>
+            <Font name="Avenir Next Condensed Regular" size="18.0" />
+         </font></Label>
+      <ImageView fx:id="cardImage11" fitHeight="91.0" fitWidth="52.0" layoutX="246.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/workshop.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cardImage12" fitHeight="91.0" fitWidth="52.0" layoutX="107.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cardImage12" fitHeight="91.0" fitWidth="52.0" layoutX="268.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/westtradingpost.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cardImage21" fitHeight="91.0" fitWidth="52.0" layoutX="232.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cardImage21" fitHeight="91.0" fitWidth="52.0" layoutX="424.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/westtradingpost.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cardImage22" fitHeight="91.0" fitWidth="52.0" layoutX="248.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cardImage22" fitHeight="91.0" fitWidth="52.0" layoutX="450.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/workshop.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cardImage31" fitHeight="91.0" fitWidth="52.0" layoutX="422.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cardImage31" fitHeight="91.0" fitWidth="52.0" layoutX="619.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/workshop.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cardImage32" fitHeight="91.0" fitWidth="52.0" layoutX="441.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cardImage32" fitHeight="91.0" fitWidth="52.0" layoutX="644.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/westtradingpost.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cardImage41" fitHeight="91.0" fitWidth="52.0" layoutX="600.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cardImage41" fitHeight="91.0" fitWidth="52.0" layoutX="806.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/westtradingpost.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cardImage51" fitHeight="91.0" fitWidth="52.0" layoutX="781.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cardImage51" fitHeight="91.0" fitWidth="52.0" layoutX="1024.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/westtradingpost.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cardImage61" fitHeight="91.0" fitWidth="52.0" layoutX="944.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cardImage61" fitHeight="91.0" fitWidth="52.0" layoutX="1240.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/westtradingpost.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cardImage42" fitHeight="91.0" fitWidth="52.0" layoutX="618.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cardImage42" fitHeight="91.0" fitWidth="52.0" layoutX="832.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/workshop.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cardImage52" fitHeight="91.0" fitWidth="52.0" layoutX="799.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cardImage52" fitHeight="91.0" fitWidth="52.0" layoutX="1050.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/workshop.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cardImage62" fitHeight="91.0" fitWidth="52.0" layoutX="964.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cardImage62" fitHeight="91.0" fitWidth="52.0" layoutX="1264.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/images/cards/workshop.png" />
          </image>
       </ImageView>
+      <GridPane fx:id="gridOfCards" layoutX="780.0" layoutY="970.0" prefHeight="301.0" prefWidth="703.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
    </children>
 </AnchorPane>

@@ -315,7 +315,7 @@ public class Player {
             cardsOnTable.add(c);
             return "";
         }else{
-            return ("Resources not enough");
+            return ("Resources are not enough");
         }
     }
 
