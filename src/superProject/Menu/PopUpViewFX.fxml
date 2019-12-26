@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
+
+<AnchorPane prefHeight="1080.0" prefWidth="1200.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
    <children>
-      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="19.0" layoutY="18.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="300.0">
          <image>
             <Image url="@../../Images/7wonders.jpg" />
          </image>
       </ImageView>
 
-      <Button fx:id="buttonOkk" layoutX="560.0" layoutY="480.0" mnemonicParsing="false" onAction="#returnToMenuFromPopUp" text="OK" />
-      <Label fx:id="textLabelE" layoutX="488.0" layoutY="300.0" prefHeight="69.0" prefWidth="200.0" text="EFE EROĞLU" textFill="WHITE" textOverrun="CLIP" alignment= "CENTER">
+      <Button fx:id="buttonOkk" layoutX="560.0" layoutY="480.0" mnemonicParsing="false" onAction="#returnToMenuFromPopUp" text="RETURN" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="900.0">
+         <font>
+            <Font name="Avenir Next Condensed Demi Bold" size="13.0" />
+         </font></Button>
+      <Label fx:id="textLabelE" alignment="CENTER" layoutX="488.0" layoutY="300.0" prefHeight="69.0" prefWidth="200.0" text="EFE EROĞLU" textFill="WHITE" textOverrun="CLIP" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="500.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="textLabelA" layoutX="480.0" layoutY="330.0" prefHeight="69.0" prefWidth="220.0" text="ATABERK GÖZKAYA" textFill="WHITE" textOverrun="CLIP" alignment="CENTER" >
+      <Label fx:id="textLabelA" alignment="CENTER" layoutX="480.0" layoutY="330.0" prefHeight="69.0" prefWidth="220.0" text="ATABERK GÖZKAYA" textFill="WHITE" textOverrun="CLIP" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="550.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="textLabelU" layoutX="485.0" layoutY="360.0" prefHeight="69.0" prefWidth="200.0" text="UTKU KALKANLI" textFill="WHITE" textOverrun="CLIP" alignment="CENTER" >
+      <Label fx:id="textLabelU" alignment="CENTER" layoutX="485.0" layoutY="360.0" prefHeight="69.0" prefWidth="200.0" text="UTKU KALKANLI" textFill="WHITE" textOverrun="CLIP" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="600.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="textLabelR" layoutX="485.0" layoutY="390.0" prefHeight="69.0" prefWidth="200.0" text="RABİA NUR ÖNAL" textFill="WHITE" textOverrun="CLIP" alignment="CENTER" >
+      <Label fx:id="textLabelR" alignment="CENTER" layoutX="485.0" layoutY="390.0" prefHeight="69.0" prefWidth="200.0" text="RABİA NUR ÖNAL" textFill="WHITE" textOverrun="CLIP" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="650.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="textLabelG" layoutX="485.0" layoutY="420.0" prefHeight="69.0" prefWidth="200.0" text="GONCA YILMAZ" textFill="WHITE" textOverrun="CLIP" alignment="CENTER" >
+      <Label fx:id="textLabelG" alignment="CENTER" layoutX="485.0" layoutY="420.0" prefHeight="69.0" prefWidth="200.0" text="GONCA YILMAZ" textFill="WHITE" textOverrun="CLIP" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="700.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="24.0" />
          </font>
