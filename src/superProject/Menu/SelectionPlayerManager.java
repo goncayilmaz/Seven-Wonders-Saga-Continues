@@ -81,7 +81,7 @@ public class SelectionPlayerManager implements Initializable {
            // secondController.setChosenCityLabel(getPlayerNumberLabel());
 
             stage = (Stage) nextToSelection.getScene().getWindow();
-            stage.setFullScreen(true);
+           // stage.setFullScreen(true);
             stage.setResizable(true);
             System.out.println("go to city selection");
           //  root=FXMLLoader.load(getClass().getResource("../Menu/CitySelectionViewFX.fxml"));
