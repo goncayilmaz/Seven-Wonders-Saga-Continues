@@ -8,6 +8,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -38,43 +40,26 @@ public class Option  implements Initializable {
     private String languageText;
     private ArrayList<String> languages;
 
-
-    @FXML
-    private Button tutorialButton;
-
-
-    @FXML
-    private Button creditsButton;
-
-    @FXML
-    private Button startButton;
-
-    @FXML
-    private Button quitButton;
-
-    @FXML
-    private Button optionsButton;
-
-    @FXML
-    private CheckBox soundBox;
-
-    @FXML
-    private CheckBox musicBox;
-
-    @FXML
-    private ComboBox<String> languageBox;
-
-    @FXML
-    private Button returnButton;
-
-    @FXML
-    private Button buttonOkk;
-
-    @FXML
-    private Label textLabel;
-
-
-
+    @FXML private Button tutorialButton;
+    @FXML private Button creditsButton;
+    @FXML private Button startButton;
+    @FXML private Button quitButton;
+    @FXML private Button optionsButton;
+    @FXML private CheckBox soundBox;
+    @FXML private CheckBox musicBox;
+    @FXML private ComboBox<String> languageBox;
+    @FXML private Button returnButton;
+    @FXML private Button buttonOkk;
+    @FXML private Button buttonOk;
+    @FXML private Label textLabelE;
+    @FXML private Label textLabelU;
+    @FXML private Label textLabelA;
+    @FXML private Label textLabelG;
+    @FXML private Label textLabelR;
+    //@FXML private Label titleLabel;
+    @FXML private Button buttonNext;
+    @FXML private Button buttonPrev;
+    @FXML private ImageView tutImage;
 
 
     @Override
@@ -86,13 +71,13 @@ public class Option  implements Initializable {
     }
 
 
-    public Label getTextLabel() {
-        return textLabel;
-    }
+    //public Label getTextLabel() {
+        //return textLabel;
+    //}
 
-    public void setTextLabel(Label textLabel) {
-        this.textLabel = textLabel;
-    }
+    //public void setTextLabel(Label textLabel) {
+        //this.textLabel = textLabel;
+    //}
 
     @FXML
     public void musicCheck(MouseEvent event) throws  Exception {
@@ -135,6 +120,27 @@ public class Option  implements Initializable {
 
         try {
             stage = (Stage) buttonOkk.getScene().getWindow();
+            root=FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        }
+        catch (Exception e){
+
+        }
+
+
+    }
+
+    public void returnToMenuFromTutorial(ActionEvent event) throws Exception{
+
+        Stage stage;
+        Parent root;
+
+        try {
+            stage = (Stage) buttonOk.getScene().getWindow();
             root=FXMLLoader.load(getClass().getResource("../Menu/MenuViewFX.fxml"));
 
             Scene scene = new Scene(root);
@@ -194,9 +200,8 @@ public class Option  implements Initializable {
         Parent root;
 
         try {
-
             stage = (Stage) tutorialButton.getScene().getWindow();
-            root=FXMLLoader.load(getClass().getResource("../Menu/PopUpViewFX.fxml"));
+            root=FXMLLoader.load(getClass().getResource("../Menu/TutorialView.fxml"));
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -224,6 +229,22 @@ public class Option  implements Initializable {
 
         }
 
+    }
+
+    public void tutorialImageNext(ActionEvent event){
+        try{
+            tutImage.setImage(new Image("@../../Images/7Wonders-quickrules-2.png" ));
+        }
+        catch (Exception e) {}
+    }
+
+    public void tutorialImagePrev(ActionEvent event){
+        try{
+
+            tutImage.setImage(new Image("@../../Images/7Wonders-quickrules-1.png" ));
+            //tutImage.setImage(tutImage1.getImage());
+        }
+        catch (Exception e) {}
     }
 
     public void quitGame(ActionEvent event){

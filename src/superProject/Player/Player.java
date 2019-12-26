@@ -331,6 +331,7 @@ public class Player {
                 System.out.println("discarding inside method");
                 cards.get(i).setUsed(true);
                 numberOfCoin = numberOfCoin + 3;
+                System.out.println();
                 return;
             }
         }
