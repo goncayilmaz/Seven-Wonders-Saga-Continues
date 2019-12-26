@@ -24,6 +24,9 @@ import superProject.Player.Bot;
 import superProject.Player.PlayerEngine;
 import superProject.War.WarWiew;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -503,6 +506,7 @@ public class GameAreaView implements Initializable {
 
 
     public void putOnTable(int cardIndex) throws Exception{
+      //  setHighScore();
 
 
         System.out.println("card size " + playerEngine.getHumanPlayer().getCards().size());
@@ -783,6 +787,8 @@ public class GameAreaView implements Initializable {
                 }
             }
         });
+
+
     }
 
     public void isAgeFinished() {
@@ -857,6 +863,25 @@ public class GameAreaView implements Initializable {
             });
         }
     }
+
+    /*
+    public void setHighScore()throws  Exception {
+        String str = String.valueOf(playerEngine.getHumanPlayer().getScore());
+        str="10";
+
+        File file = new File("high.txt");
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+
+        FileWriter fileWriter = new FileWriter(file, false);
+        BufferedWriter bWriter = new BufferedWriter(fileWriter);
+        bWriter.write(str);
+        bWriter.close();
+
+    }
+
+     */
 
     public void setRound(int round){
         this.round = round;

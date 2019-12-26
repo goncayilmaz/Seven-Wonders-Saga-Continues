@@ -14,7 +14,9 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.nio.file.Paths;
 
 
@@ -52,9 +54,33 @@ public class Menu extends Application {
         primaryStage.setScene(scene);
         music();
         primaryStage.show();
+      //  openHigh();
+
 
 
     }
+
+    /*
+    public void openHigh() throws Exception{
+
+        File file = new File("high.txt");
+        FileReader fileReader = new FileReader(file);
+        String line;
+
+        BufferedReader br = new BufferedReader(fileReader);
+
+        while ((line = br.readLine()) != null) {
+
+            System.out.println(line);
+
+        }
+
+        br.close();
+
+
+    }
+
+     */
 
     private void startGame(){
 
