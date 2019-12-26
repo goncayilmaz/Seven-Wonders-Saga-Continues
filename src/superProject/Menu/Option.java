@@ -70,6 +70,9 @@ public class Option  implements Initializable {
     @FXML
     private Button buttonOkk;
 
+    @FXML
+    private Label textLabel;
+
 
 
 
@@ -78,6 +81,17 @@ public class Option  implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
+
+
+    }
+
+
+    public Label getTextLabel() {
+        return textLabel;
+    }
+
+    public void setTextLabel(Label textLabel) {
+        this.textLabel = textLabel;
     }
 
     @FXML
@@ -143,6 +157,7 @@ public class Option  implements Initializable {
 
         try {
             stage = (Stage) optionsButton.getScene().getWindow();
+
             root=FXMLLoader.load(getClass().getResource("../Menu/OptionViewFX.fxml"));
 
             Scene scene = new Scene(root);
@@ -179,6 +194,7 @@ public class Option  implements Initializable {
         Parent root;
 
         try {
+
             stage = (Stage) tutorialButton.getScene().getWindow();
             root=FXMLLoader.load(getClass().getResource("../Menu/PopUpViewFX.fxml"));
 

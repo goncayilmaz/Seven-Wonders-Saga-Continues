@@ -44,7 +44,11 @@ public class GameAreaView implements Initializable {
     private ImageView firstCard,secondCard,thirdCard,forthCard,fifthCard,sixthCard,seventhCard;
 
     @FXML
-    private Label ageNumberLabel,coinLabel,warLabel,scoreLabel,cityNameLabel;
+    private ImageView cardImage11,cardImage12,cardImage21,cardImage22,cardImage31,
+            cardImage32,cardImage41,cardImage42,cardImage51,cardImage52,cardImage61,cardImage62;
+
+    @FXML
+    private Label ageNumberLabel,coinLabel,warLabel,scoreLabel,cityNameLabel,cardInfo;
 
     @FXML
     private Label cards1,cards2,cards3,cards4,cards5,cards6;
@@ -68,6 +72,8 @@ public class GameAreaView implements Initializable {
     private ImageView[] cardsOnHandImageView;
     // buna bir de kart listesi eklenmesi gerekiyor.
     private Label[] cardLabelLists;
+
+    private ImageView[] showCardsForBotImageList;
 
     //to start war
     private boolean startWar;
@@ -114,6 +120,7 @@ public class GameAreaView implements Initializable {
         aw_buttons = new Button[7];
         dc_buttons = new Button[7];
         cardLabelLists= new Label[7];
+        showCardsForBotImageList = new  ImageView[12];
 
         cardLabelLists[0]=cards1;
         cardLabelLists[1]=cards2;
@@ -121,6 +128,22 @@ public class GameAreaView implements Initializable {
         cardLabelLists[3]=cards4;
         cardLabelLists[4]=cards5;
         cardLabelLists[5]=cards6;
+
+
+        showCardsForBotImageList[0]=cardImage11;
+        showCardsForBotImageList[1]=cardImage12;
+        showCardsForBotImageList[2]=cardImage21;
+        showCardsForBotImageList[3]=cardImage22;
+        showCardsForBotImageList[4]=cardImage31;
+        showCardsForBotImageList[5]=cardImage32;
+        showCardsForBotImageList[6]=cardImage41;
+        showCardsForBotImageList[7]=cardImage42;
+        showCardsForBotImageList[8]=cardImage51;
+        showCardsForBotImageList[9]=cardImage52;
+        showCardsForBotImageList[10]=cardImage61;
+        showCardsForBotImageList[11]=cardImage62;
+
+
 
 
         pt_buttons[0] = pt1;
@@ -168,6 +191,26 @@ public class GameAreaView implements Initializable {
 
         //GameEngine attributes
         isAgeFinished = false;
+
+           /*
+
+
+        Tooltip tooltip = new Tooltip();
+        tooltip.setMaxWidth(250);
+        tooltip.setWrapText(true);
+        tooltip.setText(deneme);
+        ageNumberLabel.setTooltip(tooltip);
+        cards1.setTooltip(tooltip);
+        cards2.setTooltip(tooltip);
+        cards3.setTooltip(tooltip);
+        cards4.setTooltip(tooltip);
+        cards5.setTooltip(tooltip);
+        cards6.setTooltip(tooltip);
+
+        */
+
+
+
 
     }
 
@@ -301,6 +344,15 @@ public class GameAreaView implements Initializable {
             botCities[i].setVisible(false);
             cardLabelLists[i].setVisible(false);
         }
+
+        // citylerin önünde gözüken  kartların kısım.
+        int count =1;
+        for( int i = noOfPlayers-1  ; i < 6; i++){
+
+            showCardsForBotImageList[12-count].setVisible(false);
+            showCardsForBotImageList[11-count].setVisible(false);
+            count+=2;
+        }
     }
 
     void discardCard(int cardIndex) throws Exception{
@@ -426,11 +478,41 @@ public class GameAreaView implements Initializable {
             alert.showAndWait();
         }
     }
+    /*
+    public void toolTipForBots(){
+        int number=playerEngine.getBots().size();
+        String  cardsOnTable="";
+        for(int i=0;i<number;i++){
+            cardsOnTable=cardsOnTable+ playerEngine.getBots().get(0).getCardsOnTable().get(i);
+        }
+        Tooltip tooltip1 = new Tooltip();
+        tooltip1.setMaxWidth(250);
+        tooltip1.setWrapText(true);
+        tooltip1.setText(cardsOnTable);
+        cards1.setTooltip(tooltip1);
+
+    }
+    
+     */
 
     public void putOnTable(int cardIndex) throws Exception{
+
+
         System.out.println("card size " + playerEngine.getHumanPlayer().getCards().size());
         String message = playerEngine.getHumanPlayer().addCardsToTable(playerEngine.getHumanPlayer().getCards().get(cardIndex));
         if( message.equals("")) {
+            String cardsOnTable="";
+            for(int i=0;i<playerEngine.getHumanPlayer().getCardsOnTable().size();i++){
+                cardsOnTable=cardsOnTable+ playerEngine.getHumanPlayer().getCardsOnTable().get(i);
+            }
+            Tooltip tooltip = new Tooltip();
+            tooltip.setMaxWidth(250);
+            tooltip.setWrapText(true);
+            tooltip.setText(cardsOnTable);
+            cardInfo.setTooltip(tooltip);
+
+
+
             try {
                 Stage stage;
 
@@ -484,6 +566,10 @@ public class GameAreaView implements Initializable {
             alert.setContentText(message);
             alert.showAndWait();
         }
+
+
+
+
     }
 
 

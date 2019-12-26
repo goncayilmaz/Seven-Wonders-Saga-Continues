@@ -15,6 +15,6 @@
 
       <Label fx:id="titleLabell" layoutX="544.0" layoutY="296.0" text="Başlık" textFill="WHITE" />
       <Button fx:id="buttonOkk" layoutX="539.0" layoutY="441.0" mnemonicParsing="false" onAction="#returnToMenuFromPopUp" text="OK" />
-      <Label fx:id="textLabell" layoutX="492.0" layoutY="306.0" prefHeight="69.0" prefWidth="164.0" text="popUp text part there are some text in there" textFill="WHITE" textOverrun="CLIP" />
+      <Label fx:id="textLabel" layoutX="492.0" layoutY="306.0" prefHeight="69.0" prefWidth="164.0" text="popUp text part there are some text in there" textFill="WHITE" textOverrun="CLIP" />
    </children>
 </AnchorPane>
