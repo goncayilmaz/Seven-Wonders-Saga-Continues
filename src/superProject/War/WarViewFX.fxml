@@ -10,41 +10,41 @@
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.War.WarWiew">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#goToXOX_1" text="Go to XOX" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="900.0" AnchorPane.topAnchor="900.0" fx:id="xoxButton1">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#goToXOX_1" text="Go to XOX" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="900.0" AnchorPane.topAnchor="600.0" fx:id="xoxButton1">
          <font>
             <Font name="Avenir Next Condensed Regular" size="24.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" contentDisplay="TOP" layoutX="200.0" layoutY="811.0" prefHeight="101.0" prefWidth="282.0" text="LEFT NEIGHBOUR  vs. YOU" textFill="WHITE" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="811.0">
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="84.0" layoutY="62.0" prefHeight="101.0" prefWidth="282.0" text="LEFT NEIGHBOUR  vs. YOU" textFill="WHITE" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="70.0">
          <font>
             <Font name="Avenir Next Condensed Regular" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="leftResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="183.0" layoutY="303.0" prefHeight="62.0" prefWidth="316.0" text="WAR RES1" textFill="WHITE" AnchorPane.leftAnchor="183.0" AnchorPane.topAnchor="200.0">
+      <Label fx:id="leftResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="156.0" prefHeight="62.0" prefWidth="316.0" text="WAR RES1" textFill="WHITE" AnchorPane.leftAnchor="74.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
          </font>
       </Label>
-      <ImageView fx:id="yourCityImage1" fitHeight="400.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="300.0">
+      <ImageView fx:id="yourCityImage1" fitHeight="199.0" fitWidth="450.0" layoutX="7.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="845.0" AnchorPane.topAnchor="210.0">
          <image>
             <Image url="@../../Images/images/wonders/rhodosA.png" />
          </image></ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="273.0" text="YOU vs. RIGHT NEIGHBOUR" textFill="WHITE" AnchorPane.bottomAnchor="600.0" AnchorPane.rightAnchor="200.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="987.0" layoutY="158.0" prefHeight="43.0" prefWidth="273.0" text="YOU vs. RIGHT NEIGHBOUR" textFill="WHITE" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="70.0">
          <font>
             <Font name="Avenir Next Condensed Regular" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="rightResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="995.0" layoutY="303.0" prefHeight="62.0" prefWidth="243.0" text="WAR RES2" textFill="WHITE" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="200.0">
+      <Label fx:id="rightResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="794.0" layoutY="119.0" prefHeight="62.0" prefWidth="243.0" text="WAR RES2" textFill="WHITE" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToXOX_2" onMouseClicked="#goToXOX_2" text="Go to XOX" visible="false" AnchorPane.leftAnchor="900.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="900.0" fx:id="xoxButton2">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToXOX_2" onMouseClicked="#goToXOX_2" text="Go to XOX" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="900.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="570.0" fx:id="xoxButton2">
          <font>
             <Font name="Avenir Next Condensed Regular" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="returnGameButton" mnemonicParsing="false" onAction="#returnToGameView" prefHeight="43.0" prefWidth="144.0" text="Return to Game" AnchorPane.bottomAnchor="37.0" AnchorPane.rightAnchor="59.0">
+      <Button fx:id="returnGameButton" mnemonicParsing="false" onAction="#returnToGameView" prefHeight="43.0" prefWidth="144.0" text="Return to Game" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="59.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="18.0" />
          </font>
@@ -54,16 +54,16 @@
             <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
          </font>
       </Label>
-      <ImageView fx:id="leftNeighbourImageView" fitHeight="400.0" fitWidth="720.0" layoutY="1030.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="100.0">
+      <ImageView fx:id="leftNeighbourImageView" fitHeight="199.0" fitWidth="450.0" layoutX="148.0" layoutY="531.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="152.0" AnchorPane.leftAnchor="148.0">
          <image>
             <Image url="@../../Images/images/wonders/babylonA.png" />
          </image></ImageView>
-      <ImageView fx:id="yourCityImage2" fitHeight="400.0" fitWidth="720.0" layoutX="720.0" layoutY="1042.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="100.0">
+      <ImageView fx:id="yourCityImage2" fitHeight="199.0" fitWidth="450.0" layoutX="1028.0" layoutY="1042.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="152.0" AnchorPane.rightAnchor="0.0">
          <image>
             <Image url="@../../Images/images/wonders/babylonA.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="rightNeighbourImageView" fitHeight="400.0" fitWidth="720.0" layoutX="720.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="300.0">
+      <ImageView fx:id="rightNeighbourImageView" fitHeight="199.0" fitWidth="450.0" layoutX="720.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="210.0">
          <image>
             <Image url="@../../Images/images/wonders/rhodosA.png" />
          </image>
