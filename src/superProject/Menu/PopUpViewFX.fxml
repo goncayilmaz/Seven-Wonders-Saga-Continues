@@ -5,6 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.Menu.Option">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
@@ -13,8 +14,31 @@
          </image>
       </ImageView>
 
-      <Label fx:id="titleLabell" layoutX="544.0" layoutY="296.0" text="Başlık" textFill="WHITE" />
-      <Button fx:id="buttonOkk" layoutX="539.0" layoutY="441.0" mnemonicParsing="false" onAction="#returnToMenuFromPopUp" text="OK" />
-      <Label fx:id="textLabel" layoutX="492.0" layoutY="306.0" prefHeight="69.0" prefWidth="164.0" text="popUp text part there are some text in there" textFill="WHITE" textOverrun="CLIP" />
+      <Button fx:id="buttonOkk" layoutX="560.0" layoutY="480.0" mnemonicParsing="false" onAction="#returnToMenuFromPopUp" text="OK" />
+      <Label fx:id="textLabelE" layoutX="488.0" layoutY="300.0" prefHeight="69.0" prefWidth="200.0" text="EFE EROĞLU" textFill="WHITE" textOverrun="CLIP" alignment= "CENTER">
+         <font>
+            <Font name="Avenir Next Condensed Demi Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="textLabelA" layoutX="480.0" layoutY="330.0" prefHeight="69.0" prefWidth="220.0" text="ATABERK GÖZKAYA" textFill="WHITE" textOverrun="CLIP" alignment="CENTER" >
+         <font>
+            <Font name="Avenir Next Condensed Demi Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="textLabelU" layoutX="485.0" layoutY="360.0" prefHeight="69.0" prefWidth="200.0" text="UTKU KALKANLI" textFill="WHITE" textOverrun="CLIP" alignment="CENTER" >
+         <font>
+            <Font name="Avenir Next Condensed Demi Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="textLabelR" layoutX="485.0" layoutY="390.0" prefHeight="69.0" prefWidth="200.0" text="RABİA NUR ÖNAL" textFill="WHITE" textOverrun="CLIP" alignment="CENTER" >
+         <font>
+            <Font name="Avenir Next Condensed Demi Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="textLabelG" layoutX="485.0" layoutY="420.0" prefHeight="69.0" prefWidth="200.0" text="GONCA YILMAZ" textFill="WHITE" textOverrun="CLIP" alignment="CENTER" >
+         <font>
+            <Font name="Avenir Next Condensed Demi Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
