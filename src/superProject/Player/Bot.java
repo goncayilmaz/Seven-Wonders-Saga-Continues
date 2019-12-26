@@ -13,6 +13,7 @@ public class Bot extends Player{
     private int warPoints; // war points
     private int boardNum; // for connecting with board city
     private int score;
+    private Card lastCardPlayed;
 
 
 
@@ -21,18 +22,21 @@ public class Bot extends Player{
         super();
         this.id = 0;
         this.name = "Bot " + (id + 1); //if not set, then it is a Bot and it has only number
+        lastCardPlayed = new Card();
     }
 
     public Bot(int id) {
         super();
         this.id = id;
         this.name = "Bot " + (this.id + 1); //if not set, then it is a Bot and it has only number
+        lastCardPlayed = new Card();
     }
 
     public Bot(int id, City city) {
         super(id,city);
         this.id = id;
         this.name = "Bot " + (id + 1); //if not set, then it is a Bot and it has only number
+        lastCardPlayed = new Card();
         System.out.println("Bot constructor with City parameter");
     }
     /*
@@ -123,7 +127,7 @@ public class Bot extends Player{
     */
 
 
-    public Card doAction(int ageNumber, ArrayList<Player> players){
+    public int doAction(int ageNumber, ArrayList<Player> players){
         // if can build wonder, build wonder
 //        if(super.getCity().construct(super.getCity(),this)){
 //            super.getCity().increaseLevel(this);
@@ -140,31 +144,256 @@ public class Bot extends Player{
     public void buildWonder(int ageNumber, ArrayList<Player> players){
         // TODO
     }
+    // -1 başarısız, 0 kart alma, 1 discard etme, 2 wonder yapma
 
-    private Card takeCard(int ageNumber, ArrayList<Player> players){
+    private int takeCard(int ageNumber, ArrayList<Player> players){
+        Card cardToTake = new Card();
+        City city = super.getCity();
+        ArrayList<Card> cardOnHand = super.getCards();
+        ArrayList<Card> cardOnTable = super.getCardsOnTable();
+
+        if(ageNumber == 1){
+            // IF CARD IS FREE AND WONDER MATERIAL, TAKE IT
+            for(int i = 0; i < cardOnHand.size(); i++){
+                ArrayList<Material> reqs = cardOnHand.get(i).getRequirements();
+                for(int j = 0; j < reqs.size(); j++) {
+                    if (reqs.get(j).getName().equals("none")) {
+                        ArrayList<Material> earnings = cardOnHand.get(i).getEarnings();
+                        for (int k = 0; k < earnings.size(); k++) {
+                            if (city.isWonderConstructMaterialForCity(earnings.get(k))) {
+                                lastCardPlayed = new Card(cardOnHand.get(i));
+                                if(addCardsToTable(cardOnHand.get(i)).equals("")){
+                                    return 1;
+                                }
+                                else{
+                                    System.out.println("Inside free wonder material but card could not added ");
+                                    return -1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // NO FREE AND WONDER MATERIAL CARD, TAKE POSSİBLE MILITARY
+            for(int i = 0; i < cardOnHand.size(); i++){
+                for(int j = 0; j < cardOnHand.get(i).getEarnings().size(); j++){
+                    if(cardOnHand.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cardOnHand.get(i))){
+                        System.out.println("taking military card");
+                        //cards.get(i).print();
+                        super.addCardsToTable(cardOnHand.get(i));
+                        lastCardPlayed = new Card(cardOnHand.get(i));
+                        return 0;
+                    }
+                }
+            }
+            // NO FREE AND WONDER MATERIAL CARD, TAKE POSSİBLE CIVILIAN
+            for(int i = 0; i < cardOnHand.size(); i++){
+                for(int j = 0; j < cardOnHand.get(i).getEarnings().size(); j++){
+                    if(cardOnHand.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cardOnHand.get(i))){
+                        System.out.println("taking civilian card");
+                        //cards.get(i).print();
+                        super.addCardsToTable(cardOnHand.get(i));
+                        lastCardPlayed = new Card(cardOnHand.get(i));
+                        return 0;
+                    }
+                }
+            }
+            // NO FREE AND WONDER MATERIAL CARD, TAKE POSSIBLE SCIENCE
+            for(int i = 0; i < cardOnHand.size(); i++){
+                for(int j = 0; j < cardOnHand.get(i).getEarnings().size(); j++){
+                    if((cardOnHand.get(i).getEarnings().get(j).getName().equals("ScienceRuler") || cardOnHand.get(i).getEarnings().get(j).getName().equals("ScienceWheel") || cardOnHand.get(i).getEarnings().get(j).getName().equals("ScienceStone")) && verifySufficientResources(cardOnHand.get(i))){
+                        System.out.println("taking science card");
+                        super.addCardsToTable(cardOnHand.get(i));
+                        lastCardPlayed = new Card(cardOnHand.get(i));
+                        return 0;
+                    }
+                }
+            }
+            // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
+            for (int i = 0; i < cardOnHand.size(); i++) {
+                if (verifySufficientResources(cardOnHand.get(i))) {
+                    System.out.println("taking first available card");
+                    cardOnHand.get(i).print();
+                    super.addCardsToTable(cardOnHand.get(i));
+                    lastCardPlayed = new Card(cardOnHand.get(i));
+                    return 0;
+                }
+            }
+            // NO AVAILABLE CARD, DISCARD
+            System.out.println("DISCARDING CARD");
+            super.disjointCard(cardOnHand.get(0));
+            lastCardPlayed = new Card(cardOnHand.get(0));
+            return 1;
+
+        }
+        else if(ageNumber == 2){
+            // IF CARD IS FREE AND WONDER MATERIAL, TAKE IT
+            for(int i = 0; i < cardOnHand.size(); i++){
+                ArrayList<Material> reqs = cardOnHand.get(i).getRequirements();
+                for(int j = 0; j < reqs.size(); j++) {
+                    if (reqs.get(j).getName().equals("none")) {
+                        ArrayList<Material> earnings = cardOnHand.get(i).getEarnings();
+                        for (int k = 0; k < earnings.size(); k++) {
+                            if (city.isWonderConstructMaterialForCity(earnings.get(k))) {
+                                lastCardPlayed = new Card(cardOnHand.get(i));
+                                if(addCardsToTable(cardOnHand.get(i)).equals("")){
+                                    return 1;
+                                }
+                                else{
+                                    System.out.println("Inside free wonder material but card could not added ");
+                                    return -1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // NO FREE AND WONDER MATERIAL CARD, TAKE POSSİBLE MILITARY
+            for(int i = 0; i < cardOnHand.size(); i++){
+                for(int j = 0; j < cardOnHand.get(i).getEarnings().size(); j++){
+                    if(cardOnHand.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cardOnHand.get(i))){
+                        System.out.println("taking military card");
+                        //cards.get(i).print();
+                        super.addCardsToTable(cardOnHand.get(i));
+                        lastCardPlayed = new Card(cardOnHand.get(i));
+                        return 0;
+                    }
+                }
+            }
+            // NO FREE AND WONDER MATERIAL CARD, TAKE POSSİBLE CIVILIAN
+            for(int i = 0; i < cardOnHand.size(); i++){
+                for(int j = 0; j < cardOnHand.get(i).getEarnings().size(); j++){
+                    if(cardOnHand.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cardOnHand.get(i))){
+                        System.out.println("taking civilian card");
+                        //cards.get(i).print();
+                        super.addCardsToTable(cardOnHand.get(i));
+                        lastCardPlayed = new Card(cardOnHand.get(i));
+                        return 0;
+                    }
+                }
+            }
+            // NO FREE AND WONDER MATERIAL CARD, TAKE POSSIBLE SCIENCE
+            for(int i = 0; i < cardOnHand.size(); i++){
+                for(int j = 0; j < cardOnHand.get(i).getEarnings().size(); j++){
+                    if((cardOnHand.get(i).getEarnings().get(j).getName().equals("ScienceRuler") || cardOnHand.get(i).getEarnings().get(j).getName().equals("ScienceWheel") || cardOnHand.get(i).getEarnings().get(j).getName().equals("ScienceStone")) && verifySufficientResources(cardOnHand.get(i))){
+                        System.out.println("taking science card");
+                        super.addCardsToTable(cardOnHand.get(i));
+                        lastCardPlayed = new Card(cardOnHand.get(i));
+                        return 0;
+                    }
+                }
+            }
+            // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
+            for (int i = 0; i < cardOnHand.size(); i++) {
+                if (verifySufficientResources(cardOnHand.get(i))) {
+                    System.out.println("taking first available card");
+                    cardOnHand.get(i).print();
+                    super.addCardsToTable(cardOnHand.get(i));
+                    lastCardPlayed = new Card(cardOnHand.get(i));
+                    return 0;
+                }
+            }
+            // NO AVAILABLE CARD, DISCARD
+            System.out.println("DISCARDING CARD");
+            super.disjointCard(cardOnHand.get(0));
+            lastCardPlayed = new Card(cardOnHand.get(0));
+            return 1;
+
+        }
+        else  if(ageNumber == 3){
+            // TAKE POSSIBLE PURPLE CARD
+            for (int i = 0; i < cardOnHand.size(); i++) {
+                // TAKE THE POSSIBLE PURPLE CARD
+                if ((cardOnHand.get(i).getId() == 51 && verifySufficientResources(cardOnHand.get(i))) || (cardOnHand.get(i).getId() == 52 && verifySufficientResources(cardOnHand.get(i))) ||
+                        (cardOnHand.get(i).getId() == 53 && verifySufficientResources(cardOnHand.get(i))) || (cardOnHand.get(i).getId() == 54 && verifySufficientResources(cardOnHand.get(i)))
+                        || (cardOnHand.get(i).getId() == 55 && verifySufficientResources(cardOnHand.get(i))) || (cardOnHand.get(i).getId() == 56 && verifySufficientResources(cardOnHand.get(i)))
+                        || (cardOnHand.get(i).getId() == 57 && verifySufficientResources(cardOnHand.get(i))) || (cardOnHand.get(i).getId() == 58 && verifySufficientResources(cardOnHand.get(i)))
+                        || (cardOnHand.get(i).getId() == 59 && verifySufficientResources(cardOnHand.get(i)))
+                        || (cardOnHand.get(i).getId() == 60 && verifySufficientResources(cardOnHand.get(i)))) {
+                    super.addCardsToTable(cardOnHand.get(i));
+                    cardOnHand.get(i).setUsed(true);
+                    lastCardPlayed = new Card(cardOnHand.get(i));
+                    return 0;
+                }
+            }
+            // NO FREE AND WONDER MATERIAL CARD, TAKE POSSİBLE MILITARY
+            for(int i = 0; i < cardOnHand.size(); i++){
+                for(int j = 0; j < cardOnHand.get(i).getEarnings().size(); j++){
+                    if(cardOnHand.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cardOnHand.get(i))){
+                        System.out.println("taking military card");
+                        //cards.get(i).print();
+                        super.addCardsToTable(cardOnHand.get(i));
+                        lastCardPlayed = new Card(cardOnHand.get(i));
+                        return 0;
+                    }
+                }
+            }
+            // NO FREE AND WONDER MATERIAL CARD, TAKE POSSİBLE CIVILIAN
+            for(int i = 0; i < cardOnHand.size(); i++){
+                for(int j = 0; j < cardOnHand.get(i).getEarnings().size(); j++){
+                    if(cardOnHand.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cardOnHand.get(i))){
+                        System.out.println("taking civilian card");
+                        //cards.get(i).print();
+                        super.addCardsToTable(cardOnHand.get(i));
+                        lastCardPlayed = new Card(cardOnHand.get(i));
+                        return 0;
+                    }
+                }
+            }
+            // NO FREE AND WONDER MATERIAL CARD, TAKE POSSIBLE SCIENCE
+            for(int i = 0; i < cardOnHand.size(); i++){
+                for(int j = 0; j < cardOnHand.get(i).getEarnings().size(); j++){
+                    if((cardOnHand.get(i).getEarnings().get(j).getName().equals("ScienceRuler") || cardOnHand.get(i).getEarnings().get(j).getName().equals("ScienceWheel") || cardOnHand.get(i).getEarnings().get(j).getName().equals("ScienceStone")) && verifySufficientResources(cardOnHand.get(i))){
+                        System.out.println("taking science card");
+                        super.addCardsToTable(cardOnHand.get(i));
+                        lastCardPlayed = new Card(cardOnHand.get(i));
+                        return 0;
+                    }
+                }
+            }
+            // NONE OF THEM HAPPENED TAKE THE FIRST AVAILABLE CARD
+            for (int i = 0; i < cardOnHand.size(); i++) {
+                if (verifySufficientResources(cardOnHand.get(i))) {
+                    System.out.println("taking first available card");
+                    cardOnHand.get(i).print();
+                    super.addCardsToTable(cardOnHand.get(i));
+                    lastCardPlayed = new Card(cardOnHand.get(i));
+                    return 0;
+                }
+            }
+            // NO AVAILABLE CARD, DISCARD
+            System.out.println("DISCARDING CARD");
+            super.disjointCard(cardOnHand.get(0));
+            lastCardPlayed = new Card(cardOnHand.get(0));
+            return 1;
+
+        }else {
+            System.out.println("Age number not valid");
+            return -1;
+        }
+    }
+    /**
+    private int takeCard(int ageNumber, ArrayList<Player> players){
         ArrayList<Card> cards = super.getCards();
         ArrayList<Card> cardsOnTable = super.getCardsOnTable();
         City city = super.getCity();
         // TAKE CARD
         if(cards.size() == 0){
             System.out.println("no cards on hand ");
-            return null;
+            return -1;
         }
         else {
-            System.out.println("boo ");
             if (ageNumber == 1) {
-                System.out.println("boo 2");
                 for (int i = 0; i < cards.size(); i++) {
-                    System.out.println("boo 3 ");
                     // IF CARD IS FREE, CONSIDER TAKING IT
                     if(cards.get(i).getRequirements().get(0).getName().equals("none")) {
                         // IF IT HAS SAME MATERIAL WITH WONDER
                         for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
-                            if(cards.get(i).getEarnings().get(j).isWonderConstructorMaterial()) {
-                                //addCardsToTable(cards.get(i));
+                            if(city.isWonderConstructMaterialForCity(cards.get(i).getEarnings().get(j))) {
                                 super.addCardsToTable(cards.get(i));
                                 cards.get(i).setUsed(true);
-                                return cards.get(i);
+                                lastCardPlayed = new Card(cards.get(i));
+                                return 0;
                             }
                         }
                     }
@@ -174,10 +403,11 @@ public class Bot extends Player{
                         for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
                             if(cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))) {
                                 System.out.println("taking military card");
-                                cards.get(i).print();
+                                //cards.get(i).print();
                                 super.addCardsToTable(cards.get(i));
                                 cards.get(i).setUsed(true);
-                                return cards.get(i);
+                                lastCardPlayed = new Card(cards.get(i));
+                                return 0;
                             }
                         }
                         // TAKE POSSIBLE CIVILIAN
@@ -187,7 +417,8 @@ public class Bot extends Player{
                                 cards.get(i).print();
                                 super.addCardsToTable(cards.get(i));
                                 cards.get(i).setUsed(true);
-                                return cards.get(i);
+                                lastCardPlayed = new Card(cards.get(i));
+                                return 0;
                             }
                         }
                         // TAKE POSSIBLE SCIENCE
@@ -199,7 +430,8 @@ public class Bot extends Player{
                                 cards.get(i).print();
                                 super.addCardsToTable(cards.get(i));
                                 cards.get(i).setUsed(true);
-                                return cards.get(i);
+                                lastCardPlayed = new Card(cards.get(i));
+                                return 0;
                             }
                         }
                     }
@@ -211,24 +443,27 @@ public class Bot extends Player{
                         cards.get(i).print();
                         super.addCardsToTable(cards.get(i));
                         cards.get(i).setUsed(true);
-                        return cards.get(i);
+                        lastCardPlayed = new Card(cards.get(i));
+                        return 0;
                     }
                 }
 
                 // NO CARD AVAILABLE DISCARD FIRST CARD
                 System.out.println("DISCARDING CARD");
                 super.disjointCard(cards.get(0));
-                return cards.get(0);
+                lastCardPlayed = new Card(cards.get(0));
+                return 1;
             } else if (ageNumber == 2) {
                 for (int i = 0; i < cards.size(); i++) {
                     // IF CARD IS FREE, CONSIDER TAKING IT
                     // IF IT HAS SAME MATERIAL WITH WONDER
                     if (cards.get(i).getRequirements().get(0).getName().equals("none")) {
                         for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
-                            if (cards.get(i).getEarnings().get(j).isWonderConstructorMaterial()) {
+                            if (city.isWonderConstructMaterialForCity(cards.get(i).getEarnings().get(j))) {
                                 super.addCardsToTable(cards.get(i));
                                 cards.get(i).setUsed(true);
-                                return cards.get(i);
+                                lastCardPlayed = new Card(cards.get(i));
+                                return 0;
                             }
                         }
                     }
@@ -239,7 +474,8 @@ public class Bot extends Player{
                             if (cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))) {
                                 super.addCardsToTable(cards.get(i));
                                 cards.get(i).setUsed(true);
-                                return cards.get(i);
+                                lastCardPlayed = new Card(cards.get(i));
+                                return 0;
                             }
                         }
                         // TAKE POSSIBLE CIVILIAN
@@ -247,7 +483,8 @@ public class Bot extends Player{
                             if (cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))) {
                                 super.addCardsToTable(cards.get(i));
                                 cards.get(i).setUsed(true);
-                                return cards.get(i);
+                                lastCardPlayed = new Card(cards.get(i));
+                                return 0;
                             }
                         }
                         // TAKE POSSIBLE SCIENCE
@@ -257,7 +494,8 @@ public class Bot extends Player{
                                     cards.get(i).getEarnings().get(j).getName().equals("ScienceStone")) && verifySufficientResources(cards.get(i))) {
                                 super.addCardsToTable(cards.get(i));
                                 cards.get(i).setUsed(true);
-                                return cards.get(i);
+                                lastCardPlayed = new Card(cards.get(i));
+                                return 0;
                             }
                         }
                     }
@@ -267,14 +505,16 @@ public class Bot extends Player{
                     if (verifySufficientResources(cards.get(i))) {
                         super.addCardsToTable(cards.get(i));
                         cards.get(i).setUsed(true);
-                        return cards.get(i);
+                        lastCardPlayed = new Card(cards.get(i));
+                        return 0;
                     }
                 }
 
                 // NO CARD AVAILABLE DISCARD FIRST CARD
                 System.out.println("DISCARDING CARD");
                 super.disjointCard(cards.get(0));
-                return cards.get(0);
+                lastCardPlayed = new Card(cards.get(0));
+                return 1;
             } else if (ageNumber == 3) {
                 for (int i = 0; i < cards.size(); i++) {
                     // TAKE THE POSSIBLE PURPLE CARD
@@ -286,14 +526,16 @@ public class Bot extends Player{
                             || (cards.get(i).getId() == 60 && verifySufficientResources(cards.get(i)))) {
                         super.addCardsToTable(cards.get(i));
                         cards.get(i).setUsed(true);
-                        return cards.get(i);
+                        lastCardPlayed = new Card(cards.get(i));
+                        return 0;
                     }
                     // TAKE POSSİBLE MILITARY
                     for (int j = 0; j < cards.get(i).getEarnings().size(); j++) {
                         if (cards.get(i).getEarnings().get(j).getName().equals("Military") && verifySufficientResources(cards.get(i))) {
                             super.addCardsToTable(cards.get(i));
                             cards.get(i).setUsed(true);
-                            return cards.get(i);
+                            lastCardPlayed = new Card(cards.get(i));
+                            return 0;
                         }
                     }
                     // TAKE POSSIBLE CIVILIAN
@@ -301,7 +543,8 @@ public class Bot extends Player{
                         if (cards.get(i).getEarnings().get(j).getName().equals("Civilian") && verifySufficientResources(cards.get(i))) {
                             super.addCardsToTable(cards.get(i));
                             cards.get(i).setUsed(true);
-                            return cards.get(i);
+                            lastCardPlayed = new Card(cards.get(i));
+                            return 0;
                         }
                     }
                     // TAKE POSSIBLE SCIENCE
@@ -311,7 +554,8 @@ public class Bot extends Player{
                                 (cards.get(i).getEarnings().get(j).getName().equals("ScienceStone") && verifySufficientResources(cards.get(i))))) {
                             super.addCardsToTable(cards.get(i));
                             cards.get(i).setUsed(true);
-                            return cards.get(i);
+                            lastCardPlayed = new Card(cards.get(i));
+                            return 0;
                         }
                     }
                 }
@@ -320,20 +564,22 @@ public class Bot extends Player{
                     if (verifySufficientResources(cards.get(i))) {
                         super.addCardsToTable(cards.get(i));
                         cards.get(i).setUsed(true);
-                        return cards.get(i);
+                        lastCardPlayed = new Card(cards.get(i));
+                        return 0;
                     }
                 }
                 // NO CARD AVAILABLE DISCARD FIRST CARD
                 System.out.println("DISCARDING CARD");
                 super.disjointCard(cards.get(0));
-                return cards.get(0);
+                lastCardPlayed = new Card(cards.get(0));
+                return 1;
             } else {
                 System.out.println("AGE 4 ?");
-                return null;
+                return -1;
                 // do nothing.
             }
         }
-    }
+    }*/
 
     @Override
     public void print(){

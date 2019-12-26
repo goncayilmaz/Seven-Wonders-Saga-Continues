@@ -28,6 +28,7 @@ public class Card {
         this.ageNumber = ageNumber;
         this.orSituation = false;
         this.specialFunctionName = "none";
+        this.used = false;
     }
 
     public Card(String name, ArrayList<Material> requirements, ArrayList<Material> earnings, int Id, int nextCardId, String color, String photoName, int ageNumber, boolean orSituation) {
@@ -41,6 +42,7 @@ public class Card {
         this.ageNumber = ageNumber;
         this.orSituation = orSituation;
         this.specialFunctionName = "none";
+        this.used = false;
     }
     public Card(String name, ArrayList<Material> requirements, ArrayList<Material> earnings, int Id, int nextCardId, String color, String photoName, int ageNumber, String specialFunctionName) {
         this.name = name;
@@ -53,6 +55,7 @@ public class Card {
         this.ageNumber = ageNumber;
         this.orSituation = false;
         this.specialFunctionName = specialFunctionName;
+        this.used = false;
     }
     public Card(String name, ArrayList<Material> requirements, ArrayList<Material> earnings, int Id, int nextCardId, String color, String photoName, int ageNumber, boolean orSituation, String specialFunctionName) {
         this.name = name;
@@ -65,6 +68,35 @@ public class Card {
         this.ageNumber = ageNumber;
         this.orSituation = orSituation;
         this.specialFunctionName = specialFunctionName;
+        this.used = false;
+    }
+
+    public Card(Card c){
+        this.name = c.name;
+        this.requirements = c.requirements;
+        this.earnings = c.earnings;
+        this.Id = c.Id;
+        this.nextCardId = c.nextCardId;
+        this.color = c.color;
+        this.photoName = c.photoName;
+        this.ageNumber = c.ageNumber;
+        this.orSituation = c.orSituation;
+        this.specialFunctionName = c.specialFunctionName;
+        this.used = c.used;
+    }
+
+    public Card() {
+        this.name = "";
+        this.requirements = new ArrayList<Material>();
+        this.earnings = new ArrayList<Material>();
+        this.Id = -1;
+        this.nextCardId = -1;
+        this.color = "";
+        this.photoName = "";
+        this.ageNumber = -1;
+        this.orSituation = false;
+        this.specialFunctionName = "";
+        this.used = false;
     }
 
 

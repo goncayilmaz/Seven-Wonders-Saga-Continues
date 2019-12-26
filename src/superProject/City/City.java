@@ -491,22 +491,22 @@ public class City {
     }
 
 
-    public boolean isWonderConstructMaterial(Material material){
+    public boolean isWonderConstructMaterialForCity(Material material){
         if (boardLevel == 0) {
-            for(int i = 0; i < cardSpecsForLevel1.size(); i++){
-                if(cardSpecsForLevel1.get(i).getName().equals(material.getName()))
+            for(int i = 0; i < cardReqs1.size(); i++){
+                if(cardReqs1.get(i).getName().equals(material.getName()))
                     return true;
             }
         }
         else if(boardLevel == 1){
-            for(int i = 0; i < cardSpecsForLevel2.size(); i++){
-                if(cardSpecsForLevel2.get(i).getName().equals(material.getName()))
+            for(int i = 0; i < cardReqs2.size(); i++){
+                if(cardReqs2.get(i).getName().equals(material.getName()))
                     return true;
             }
         }
         else if(boardLevel == 2){
-            for(int i = 0; i < cardSpecsForLevel3.size(); i++){
-                if(cardSpecsForLevel3.get(i).getName().equals(material.getName()))
+            for(int i = 0; i < cardReqs3.size(); i++){
+                if(cardReqs3.get(i).getName().equals(material.getName()))
                     return true;
             }
         }
