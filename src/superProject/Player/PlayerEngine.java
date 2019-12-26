@@ -140,7 +140,7 @@ public class PlayerEngine extends Application {
 
     public void disjointCard(Player player,int cardNum){
 
-        player.getCards().remove(player.getCards().get(cardNum));
+        //player.getCards().remove(player.getCards().get(cardNum));
 
 
     }

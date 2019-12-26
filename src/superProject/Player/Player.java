@@ -112,8 +112,9 @@ public class Player {
             else if(resources.get(i).getName() == "Papyrus"){
                 numberOfPapyrus += resources.get(i).getCount();
             }
-            else if(resources.get(i).getName() == "Military"){
+            else if(resources.get(i).getName().equals("Military")){
                 numberOfMilitary += resources.get(i).getCount();
+                warPoints = numberOfMilitary;
             }
             else if(resources.get(i).getName() == "Civilian"){
                 numberOfCivilian += resources.get(i).getCount();
@@ -127,11 +128,8 @@ public class Player {
             else if(resources.get(i).getName() == "ScienceStone"){
                 numberOfScienceStone += resources.get(i).getCount();
             }
-            else if(resources.get(i).getName() == "ScienceWheel"){
+            else if(resources.get(i).getName() == "ScienceWheel") {
                 numberOfScienceWheel += resources.get(i).getCount();
-            }
-            else{
-                // do nothing.
             }
         }
         return resources;
@@ -330,7 +328,8 @@ public class Player {
         for(int i = 0; i < cards.size(); i++){
             if(cards.get(i).getName().equals(c.getName())){
                 System.out.println("discarding inside method");
-                cards.remove(i);
+                //cards.remove(i);
+                cards.get(i).setUsed(true);
                 numberOfCoin = numberOfCoin + 3;
                 return;
             }

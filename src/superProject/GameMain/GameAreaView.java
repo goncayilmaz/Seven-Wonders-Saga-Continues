@@ -485,14 +485,13 @@ public class GameAreaView implements Initializable {
         String  cardsOnTable="";
         for(int i=0;i<number;i++){
             for(int j=0;j<playerEngine.getBots().get(i).getCardsOnTable().size();j++){
-                cardsOnTable=cardsOnTable+ playerEngine.getBots().get(i).getCardsOnTable().get(j);
-
-
+                cardsOnTable = cardsOnTable+ playerEngine.getBots().get(i).getCardsOnTable().get(j);
             }
             Tooltip tooltip1 = new Tooltip();
             tooltip1.setMaxWidth(250);
             tooltip1.setWrapText(true);
             tooltip1.setText(cardsOnTable);
+            tooltip1.setGraphic(new ImageView(botCities[i].getImage()));
             cardLabelLists[i].setTooltip(tooltip1);
 
         }
@@ -742,7 +741,7 @@ public class GameAreaView implements Initializable {
         playerEngine.getHumanPlayer().setCards(playerEngine.getBots().get(0).getCards());
 
         for( int i = 0; i < playerEngine.getBots().size() - 1; i++ ){
-            System.out.println("Bot " + i + " card size: " + playerEngine.getBots().get(i+1).getCards().size());
+            System.out.println("Bot " + i + " card size: " + playerEngine.getBots().get(i).getCards().size());
             playerEngine.getBots().get(i).setCards(playerEngine.getBots().get(i+1).getCards());
         }
 
@@ -787,6 +786,9 @@ public class GameAreaView implements Initializable {
 
         } else{
             isAgeFinished = true;
+            for(int i = 0; i < noOfPlayers; i++){
+                playerEngine.getAllPlayers().get(i).getCards().get(0).setUsed(true);
+            }
             ButtonType nextAge = new ButtonType("Go to War");
             ButtonType returnB = new ButtonType("Return to Main");
             Alert alert;
