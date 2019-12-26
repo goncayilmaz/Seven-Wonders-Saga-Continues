@@ -7,20 +7,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.War.WarWiew">
+<AnchorPane prefHeight="720.0" prefWidth="1440.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.War.WarWiew">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#goToXOX_1" text="Go to XOX" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="900.0" AnchorPane.topAnchor="600.0" fx:id="xoxButton1">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#goToXOX_1" text="Go to XOX" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="900.0" fx:id="xoxButton1">
          <font>
             <Font name="Avenir Next Condensed Regular" size="24.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" contentDisplay="TOP" layoutX="84.0" layoutY="62.0" prefHeight="101.0" prefWidth="282.0" text="LEFT NEIGHBOUR  vs. YOU" textFill="WHITE" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="70.0">
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="84.0" layoutY="62.0" prefHeight="43.0" prefWidth="273.0" text="LEFT NEIGHBOUR  vs. YOU" textFill="WHITE" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="70.0">
          <font>
             <Font name="Avenir Next Condensed Regular" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="leftResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="156.0" prefHeight="62.0" prefWidth="316.0" text="WAR RES1" textFill="WHITE" AnchorPane.leftAnchor="74.0" AnchorPane.topAnchor="150.0">
+      <Label fx:id="leftResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="156.0" prefHeight="62.0" prefWidth="316.0" text="WAR RES1" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
          </font>
@@ -34,12 +34,12 @@
             <Font name="Avenir Next Condensed Regular" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="rightResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="794.0" layoutY="119.0" prefHeight="62.0" prefWidth="243.0" text="WAR RES2" textFill="WHITE" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="150.0">
+      <Label fx:id="rightResLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="794.0" layoutY="119.0" prefHeight="62.0" prefWidth="316.0" text="WAR RES2" textFill="WHITE" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font name="Avenir Next Condensed Demi Bold" size="36.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToXOX_2" onMouseClicked="#goToXOX_2" text="Go to XOX" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="900.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="570.0" fx:id="xoxButton2">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToXOX_2" onMouseClicked="#goToXOX_2" text="Go to XOX" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="900.0" AnchorPane.rightAnchor="180.0" fx:id="xoxButton2">
          <font>
             <Font name="Avenir Next Condensed Regular" size="24.0" />
          </font>

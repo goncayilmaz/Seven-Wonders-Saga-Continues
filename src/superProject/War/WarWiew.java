@@ -286,7 +286,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
             stage = (Stage) xoxButton1.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setFullScreen(true);
+           // stage.setFullScreen(true);
             stage.show();
 
         }
@@ -318,7 +318,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
             stage = (Stage) xoxButton2.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setFullScreen(true);
+           // stage.setFullScreen(true);
             stage.show();
 
         }
@@ -502,11 +502,12 @@ public class WarWiew  /*implements Initializable */ extends Application {
                 secondController.setResults(0, this.leftWarWinner);
                 secondController.setResults(0, this.rightWarWinner);
             }
+            secondController.setLabels();
             //this should only be called once
             stage = (Stage) returnButton.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setFullScreen(true);
+           // stage.setFullScreen(true);
             stage.show();
         }
         catch (Exception e){

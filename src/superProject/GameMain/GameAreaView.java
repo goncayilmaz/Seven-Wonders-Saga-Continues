@@ -410,7 +410,7 @@ public class GameAreaView implements Initializable {
 
                 }
             }
-            //cardChangeRotate();
+            cardChangeRotate();
             round++;
         }
         if (startWar) {
@@ -719,7 +719,6 @@ public class GameAreaView implements Initializable {
             WarWiew secondController = loader.getController();
             secondController.setCityManager(this.cityManager);
             secondController.setPlayerEngine(playerEngine);
-            secondController.setLabels();
             secondController.setCityImagesForWar();
             Image[] botCityImages = new Image[noOfPlayers-1];
             for(int i = 0; i < noOfPlayers -1; i++)
@@ -730,6 +729,7 @@ public class GameAreaView implements Initializable {
             secondController.setIsAgeFinished(isAgeFinished);
             secondController.setCurAgeNo(age);
             secondController.fight();
+            secondController.setLabels();
 
             stage = (Stage) startWarButton.getScene().getWindow();
             Scene scene = new Scene(root);
