@@ -522,8 +522,8 @@ public class WarWiew  /*implements Initializable */ extends Application {
             secondController.setPlayerEngine(playerEngine);
             secondController.setBotCityImages(botCities);
             if( isAgeFinished ) {
-                secondController.setInitialView(curAgeNo + 1, numberOfPeople);
                 secondController.setRound(0);
+                secondController.setInitialView(curAgeNo + 1, numberOfPeople);
             }
             else
                 secondController.setInitialView( curAgeNo, numberOfPeople);
@@ -585,6 +585,7 @@ public class WarWiew  /*implements Initializable */ extends Application {
 
     //attack manager methods
     public void fight() {
+        System.out.println("war points of human " + playerEngine.getHumanPlayer().getWarPoints());
         int numberOfPlayers = playerEngine.getAllPlayers().size();
         setLeftNeighbour(playerEngine.getAllPlayers().get(numberOfPlayers-1));
         setRightNeighbour(playerEngine.getAllPlayers().get(1));

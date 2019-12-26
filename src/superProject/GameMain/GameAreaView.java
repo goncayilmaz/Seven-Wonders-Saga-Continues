@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 import javafx.stage.Stage;
@@ -31,10 +32,7 @@ import java.util.ResourceBundle;
 public class GameAreaView implements Initializable {
 
     @FXML
-    private GridPane firstGridPane;
-
-    @FXML
-    private GridPane secondGridPane;
+    AnchorPane mainAnchor;
 
     @FXML
     private Button pt1,aw1,dc1,pt2,aw2,dc2,pt3,aw3,dc3,pt4,aw4,dc4,pt5,aw5,dc5,pt6,aw6,dc6,pt7,aw7,dc7;
@@ -296,6 +294,7 @@ public class GameAreaView implements Initializable {
         this.noOfPlayers = noOfPlayers;
         cardEngine = new CardEngine();
         System.out.println("no of players before age cards creation " + noOfPlayers);
+        System.out.println("round: " + round);
         ArrayList<Card> ageCards = new ArrayList<Card>();
         if (round == 0) {
             if (age == 1) {
@@ -329,13 +328,39 @@ public class GameAreaView implements Initializable {
                 }
             }
 
-            Image imCity = new Image(preCity + playerEngine.getHumanPlayer().getCity().getPhotoName());
-            setCityImageView(new ImageView(imCity));
-            getAgeNumberLabel().setText("Age is " + String.valueOf(age));
-            getCityNameLabel().setText("City Name is " + playerEngine.getHumanPlayer().getCity().getBoardName());
         } else{
-            //TODO
+            for(int i = 0; i < 7 - round; i++){
+                pt_buttons[i].setVisible(true);
+                aw_buttons[i].setVisible(true);
+                dc_buttons[i].setVisible(true);
+                Image imCard = new Image(preCard + playerEngine.getHumanPlayer().getCards().get(i).getPhotoName());
+                cardsOnHandImageView[i].setImage(imCard);
+            }
+
+            for(int i = 7 - round; i < 7; i++){
+                pt_buttons[i].setVisible(false);
+                aw_buttons[i].setVisible(false);
+                dc_buttons[i].setVisible(false);
+                cardsOnHandImageView[i].setVisible(false);
+            }
         }
+
+        ArrayList<Card> cardsOfPlayer = playerEngine.getHumanPlayer().getCardsOnTable();
+        if( cardsOfPlayer != null && cardsOfPlayer.size() != 0){
+            ImageView imageView = new ImageView();
+            for(int i = 0; i < cardsOfPlayer.size(); i++){
+                Image imCard = new Image(preCard + cardsOfPlayer.get(i).getPhotoName());
+                imageView.setImage(imCard);
+                imageView.setX(cardsOnHandImageView[i].getX() - (age) * 10);
+                imageView.setY(cardsOnHandImageView[i].getY() - 150);
+                //TODO efe bunu göstermeye bakabilir misiinn
+            }
+        }
+
+        Image imCity = new Image(preCity + playerEngine.getHumanPlayer().getCity().getPhotoName());
+        setCityImageView(new ImageView(imCity));
+        getAgeNumberLabel().setText("Age is " + String.valueOf(age));
+        getCityNameLabel().setText("City Name is " + playerEngine.getHumanPlayer().getCity().getBoardName());
     }
 
     public void disableCities(){
@@ -478,22 +503,28 @@ public class GameAreaView implements Initializable {
             alert.showAndWait();
         }
     }
-    /*
+
+
     public void toolTipForBots(){
         int number=playerEngine.getBots().size();
         String  cardsOnTable="";
         for(int i=0;i<number;i++){
-            cardsOnTable=cardsOnTable+ playerEngine.getBots().get(0).getCardsOnTable().get(i);
+            for(int j=0;j<playerEngine.getBots().get(i).getCardsOnTable().size();j++){
+                cardsOnTable = cardsOnTable+ playerEngine.getBots().get(i).getCardsOnTable().get(j);
+            }
+            Tooltip tooltip1 = new Tooltip();
+            tooltip1.setMaxWidth(250);
+            tooltip1.setWrapText(true);
+            tooltip1.setText(cardsOnTable);
+            tooltip1.setGraphic(new ImageView(botCities[i].getImage()));
+            cardLabelLists[i].setTooltip(tooltip1);
+
         }
-        Tooltip tooltip1 = new Tooltip();
-        tooltip1.setMaxWidth(250);
-        tooltip1.setWrapText(true);
-        tooltip1.setText(cardsOnTable);
-        cards1.setTooltip(tooltip1);
+
 
     }
-    
-     */
+
+
 
     public void putOnTable(int cardIndex) throws Exception{
 
@@ -510,6 +541,7 @@ public class GameAreaView implements Initializable {
             tooltip.setWrapText(true);
             tooltip.setText(cardsOnTable);
             cardInfo.setTooltip(tooltip);
+            toolTipForBots();
 
 
 
@@ -734,7 +766,7 @@ public class GameAreaView implements Initializable {
         playerEngine.getHumanPlayer().setCards(playerEngine.getBots().get(0).getCards());
 
         for( int i = 0; i < playerEngine.getBots().size() - 1; i++ ){
-            System.out.println("Bot " + i + " card size: " + playerEngine.getBots().get(i+1).getCards().size());
+            System.out.println("Bot " + i + " card size: " + playerEngine.getBots().get(i).getCards().size());
             playerEngine.getBots().get(i).setCards(playerEngine.getBots().get(i+1).getCards());
         }
 
@@ -779,6 +811,9 @@ public class GameAreaView implements Initializable {
 
         } else{
             isAgeFinished = true;
+            for(int i = 0; i < noOfPlayers; i++){
+                playerEngine.getAllPlayers().get(i).getCards().get(0).setUsed(true);
+            }
             ButtonType nextAge = new ButtonType("Go to War");
             ButtonType returnB = new ButtonType("Return to Main");
             Alert alert;

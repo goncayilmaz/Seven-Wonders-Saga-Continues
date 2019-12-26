@@ -554,6 +554,7 @@ public class CityManager implements Initializable {
         earningOfBabylonLev1.add(new Material("Civilian", 3));
 
         ArrayList<Material> earningOfBabylonLev2 = new ArrayList<Material>();//özel durum
+        earningOfBabylonLev2.add(new Material("Stone",3));
 
 
         ArrayList<Material> earningOfBabylonLev3 = new ArrayList<Material>();
@@ -584,6 +585,7 @@ public class CityManager implements Initializable {
         earningOfOlympiaLev2.add(new Material("Civilian", 5));
 
         ArrayList<Material> earningOfOlympiaLev3 = new ArrayList<Material>();//özel durum
+        earningOfOlympiaLev3.add(new Material("Wood",3));
 
 
         City olympia = new City("The Statue of Zeus in Olympia", earningsOfOlympia, 0, firstLevelOlympiaReq, secondLevelOlympiaReq,
@@ -611,6 +613,7 @@ public class CityManager implements Initializable {
         earningOfHalicarnassusLev2.add(new Material("Civilian", 1));
 
         ArrayList<Material> earningOfHalicarnassusLev3 = new ArrayList<Material>();//özel durum
+        earningOfHalicarnassusLev3.add(new Material("Ore",3));
 
         City halicarnassus = new City("The Mausoleum of Halicarnassus", earningsOfHalicarnassus, 0, firstLevelHalicarnassusReq, secondLevelHalicarnassusReq,
                 thirdLevelHalicarnassusReq, new ArrayList<Material>(), earningOfHalicarnassusLev1, earningOfHalicarnassusLev2, earningOfHalicarnassusLev3,

@@ -12,7 +12,7 @@ import java.util.Collections;
 public class Player {
 
     private int id;
-    private String name; //added to print player at the end of war (I didn't know what to right) -Gonca
+    private String name; //
     private int warPoints; // war points
     private ArrayList<Card> cards; // cards in hand
     private ArrayList<Card> cardsOnTable;
@@ -112,8 +112,9 @@ public class Player {
             else if(resources.get(i).getName() == "Papyrus"){
                 numberOfPapyrus += resources.get(i).getCount();
             }
-            else if(resources.get(i).getName() == "Military"){
+            else if(resources.get(i).getName().equals("Military")){
                 numberOfMilitary += resources.get(i).getCount();
+                warPoints = numberOfMilitary;
             }
             else if(resources.get(i).getName() == "Civilian"){
                 numberOfCivilian += resources.get(i).getCount();
@@ -127,11 +128,8 @@ public class Player {
             else if(resources.get(i).getName() == "ScienceStone"){
                 numberOfScienceStone += resources.get(i).getCount();
             }
-            else if(resources.get(i).getName() == "ScienceWheel"){
+            else if(resources.get(i).getName() == "ScienceWheel") {
                 numberOfScienceWheel += resources.get(i).getCount();
-            }
-            else{
-                // do nothing.
             }
         }
         return resources;
@@ -223,16 +221,6 @@ public class Player {
         return enough;
     }
 
-    public boolean[] verifySufficientResources(ArrayList<Card> cardsOnHand){
-        //boolean arr[] = {0};
-        return null;
-    }
-
-    public boolean verifySufficientResources(){
-        return true;
-    }
-
-
     public void setCity(City city){
         this.city = city;
     }
@@ -273,12 +261,22 @@ public class Player {
         ArrayList<Card> temp  = new ArrayList<>();
         for(int i = 0; i < cards.size(); i++)
         {
-            if( !cards.get(i).isUsed())
+            if( !(cards.get(i).isUsed()))
                 temp.add(cards.get(i));
         }
         return temp;
     }
 
+    public ArrayList<Card> getUsedCards()
+    {
+        ArrayList<Card> temp  = new ArrayList<>();
+        for(int i = 0; i < cards.size(); i++)
+        {
+            if((cards.get(i).isUsed()))
+                temp.add(cards.get(i));
+        }
+        return temp;
+    }
     public int numberOfCardAtHand(){
         return getCards().size();
     }
@@ -313,6 +311,7 @@ public class Player {
 
     public String addCardsToTable(Card c) {
         if(verifySufficientResources(c)){
+            c.setUsed(true);
             cardsOnTable.add(c);
             return "";
         }else{
@@ -330,7 +329,7 @@ public class Player {
         for(int i = 0; i < cards.size(); i++){
             if(cards.get(i).getName().equals(c.getName())){
                 System.out.println("discarding inside method");
-                cards.remove(i);
+                cards.get(i).setUsed(true);
                 numberOfCoin = numberOfCoin + 3;
                 return;
             }

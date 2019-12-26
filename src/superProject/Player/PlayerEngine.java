@@ -117,6 +117,14 @@ public class PlayerEngine extends Application {
         player.setWarPoints(player.getWarPoints() + warPoints);
 
     }
+
+    public int[] numberOfCardsOfAllPlayers(){
+        int [] arr = new int[allPlayers.size()];
+        for(int i = 0; i < arr.length; i++){
+            arr[i] = allPlayers.get(i).getCards().size();
+        }
+        return arr;
+    }
 /*
     public Player getPlayer(){
         return player;
