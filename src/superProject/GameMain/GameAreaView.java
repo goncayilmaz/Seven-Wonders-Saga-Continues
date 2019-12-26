@@ -478,22 +478,29 @@ public class GameAreaView implements Initializable {
             alert.showAndWait();
         }
     }
-    /*
+
+
     public void toolTipForBots(){
         int number=playerEngine.getBots().size();
         String  cardsOnTable="";
         for(int i=0;i<number;i++){
-            cardsOnTable=cardsOnTable+ playerEngine.getBots().get(0).getCardsOnTable().get(i);
+            for(int j=0;j<playerEngine.getBots().get(i).getCardsOnTable().size();j++){
+                cardsOnTable=cardsOnTable+ playerEngine.getBots().get(i).getCardsOnTable().get(j);
+
+
+            }
+            Tooltip tooltip1 = new Tooltip();
+            tooltip1.setMaxWidth(250);
+            tooltip1.setWrapText(true);
+            tooltip1.setText(cardsOnTable);
+            cardLabelLists[i].setTooltip(tooltip1);
+
         }
-        Tooltip tooltip1 = new Tooltip();
-        tooltip1.setMaxWidth(250);
-        tooltip1.setWrapText(true);
-        tooltip1.setText(cardsOnTable);
-        cards1.setTooltip(tooltip1);
+
 
     }
-    
-     */
+
+
 
     public void putOnTable(int cardIndex) throws Exception{
 
@@ -510,6 +517,7 @@ public class GameAreaView implements Initializable {
             tooltip.setWrapText(true);
             tooltip.setText(cardsOnTable);
             cardInfo.setTooltip(tooltip);
+            toolTipForBots();
 
 
 
