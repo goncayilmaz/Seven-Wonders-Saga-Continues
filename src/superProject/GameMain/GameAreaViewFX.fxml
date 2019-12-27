@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAnchor" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.GameMain.GameAreaView">
+<AnchorPane fx:id="mainAnchor" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #123123;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superProject.GameMain.GameAreaView">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="154.0" layoutY="187.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="61.0">
          <image>
@@ -65,7 +65,7 @@
       </ImageView>
       <ImageView fitHeight="43.0" fitWidth="48.0" layoutX="767.0" layoutY="750.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.9017333984375" AnchorPane.leftAnchor="767.0">
          <image>
-            <Image url="@../../Images/images/tokens/resources/clay.png" />
+            <Image url="@../../Images/images/tokens/war_icon.png" />
          </image>
       </ImageView>
       <Label fx:id="ageNumberLabel" alignment="CENTER" layoutX="61.0" layoutY="14.0" prefHeight="53.0" prefWidth="205.0" text="Age: 1" textFill="WHITE" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="14.0">
