@@ -14,11 +14,14 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.net.URL;
@@ -61,11 +64,22 @@ public class Option  implements Initializable {
     @FXML private Button buttonPrev;
     @FXML private ImageView tutImage;
 
+    MediaPlayer mediaPlayer;
+
+    public void music(){
+
+        String bip = "src/Media/7wonders.mp3";
+        Media hit = new Media(Paths.get(bip).toUri().toString());
+        mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
+
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-
+        music();
 
 
     }
