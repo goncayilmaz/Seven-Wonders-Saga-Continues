@@ -73,11 +73,11 @@
             <font>
                 <Font name="Avenir Next Condensed Regular" size="24.0" />
             </font></Button>
-        <Label fx:id="resultLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="5.0" text="YOU WON" visible="false" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="50.0">
+        <Label fx:id="resultLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="5.0" text="YOU WON" textFill="WHITE" visible="false" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="50.0">
             <font>
                 <Font name="Avenir Next Condensed Demi Bold" size="48.0" />
             </font></Label>
-        <Label alignment="CENTER" text="To return, finish XOX" AnchorPane.leftAnchor="1200.0" AnchorPane.topAnchor="660.0">
+        <Label alignment="CENTER" text="To return, finish XOX" textFill="WHITE" AnchorPane.leftAnchor="1200.0" AnchorPane.topAnchor="660.0">
             <font>
                 <Font name="Avenir Next Condensed Regular" size="15.0" />
             </font>
